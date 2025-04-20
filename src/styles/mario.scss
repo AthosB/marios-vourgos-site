@@ -1,0 +1,64 @@
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 1.5rem;
+
+    .entry {
+      display: flex;
+      align-items: center;
+      color: yellow;
+      opacity: 0.5;
+      transition: opacity ease-in-out 0.3s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+  }
+}
+
+.PageSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--mario-section-bg-color);
+  color: var(--mario-text-color);
+  text-align: center;
+
+  .page-section_title {
+    font-size: 2rem;
+    //font-weight: bold;
+    color: var(--mario-accent-color);
+  }
+
+  .page-section_subtitle {
+    font-size: 1.5rem;
+    color: var(--mario-text-color);
+  }
+
+  .SectionComponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--mario-text-color);
+  }
+
+  .component-title {
+    font-size: 1.2rem;
+    color: var(--mario-accent-color);
+  }
+}
