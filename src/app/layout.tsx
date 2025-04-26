@@ -1,6 +1,13 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {ReactNode} from "react";
+import type {Metadata} from "next";
+import '@/styles/globals.scss';
+import '@/styles/mario.scss';
+import {Geist, Geist_Mono} from "next/font/google";
+import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
 import "./globals.css";
+import NavBar from "@/components/navbar";
+import {ThemeProvider} from '@mui/material/styles';
+import theme from '@/theme';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,17 +25,22 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+	                                   children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <ThemeProvider theme={theme}>
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased root-page`}
+        >
+          <AppRouterCacheProvider>
+            <NavBar />
+            {children}
+          </AppRouterCacheProvider>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
