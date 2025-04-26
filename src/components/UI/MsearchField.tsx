@@ -2,11 +2,12 @@
 
 import {styled, alpha} from '@mui/material/styles';
 import TextField, {TextFieldProps} from '@mui/material/TextField';
+import {FilledInputProps} from "@mui/material";
 
 export const MsearchField = styled((props: TextFieldProps) => (
   <TextField
     slotProps={{
-      input: {disableUnderline: true} as Partial<OutlinedInputProps>,
+      input: {disableUnderline: true} as Partial<FilledInputProps>,
     }}
     {...props}
   />
