@@ -51,6 +51,11 @@ $accent-color: #fcb040;
         color: $accent-color;
         opacity: 1;
       }
+
+      &.active {
+        color: $accent-color;
+        opacity: 1;
+      }
     }
   }
 
@@ -241,5 +246,39 @@ $accent-color: #fcb040;
   .component-title {
     font-size: 1.2rem;
     color: var(--mario-accent-color);
+  }
+}
+
+.search-field-icon-adornment {
+  svg {
+    fill: var(--mario-bg-color);
+    stroke: var(--mario-bg-color);
+  }
+}
+
+.PopupMenu {
+  .MuiPaper-rounded {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .MuiMenu-list {
+    background-color: var(--mario-section-bg-color);
+    color: var(--mario-text-color);
+    padding: 8px 16px;
+    overflow: hidden;
+
+    li{
+      transition: all ease-in-out 0.2s;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: var(--mario-accent-color);
+        color: var(--mario-bg-color);
+        font-weight: 600;
+        //font-size: 1.2rem;
+        transform: scale(1.2);
+      }
+    }
   }
 }
