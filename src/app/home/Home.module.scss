@@ -1,0 +1,34 @@
+.Home {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: flex-start;
+    height: 100vh;
+    background-color: #f0f0f0;
+
+  .Section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 115px);
+    min-height: calc(100vh - 115px);
+    width: 100%;
+
+    &.Purple {
+        background-color: #191724;
+    }
+
+    &.Red {
+        background-color: #541719;
+    }
+
+    &.InLine {
+      display: flex;
+        flex-direction: row;
+      align-items: center;
+      justify-content: start;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

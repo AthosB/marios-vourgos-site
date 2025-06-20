@@ -12,11 +12,14 @@ export default function Home() {
 
   return (
     <div className={'HomePage'}>
+      <div>
+        <div>VIDEO HERE</div>
+      </div>
       <Grid container spacing={2}>
         <Grid size={'grow'}>
           <div>
             <div className={'LargeTitle'}>Title</div>
-            <div className={'LageSubtitle'}>Subtitle Here</div>
+            <div className={'LargeSubtitle'}>Subtitle Here</div>
           </div>
         </Grid>
         <Grid size={'grow'}>
