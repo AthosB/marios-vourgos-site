@@ -17,8 +17,25 @@ export default function NavBar() {
   /** CONSTS **/
   const open = Boolean(anchorEl);
 
+  /**
+   * Handles the hover event to open the gallery menu.
+   * @param event {React.MouseEvent<HTMLDivElement>} - The mouse event triggered by hovering over the gallery menu item.
+   */
   const galleryMenuHover = (event: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  /**
+   * Checks if the current page is active based on the provided pages.
+   * @param pages {string[]} - An array of page names to check against the current path.
+   */
+  const isActive = (pages: string[]) => {
+    if (typeof window === 'undefined') return false;
+    const path = window.location.pathname.replace(/^\/+/, '').toLowerCase();
+    return pages.some(page => {
+      const pageLower = page.toLowerCase();
+      return path === pageLower || path.startsWith(pageLower + '/');
+    });
   };
 
   /**
@@ -34,19 +51,18 @@ export default function NavBar() {
     <header className={'NavBar'}>
       <div className={'logo'}>
         <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={128} width={256} />
-        {/*<Image src={'/next.svg'} alt={'Mario Logo'} fill />*/}
       </div>
       <div className={'menu'}>
-        <div className={'entry'}>Home</div>
-        <div className={'entry'}>About</div>
-        <div className={'entry'}>News</div>
+        <div className={`entry ${isActive(['Home', '']) ? ' active' : ''}`}>Home</div>
+        <div className={`entry ${isActive(['About']) ? ' active': ''}`}>About</div>
+        <div className={`entry ${isActive(['News']) ? ' active' : ''}`}>News</div>
         <div
           style={{display: 'inline-block'}}
           onMouseEnter={galleryMenuHover}
           onMouseLeave={handleClose}
         >
           <div
-            className={`entry${open ? ' active' : ''}`}
+            className={`entry${(open || isActive(["Photography", "Paintings"])) ? ' active' : ''}`}
             id="gallery-menu-item"
           >
             Gallery
