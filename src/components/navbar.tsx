@@ -2,6 +2,8 @@
 
 import React, {useState} from "react";
 import '@/styles/mario.scss';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link'
 import Image from "next/image";
 import {MsearchField} from "@/components/UI/MsearchField";
 import InputAdornment from '@mui/material/InputAdornment';
@@ -13,25 +15,25 @@ import MenuItem from '@mui/material/MenuItem';
 export default function NavBar() {
   /** HOOKS **/
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const pathname = usePathname();
 
   /** CONSTS **/
   const open = Boolean(anchorEl);
 
   /**
-   * Handles the hover event to open the gallery menu.
-   * @param event {React.MouseEvent<HTMLDivElement>} - The mouse event triggered by hovering over the gallery menu item.
-   */
+	 * Handles the hover event to open the gallery menu.
+	 * @param event {React.MouseEvent<HTMLDivElement>} - The mouse event triggered by hovering over the gallery menu item.
+	 */
   const galleryMenuHover = (event: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
   /**
-   * Checks if the current page is active based on the provided pages.
-   * @param pages {string[]} - An array of page names to check against the current path.
-   */
+	 * Checks if the current page is active based on the provided pages.
+	 * @param pages {string[]} - An array of page names to check against the current path.
+	 */
   const isActive = (pages: string[]) => {
-    if (typeof window === 'undefined') return false;
-    const path = window.location.pathname.replace(/^\/+/, '').toLowerCase();
+    const path = pathname ? pathname?.replace(/^\/+/, '').toLowerCase() : '';
     return pages.some(page => {
       const pageLower = page.toLowerCase();
       return path === pageLower || path.startsWith(pageLower + '/');
@@ -53,9 +55,9 @@ export default function NavBar() {
         <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={128} width={256} />
       </div>
       <div className={'menu'}>
-        <div className={`entry ${isActive(['Home', '']) ? ' active' : ''}`}>Home</div>
-        <div className={`entry ${isActive(['About']) ? ' active': ''}`}>About</div>
-        <div className={`entry ${isActive(['News']) ? ' active' : ''}`}>News</div>
+        <div className={`entry ${isActive(['Home', '']) ? ' active' : ''}`}><Link href="/home">Home</Link></div>
+        <div className={`entry ${isActive(['About']) ? ' active' : ''}`}><Link href="/about">About</Link></div>
+        <div className={`entry ${isActive(['News']) ? ' active' : ''}`}><Link href="/news">News</Link></div>
         <div
           style={{display: 'inline-block'}}
           onMouseEnter={galleryMenuHover}
@@ -79,12 +81,12 @@ export default function NavBar() {
             }}
             className={"PopupMenu"}
           >
-            <MenuItem onClick={handleClose}>Photography</MenuItem>
-            <MenuItem onClick={handleClose}>Paintings</MenuItem>
-            <MenuItem onClick={handleClose}>Literature</MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/gallery/paintings">Paintings</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
           </Menu>
         </div>
-        <div className={'entry'}>Contact</div>
+        <div className={`entry ${isActive(['Contact']) ? ' active' : ''}`}><Link href="/contact">Contact</Link></div>
       </div>
       <div>
         <FormControl variant="filled">
