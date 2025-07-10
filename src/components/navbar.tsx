@@ -54,6 +54,7 @@ export default function NavBar() {
       <div className={'logo'}>
         <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={128} width={256} />
       </div>
+      {/*<div>*/}
       <div className={'menu'}>
         <div className={`entry ${isActive(['Home', '']) ? ' active' : ''}`}><Link href="/home">Home</Link></div>
         <div className={`entry ${isActive(['About']) ? ' active' : ''}`}><Link href="/about">About</Link></div>
@@ -104,6 +105,7 @@ export default function NavBar() {
           />
         </FormControl>
       </div>
+      {/*</div>*/}
     </header>
   )
   ;

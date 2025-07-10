@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 $breakpoint-phone: 480px;
 $breakpoint-tablet: 768px;
 
@@ -28,5 +30,59 @@ html, body {
   @media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-phone + 1) {
     font-size: 15px;
   }
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.padding-4-8 {
+  padding: 4px 8px;
+}
+
+.padding-8-16 {
+  padding: 8px 16px;
+}
+
+.padding-8-32 {
+  padding: 8px 32px;
+}
+
+.padding-16-32 {
+  padding: 16px 32px;
+}
+
+.text-justify-balance {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.width-25vw {
+  width: 25vw;
+}
+.width-30vw {
+  width: 30vw;
+}
+.width-50vw {
+  width: 50vw;
+}
+.width-100vw {
+  width: 100vw;
 }
 

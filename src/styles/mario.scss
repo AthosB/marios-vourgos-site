@@ -5,9 +5,14 @@ $accent-color: #fcb040;
 
 @font-face {
   font-family: 'AdleryPro';
-  src: url('/assets/adlery-pro.blockletter.ttf') format('truetype');
+  src: url('/assets/fonts/adlery-pro.blockletter.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family: 'CinzelRegular';
+    src: url('/assets/fonts/Cinzel-Regular.ttf') format('truetype');
 }
 
 .root-page {
@@ -17,7 +22,7 @@ $accent-color: #fcb040;
   margin: 0;
   color: var(--mario-text-color);
   background-color: var(--mario-bg-color);
-  padding: 1rem 3rem;
+  //padding: 1rem 3rem;
 }
 
 .NavBar {
@@ -47,7 +52,8 @@ $accent-color: #fcb040;
       align-items: center;
       color: $text-color;
       opacity: 0.5;
-      font-family: 'AdleryPro', sans-serif;
+      font-family: 'CinzelRegular', sans-serif;
+      font-size: 1.5rem;
       transition: all ease-in-out 0.2s;
       cursor: pointer;
 
@@ -134,7 +140,7 @@ $accent-color: #fcb040;
   font-size: 6rem;
   text-align: center;
   color: var(--mario-accent-color);
-  font-family: 'AdleryPro', sans-serif;
+  font-family: 'CinzelRegular', sans-serif;
   margin-top: 20px;
 
   @media (max-width: $breakpoint-phone) {
@@ -167,7 +173,7 @@ $accent-color: #fcb040;
   justify-content: start;
   font-size: 1rem;
   color: var(--mario-accent-color);
-  font-family: 'AdleryPro', sans-serif;
+  font-family: 'CinzelRegular', sans-serif;
   text-align: center;
   margin-top: 20px;
 
