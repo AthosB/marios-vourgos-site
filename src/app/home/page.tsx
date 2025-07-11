@@ -3,6 +3,7 @@ import Image from 'next/image'
 import SectionSeparator from "@/components/SectionSeparator/SectionSeparator";
 import {aboutText} from "@/assets/values";
 import PaintingsSection from "@/components/Home/PaintingsSection";
+import PhotographyCarousel from "@/components/Home/PhotographyCarousel";
 
 export default function HomePage() {
   return (
@@ -69,6 +70,20 @@ export default function HomePage() {
         ornament={
           <img
             src="/images/ornament_bird.png"
+            alt="Ornament Bird"
+            width={64}
+            height={64}
+          />
+        }
+      ></SectionSeparator>
+      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.InLine}>
+        <PhotographyCarousel></PhotographyCarousel>
+      </div>
+      <SectionSeparator
+        position="right"
+        ornament={
+          <img
+            src="/images/ornament_egg.png"
             alt="Ornament Bird"
             width={64}
             height={64}
