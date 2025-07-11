@@ -14,12 +14,13 @@ export default function SectionSeparator({
     <div className={styles.SectionSeparator}>
       {ornament && (
         <div
+          className={styles.Ornament}
           style={{
             position: 'absolute',
-            top: '-10px',
-            left: position === 'left' ? '0' : position === 'right' ? 'auto' : '50%',
-            right: position === 'right' ? '0' : 'auto',
-            transform: position === 'center' ? 'translateX(-50%)' : 'none',
+            // top: '-10px',
+            left: position === 'left' ? '5rem' : position === 'right' ? 'auto' : '50%',
+            right: position === 'right' ? '5rem' : 'auto',
+            transform: position === 'center' ? 'translateX(-50%)' : position === 'right' ? 'none' : 'translateY(-35%)',
           }}
         >
           {ornament}

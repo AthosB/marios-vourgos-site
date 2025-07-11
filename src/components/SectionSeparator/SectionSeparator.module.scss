@@ -1,7 +1,14 @@
 .SectionSeparator {
   position: relative;
   width: 100%;
-  height: 2px;
+  height: 1px;
   background-color: #919191;
   //margin: 8px 0;
+
+  .Ornament {
+    position: relative;
+    top: -2rem;
+    //bottom: 0;
+    z-index: 900;
+  }
 }
