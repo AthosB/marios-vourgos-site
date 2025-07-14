@@ -1,16 +1,43 @@
+"use client"
+
+import styles from './photography.module.scss';
+import Image from 'next/image';
+import {photoFilenames} from '@/assets/values';
+import PhotographyItem from "@/components/UI/PhotographyItem/PhotographyItem";
+
 export default function PhotographyPage() {
+
+  /** CONSTS **/
+  const photographs = photoFilenames.map((photo, index) => (
+    <div
+      key={`photograph-key-${index}-${photo.src}`}
+      className={styles.PhotoItem}
+      style={{transform: `rotate(${Math.random() * 25 - 10}deg)`}}
+    >
+      <PhotographyItem
+        photoSrc={photo.src}
+        photoAlt={photo.alt}
+        title={`Photography ${index + 1}`}
+        description={photo.description as string || undefined}
+        dimensions={{width: 600, height: 500}}
+        elevated
+      />
+    </div>
+  ));
+
+  /** RENDER **/
   return (
-    <div className="photography-page">
-      <h1>Photography Gallery</h1>
-      <p>
-        Explore our stunning collection of photographs capturing the beauty of
-        nature, architecture, and everyday life. Each image tells a story and
-        invites you to see the world through a different lens.
-      </p>
-      <p>
-        Whether you are an aspiring photographer or simply appreciate the art,
-        this gallery is sure to inspire and delight.
-      </p>
+    <div className={styles.PhotographyPage}>
+      <div className={styles.Header}>
+        <Image src="/images/ornament_bird.png" alt="Photography" width={72} height={72}
+          style={{marginRight: '8px', marginBottom: '12px'}}
+        />
+        Photography
+      </div>
+      <div className={styles.Line}></div>
+      <div className={`${styles.PhotographsContainer} ${styles.RandomRotate}`}>
+        {photographs}
+      </div>
     </div>
   );
 }

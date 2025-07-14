@@ -4,7 +4,6 @@ import '@/styles/globals.scss';
 import '@/styles/mario.scss';
 import {Geist, Geist_Mono} from "next/font/google";
 import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
-import "./globals.css";
 import NavBar from "@/components/navbar";
 import {ThemeProvider} from '@mui/material/styles';
 import theme from '@/theme';

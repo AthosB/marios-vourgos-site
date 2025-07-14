@@ -27,3 +27,37 @@ export const aboutText = 'I never took seriously enough my studies in finance an
 	'model. And over time the photographs became more “generous” revealing\n' +
 	'more and more layers of truth, parallel universes or memories from the past,\n' +
 	'and perhaps echoes from the future.';
+
+type imageType = {
+	src: string;
+	alt: string;
+	description?: string;
+}
+
+export const photoFilenames = [
+  {src: "/images/photography/001.jpg", alt: "Img 1", description: "Untouched photograph"},
+  {src: "/images/photography/002.jpg", alt: "Img 2", description: ""},
+  {src: "/images/photography/003.jpg", alt: "Img 3", description: "Parallel figures"},
+  {src: "/images/photography/004.jpg", alt: "Img 4", description: "Wandering wisp-like entity"},
+  {src: "/images/photography/005.jpg", alt: "Img 5", description: ""},
+  {src: "/images/photography/006.jpg", alt: "Img 6", description: ""},
+  {src: "/images/photography/007.jpg", alt: "Img 7", description: "A fleeting glance"},
+  {src: "/images/photography/008.jpg", alt: "Img 8", description: "A moment in time"},
+  {src: "/images/photography/009.jpg", alt: "Img 9", description: "Dual faces from the past"},
+  {src: "/images/photography/010.jpg", alt: "Img 10", description: "Wandering wisp-like entity"},
+  {src: "/images/photography/011.jpg", alt: "Img 11", description: "A fleeting glance"},
+  {src: "/images/photography/012.jpg", alt: "Img 12", description: "A moment in time"},
+  {src: "/images/photography/013.jpg", alt: "Img 13", description: "Dual faces from the past"},
+  {src: "/images/photography/014.jpg", alt: "Img 14", description: "Wandering wisp-like entity"},
+  {src: "/images/photography/015.jpg", alt: "Img 15", description: "A fleeting glance"},
+  {src: "/images/photography/016.jpg", alt: "Img 16", description: "A moment in time"},
+  {src: "/images/photography/017.jpg", alt: "Img 17", description: "Dual faces from the past"},
+  {src: "/images/photography/018.jpg", alt: "Img 18", description: "Wandering wisp-like entity"},
+  {src: "/images/photography/019.jpg", alt: "Img 19", description: "A fleeting glance"},
+  {src: "/images/photography/020.jpg", alt: "Img 20", description: "A moment in time"},
+  {src: "/images/photography/021.jpg", alt: "Img 21", description: "Dual faces from the past"},
+  {src: "/images/photography/022.jpg", alt: "Img 22", description: "Wandering wisp-like entity"},
+  {src: "/images/photography/023.jpg", alt: "Img 23", description: "A fleeting glance"},
+  {src: "/images/photography/024.jpg", alt: "Img 24", description: "A moment in time"},
+  {src: "/images/photography/025.jpg", alt: "Img 25", description: "Dual faces from the past"},
+] as imageType[];

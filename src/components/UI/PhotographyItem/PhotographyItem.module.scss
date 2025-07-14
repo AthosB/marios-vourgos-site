@@ -11,7 +11,20 @@
     border: 8px solid #919191;
     border-radius: 0;
     justify-self: center;
+    transition: transform 0.3s ease-in-out;
+
+    &.Elevated {
+      box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.9);
+      //border: 4px solid #fff;
+
+      &:hover {
+        cursor: zoom-in;
+        transform: scale(1.05);
+        transform-origin: center;
+      }
+    }
   }
+
 
   .Title {
     font-size: 1.5rem;

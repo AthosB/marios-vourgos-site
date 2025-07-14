@@ -7,6 +7,8 @@ interface PhotographyItemProps {
 	title?: string;
 	description?: string;
 	dimensions?: {width: number; height: number | string};
+	className?: string;
+	elevated?: boolean;
 }
 
 export default function PhotographyItem({
@@ -15,10 +17,12 @@ export default function PhotographyItem({
 	                                        title = 'Photograph Title',
 	                                        description,
 	                                        dimensions = {width: 500, height: 500},
+	                                        className = '',
+	elevated = false,
 }: PhotographyItemProps) {
   return (
-    <div className={styles.PhotographyItem}>
-      <div className={styles.Image}>    <Image
+    <div className={`${styles.PhotographyItem} ${className}`}>
+      <div className={`${styles.Image}${elevated? ` ${styles.Elevated}` : ''}`}>    <Image
         src={photoSrc}
         width={dimensions.width}
         height={dimensions.height as number}

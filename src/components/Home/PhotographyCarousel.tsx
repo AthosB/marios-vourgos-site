@@ -48,10 +48,10 @@ export default function PhotographyCarousel() {
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
         slidesPerView={3}
-        // loop
+        loop
         pagination={{ clickable: true }}
         navigation
-        // autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 3000 }}
         style={{ height: "720px" }}
       >
         {slides()}
