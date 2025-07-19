@@ -1,6 +1,7 @@
 "use client"
 
 import React, {useState} from "react";
+import styles from './NavBar.module.scss';
 import '@/styles/mario.scss';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link'
@@ -50,22 +51,22 @@ export default function NavBar() {
 
   /** RENDER **/
   return (
-    <header className={'NavBar'}>
-      <div className={'logo'}>
+    <header className={styles.NavBar}>
+      <div className={styles.logo}>
         <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={128} width={256} />
       </div>
       {/*<div>*/}
-      <div className={'menu'}>
-        <div className={`entry ${isActive(['Home', '']) ? ' active' : ''}`}><Link href="/home">Home</Link></div>
-        <div className={`entry ${isActive(['About']) ? ' active' : ''}`}><Link href="/about">About</Link></div>
-        <div className={`entry ${isActive(['News']) ? ' active' : ''}`}><Link href="/news">News</Link></div>
+      <div className={styles.menu}>
+        <div className={`${styles.entry} ${isActive(['Home', '']) ? ' active' : ''}`}><Link href="/home">Home</Link></div>
+        <div className={`${styles.entry} ${isActive(['About']) ? ' active' : ''}`}><Link href="/about">About</Link></div>
+        <div className={`${styles.entry} ${isActive(['News']) ? ' active' : ''}`}><Link href="/news">News</Link></div>
         <div
           style={{display: 'inline-block'}}
           onMouseEnter={galleryMenuHover}
           onMouseLeave={handleClose}
         >
           <div
-            className={`entry${(open || isActive(["Photography", "Paintings"])) ? ' active' : ''}`}
+            className={`${styles.entry}${(open || isActive(["Photography", "Paintings"])) ? ' ' + styles.active : ''}`}
             id="gallery-menu-item"
           >
             Gallery
@@ -87,7 +88,7 @@ export default function NavBar() {
             <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
           </Menu>
         </div>
-        <div className={`entry ${isActive(['Contact']) ? ' active' : ''}`}><Link href="/contact">Contact</Link></div>
+        <div className={`${styles.entry} ${isActive(['Contact']) ? ' ' + styles.active : ''}`}><Link href="/contact">Contact</Link></div>
       </div>
       <div>
         <FormControl variant="filled">

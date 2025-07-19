@@ -12,7 +12,7 @@ $accent-color: #fcb040;
 
 @font-face {
   font-family: 'CinzelRegular';
-    src: url('/assets/fonts/Cinzel-Regular.ttf') format('truetype');
+  src: url('/assets/fonts/Cinzel-Regular.ttf') format('truetype');
 }
 
 .root-page {
@@ -57,6 +57,11 @@ $accent-color: #fcb040;
       font-size: 1.5rem;
       transition: all ease-in-out 0.2s;
       cursor: pointer;
+
+      & > a {
+        color: $text-color;
+        text-decoration: none;
+      }
 
       &:hover {
         color: $accent-color;
@@ -280,7 +285,8 @@ $accent-color: #fcb040;
     padding: 8px 16px;
     overflow: hidden;
 
-    li{
+    li {
+      font-family: "CinzelRegular", sans-serif;
       transition: all ease-in-out 0.2s;
       border-radius: 8px;
 
@@ -290,7 +296,18 @@ $accent-color: #fcb040;
         font-weight: 600;
         //font-size: 1.2rem;
         transform: scale(1.2);
+        transform-origin: center;
+
+        a {
+          color: var(--mario-bg-color);
+        }
       }
+    }
+
+    a {
+      font-family: "CinzelRegular", sans-serif;
+      color: var(--mario-text-color);
+      text-decoration: none;
     }
   }
 }

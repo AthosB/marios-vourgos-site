@@ -1,0 +1,1 @@
+- [X] images no rotation

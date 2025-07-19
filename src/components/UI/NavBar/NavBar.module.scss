@@ -1,0 +1,66 @@
+$breakpoint-phone: 480px;
+$breakpoint-tablet: 768px;
+$text-color: #ffffff;
+$accent-color: #fcb040;
+
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  //background-color: #333;
+  background-color: transparent;
+  color: white;
+
+  .logo {
+    margin-bottom: 4px;
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 3rem;
+    //width: 100%;
+    font-size: 2rem;
+    padding: 1rem 1.5rem;
+    margin: 0 16px;
+  }
+
+  @media (max-width: $breakpoint-phone) {
+    .menu {
+      gap: 10px;
+    }
+  }
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  color: $text-color;
+  opacity: 0.5;
+  font-family: 'CinzelRegular', sans-serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $text-color;
+    opacity: 1;
+  }
+
+  &.active {
+    color: $accent-color;
+    opacity: 1;
+
+    a {
+      color: $accent-color;
+    }
+  }
+}

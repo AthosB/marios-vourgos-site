@@ -1,5 +1,5 @@
 import './PaintingsSection.scss';
-import Image from 'next/image'
+import StraightIcon from '@mui/icons-material/Straight';
 
 export default function PaintingsSection() {
   /** RENDER **/
@@ -7,11 +7,7 @@ export default function PaintingsSection() {
     <div className="PaintingsSection">
       <div className="PaintingsSection__discover">
         <div className="CTA_arrow">
-          <img
-            src="/images/arrow_back.png"
-            alt="Discover Arrow"
-            className="CTA_arrow__image"
-          />
+          <StraightIcon fontSize={'large'} style={{transform: 'rotate(180deg)'}} />
         </div>
         <div>
           <div>Discover</div>

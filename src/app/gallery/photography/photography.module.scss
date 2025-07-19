@@ -1,6 +1,7 @@
 .PhotographyPage {
   position: relative;
   width: 100%;
+  max-width: 90vw;
   padding: 16px 32px;
 
   .Header {
@@ -40,6 +41,47 @@
       .PhotoItem {
         transform: rotate(calc(10deg * var(--random-rotate)));
       }
+    }
+  }
+}
+
+.PhotoModal {
+  border-radius: 8px;
+
+  .PhotoModalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    //background-color: rgba(250,250,250,0.6);
+    background-color: rgba(250,250,250,1);
+    color: var(--mario-text-color);
+
+    .PhotoTitle {
+      font-size: 2rem;
+      font-family: 'CinzelRegular', sans-serif;
+      margin-bottom: 16px;
+      text-align: center;
+      color: var(--mario-bg-color);
+    }
+
+    .CloseButton {
+      position: absolute;
+      top: 16px;
+        right: 16px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 2rem;
+        color: #000000;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--mario-accent-color);
+        }
     }
   }
 }

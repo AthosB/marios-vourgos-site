@@ -1,7 +1,10 @@
-@import "tailwindcss";
-
 $breakpoint-phone: 480px;
 $breakpoint-tablet: 768px;
+
+@font-face {
+  font-family: 'CinzelRegular';
+  src: url('/assets/fonts/Cinzel-Regular.ttf') format('truetype');
+}
 
 html, body {
   --mario-bg-color: #171623;
@@ -84,5 +87,34 @@ html, body {
 }
 .width-100vw {
   width: 100vw;
+}
+
+/* OVERRIDES */
+.PopupMenu {
+  .MuiPaper-rounded {
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .MuiMenu-list {
+    background-color: var(--mario-section-bg-color);
+    color: var(--mario-text-color);
+    padding: 8px 16px;
+    overflow: hidden;
+
+    li{
+      transition: all ease-in-out 0.2s;
+      border-radius: 8px;
+      color: var(--mario-text-color) !important;
+
+      &:hover {
+        background-color: var(--mario-accent-color);
+        color: var(--mario-bg-color);
+        font-weight: 600;
+        //font-size: 1.2rem;
+        transform: scale(1.2);
+      }
+    }
+  }
 }
 
