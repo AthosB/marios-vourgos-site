@@ -17,16 +17,16 @@ type imageType = {
 export default function PhotographyCarousel() {
   /** CONSTS **/
   const photoFilenames = [
-    {src: "/images/photography/001.jpg", alt: "Img 1", description: "Untouched photograph"},
-    {src: "/images/photography/002.jpg", alt: "Img 2", description: ""},
-    {src: "/images/photography/003.jpg", alt: "Img 3", description: "Parallel figures"},
-    {src: "/images/photography/004.jpg", alt: "Img 4", description: "Wandering wisp-like entity"},
-    {src: "/images/photography/005.jpg", alt: "Img 5", description: ""},
-    {src: "/images/photography/006.jpg", alt: "Img 6", description: ""},
-    {src: "/images/photography/007.jpg", alt: "Img 7", description: "A fleeting glance"},
-    {src: "/images/photography/008.jpg", alt: "Img 8", description: "A moment in time"},
-    {src: "/images/photography/009.jpg", alt: "Img 9", description: "Dual faces from the past"},
-    {src: "/images/photography/010.jpg", alt: "Img 10", description: "Wandering wisp-like entity"},
+    {src: "/images/photography/Carousel/001.jpg", alt: "Img 1", description: "Untouched photograph"},
+    {src: "/images/photography/Carousel/002.jpg", alt: "Img 2", description: ""},
+    {src: "/images/photography/Carousel/003.jpg", alt: "Img 3", description: "Parallel figures"},
+    {src: "/images/photography/Carousel/004.jpg", alt: "Img 4", description: "Wandering wisp-like entity"},
+    {src: "/images/photography/Carousel/005.jpg", alt: "Img 5", description: ""},
+    {src: "/images/photography/Carousel/006.jpg", alt: "Img 6", description: ""},
+    {src: "/images/photography/Carousel/007.jpg", alt: "Img 7", description: "A fleeting glance"},
+    {src: "/images/photography/Carousel/008.jpg", alt: "Img 8", description: "A moment in time"},
+    {src: "/images/photography/Carousel/009.jpg", alt: "Img 9", description: "Dual faces from the past"},
+    {src: "/images/photography/Carousel/010.jpg", alt: "Img 10", description: "Wandering wisp-like entity"},
   ] as imageType[];
 
   const slides = () =>
