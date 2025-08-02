@@ -30,7 +30,7 @@ export default function PhotographyPage() {
       <PhotographyItem
         photoSrc={photo.src}
         photoAlt={photo.alt}
-        title={`Photography ${index + 1}`}
+        title={photo.title || `Photography ${index + 1}`}
         description={photo.description as string || undefined}
         dimensions={{width: 600, height: 500}}
         elevated

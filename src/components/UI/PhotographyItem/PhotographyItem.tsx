@@ -17,7 +17,7 @@ export default function PhotographyItem({
 	                                        photoAlt = 'Photograph',
 	                                        title = 'Photograph Title',
 	                                        description,
-	                                        dimensions = {width: 500, height: 500},
+	                                        // dimensions = {width: 500, height: 500},
 	                                        className = '',
 	                                        elevated = false,
 	                                        onClick = () => {},
@@ -48,9 +48,9 @@ export default function PhotographyItem({
       </div>
       <div className={styles.Title}>{title}</div>
       {(description && description.length > 0) && (<div className={styles.Description}>{description}</div>)}
-      <div className={styles.Dimensions}>
-        {dimensions.width} x {dimensions.height} cm
-      </div>
+      {/*<div className={styles.Dimensions}>*/}
+      {/*  {dimensions.width} x {dimensions.height} cm*/}
+      {/*</div>*/}
     </div>
   );
 }

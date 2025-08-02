@@ -47,7 +47,7 @@ export default function HomePage() {
             src="/images/ornament_flower.png"
             alt="Ornament Flower"
             width={64}
-            height={64}
+            height={128}
           />
         }
       ></SectionSeparator>
