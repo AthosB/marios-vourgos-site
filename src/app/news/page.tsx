@@ -1,3 +1,7 @@
+export const generateMetadata = () => ({
+  title: "Marios Vourgos - News",
+});
+
 export default function NewsPage() {
   return (
     <div className="news-page">

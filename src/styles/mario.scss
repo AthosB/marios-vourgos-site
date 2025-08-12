@@ -69,7 +69,7 @@ $accent-color: #fcb040;
       }
 
       &.active {
-        color: $accent-color;
+        color: $accent-color !important;
         opacity: 1;
       }
     }

@@ -1,3 +1,7 @@
+export const generateMetadata = () => ({
+  title: "Marios Vourgos - Literature",
+});
+
 export default function LiteraturePage() {
   return (
     <div className="literature-page">

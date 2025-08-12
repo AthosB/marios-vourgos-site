@@ -1,3 +1,7 @@
+export const generateMetadata = () => ({
+  title: "Marios Vourgos - About",
+});
+
 export default function AboutPage() {
   return (
     <div className="about-page">

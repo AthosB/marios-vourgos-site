@@ -3,7 +3,7 @@
 import React, {useState} from "react";
 import styles from './NavBar.module.scss';
 import '@/styles/mario.scss';
-import { usePathname } from 'next/navigation';
+import {usePathname} from 'next/navigation';
 import Link from 'next/link'
 import Image from "next/image";
 import {MsearchField} from "@/components/UI/MsearchField";
@@ -35,9 +35,12 @@ export default function NavBar() {
 	 */
   const isActive = (pages: string[]) => {
     const path = pathname ? pathname?.replace(/^\/+/, '').toLowerCase() : '';
+    // console.log('Checking active pages:', pages);
+    console.log('Current path:', path);
     return pages.some(page => {
       const pageLower = page.toLowerCase();
-      return path === pageLower || path.startsWith(pageLower + '/');
+      console.log('Page lower:', pageLower);
+      return path === pageLower || path?.includes(pageLower);
     });
   };
 
@@ -57,16 +60,22 @@ export default function NavBar() {
       </div>
       {/*<div>*/}
       <div className={styles.menu}>
-        <div className={`${styles.entry} ${isActive(['Home', '']) ? ' active' : ''}`}><Link href="/home">Home</Link></div>
-        <div className={`${styles.entry} ${isActive(['About']) ? ' active' : ''}`}><Link href="/about">About</Link></div>
-        <div className={`${styles.entry} ${isActive(['News']) ? ' active' : ''}`}><Link href="/news">News</Link></div>
+        <div className={`${styles.entry} ${isActive(['Home']) ? ' ' + styles.active : ''}`}><Link
+          href="/home"
+        >Home</Link></div>
+        <div className={`${styles.entry} ${isActive(['About']) ? ' ' + styles.active : ''}`}><Link
+          href="/about"
+        >About</Link></div>
+        <div className={`${styles.entry} ${isActive(['News']) ? ' ' + styles.active : ''}`}><Link
+          href="/news"
+        >News</Link></div>
         <div
           style={{display: 'inline-block'}}
           onMouseEnter={galleryMenuHover}
           onMouseLeave={handleClose}
         >
           <div
-            className={`${styles.entry}${(open || isActive(["Photography", "Paintings"])) ? ' ' + styles.active : ''}`}
+            className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
             id="gallery-menu-item"
           >
             Gallery
@@ -88,7 +97,9 @@ export default function NavBar() {
             <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
           </Menu>
         </div>
-        <div className={`${styles.entry} ${isActive(['Contact']) ? ' ' + styles.active : ''}`}><Link href="/contact">Contact</Link></div>
+        <div className={`${styles.entry} ${isActive(['Contact']) ? ' ' + styles.active : ''}`}><Link
+          href="/contact"
+        >Contact</Link></div>
       </div>
       <div>
         <FormControl variant="filled">

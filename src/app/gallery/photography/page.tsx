@@ -1,6 +1,6 @@
 "use client"
 
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styles from './photography.module.scss';
 import Image from 'next/image';
 import {photoFilenames} from '@/assets/values';
@@ -14,6 +14,7 @@ type photoProps = {
 	alt: string;
 	description?: string;
 };
+
 
 export default function PhotographyPage() {
   /** HOOKS **/
@@ -56,6 +57,11 @@ export default function PhotographyPage() {
     setShowPhoto(false);
     setTargetPhoto(null);
   }
+
+  /** EFFECTS **/
+  useEffect(() => {
+    document.title = 'Marios Vourgos - Photography';
+  }, []);
 
   /** RENDER **/
   return (
