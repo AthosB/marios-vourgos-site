@@ -12,6 +12,7 @@ import {Tooltip} from "@mui/material";
 type photoProps = {
 	src: string;
 	alt: string;
+	title?: string;
 	description?: string;
 };
 
@@ -97,7 +98,8 @@ export default function PhotographyPage() {
             height={300}
             style={{width: 'auto', height: '90vh', objectFit: 'contain'}}
           />
-          <div className={styles.PhotoTitle}>{targetPhoto?.description}</div>
+          <div className={styles.PhotoTitle}>{targetPhoto?.title}</div>
+          <div className={styles.PhotoDescription}>{targetPhoto?.description}</div>
         </div>
       </Modal>
     </div>

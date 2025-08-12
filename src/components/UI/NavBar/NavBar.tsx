@@ -36,10 +36,8 @@ export default function NavBar() {
   const isActive = (pages: string[]) => {
     const path = pathname ? pathname?.replace(/^\/+/, '').toLowerCase() : '';
     // console.log('Checking active pages:', pages);
-    console.log('Current path:', path);
     return pages.some(page => {
       const pageLower = page.toLowerCase();
-      console.log('Page lower:', pageLower);
       return path === pageLower || path?.includes(pageLower);
     });
   };

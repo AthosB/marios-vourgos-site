@@ -63,9 +63,17 @@
     .PhotoTitle {
       font-size: 2rem;
       font-family: 'CinzelRegular', sans-serif;
-      margin-bottom: 16px;
+      margin-bottom: 4px;
       text-align: center;
       color: var(--mario-bg-color);
+    }
+
+    .PhotoDescription {
+      font-size: 1.5rem;
+      font-family: 'CinzelRegular', sans-serif;
+      margin-bottom: 16px;
+      color: var(--mario-bg-color);
+      opacity: 0.8;
     }
 
     .CloseButton {
