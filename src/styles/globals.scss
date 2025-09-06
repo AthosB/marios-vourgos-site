@@ -13,8 +13,8 @@ html, body {
   --mario-accent-color: #fcb040;
   --mario-button-color: #fcb040;
 
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  min-width: 100%;
   box-sizing: border-box;
   margin: 0;
   padding: 0;

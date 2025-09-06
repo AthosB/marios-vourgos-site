@@ -36,7 +36,9 @@ export default function PhotographyCarousel() {
           photoSrc={img.src} photoAlt={img.alt}
           title={`Photography ${index + 1}`}
           description={img.description as string || undefined}
-          dimensions={{width: 600, height: 500}}
+          dimensions={{width: 300, height: 250}}
+          width={300}
+          height={250}
         />
       </SwiperSlide>
     ));
@@ -47,12 +49,13 @@ export default function PhotographyCarousel() {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
-        slidesPerView={3}
+        slidesPerView={5}
         loop
         pagination={{ clickable: true }}
         navigation
         autoplay={{ delay: 3000 }}
-        style={{ height: "720px" }}
+        style={{ marginTop: '32px', minHeight: '360px', marginBottom: '46px' }}
+        className={styles.SwiperContainer}
       >
         {slides()}
       </Swiper>
