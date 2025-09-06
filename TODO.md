@@ -5,3 +5,9 @@
 - [ ] after about --> paintings
 - [ ] then literature
 - [ ] last literature
+
+- [X] images no rotation
+- [ ] between section 0 and 1 in home page, replace lips with bird ornament
+- [ ] 1st photo above carousel SSL11041
+- [ ] Home page: intro video, photos, about, paintings
+- [ ] move about after photo carousel
