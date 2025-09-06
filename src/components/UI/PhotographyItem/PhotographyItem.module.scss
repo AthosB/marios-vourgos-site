@@ -14,6 +14,7 @@
     border-radius: 0;
     justify-self: center;
     transition: all ease-in-out 0.3s;
+    cursor: pointer;
 
     &.Elevated {
       box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.9);

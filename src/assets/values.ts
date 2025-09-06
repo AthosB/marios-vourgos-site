@@ -29,6 +29,7 @@ export const aboutText = 'I never took seriously enough my studies in finance an
 	'and perhaps echoes from the future.';
 
 type imageType = {
+	position?: number;
 	src: string;
 	alt: string;
 	title?: string;

@@ -11,10 +11,13 @@ import PhotographyItem from "@/components/UI/PhotographyItem/PhotographyItem";
 type imageType = {
   src: string;
   alt: string;
+	title?: string;
   description?: string;
 }
 
-export default function PhotographyCarousel() {
+export default function PhotographyCarousel({
+  onSelectImage
+}:{onSelectImage?: (imagePath: imageType) => void}) {
   /** CONSTS **/
   const photoFilenames = [
     {src: "/images/photography/Carousel/001.jpg", alt: "Img 1", description: "Untouched photograph"},
@@ -39,9 +42,14 @@ export default function PhotographyCarousel() {
           dimensions={{width: 300, height: 250}}
           width={300}
           height={250}
+          onClick={() => clickImageHandler(img)}
         />
       </SwiperSlide>
     ));
+
+  const clickImageHandler = (imageData: imageType) => {
+    if(onSelectImage) onSelectImage(imageData);
+  }
 
   /** RENDER **/
   return (
