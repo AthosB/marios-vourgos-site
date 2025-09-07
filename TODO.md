@@ -5,3 +5,5 @@
 - [ ] after about --> paintings
 - [ ] then literature
 - [ ] last literature
+
+- [ ] in carousel add wide photo from vasos, "multiple print of a single photo"

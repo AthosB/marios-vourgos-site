@@ -11,6 +11,7 @@ html, body {
   --mario-section-bg-color: #541619;
   --mario-text-color: #ffffff;
   --mario-accent-color: #fcb040;
+  --mario-accent-color-faint: #9e6f28;
   --mario-button-color: #fcb040;
 
   min-height: 100%;
@@ -116,5 +117,13 @@ html, body {
       }
     }
   }
+}
+
+.section-title {
+  font-family: 'CinzelRegular', sans-serif;
+  font-size: 3rem;
+  color: var(--mario-accent-color);
+  text-align: center;
+  margin-bottom: 16px;
 }
 

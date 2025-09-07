@@ -8,6 +8,7 @@ import HomeAbout from "@/components/Home/About/HomeAbout";
 import HomeVideo from "@/components/Home/Video/HomeVideo";
 import HomePhotography from "@/components/Home/Photography/HomePhotography";
 import HomePaintings from "@/components/Home/Paintings/HomePaintings";
+import FashionCarousel from "@/components/Home/Fashion/FashionCarousel";
 
 export default function HomePage() {
   return (
@@ -24,7 +25,10 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-	    <HomePhotography />
+      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column}>
+        <div className={'section-title'}>Photography</div>
+        <HomePhotography />
+      </div>
       <SectionSeparator
         position="left"
         ornament={
@@ -36,7 +40,10 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <HomeAbout />
+      <div className={styles.Section + ' ' + styles.Purple + ' flex-column align-center'}>
+        <div className={'section-title'}>About</div>
+        <HomeAbout />
+      </div>
       <SectionSeparator
         position="center"
         ornament={
@@ -48,7 +55,7 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <HomePaintings/>
+      <HomePaintings />
       <SectionSeparator
         position="right"
         ornament={
@@ -61,7 +68,23 @@ export default function HomePage() {
         }
       ></SectionSeparator>
       <div className={styles.Section + ' ' + styles.Purple + ' ' + styles.InLine}>
+        <div className={'section-title'}>Paintings</div>
         <PaintingsSection></PaintingsSection>
+      </div>
+      <SectionSeparator
+        position="right"
+        ornament={
+          <img
+            src="/images/ornament_lips.png"
+            alt="Ornament Lips"
+            width={64}
+            height={64}
+          />
+        }
+      ></SectionSeparator>
+      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column}>
+        <div className={'section-title'}>Fashion</div>
+        <FashionCarousel />
       </div>
     </div>
   );

@@ -93,6 +93,7 @@ export default function NavBar() {
             <MenuItem onClick={handleClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
             <MenuItem onClick={handleClose}><Link href="/gallery/paintings">Paintings</Link></MenuItem>
             <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/gallery/fashion">Fashion</Link></MenuItem>
           </Menu>
         </div>
         <div className={`${styles.entry} ${isActive(['Contact']) ? ' ' + styles.active : ''}`}><Link

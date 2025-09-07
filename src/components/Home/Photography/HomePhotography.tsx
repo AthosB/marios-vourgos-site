@@ -1,7 +1,6 @@
 'use client';
 
 import {useState} from "react";
-import styles from "@/app/home/Home.module.scss";
 import PhotographyCarousel from "@/components/Home/PhotographyCarousel";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
@@ -35,7 +34,7 @@ export default function HomePhotography() {
   }
 
   /** RENDER **/
-  return <div className={styles.Section + ' ' + styles.Red + ' ' + styles.InLine}>
+  return <>
     <div style={{width:'100%',height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
       <img
         src={selectedPhoto?.src || '/images/home-photography-first.JPG'}
@@ -51,5 +50,5 @@ export default function HomePhotography() {
       open={openPhotoViewer}
       onClose={closePhotoViewerHandler}
     />
-  </div>;
+  </>;
 }
