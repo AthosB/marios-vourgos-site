@@ -1,0 +1,75 @@
+.PaintingsCarousel {
+  position: relative;
+  width: 100%;
+  //height: 100%;
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+  //justify-content: center;
+  padding: 0 16px;
+}
+
+.SwiperContainer {
+  position: relative;
+  width: 100%;
+  max-width: calc(100% - 64px);
+  margin: 0;
+  align-self: center;
+  justify-self: center;
+  display: flex;
+}
+
+.CarouselItem {
+  position: relative;
+
+  .Image {
+    //height: auto;
+    height: fit-content;
+    //width: 360px;
+    width: fit-content;
+    //max-width: 100%;
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-sizing: content-box;
+    //border: 2px solid #919191;
+    border-radius: 0;
+    justify-self: center;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+
+    &.Elevated {
+      box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.9);
+      //border: 4px solid #fff;
+      z-index: 500;
+
+      &:hover {
+        cursor: zoom-in;
+        transform: scale(1.05);
+        transform-origin: center;
+        z-index: 1000;
+      }
+    }
+  }
+
+  // TODO: look into z-index issues with the image hover effect
+
+
+  .Title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 8px;
+    color: var(--mario-text-color);
+  }
+
+  .Description {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 4px;
+  }
+
+  .Dimensions {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 4px;
+  }
+}

@@ -1,7 +1,46 @@
-import styles from "@/app/home/Home.module.scss";
+'use client';
+
+import {useState} from "react";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
+import {GenericItemType} from "@/Types/types";
+import PaintingsCarousel from "@/components/Home/Paintings/PaintingsCarousel";
 
 export default function HomePaintings() {
-	return <div className={styles.Section + ' ' + styles.Red + ' flex-column align-center'}>
-		PAINTINGS HERE
-	</div>;
+  /** HOOKS **/
+  const [selectedPainting, setSelectedPainting] = useState<GenericItemType>({position: 1, src: '/images/paintings/img-001.jpg', alt: 'Painting 1', title: 'Eternity', description: 'Acrylics on canvas - 148 cm x 105 cm'});
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
+
+  /** CONSTS **/
+  const selectPaintingHandler = (painting: GenericItemType) => {
+    setSelectedPainting(painting);
+  }
+
+  const viewPhotoHandler = () => {
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
+  }
+
+  /** RENDER **/
+  return <>
+    <div style={{width:'100%',height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+      <img
+        src={selectedPainting?.src || '/images/paintings/img-001.jpg'}
+        alt={selectedPainting?.title || "Paintings"}
+        height={720}
+        style={{ marginBottom: '16px' }}
+        onClick={viewPhotoHandler}
+      />
+      <div className={'ImageTitle'}>{selectedPainting.title}</div>
+      <div className={'ImageDescription'}>{selectedPainting.description}</div>
+      <PaintingsCarousel onSelectPainting={selectPaintingHandler}></PaintingsCarousel>
+    </div>
+    <PhotoViewer
+      photo={selectedPainting}
+      open={openPhotoViewer}
+      onClose={closePhotoViewerHandler}
+    />
+  </>;
 }

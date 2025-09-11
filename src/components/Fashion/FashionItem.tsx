@@ -12,7 +12,7 @@ export default function FashionItem({
   return (
     <div className={styles.FashionItem}>
       <div className={styles.Image}>
-        {image && <img src={image} alt="Fashion Photo" width={300} />}
+        {image && <img src={image} alt="Fashion Photo" height={420} />}
       </div>
       <div className={styles.Descripion}>
         {description}

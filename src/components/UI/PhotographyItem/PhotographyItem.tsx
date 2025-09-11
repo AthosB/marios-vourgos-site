@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './PhotographyItem.module.scss'
-import Image from 'next/image'
 
 interface PhotographyItemProps {
 	photoSrc: string;
@@ -21,7 +20,7 @@ export default function PhotographyItem({
 	                                        photoAlt = 'Photograph',
 	                                        title = 'Photograph Title',
 	                                        description,
-	                                        width = 500,
+	                                        // width = 500,
 	                                        height = 300,
 	                                        // dimensions = {width: 500, height: 500},
 	                                        className = '',
@@ -40,23 +39,12 @@ export default function PhotographyItem({
       <div className={`${styles.Image}${elevated ? ` ${styles.Elevated}` : ''}`}>
         <img
           src={photoSrc}
-          // width={dimensions.width}
-          // height={dimensions.height as number}
           alt={photoAlt}
-          // style={{
-          // 	width: '100%',
-          // 	height: 'auto',
-          // }}
-          // width={width}
           height={height}
-          // placeholder="blur"
         />
       </div>
       <div className={styles.Title}>{title}</div>
       {(description && description.length > 0) && (<div className={styles.Description}>{description}</div>)}
-      {/*<div className={styles.Dimensions}>*/}
-      {/*  {dimensions.width} x {dimensions.height} cm*/}
-      {/*</div>*/}
     </div>
   );
 }

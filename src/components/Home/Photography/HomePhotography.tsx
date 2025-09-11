@@ -11,11 +11,16 @@ type imageType = {
 	description?: string;
 }
 
-const startingPhoto =  {position: 1, src: "/images/photography/038.jpg", alt: "Img 38", title: 'Sardonic Smile', description: "100 cm x 80 cm"};
+const startingPhoto =  {
+  position: 40,
+  src: "/images/photography/040.jpg",
+  alt: "Img 40",
+  title: 'Sardonic Smile',
+  description: "100 cm x 80 cm"
+};
 
 export default function HomePhotography() {
   /** HOOKS **/
-  // index 37 from values
   const [selectedPhoto, setSelectedPhoto] = useState<imageType | null>(startingPhoto);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
@@ -43,6 +48,8 @@ export default function HomePhotography() {
         style={{ marginBottom: '16px' }}
         onClick={viewPhotoHandler}
       />
+      <div className={'ImageTitle'}>{selectedPhoto?.title}</div>
+      <div className={'ImageDescription'}>{selectedPhoto?.description}</div>
       <PhotographyCarousel onSelectImage={selectImageHandler} ></PhotographyCarousel>
     </div>
     <PhotoViewer
