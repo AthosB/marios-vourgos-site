@@ -1,3 +1,5 @@
+import {GenericItemType} from "@/Types/types";
+
 export const aboutText = 'I never took seriously enough my studies in finance and my long career in this\n' +
   'field, my solo painting exhibitions, the fact that I was once an "almost famous"\n' +
   'fashion designer in New York, the experience of singing opera in ancient\n' +
@@ -402,24 +404,6 @@ export const photoFilenames: imageType[] = [
     description: "100 cm x 80 cm"
   },
 ] as imageType[];
-
-type FashionType = {
-  src: string;
-  alt: string;
-  title?: string;
-  description?: string;
-}
-
-export const fashionEntries = [
-  {src: '/images/fashion/fashion_01.jpg', alt: 'Fashion Photo 1', description: 'Description of fashion item 1'},
-  {src: '/images/fashion/fashion_02.jpg', alt: 'Fashion Photo 2', description: 'Description of fashion item 2'},
-  {src: '/images/fashion/fashion_03.jpg', alt: 'Fashion Photo 3', description: 'Description of fashion item 3'},
-  {src: '/images/fashion/fashion_04.jpg', alt: 'Fashion Photo 4', description: 'Description of fashion item 4'},
-  {src: '/images/fashion/fashion_05.jpg', alt: 'Fashion Photo 5', description: 'Description of fashion item 5'},
-  {src: '/images/fashion/fashion_06.jpg', alt: 'Fashion Photo 6', description: 'Description of fashion item 6'},
-  {src: '/images/fashion/fashion_07.jpg', alt: 'Fashion Photo 7', description: 'Description of fashion item 7'},
-  {src: '/images/fashion/fashion_08.jpg', alt: 'Fashion Photo 8', description: 'Description of fashion item 8'},
-] as FashionType[];
 
 export const paintingsEntries = [
   {
@@ -878,3 +862,55 @@ export const paintingsEntries = [
     description: 'Acrylics on canvas - 118.5 cm x 97.5 cm'
   },
 ];
+
+export const fashionEntries = [
+  {
+    position: 1,
+    src: '/images/fashion/fashion_01.jpg',
+    alt: 'Fashion 1',
+    title: 'Fashion 1',
+    description: ''
+  },
+  {
+    position: 2,
+    src: '/images/fashion/fashion_02.jpg',
+    alt: 'Fashion 2',
+    title: 'Fashion 2',
+  },
+  {
+    position: 3,
+    src: '/images/fashion/fashion_03.jpg',
+    alt: 'Fashion 3',
+    title: 'Fashion 3',
+  },
+  {
+    position: 4,
+    src: '/images/fashion/fashion_04.jpg',
+    alt: 'Fashion 4',
+    title: 'Fashion 4',
+  },
+  {
+    position: 5,
+    src: '/images/fashion/fashion_05.jpg',
+    alt: 'Fashion 5',
+    title: 'Fashion 5',
+  },
+  {
+    position: 6,
+    src: '/images/fashion/fashion_06.jpg',
+    alt: 'Fashion 6',
+    title: 'Fashion 6',
+  },
+  {
+    position: 7,
+    src: '/images/fashion/fashion_07.jpg',
+    alt: 'Fashion 7',
+    title: 'Fashion 7',
+  },
+  {
+    position: 8,
+    src: '/images/fashion/fashion_08.jpg',
+    alt: 'Fashion 8',
+    title: 'Fashion 8',
+  }
+] as GenericItemType[];

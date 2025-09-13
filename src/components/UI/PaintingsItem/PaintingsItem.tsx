@@ -29,7 +29,7 @@ export default function PaintingsItem({
 }: PaintingsItemProps) {
   return (
     <div
-      className={`${styles.PhotographyItem} ${className}`}
+      className={`${styles.PaintingsItem} ${className}`}
       onClick={() => {
         if (onClick) {
           onClick()

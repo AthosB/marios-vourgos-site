@@ -6,6 +6,7 @@ import HomePhotography from "@/components/Home/Photography/HomePhotography";
 import HomePaintings from "@/components/Home/Paintings/HomePaintings";
 import FashionCarousel from "@/components/Home/Fashion/FashionCarousel";
 import HomeLiterature from "@/components/Home/Literature/HomeLiterature";
+import HomeFashion from "@/components/Home/Fashion/HomeFashion";
 
 export default function HomePage() {
   return (
@@ -69,7 +70,7 @@ export default function HomePage() {
       ></SectionSeparator>
       <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column}>
         <div className={'section-title'}>Fashion</div>
-        <FashionCarousel />
+        <HomeFashion />
       </div>
       <SectionSeparator
         position="right"

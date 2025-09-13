@@ -38,7 +38,7 @@ export default function PaintingsCarousel({
 
   /** RENDER **/
   return (
-    <div className={styles.FashionCarousel}>
+    <div className={styles.PaintingsCarousel}>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
