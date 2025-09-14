@@ -43,9 +43,28 @@
       font-size: 2rem;
       color: #9e6f28;
       transition: color 0.3s ease;
+
       &:hover {
         color: var(--mario-accent-color);
       }
+    }
+  }
+}
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+  .PhotoViewer {
+    height: 100dvh;
+    width: 100dvw;
+
+    .PhotoModalContent {
+      padding: 0 !important;
+    }
+
+    img {
+      height: auto !important;
+      width: 100dvw !important;
+      object-fit: contain;
     }
   }
 }

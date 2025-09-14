@@ -4,7 +4,6 @@ import HomeAbout from "@/components/Home/About/HomeAbout";
 import HomeVideo from "@/components/Home/Video/HomeVideo";
 import HomePhotography from "@/components/Home/Photography/HomePhotography";
 import HomePaintings from "@/components/Home/Paintings/HomePaintings";
-import FashionCarousel from "@/components/Home/Fashion/FashionCarousel";
 import HomeLiterature from "@/components/Home/Literature/HomeLiterature";
 import HomeFashion from "@/components/Home/Fashion/HomeFashion";
 
@@ -23,7 +22,7 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column}>
+      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column + ' HomeSection'}>
         <div className={'section-title'}>Photography</div>
         <HomePhotography />
       </div>

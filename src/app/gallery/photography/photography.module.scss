@@ -93,3 +93,30 @@
     }
   }
 }
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+
+  .PhotographyPage {
+    width: 100dvw;
+    max-width: fit-content;
+    padding: 8px 16px;
+  }
+
+  .PhotographsContainer {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    column-gap: 16px !important;
+    row-gap: 32px !important;
+    justify-items: center !important;
+    align-items: start !important;
+  }
+
+  .PhotographyItemEntry {
+
+    img {
+      width: calc(100%);
+      height: unset;
+    }
+  }
+}

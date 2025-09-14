@@ -71,6 +71,7 @@ export default function NavBar() {
           style={{display: 'inline-block'}}
           onMouseEnter={galleryMenuHover}
           onMouseLeave={handleClose}
+          onClick={galleryMenuHover}
         >
           <div
             className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
@@ -118,6 +119,5 @@ export default function NavBar() {
       </div>
       {/*</div>*/}
     </header>
-  )
-  ;
+  );
 }

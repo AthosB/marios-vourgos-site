@@ -21,10 +21,13 @@ export default function PhotographyPage() {
   const [targetPhoto, setTargetPhoto] = useState<photoProps | null>(null);
 
   /** CONSTS **/
+  const isMobile = window.innerWidth <= 768;
+
   const photographs = photoFilenames.map((photo, index) => (
     <div
       key={`photograph-key-${index}-${photo.src}`}
       className={styles.PhotoItem}
+      style={{width: isMobile ? '100%' : 'auto'}}
       // style={{transform: `rotate(${Math.random() * 25 - 10}deg)`}}
     >
       <PhotographyItem
@@ -35,6 +38,13 @@ export default function PhotographyPage() {
         dimensions={{width: 600, height: 500}}
         elevated
         onClick={() => handlePhotoClick(photo)}
+        className={styles.PhotographyItemEntry}
+        style={{
+          margin: isMobile ? '0 auto' : 'initial',
+          display: isMobile ? 'flex' : 'initial',
+          flexDirection: isMobile ? 'column' : 'initial',
+          alignItems: isMobile ? 'center' : 'initial'
+        }}
       />
     </div>
   ));

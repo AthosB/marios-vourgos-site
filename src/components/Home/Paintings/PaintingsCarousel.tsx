@@ -8,13 +8,13 @@ import "swiper/css/pagination";
 import styles from './PaintingsCarousel.module.scss';
 import {GenericItemType} from "@/Types/types";
 
-import {paintingsEntries} from '@/assets/values';
 import PaintingsItem  from "@/components/UI/PaintingsItem/PaintingsItem";
 
 export default function PaintingsCarousel({
+  items = [] as GenericItemType[],
   onSelectPainting
-}: { onSelectPainting?: (imagePath: GenericItemType) => void }) {
-  const drawingsFilenames = paintingsEntries.slice(0, 10);
+}: { items: GenericItemType[], onSelectPainting?: (imagePath: GenericItemType) => void }) {
+  const drawingsFilenames = items?.slice(0, 10);
 
   const slides = () => drawingsFilenames.map((paintingItem: GenericItemType, paintingsItemIndex: number) => (
     <SwiperSlide key={`paintings-item-${paintingsItemIndex}`}

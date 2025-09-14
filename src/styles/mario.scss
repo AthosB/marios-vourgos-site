@@ -85,14 +85,6 @@ $accent-color: #fcb040;
     font-family: 'AdleryPro', sans-serif;
     transition: all ease-in-out 0.2s;
     cursor: pointer;
-
-    .MasonryContainer {
-      display: flex;
-      align-items: start;
-      justify-content: center;
-    }
-
-
   }
 
   @media (max-width: $breakpoint-phone) {
@@ -326,4 +318,45 @@ $accent-color: #fcb040;
   margin-bottom: 16px;
   color: var(--mario-accent-color);
   opacity: 0.8;
+}
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+
+  html, body {
+    font-size: 9px !important;
+  }
+  // mobile styles
+  .HomeSection {
+    padding: 0 40px;
+    box-sizing: border-box;
+  }
+
+  .HomePhotography {
+    img {
+      width: calc(100dvw - 32px);
+      height: auto;
+      padding: 0 2px;
+      margin: 0 auto;
+    }
+  }
+
+  .PopupMenu {
+    .MuiPaper-rounded {
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .MuiMenu-list {
+      background-color: var(--mario-section-bg-color);
+      color: var(--mario-text-color);
+      padding: 8px 16px;
+      overflow: hidden;
+
+      li {
+        font-family: "Cinzel SemiBold", sans-serif;
+        font-size: 1.4rem;
+      }
+    }
+  }
 }

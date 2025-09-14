@@ -12,3 +12,13 @@
     z-index: 900;
   }
 }
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+  .Ornament {
+    img {
+      height: 40px;
+      width: unset;
+    }
+  }
+}

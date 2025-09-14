@@ -1,9 +1,10 @@
 'use client';
 
 import {useState} from "react";
-import FashionCarousel from "@/components/Home/Fashion/FashionCarousel";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
+import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
+import {fashionEntries} from '@/assets/values';
 
 type imageType = {
   src: string;
@@ -14,7 +15,7 @@ type imageType = {
 
 export default function HomeFashion() {
   /** HOOKS **/
-  const [selectedFashion, setSelectedFashion] = useState<GenericItemType>({position: 1, src: '/images/fashion/fashion_01.jpg', alt: 'Fashion 1', title: 'Fashion 1', description: ''});
+  const [selectedFashion, setSelectedFashion] = useState<GenericItemType>({position: 1, src: '/images/fashion/fashion_07.jpg', alt: 'Fashion 1', title: 'Fashion 1', description: ''});
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
@@ -35,15 +36,15 @@ export default function HomeFashion() {
   return <>
     <div style={{width:'100%',height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
       <img
-        src={selectedFashion?.src || '/images/home-photography-first.JPG'}
-        alt={selectedFashion?.title || "Photography"}
+        src={selectedFashion?.src || ''}
+        alt={selectedFashion?.title || "Fashion"}
         height={720}
         style={{ marginBottom: '16px' }}
         onClick={viewPhotoHandler}
       />
       <div className={'ImageTitle'}>{selectedFashion?.title}</div>
       <div className={'ImageDescription'}>{selectedFashion?.description}</div>
-      <FashionCarousel onSelectFashion={selectImageHandler} ></FashionCarousel>
+      <PreviewCarousel items={fashionEntries} onSelect={selectImageHandler} ></PreviewCarousel>
     </div>
     <PhotoViewer
       photo={selectedFashion}

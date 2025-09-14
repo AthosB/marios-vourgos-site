@@ -52,3 +52,16 @@
     margin-top: 4px;
   }
 }
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+  .PhotographyItem {
+
+    .Image {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  }
+}

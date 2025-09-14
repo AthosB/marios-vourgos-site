@@ -3,7 +3,8 @@
 import {useState} from "react";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
-import PaintingsCarousel from "@/components/Home/Paintings/PaintingsCarousel";
+import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
+import {paintingsEntries} from "@/assets/values";
 
 export default function HomePaintings() {
   /** HOOKS **/
@@ -35,7 +36,7 @@ export default function HomePaintings() {
       />
       <div className={'ImageTitle'}>{selectedPainting.title}</div>
       <div className={'ImageDescription'}>{selectedPainting.description}</div>
-      <PaintingsCarousel onSelectPainting={selectPaintingHandler}></PaintingsCarousel>
+      <PreviewCarousel items={paintingsEntries} onSelect={selectPaintingHandler}></PreviewCarousel>
     </div>
     <PhotoViewer
       photo={selectedPainting}

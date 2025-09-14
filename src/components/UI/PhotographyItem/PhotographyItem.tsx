@@ -1,5 +1,6 @@
 'use client';
 
+import {CSSProperties} from "react";
 import styles from './PhotographyItem.module.scss'
 
 interface PhotographyItemProps {
@@ -9,6 +10,7 @@ interface PhotographyItemProps {
   description?: string;
   dimensions?: { width: number; height: number | string };
   className?: string;
+  style?: CSSProperties;
   elevated?: boolean;
   onClick?: () => void;
   width?: number | string;
@@ -24,12 +26,14 @@ export default function PhotographyItem({
   height = 300,
   // dimensions = {width: 500, height: 500},
   className = '',
+  style = {},
   elevated = false,
   onClick,
 }: PhotographyItemProps) {
   return (
     <div
       className={`${styles.PhotographyItem} ${className}`}
+      style={style}
     >
       <div className={`${styles.Image}${elevated ? ` ${styles.Elevated}` : ''}`}
         onClick={() => {

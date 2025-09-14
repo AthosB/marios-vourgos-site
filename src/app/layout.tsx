@@ -1,12 +1,11 @@
-import {ReactNode} from "react";
 import type {Metadata} from "next";
 import '@/styles/globals.scss';
 import '@/styles/mario.scss';
-import {Geist, Geist_Mono} from "next/font/google";
-import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
-import NavBar from "@/components/UI/NavBar/NavBar";
+import AppLayoutChooser from "@/components/layouts/layout";
 import {ThemeProvider} from '@mui/material/styles';
 import theme from '@/theme';
+import {Geist, Geist_Mono} from "next/font/google";
+
 
 const getDeviceType = () => {
   if (typeof navigator === 'undefined') return 'unknown';
@@ -18,6 +17,11 @@ const getDeviceType = () => {
 const deviceType = typeof window !== 'undefined' ? getDeviceType() : 'unknown';
 console.log('deviceType', deviceType);
 
+export const metadata: Metadata = {
+  title: "Marios Vourgos",
+  description: "Marios Vourgos - Artist Portfolio",
+};
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -28,28 +32,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Marios Vourgos",
-  description: "Marios Vourgos - Artist Portfolio",
-};
-
-export default function RootLayout({
-	                                   children,
-}: Readonly<{
-	children: ReactNode;
-}>) {
+export default function RootLayout({children}: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <ThemeProvider theme={theme}>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased root-page`}
-        >
-          <AppRouterCacheProvider>
-            <NavBar />
-            {children}
-          </AppRouterCacheProvider>
-        </body>
-      </ThemeProvider>
-    </html>
+    <>
+      <html lang="en">
+        <ThemeProvider theme={theme}>
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased root-page`}
+          >
+            <AppLayoutChooser>{children}</AppLayoutChooser>
+          </body>
+        </ThemeProvider>
+      </html>
+    </>
   );
 }

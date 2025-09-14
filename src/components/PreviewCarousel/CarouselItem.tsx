@@ -11,6 +11,7 @@ interface CarouselItemProps {
   height?: number;
   width?: number;
   elevated?: boolean;
+  className?: string;
 }
 
 export default function CarouselItem({
@@ -20,10 +21,11 @@ export default function CarouselItem({
   description,
   onClick,
   height = 300,
-  elevated = false
+  elevated = false,
+  className = '',
 }: CarouselItemProps) {
   return (
-    <div className={styles.CarouselItem} onClick={() => {
+    <div className={`${styles.CarouselItem}${(className?.length > 0) ? ' ' + className : ''}`} onClick={() => {
       if (onClick) onClick();
     }}
     >

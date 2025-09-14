@@ -64,3 +64,17 @@ $accent-color: #fcb040;
     }
   }
 }
+
+@media only screen   /* Phone Portrait */
+and (max-device-width : 550px)
+and (orientation : portrait) {
+.NavBar {
+  flex-direction: column;
+}
+
+  .logo > img {
+    height: 64px;
+    width: 128px;
+    position: relative;
+  }
+}

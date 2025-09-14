@@ -866,10 +866,9 @@ export const paintingsEntries = [
 export const fashionEntries = [
   {
     position: 1,
-    src: '/images/fashion/fashion_01.jpg',
+    src: '/images/fashion/fashion_07.jpg',
     alt: 'Fashion 1',
     title: 'Fashion 1',
-    description: ''
   },
   {
     position: 2,
@@ -903,9 +902,10 @@ export const fashionEntries = [
   },
   {
     position: 7,
-    src: '/images/fashion/fashion_07.jpg',
+    src: '/images/fashion/fashion_01.jpg',
     alt: 'Fashion 7',
     title: 'Fashion 7',
+    description: ''
   },
   {
     position: 8,

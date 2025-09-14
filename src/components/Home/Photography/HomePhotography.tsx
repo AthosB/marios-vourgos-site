@@ -1,8 +1,10 @@
 'use client';
 
 import {useState} from "react";
-import PhotographyCarousel from "@/components/Home/PhotographyCarousel";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
+import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
+
+import {photoFilenames} from "@/assets/values";
 
 type imageType = {
 	src: string;
@@ -40,7 +42,7 @@ export default function HomePhotography() {
 
   /** RENDER **/
   return <>
-    <div style={{width:'100%',height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+    <div className={'HomePhotography'} style={{width:'100%',height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
       <img
         src={selectedPhoto?.src || '/images/home-photography-first.JPG'}
         alt={selectedPhoto?.title || "Photography"}
@@ -50,7 +52,7 @@ export default function HomePhotography() {
       />
       <div className={'ImageTitle'}>{selectedPhoto?.title}</div>
       <div className={'ImageDescription'}>{selectedPhoto?.description}</div>
-      <PhotographyCarousel onSelectImage={selectImageHandler} ></PhotographyCarousel>
+      <PreviewCarousel items={photoFilenames} onSelect={selectImageHandler} ></PreviewCarousel>
     </div>
     <PhotoViewer
       photo={selectedPhoto} 
