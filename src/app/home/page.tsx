@@ -6,6 +6,7 @@ import HomePhotography from "@/components/Home/Photography/HomePhotography";
 import HomePaintings from "@/components/Home/Paintings/HomePaintings";
 import HomeLiterature from "@/components/Home/Literature/HomeLiterature";
 import HomeFashion from "@/components/Home/Fashion/HomeFashion";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -14,7 +15,7 @@ export default function HomePage() {
       <SectionSeparator
         position="right"
         ornament={
-          <img
+          <Image
             src="/images/ornament_lips.png"
             alt="Ornament Lips"
             width={64}
@@ -29,7 +30,7 @@ export default function HomePage() {
       <SectionSeparator
         position="left"
         ornament={
-          <img
+          <Image
             src="/images/ornament_flower.png"
             alt="Ornament Flower"
             width={64}
@@ -44,7 +45,7 @@ export default function HomePage() {
       <SectionSeparator
         position="center"
         ornament={
-          <img
+          <Image
             src="/images/ornament_bird.png"
             alt="Ornament Bird"
             width={64}
@@ -59,7 +60,7 @@ export default function HomePage() {
       <SectionSeparator
         position="right"
         ornament={
-          <img
+          <Image
             src="/images/ornament_lips.png"
             alt="Ornament Lips"
             width={64}
@@ -74,7 +75,7 @@ export default function HomePage() {
       <SectionSeparator
         position="right"
         ornament={
-          <img
+          <Image
             src="/images/ornament_bird.png"
             alt="Ornament Lips"
             width={64}

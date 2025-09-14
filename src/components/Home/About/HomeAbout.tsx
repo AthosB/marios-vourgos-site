@@ -1,11 +1,12 @@
 import styles from "@/app/home/Home.module.scss";
 import './HomeAbout.scss';
+import Image from "next/image";
 
 export default function HomeAbout() {
   return (
     <div className={styles.aboutContent}>
       <div className={'about-image'}>
-        <img
+        <Image
           src="/images/home-about.JPG"
           width={512}
           alt="Picture of the author"
@@ -13,7 +14,7 @@ export default function HomeAbout() {
       </div>
       <div className={'about-text'} style={{fontWeight: '600'}}>
         <p>I never took seriously enough my studies in finance and my long career in this field, my solo painting
-          exhibitions, the fact that I was once an "almost famous" fashion designer in New York, the experience of
+          exhibitions, the fact that I was once an &apos;almost famous&apos; fashion designer in New York, the experience of
           singing
           opera in ancient amphitheaters, or even my poetry. And then the universe somehow decided it was about time to
           convince me to take myself seriously (enough), or at least my artistic and creative ability. So, one day

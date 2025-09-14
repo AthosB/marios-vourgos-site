@@ -17,7 +17,8 @@ const eslintConfig = [
       "react/jsx-indent-props": [2, 2], // Enforce 2 spaces for props indentation
       "indent": [2, 2, {"SwitchCase": 1}], // Enforce 2 spaces for general indentation
       "react/jsx-closing-bracket-location": [2, "line-aligned"], // Align closing brackets
-      "react/jsx-tag-spacing": [2, {"beforeSelfClosing": "always"}] // Add space before self-closing tags
+      "react/jsx-tag-spacing": [2, {"beforeSelfClosing": "always"}], // Add space before self-closing tags
+      "@next/next/no-img-element": "off"
     },
   },
 ];

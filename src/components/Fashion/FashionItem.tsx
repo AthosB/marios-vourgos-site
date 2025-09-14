@@ -1,4 +1,5 @@
 import styles from './FashionItem.module.scss';
+import Image from 'next/image';
 
 interface FashionItemProps {
   photoSrc: string;
@@ -28,7 +29,7 @@ export default function FashionItem({
         }
       }}
       >
-        {photoSrc && <img src={photoSrc} alt={photoAlt} height={420} />}
+        {photoSrc && <Image src={photoSrc} alt={photoAlt} height={420} />}
       </div>
       <div className={styles.Title}>{title}</div>
       {(description && description.length > 0) && (<div className={styles.Description}>{description}</div>)}
