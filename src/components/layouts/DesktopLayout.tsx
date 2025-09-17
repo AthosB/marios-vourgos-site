@@ -10,8 +10,6 @@ export default function DesktopLayout({
   children: ReactNode;
 }>) {
 
-  console.log('DesktopLayout');
-
   return (
     <AppRouterCacheProvider>
       <NavBar />

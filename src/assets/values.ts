@@ -38,367 +38,367 @@ type imageType = {
   description?: string;
 }
 
-export const photoFilenames: imageType[] = [
+export const photoFilenames = [
   {
     position: 0,
-    src: "/images/photography/001.jpg",
+    src: "/images/photography/001.JPG",
     alt: "Img 1",
     title: 'Nocturnal Contemplations of Hope',
     description: "100 cm x 80 cm"
   },
   {
     position: 2,
-    src: "/images/photography/002.jpg",
+    src: "/images/photography/002.JPG",
     alt: "Img 2",
     title: "Remembering herself",
     description: "100 cm x 80 cm"
   },
   {
     position: 3,
-    src: "/images/photography/003.jpg",
+    src: "/images/photography/003.JPG",
     alt: "Img 3",
     title: "The ecstatic recollection of self",
     description: "100 cm x 80 cm"
   },
   {
     position: 4,
-    src: "/images/photography/004.jpg",
+    src: "/images/photography/004.JPG",
     alt: "Img 4",
     title: "The triumph of Illusions",
     description: "100 cm x 80 cm"
   },
   {
     position: 5,
-    src: "/images/photography/005.jpg",
+    src: "/images/photography/005.JPG",
     alt: "Img 5",
     title: 'The Ecstatic Recollection of Time',
     description: "100 cm x 80 cm"
   },
   {
     position: 6,
-    src: "/images/photography/006.jpg",
+    src: "/images/photography/006.JPG",
     alt: "Img 6",
     title: "The escape of thoughts to come",
     description: "100 cm x 80 cm"
   },
   {
     position: 7,
-    src: "/images/photography/007.jpg",
+    src: "/images/photography/007.JPG",
     alt: "Img 7",
     title: "The stare of silence",
     description: "100 cm x 80 cm"
   },
   {
     position: 8,
-    src: "/images/photography/008.jpg",
+    src: "/images/photography/008.JPG",
     alt: "Img 8",
     title: "… fade so soon, oh flower…( The Sleepwalker)",
     description: "100 cm x 80 cm"
   },
   {
     position: 9,
-    src: "/images/photography/009.jpg",
+    src: "/images/photography/009.JPG",
     alt: "Img 9",
     title: "The illusion of space",
     description: "100 cm x 80 cm"
   },
   {
     position: 10,
-    src: "/images/photography/010.jpg",
+    src: "/images/photography/010.JPG",
     alt: "Img 10",
     title: "The illusion of time",
     description: "100 cm x 80 cm"
   },
   {
     position: 11,
-    src: "/images/photography/011.jpg",
+    src: "/images/photography/011.JPG",
     alt: "Img 11",
     title: "The shadow of light",
     description: "100 cm x 80 cm"
   },
   {
     position: 12,
-    src: "/images/photography/012.jpg",
+    src: "/images/photography/012.JPG",
     alt: "Img 11",
     title: "Echo of Eternity",
     description: "215 cm x 80 cm"
   },
   {
     position: 13,
-    src: "/images/photography/013.jpg",
+    src: "/images/photography/013.JPG",
     alt: "Img 12",
     title: "Contemplating herself I",
     description: "100 cm x 80 cm"
   },
   {
     position: 14,
-    src: "/images/photography/014.jpg",
+    src: "/images/photography/014.JPG",
     alt: "Img 13",
     title: "Contemplating herself II",
     description: "100 cm x 80 cm"
   },
   {
     position: 15,
-    src: "/images/photography/015.jpg",
+    src: "/images/photography/015.JPG",
     alt: "Img 14",
     title: "infinite visions of time",
     description: "100 cm x 80 cm"
   },
   {
     position: 16,
-    src: "/images/photography/016.jpg",
+    src: "/images/photography/016.JPG",
     alt: "Img 15",
     title: "The flower that fell in live with a woman",
     description: "100 cm x 80 cm"
   },
   {
     position: 17,
-    src: "/images/photography/017.jpg",
+    src: "/images/photography/017.JPG",
     alt: "Img 16",
     title: "Contemplating herself III",
     description: "100 cm x 80 cm"
   },
   {
     position: 18,
-    src: "/images/photography/018.jpg",
+    src: "/images/photography/018.JPG",
     alt: "Img 17",
     title: "Contemplating herself IV",
     description: "100 cm x 80 cm"
   },
   {
     position: 19,
-    src: "/images/photography/019.jpg",
+    src: "/images/photography/019.JPG",
     alt: "Img 18",
     title: "Contemplating herself V",
     description: "100 cm x 80 cm"
   },
-  // {position: 20, src: "/images/photography/020.jpg", alt: "Img 19", title: '', description: ""},
+  // {position: 20, src: "/images/photography/020.JPG", alt: "Img 19", title: '', description: ""},
   {
     position: 21,
-    src: "/images/photography/020.jpg",
+    src: "/images/photography/020.JPG",
     alt: "Img 20",
     title: "in an artists's head",
     description: "100 cm x 80 cm"
   },
   {
     position: 22,
-    src: "/images/photography/021.jpg",
+    src: "/images/photography/021.JPG",
     alt: "Img 21",
     title: 'The Achronic Remembrance of Self',
     description: "100 cm x 80 cm"
   },
-  {position: 23, src: "/images/photography/022.jpg", alt: "Img 22", title: 'Parapraxis', description: "100 cm x 80 cm"},
-  {position: 24, src: "/images/photography/023.jpg", alt: "Img 23", title: 'Epigraph', description: "100 cm x 80 cm"},
+  {position: 23, src: "/images/photography/022.JPG", alt: "Img 22", title: 'Parapraxis', description: "100 cm x 80 cm"},
+  {position: 24, src: "/images/photography/023.JPG", alt: "Img 23", title: 'Epigraph', description: "100 cm x 80 cm"},
   {
     position: 25,
-    src: "/images/photography/024.jpg",
+    src: "/images/photography/024.JPG",
     alt: "Img 24",
     title: 'The essence of Dreams to Come',
     description: "100 cm x 80 cm"
   },
   {
     position: 26,
-    src: "/images/photography/025.jpg",
+    src: "/images/photography/025.JPG",
     alt: "Img 25",
     title: 'Perpetual Juliet',
     description: "100 cm x 80 cm"
   },
   {
     position: 27,
-    src: "/images/photography/026.jpg",
+    src: "/images/photography/026.JPG",
     alt: "Img 26",
     title: 'Indigo Dreams of Blue',
     description: "100 cm x 80 cm"
   },
   {
     position: 28,
-    src: "/images/photography/027.jpg",
+    src: "/images/photography/027.JPG",
     alt: "Img 27",
     title: 'Spring Awaiting Summer in the Fall',
     description: "100 cm x 80 cm"
   },
-  {position: 29, src: "/images/photography/028.jpg", alt: "Img 28", title: 'Euphoria', description: "100 cm x 80 cm"},
+  {position: 29, src: "/images/photography/028.JPG", alt: "Img 28", title: 'Euphoria', description: "100 cm x 80 cm"},
   {
     position: 30,
-    src: "/images/photography/029.jpg",
+    src: "/images/photography/029.JPG",
     alt: "Img 29",
     title: 'Awaiting Hope',
     description: "100 cm x 80 cm"
   },
   {
     position: 31,
-    src: "/images/photography/030.jpg",
+    src: "/images/photography/030.JPG",
     alt: "Img 30",
     title: 'The Stare of Things to Come',
     description: "100 cm x 80 cm"
   },
   {
     position: 32,
-    src: "/images/photography/033.jpg",
+    src: "/images/photography/033.JPG",
     alt: "Img 33",
     title: 'Hope is a glance at Infinity',
     description: "100 cm x 80 cm"
   },
-  {position: 33, src: "/images/photography/032.jpg", alt: "Img 32", title: '', description: ""},
+  {position: 33, src: "/images/photography/032.JPG", alt: "Img 32", title: '', description: ""},
   {
     position: 35,
-    src: "/images/photography/035.jpg",
+    src: "/images/photography/035.JPG",
     alt: "Img 35",
     title: "still life? I",
     description: "100 cm x 80 cm"
   },
   {
     position: 36,
-    src: "/images/photography/036.jpg",
+    src: "/images/photography/036.JPG",
     alt: "Img 36",
     title: "still life? II",
     description: "100 cm x 80 cm"
   },
   {
     position: 37,
-    src: "/images/photography/037.jpg",
+    src: "/images/photography/037.JPG",
     alt: "Img 37",
     title: "still life? III",
     description: "100 cm x 80 cm"
   },
   {
     position: 38,
-    src: "/images/photography/038.jpg",
+    src: "/images/photography/038.JPG",
     alt: "Img 38",
     title: "Victorian memories of a flower",
     description: "100 cm x 80 cm"
   },
   {
     position: 39,
-    src: "/images/photography/039.jpg",
+    src: "/images/photography/039.JPG",
     alt: "Img 39",
     title: "The scream os silence",
     description: "100 cm x 80 cm"
   },
   {
     position: 40,
-    src: "/images/photography/040.jpg",
+    src: "/images/photography/040.JPG",
     alt: "Img 40",
     title: 'Sardonic Smile',
     description: "100 cm x 80 cm"
   },
   {
     position: 41,
-    src: "/images/photography/041.jpg",
+    src: "/images/photography/041.JPG",
     alt: "Img 41",
     title: "thoughts of future days gone by I",
     description: "100 cm x 80 cm"
   },
   {
     position: 42,
-    src: "/images/photography/040.jpg",
+    src: "/images/photography/040.JPG",
     alt: "Img 42",
     title: "thoughts of future days gone by II",
     description: "100 cm x 80 cm"
   },
   {
     position: 43,
-    src: "/images/photography/041.jpg",
+    src: "/images/photography/041.JPG",
     alt: "Img 43",
     title: "time revealing the future today",
     description: "100 cm x 80 cm"
   },
   {
     position: 44,
-    src: "/images/photography/042.jpg",
+    src: "/images/photography/042.JPG",
     alt: "Img 44",
     title: "…and her thoughts defined  the universe",
     description: "100 cm x 80 cm"
   },
   {
     position: 45,
-    src: "/images/photography/043.jpg",
+    src: "/images/photography/043.JPG",
     alt: "Img 45",
     title: "nocturnal whispers of hope",
     description: "100 cm x 80 cm"
   },
   {
     position: 46,
-    src: "/images/photography/044.jpg",
+    src: "/images/photography/044.JPG",
     alt: "Img 46",
     title: "the maiden and the shadow",
     description: "100 cm x 80 cm"
   },
   {
     position: 47,
-    src: "/images/photography/045.jpg",
+    src: "/images/photography/045.JPG",
     alt: "Img 47",
     title: "anticipating hope",
     description: "100 cm x 80 cm"
   },
   {
     position: 48,
-    src: "/images/photography/046.jpg",
+    src: "/images/photography/046.JPG",
     alt: "Img 48",
     title: "The eternal struggle",
     description: "100 cm x 80 cm"
   },
-  {position: 49, src: "/images/photography/047.jpg", alt: "Img 49", title: '', description: "100 cm x 80 cm"},
+  {position: 49, src: "/images/photography/047.JPG", alt: "Img 49", title: '', description: "100 cm x 80 cm"},
   {
     position: 50,
-    src: "/images/photography/048.jpg",
+    src: "/images/photography/048.JPG",
     alt: "Img 50",
     title: "sweet melancholia of  timeless being",
     description: "100 cm x 80 cm"
   },
   {
     position: 51,
-    src: "/images/photography/049.jpg",
+    src: "/images/photography/049.JPG",
     alt: "Img 51",
     title: "…and birds announced her substance",
     description: "100 cm x 80 cm"
   },
-  {position: 52, src: "/images/photography/050.jpg", alt: "Img 52", title: "rapture", description: "100 cm x 80 cm"},
+  {position: 52, src: "/images/photography/050.JPG", alt: "Img 52", title: "rapture", description: "100 cm x 80 cm"},
   {
     position: 53,
-    src: "/images/photography/051.jpg",
+    src: "/images/photography/051.JPG",
     alt: "Img 53",
     title: "The ecstatic renaissance of time",
     description: "100 cm x 80 cm"
   },
   {
     position: 54,
-    src: "/images/photography/052.jpg",
+    src: "/images/photography/052.JPG",
     alt: "Img 54",
     title: "The apparition of dreams to come",
     description: "100 cm x 80 cm"
   },
   {
     position: 55,
-    src: "/images/photography/053.jpg",
+    src: "/images/photography/053.JPG",
     alt: "Img 55",
     title: "The escape of dreams",
     description: "100 cm x 80 cm"
   },
   {
     position: 56,
-    src: "/images/photography/054.jpg",
+    src: "/images/photography/054.JPG",
     alt: "Img 56",
     title: "whispering secrets to space beyond time",
     description: "100 cm x 80 cm"
   },
   {
     position: 57,
-    src: "/images/photography/055.jpg",
+    src: "/images/photography/055.JPG",
     alt: "Img 57",
     title: "The Infinite visions of time",
     description: "100 cm x 80 cm"
   },
   {
     position: 58,
-    src: "/images/photography/056.jpg",
+    src: "/images/photography/056.JPG",
     alt: "Img 58",
     title: 'Eternal struggle',
     description: "160 cm x 100 cm"
   },
   {
     position: 59,
-    src: "/images/photography/057.jpg",
+    src: "/images/photography/057.JPG",
     alt: "Img 59",
     title: 'The maiden and the shadow',
     description: "100 cm x 80 cm"

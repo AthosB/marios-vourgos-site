@@ -15,7 +15,7 @@ type imageType = {
 
 const startingPhoto =  {
   position: 40,
-  src: "/images/photography/040.jpg",
+  src: "/images/photography/040.JPG",
   alt: "Img 40",
   title: 'Sardonic Smile',
   description: "100 cm x 80 cm"

@@ -16,8 +16,6 @@ export default function MobileLayout({
   children: ReactNode;
 }>) {
 
-  console.log('MobileLayout');
-
   return (
     <AppRouterCacheProvider>
       <MobileMenu />
