@@ -1,19 +1,58 @@
 // components/AppLayoutChooser.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import {useEffect, useState, ReactNode} from 'react';
 import dynamic from 'next/dynamic';
 
-const MobileLayout = dynamic(() => import('@/components/layouts/MobileLayout'), { ssr: false });
-const DesktopLayout = dynamic(() => import('@/components/layouts/DesktopLayout'), { ssr: false });
+const MobileLayout = dynamic(() => import('@/components/layouts/MobileLayout'), {ssr: false});
+const DesktopLayout = dynamic(() => import('@/components/layouts/DesktopLayout'), {ssr: false});
 
 type Choice = 'mobile' | 'desktop';
+
+const PREDEFINED_PASSWORD = 'IseeYou';
 
 function getQueryOverride(): Choice | null {
   const p = new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search);
   const v = p.get('layout');
   if (v === 'mobile' || v === 'desktop') return v;
   return null;
+}
+
+function PasswordGate({children}: { children: ReactNode }) {
+  const [input, setInput] = useState('');
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('authenticated') === 'true') {
+      setAuthenticated(true);
+    }
+  }, []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (input === PREDEFINED_PASSWORD) {
+      setAuthenticated(true);
+      localStorage.setItem('authenticated', 'true');
+    }
+  };
+
+  if (!authenticated) {
+    return (
+      <form onSubmit={handleSubmit} style={{margin: '2rem'}}>
+        <label>
+          Enter password:
+          <input
+            type="password"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+          />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    );
+  }
+
+  return <>{children}</>;
 }
 
 function useLayoutChoice(breakpoint = '(max-width: 767px)') {
@@ -25,7 +64,10 @@ function useLayoutChoice(breakpoint = '(max-width: 767px)') {
     if (urlOverride) {
       setChoice(urlOverride);
       // remember override for future navigations
-      try { localStorage.setItem('layoutOverride', urlOverride); } catch {}
+      try {
+        localStorage.setItem('layoutOverride', urlOverride);
+      } catch {
+      }
       return;
     }
 
@@ -36,7 +78,8 @@ function useLayoutChoice(breakpoint = '(max-width: 767px)') {
         setChoice(saved);
         return;
       }
-    } catch {}
+    } catch {
+    }
 
     // 3) Detect via media query
     const mql = window.matchMedia(breakpoint);
@@ -51,13 +94,13 @@ function useLayoutChoice(breakpoint = '(max-width: 767px)') {
   return choice;
 }
 
-export default function AppLayoutChooser({ children }: { children: React.ReactNode }) {
+export default function AppLayoutChooser({children}: { children: ReactNode }) {
   const choice = useLayoutChoice();
 
   // Render nothing until we know the layout (prevents hydration mismatch)
   if (choice === null) return <div suppressHydrationWarning />;
 
   return choice === 'mobile'
-    ? <MobileLayout>{children}</MobileLayout>
-    : <DesktopLayout>{children}</DesktopLayout>;
+    ? <PasswordGate><MobileLayout>{children}</MobileLayout></PasswordGate>
+    : <PasswordGate><DesktopLayout>{children}</DesktopLayout></PasswordGate>;
 }

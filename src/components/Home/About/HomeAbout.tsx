@@ -1,12 +1,11 @@
 import styles from "@/app/home/Home.module.scss";
 import './HomeAbout.scss';
-import Image from "next/image";
 
 export default function HomeAbout() {
   return (
     <div className={styles.aboutContent}>
       <div className={'about-image'}>
-        <Image
+        <img
           src="/images/home-about.JPG"
           width={512}
           alt="Picture of the author"
