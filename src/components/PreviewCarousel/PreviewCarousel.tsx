@@ -10,10 +10,19 @@ import {GenericItemType} from "@/Types/types";
 
 import CarouselItem  from "@/components/PreviewCarousel/CarouselItem";
 
+interface CarouselItemProps {
+  items: GenericItemType[];
+  onSelect?: (imagePath: GenericItemType) => void;
+  loopable?: boolean;
+  autoPlay?: {duration: number; pauseOnMouseEnter: boolean;};
+}
+
 export default function PreviewCarousel({
   items = [] as GenericItemType[],
+  loopable = undefined,
+  autoPlay = undefined,
   onSelect
-}: { items: GenericItemType[], onSelect?: (imagePath: GenericItemType) => void }) {
+}: CarouselItemProps) {
   const isMobile = window.innerWidth <= 768;
 
   const drawingsFilenames = items?.slice(0, 10);
@@ -46,10 +55,10 @@ export default function PreviewCarousel({
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={isMobile ? 8 : 20}
         slidesPerView={5}
-        loop
+        loop={loopable}
         pagination={{clickable: true}}
         navigation={!isMobile}
-        autoplay={{delay: 3000}}
+        autoplay={autoPlay}
         style={{marginTop: '32px', minHeight: '360px', marginBottom: '46px'}}
         className={styles.SwiperContainer}
       >

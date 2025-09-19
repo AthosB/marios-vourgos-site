@@ -28,18 +28,25 @@
   }
 
   .PhotographsContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-    column-gap: 16px;
-    row-gap: 32px;
-    margin-top: 48px;
-    padding: 16px 0;
-    justify-items: center;
-    align-items: start;
+    //display: grid;
+    //grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    //column-gap: 16px;
+    //row-gap: 32px;
+    //margin-top: 48px;
+    //padding: 16px 0;
+    //justify-items: center;
+    //align-items: start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    column-gap: 24px;
 
     &.RandomRotate {
       .PhotoItem {
-        transform: rotate(calc(10deg * var(--random-rotate)));
+        //transform: rotate(calc(10deg * var(--random-rotate)));
+
       }
     }
   }
@@ -104,12 +111,17 @@ and (max-device-width: 550px) and (orientation: portrait) {
   }
 
   .PhotographsContainer {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
-    column-gap: 16px !important;
-    row-gap: 32px !important;
-    justify-items: center !important;
-    align-items: start !important;
+    //display: grid !important;
+    //grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    //column-gap: 16px !important;
+    //row-gap: 32px !important;
+    //justify-items: center !important;
+    //align-items: start !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: start !important;
+    flex-wrap: wrap !important;
   }
 
   .PhotographyItemEntry {

@@ -405,6 +405,16 @@ export const photoFilenames = [
   },
 ] as imageType[];
 
+export const recentPaintingsCarouselEntries = [
+  {
+    position: 1,
+    src: '/images/paintings/img-001.jpg',
+    alt: 'Painting 1',
+    title: 'Eternity',
+    description: 'Acrylics on canvas - 148 cm x 105 cm'
+  },
+]
+
 export const paintingsEntries = [
   {
     position: 1,

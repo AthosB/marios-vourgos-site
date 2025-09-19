@@ -13,6 +13,7 @@
     //border: 2px solid #919191;
     border-radius: 0;
     justify-self: center;
+    margin: 0 auto;
     transition: all ease-in-out 0.3s;
     cursor: pointer;
 
@@ -38,18 +39,21 @@
     font-weight: bold;
     margin-top: 8px;
     color: var(--mario-text-color);
+    text-align: center;
   }
 
   .Description {
     font-size: 1rem;
     color: #666;
     margin-top: 4px;
+    text-align: center;
   }
 
   .Dimensions {
     font-size: 0.875rem;
     color: #999;
     margin-top: 4px;
+    text-align: center;
   }
 }
 
