@@ -15,10 +15,11 @@ export default function HomePage() {
         position="right"
         ornament={
           <img
-            src="/images/ornament_lips.png"
+            src="/images/ornament_flower.png"
             alt="Ornament Lips"
             width={64}
-            height={64}
+            height={132}
+            style={{marginTop: '-40px'}}
           />
         }
       ></SectionSeparator>
