@@ -53,7 +53,7 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <div className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column}>
+      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column}>
         <div className={'section-title'}>Paintings</div>
         <HomePaintings />
       </div>
@@ -68,7 +68,7 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column}>
+      <div className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column}>
         <div className={'section-title'}>Fashion</div>
         <HomeFashion />
       </div>
@@ -83,7 +83,7 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <div className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column}>
+      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column}>
         <div className={'section-title'}>Literature</div>
         <HomeLiterature />
       </div>

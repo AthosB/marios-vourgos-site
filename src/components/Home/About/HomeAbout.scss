@@ -1,8 +1,10 @@
 .about-image {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  //display: flex;
+  //flex-direction: row;
+  //align-items: center;
+  //justify-content: center;
+  float: left;
+  margin-right: 1.5rem;
 }
 
 .about-text {

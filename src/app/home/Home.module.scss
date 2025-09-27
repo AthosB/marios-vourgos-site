@@ -50,21 +50,28 @@
 //ABOUT (Home page)
 .aboutContent {
   //display: flex;
-  //flex-direction: row;
+  //flex-direction: column;
   //gap: 2rem;
-  //width: 100%;
-  justify-content: center;
-  align-items: flex-start;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  width: 100%;
+  //justify-content: center;
+  //align-items: flex-start;
+  //display: grid;
+  //grid-template-columns: 1fr 1fr;
+  //gap: 16px;
   padding: 16px 32px;
+
+  p {
+    font-family: 'Lato Medium', sans-serif;
+    //font-family: "CinzelRegular", sans-serif;
+    font-size: 1.25rem;
+  }
 }
 
 .aboutImage {
   //min-width: 220px;
   //width: 25vw;
   //width: 100%;
+  margin-right: 2rem;
 }
 
 .aboutText {
