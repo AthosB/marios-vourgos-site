@@ -405,6 +405,205 @@ export const photoFilenames = [
   },
 ] as imageType[];
 
+export const photographyCarouselFilenames = [
+  {
+    position: 1,
+    src: '/images/photography/carousel/ph-car-01.JPG',
+    alt: 'The escape of dreams',
+    title: 'The escape of dreams',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 2,
+    src: '/images/photography/carousel/ph-car-02.JPG',
+    alt: 'The essence of Dreams to Come',
+    title: 'The essence of Dreams to Come',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 3,
+    src: '/images/photography/carousel/ph-car-03.JPG',
+    alt: 'The triumph of Illusions',
+    title: 'The triumph of Illusions',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 4,
+    src: '/images/photography/carousel/ph-car-04.JPG',
+    alt: 'Parapraxis',
+    title: 'Parapraxis',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 5,
+    src: '/images/photography/carousel/ph-car-05.JPG',
+    alt: 'Nocturnal Contemplations of Hope',
+    title: 'Nocturnal Contemplations of Hope',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 6,
+    src: '/images/photography/carousel/ph-car-06.JPG',
+    alt: 'Sardonic Smile',
+    title: 'Sardonic Smile',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 7,
+    src: '/images/photography/carousel/ph-car-07.JPG',
+    alt: 'sweet melancholia of timeless being - …and birds announced her substance',
+    title: 'sweet melancholia of timeless being - …and birds announced her substance',
+    description: '100 cm x 160 cm'
+  },
+  {
+    position: 8,
+    src: '/images/photography/carousel/ph-car-08.JPG',
+    alt: 'Indigo Dreams of Blue',
+    title: 'Indigo Dreams of Blue',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 9,
+    src: '/images/photography/carousel/ph-car-09.JPG',
+    alt: 'Awaiting Hope',
+    title: 'Awaiting Hope',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 10,
+    src: '/images/photography/carousel/ph-car-10.JPG',
+    alt: 'Triptych',
+    title: 'Triptych',
+    description: '??? cm x ??? cm'
+  },
+  {
+    position: 11,
+    src: '/images/photography/carousel/ph-car-11.JPG',
+    alt: 'The Infinite visions of time',
+    title: 'The Infinite visions of time',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 12,
+    src: '/images/photography/carousel/ph-car-12.JPG',
+    alt: 'The Ecstatic Recollection of Time',
+    title: 'The Ecstatic Recollection of Time',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 13,
+    src: '/images/photography/carousel/ph-car-13.JPG',
+    alt: 'anticipating hope',
+    title: 'anticipating hope',
+    description: '80 cm x 100 cm'
+  },
+  {
+    position: 14,
+    src: '/images/photography/carousel/ph-car-14.JPG',
+    alt: 'The Achronic Remembrance of Self',
+    title: 'The Achronic Remembrance of Self',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 15,
+    src: '/images/photography/carousel/ph-car-15.JPG',
+    alt: 'Echo of Eternity',
+    title: 'Echo of Eternity',
+    description: '215 cm x 80 cm'
+  },
+  {
+    position: 16,
+    src: '/images/photography/carousel/ph-car-16.JPG',
+    alt: 'The apparition of dreams to come',
+    title: 'The apparition of dreams to come',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 17,
+    src: '/images/photography/carousel/ph-car-17.JPG',
+    alt: 'The ecstatic recollection of self',
+    title: 'The ecstatic recollection of self',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 18,
+    src: '/images/photography/carousel/ph-car-18.JPG',
+    alt: 'Euphoria',
+    title: 'Euphoria',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 19,
+    src: '/images/photography/carousel/ph-car-19.JPG',
+    alt: 'The scream os silence',
+    title: 'The scream os silence',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 20,
+    src: '/images/photography/carousel/ph-car-21.JPG',
+    alt: 'Hope is a glance at Infinity',
+    title: 'Hope is a glance at Infinity',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 21,
+    src: '/images/photography/carousel/ph-car-21.JPG',
+    alt: 'The illusion of space',
+    title: 'The illusion of space',
+    description: '80 cm x 100 cm'
+  },
+  {
+    position: 22,
+    src: '/images/photography/carousel/ph-car-22.JPG',
+    alt: 'the maiden and the shadow',
+    title: 'the maiden and the shadow',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 23,
+    src: '/images/photography/carousel/ph-car-23.JPG',
+    alt: '…and her thoughts defined the universe',
+    title: '…and her thoughts defined the universe',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 24,
+    src: '/images/photography/carousel/ph-car-24.JPG',
+    alt: 'The eternal struggle',
+    title: 'The eternal struggle',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 25,
+    src: '/images/photography/carousel/ph-car-25.JPG',
+    alt: 'rapture',
+    title: 'rapture',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 26,
+    src: '/images/photography/carousel/ph-car-26.JPG',
+    alt: 'The ecstatic renaissance of time',
+    title: 'The ecstatic renaissance of time',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 27,
+    src: '/images/photography/carousel/ph-car-27.JPG',
+    alt: 'whispering secrets to space beyond time',
+    title: 'whispering secrets to space beyond time',
+    description: '100 cm x 80 cm'
+  },
+  {
+    position: 28,
+    src: '/images/photography/carousel/ph-car-28.JPG',
+    alt: 'whispering secrets to space beyond time',
+    title: 'whispering secrets to space beyond time',
+    description: '160 cm x 80 cm'
+  }
+].sort((a, b) => a.position! - b.position!) as GenericItemType[];
+
 export const recentPaintingsCarouselEntries = [
   {
     position: 1,

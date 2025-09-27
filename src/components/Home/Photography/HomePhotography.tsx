@@ -4,7 +4,7 @@ import {useState} from "react";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 
-import {photoFilenames} from "@/assets/values";
+import {photographyCarouselFilenames} from "@/assets/values";
 
 type imageType = {
 	src: string;
@@ -13,22 +13,14 @@ type imageType = {
 	description?: string;
 }
 
-const startingPhoto =  {
-  position: 40,
-  src: "/images/photography/040.JPG",
-  alt: "Img 40",
-  title: 'Sardonic Smile',
-  description: "100 cm x 80 cm"
-};
-
 export default function HomePhotography() {
   /** HOOKS **/
-  const [selectedPhoto, setSelectedPhoto] = useState<imageType | null>(startingPhoto);
+  const [selectedPhoto, setSelectedPhoto] = useState<imageType | null>(photographyCarouselFilenames[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
   const selectImageHandler = (imageData: imageType) => {
-    // console.log("Selected image: ", imagePath);
+    // console.log('Selected image: ', imageData);
 	  setSelectedPhoto(imageData);
   };
 
@@ -52,7 +44,7 @@ export default function HomePhotography() {
       />
       <div className={'ImageTitle'}>{selectedPhoto?.title}</div>
       <div className={'ImageDescription'}>{selectedPhoto?.description}</div>
-      <PreviewCarousel items={photoFilenames} onSelect={selectImageHandler} ></PreviewCarousel>
+      <PreviewCarousel items={photographyCarouselFilenames} onSelect={selectImageHandler} ></PreviewCarousel>
     </div>
     <PhotoViewer
       photo={selectedPhoto} 
