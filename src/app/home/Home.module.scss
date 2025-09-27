@@ -64,6 +64,11 @@
     font-family: 'Lato Medium', sans-serif;
     //font-family: "CinzelRegular", sans-serif;
     font-size: 1.25rem;
+    text-align: justify;
+
+    &:nth-child(2) {
+      margin-top: 0;
+    }
   }
 }
 
