@@ -20,11 +20,10 @@
 - [X] add zoom feature on carousel preview
 - [ ] thoughts of future days gone by  II and I (test putting both together)
 - [X] Euphoria replace The Sweet Melancholia of Timeless Being
-- [ ] new paintings then add the following
-- [ ] paintings - Eudemonia first
-- [ ] 1st athena triptych, and then each one standalone
-- [ ] 2nd Athena in paris
-- [ ] 3rd Deception of spring
-- [ ] The temptation of inoocence
-- [ ] "The future awaits" said the flower
-- 
+- [X] new paintings then add the following
+- [X] paintings - Eudemonia first
+- [X] 1st athena triptych, and then each one standalone
+- [X] 2nd Athena in paris
+- [X] 3rd Deception of spring
+- [X] The temptation of inoocence
+- [X] "The future awaits" said the flower
