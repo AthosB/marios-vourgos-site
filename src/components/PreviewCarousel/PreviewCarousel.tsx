@@ -15,17 +15,19 @@ interface CarouselItemProps {
   onSelect?: (imagePath: GenericItemType) => void;
   loopable?: boolean;
   autoPlay?: {duration: number; pauseOnMouseEnter: boolean;};
+  showDescription?: boolean;
 }
 
 export default function PreviewCarousel({
   items = [] as GenericItemType[],
   loopable = undefined,
   autoPlay = undefined,
+  showDescription = false,
   onSelect
 }: CarouselItemProps) {
   const isMobile = window.innerWidth <= 768;
 
-  const drawingsFilenames = items?.slice(0, 10);
+  const drawingsFilenames = items?.slice();
 
   const slides = () => drawingsFilenames.map((paintingItem: GenericItemType, paintingsItemIndex: number) => (
     <SwiperSlide key={`paintings-item-${paintingsItemIndex}`}
@@ -35,7 +37,7 @@ export default function PreviewCarousel({
         src={paintingItem.src}
         alt={paintingItem.alt}
         title={`${paintingItem.title || ('Painting ' + paintingsItemIndex + 1)}`}
-        description={paintingItem.description as string || undefined}
+        description={showDescription ? paintingItem.description as string : undefined}
         height={isMobile ? undefined : 250}
         width={isMobile ? 200 : undefined}
         className={styles.CarouselItem}
