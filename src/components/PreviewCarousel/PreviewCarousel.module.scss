@@ -19,10 +19,17 @@
 
   .Title {
     display: block;
+    font-size: 0.8rem;
   }
 
   .Description {
     display: block;
+  }
+
+  .Disclaimer {
+    display: block;
+    font-size: 0.7rem;
+    opacity: 0.7;
   }
 }
 

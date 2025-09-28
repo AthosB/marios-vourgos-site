@@ -8,21 +8,25 @@ import "swiper/css/pagination";
 import styles from './PreviewCarousel.module.scss';
 import {GenericItemType} from "@/Types/types";
 
-import CarouselItem  from "@/components/PreviewCarousel/CarouselItem";
+import CarouselItem from "@/components/PreviewCarousel/CarouselItem";
 
 interface CarouselItemProps {
   items: GenericItemType[];
   onSelect?: (imagePath: GenericItemType) => void;
   loopable?: boolean;
-  autoPlay?: {duration: number; pauseOnMouseEnter: boolean;};
+  autoPlay?: { duration: number; pauseOnMouseEnter: boolean; };
+  showTitle?: boolean;
   showDescription?: boolean;
+  disclaimer?: string;
 }
 
 export default function PreviewCarousel({
   items = [] as GenericItemType[],
   loopable = undefined,
   autoPlay = undefined,
+  showTitle = true,
   showDescription = false,
+  disclaimer,
   onSelect
 }: CarouselItemProps) {
   const isMobile = window.innerWidth <= 768;
@@ -31,15 +35,25 @@ export default function PreviewCarousel({
 
   const slides = () => drawingsFilenames.map((paintingItem: GenericItemType, paintingsItemIndex: number) => (
     <SwiperSlide key={`paintings-item-${paintingsItemIndex}`}
-      style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%", columnGap: isMobile ? '4px' : 'unset'}}
+      style={
+        {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100%",
+          width: 'min-content !important',
+          columnGap: isMobile ? '4px' : 'unset'
+        }
+      }
     >
       <CarouselItem
         src={paintingItem.src}
         alt={paintingItem.alt}
-        title={`${paintingItem.title || ('Painting ' + paintingsItemIndex + 1)}`}
+        title={showTitle ? paintingItem.title as string : undefined}
         description={showDescription ? paintingItem.description as string : undefined}
+        disclaimer={disclaimer}
         height={isMobile ? undefined : 250}
-        width={isMobile ? 200 : undefined}
+        width={isMobile ? 200 : 'min-content !important'}
         className={styles.CarouselItem}
         onClick={() => clickPaintingHandler(paintingItem)}
       />

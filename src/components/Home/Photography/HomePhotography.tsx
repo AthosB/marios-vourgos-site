@@ -38,16 +38,23 @@ export default function HomePhotography() {
       <img
         src={selectedPhoto?.src || '/images/home-photography-first.JPG'}
         alt={selectedPhoto?.title || "Photography"}
-        height={720}
+        width={360}
         style={{ marginBottom: '16px' }}
         onClick={viewPhotoHandler}
       />
       <div className={'ImageTitle'}>{selectedPhoto?.title}</div>
       <div className={'ImageDescription'}>{selectedPhoto?.description}</div>
-      <PreviewCarousel items={photographyCarouselFilenames} onSelect={selectImageHandler} ></PreviewCarousel>
+      <div className={'ImageDisclaimer'}>Disclaimer: All photos are original photos as shot without any digital manipulation</div>
+      <PreviewCarousel
+        items={photographyCarouselFilenames}
+        showTitle={false}
+        showDescription={false}
+        onSelect={selectImageHandler}
+      />
     </div>
     <PhotoViewer
-      photo={selectedPhoto} 
+      photo={selectedPhoto}
+      disclaimer={'Disclaimer: All photos are original photos as shot without any digital manipulation'}
       open={openPhotoViewer}
       onClose={closePhotoViewerHandler}
     />

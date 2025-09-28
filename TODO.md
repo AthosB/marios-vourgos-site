@@ -14,12 +14,12 @@
 - [X] Home page: intro video, photos, about, paintings
 - [X] move about after the photo carousel
 - [ ] fix carousel navigation chevrons
-- [ ] decrease size of carousel preview text (title, description/dimensions)
-- [ ] under Photography section under each image preview under dimensions - like old photo, add "The photogeaphs were not manupul..."
-- [ ] Carousel photos keep uneven thumbs to fit photos and now squash on wide ones
-- [ ] add zoom feature on carousel preview
+- [X] decrease size of carousel preview text (title, description/dimensions)
+- [X] under Photography section under each image preview under dimensions - like old photo, add "The photogeaphs were not manupul..."
+- [X] Carousel photos keep uneven thumbs to fit photos and now squash on wide ones
+- [X] add zoom feature on carousel preview
 - [ ] thoughts of future days gone by  II and I (test putting both together)
-- [ ] Euphoria replace The Sweet Melancholia of Timeless Being
+- [X] Euphoria replace The Sweet Melancholia of Timeless Being
 - [ ] new paintings then add the following
 - [ ] paintings - Eudemonia first
 - [ ] 1st athena triptych, and then each one standalone

@@ -7,9 +7,10 @@ interface CarouselItemProps {
   alt: string;
   title?: string;
   description?: string;
+  disclaimer?: string;
   onClick?: () => void;
   height?: number;
-  width?: number;
+  width?: number | string;
   elevated?: boolean;
   className?: string;
 }
@@ -20,10 +21,12 @@ export default function CarouselItem({
   title = '',
   description,
   onClick,
-  height = 300,
+  height,
+  width,
   elevated = false,
   className = '',
 }: CarouselItemProps) {
+
   return (
     <div className={`${styles.CarouselItem}${(className?.length > 0) ? ' ' + className : ''}`} onClick={() => {
       if (onClick) onClick();
@@ -34,6 +37,7 @@ export default function CarouselItem({
           src={src}
           alt={alt}
           height={height}
+          width={width}
         />
       </div>
       <div className={styles.Title}>{title}</div>

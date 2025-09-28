@@ -305,7 +305,8 @@ $accent-color: #fcb040;
 }
 
 .ImageTitle {
-  font-size: 2rem;
+  //font-size: 2rem;
+  font-size: 1.5rem;
   font-family: 'CinzelRegular', sans-serif;
   margin-bottom: 4px;
   text-align: center;
@@ -313,11 +314,16 @@ $accent-color: #fcb040;
 }
 
 .ImageDescription {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-family: 'CinzelRegular', sans-serif;
   margin-bottom: 16px;
   color: var(--mario-accent-color);
   opacity: 0.8;
+}
+
+.ImageDisclaimer {
+  font-family: 'CinzelRegular', sans-serif;
+  font-size: 0.7rem;
 }
 
 @media only screen /* Phone Portrait */

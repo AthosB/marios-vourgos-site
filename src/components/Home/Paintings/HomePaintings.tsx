@@ -8,7 +8,7 @@ import {paintingsEntries} from "@/assets/values";
 
 export default function HomePaintings() {
   /** HOOKS **/
-  const [selectedPainting, setSelectedPainting] = useState<GenericItemType>({position: 1, src: '/images/paintings/img-001.jpg', alt: 'Painting 1', title: 'Eternity', description: 'Acrylics on canvas - 148 cm x 105 cm'});
+  const [selectedPainting, setSelectedPainting] = useState<GenericItemType>(paintingsEntries[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
@@ -26,17 +26,28 @@ export default function HomePaintings() {
 
   /** RENDER **/
   return <>
-    <div style={{width:'100%',height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+    <div style={{
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center'
+    }}>
       <img
         src={selectedPainting?.src || '/images/paintings/img-001.jpg'}
         alt={selectedPainting?.title || "Paintings"}
         height={720}
-        style={{ marginBottom: '16px' }}
+        style={{marginBottom: '16px'}}
         onClick={viewPhotoHandler}
       />
       <div className={'ImageTitle'}>{selectedPainting.title}</div>
       <div className={'ImageDescription'}>{selectedPainting.description}</div>
-      <PreviewCarousel items={paintingsEntries} onSelect={selectPaintingHandler}></PreviewCarousel>
+      <PreviewCarousel
+        items={paintingsEntries}
+        showDescription={false}
+        onSelect={selectPaintingHandler}
+      />
     </div>
     <PhotoViewer
       photo={selectedPainting}
