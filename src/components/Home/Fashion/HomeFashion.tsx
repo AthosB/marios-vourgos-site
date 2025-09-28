@@ -44,7 +44,11 @@ export default function HomeFashion() {
       />
       <div className={'ImageTitle'}>{selectedFashion?.title}</div>
       <div className={'ImageDescription'}>{selectedFashion?.description}</div>
-      <PreviewCarousel items={fashionEntries} onSelect={selectImageHandler} ></PreviewCarousel>
+      <PreviewCarousel
+        items={fashionEntries}
+        showTitle={false}
+        onSelect={selectImageHandler}
+      />
     </div>
     <PhotoViewer
       photo={selectedFashion}

@@ -4,11 +4,11 @@ import {useState} from "react";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
 import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
-import {paintingsEntries} from "@/assets/values";
+import {paintingsCarousel} from "@/assets/values";
 
 export default function HomePaintings() {
   /** HOOKS **/
-  const [selectedPainting, setSelectedPainting] = useState<GenericItemType>(paintingsEntries[0]);
+  const [selectedPainting, setSelectedPainting] = useState<GenericItemType>(paintingsCarousel[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
@@ -44,7 +44,8 @@ export default function HomePaintings() {
       <div className={'ImageTitle'}>{selectedPainting.title}</div>
       <div className={'ImageDescription'}>{selectedPainting.description}</div>
       <PreviewCarousel
-        items={paintingsEntries}
+        items={paintingsCarousel}
+        showTitle={false}
         showDescription={false}
         onSelect={selectPaintingHandler}
       />
