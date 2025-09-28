@@ -1,15 +1,30 @@
 - [X] images no rotation
-- [ ] about image in home page (check assets), title: "In an artist's head" (xls document)
+- [X] about image in home page (check assets), title: "In an artist's head" (xls document)
 - after video section --> photographs carousel. 1 photo big at start center, and under it the carousel. When photo click on carousel, open large photo modal. Check existing live website --> photography
-- [ ] about text, realign with paragraphs (check about word document)
-- [ ] after about --> paintings
-- [ ] then literature
-- [ ] last literature
+- [X] about text, realign with paragraphs (check about word document)
+- [X] after about --> paintings
+- [X] then literature
+- [X] last literature
 
-- [ ] in carousel add wide photo from vasos, "multiple print of a single photo"
+- [X] in carousel add wide photo from vasos, "multiple print of a single photo"
 
 - [X] images no rotation
-- [ ] between section 0 and 1 in home page, replace lips with bird ornament
-- [ ] 1st photo above carousel SSL11041
-- [ ] Home page: intro video, photos, about, paintings
-- [ ] move about after the photo carousel
+- [X] between section 0 and 1 in home page, replace lips with bird ornament
+- [X] 1st photo above carousel SSL11041
+- [X] Home page: intro video, photos, about, paintings
+- [X] move about after the photo carousel
+- [ ] fix carousel navigation chevrons
+- [ ] decrease size of carousel preview text (title, description/dimensions)
+- [ ] under Photography section under each image preview under dimensions - like old photo, add "The photogeaphs were not manupul..."
+- [ ] Carousel photos keep uneven thumbs to fit photos and now squash on wide ones
+- [ ] add zoom feature on carousel preview
+- [ ] thoughts of future days gone by  II and I (test putting both together)
+- [ ] Euphoria replace The Sweet Melancholia of Timeless Being
+- [ ] new paintings then add the following
+- [ ] paintings - Eudemonia first
+- [ ] 1st athena triptych, and then each one standalone
+- [ ] 2nd Athena in paris
+- [ ] 3rd Deception of spring
+- [ ] The temptation of inoocence
+- [ ] "The future awaits" said the flower
+- 

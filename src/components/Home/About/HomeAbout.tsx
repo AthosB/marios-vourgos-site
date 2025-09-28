@@ -28,7 +28,7 @@ export default function HomeAbout() {
       <p>I kept these photographs private for many years, more than ten years… And then prior to a solo painting
         exhibition I decided to print a couple of them on a large scale, just to test if these could be shown along my
         paintings. When the art curator looked at them for the first time, she exclaimed “and what the hell is that?”.
-        And when I explained that these were photographs non digitally manipulated insisted to look at them through my
+        And when I explained that these were photographs non digitally manipulated, insisted to look at them through my
         digital camera to be convinced. She carefully saw and closely observed all twenty-five, or so, of them. And
         categorically decided that these photographs not only deserved but demanded and had to be shown on their
         own.</p>

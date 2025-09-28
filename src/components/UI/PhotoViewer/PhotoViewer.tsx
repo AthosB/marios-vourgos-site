@@ -1,23 +1,35 @@
+import {useState} from "react";
 import Dialog from "@mui/material/Dialog";
 import styles from "./PhotoViewer.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
 
 interface photoViewerProps {
-	photo: { src: string; alt: string; title?: string; description?: string } | null;
-	open?: boolean;
-	onClose?: () => void;
+  photo: { src: string; alt: string; title?: string; description?: string } | null;
+  open?: boolean;
+  onClose?: () => void;
 }
 
 export default function PhotoViewer({
-	                                    photo = null,
-	                                    open = false,
-	                                    onClose = () => null
+  photo = null,
+  open = false,
+  onClose = () => null
 }: photoViewerProps) {
+  /** HOOKS **/
+  const [zoom, setZoom] = useState(1);
+  const [origin, setOrigin] = useState({ x: "50%", y: "50%" });
 
   /** CONSTS **/
   const closeModalHandler = () => {
     if (onClose) onClose();
+  };
+
+  const onImageClickHandler = (e: MouseEvent<HTMLImageElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setOrigin({ x: `${x}%`, y: `${y}%` });
+    setZoom(zoom === 1 ? 4 : 1);
   };
 
   /** RENDER **/
@@ -41,7 +53,14 @@ export default function PhotoViewer({
           title={photo ? `Photography: ${photo.alt}` : 'Photograph'}
           width={500}
           height={300}
-          style={{width: 'auto', height: '90vh', objectFit: 'contain'}}
+          style={{
+            width: 'auto', height: '90vh', objectFit: 'contain',
+            transform: `scale(${zoom})`,
+            transformOrigin: `${origin.x} ${origin.y}`,
+            transition: 'transform 0.3s',
+            cursor: zoom === 1 ? 'zoom-in' : 'zoom-out'
+          }}
+          onClick={onImageClickHandler}
         />}
         <div className={styles.PhotoTitle}>{photo?.title}</div>
         <div className={styles.PhotoDescription}>{photo?.description}</div>
