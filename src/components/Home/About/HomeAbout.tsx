@@ -7,7 +7,7 @@ export default function HomeAbout() {
       <div className={'about-image'}>
         <img
           src="/images/home-about.JPG"
-          width={194}
+          width={320}
           alt="Picture of the author"
         />
       </div>

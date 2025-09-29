@@ -1110,63 +1110,84 @@ export const paintingsEntries = [
 export const paintingsCarousel = [
   {
     position: 10,
-    src: '/images/paintings/carousel/Eudaimonia.jpg',
+    src: '/images/paintings/carousel/pa-ca-01.jpg',
     alt: 'Eudaimonia',
     title: 'Eudaimonia',
     description: 'Acrylics on canvas - 147 cm x 105 cm'
   },
   {
     position: 20,
-    src: '/images/paintings/carousel/The illusion of time (Triptych).jpg',
+    src: '/images/paintings/carousel/pa-ca-02.jpg',
     alt: 'The illusion of time (Triptych)',
     title: 'The illusion of time (Triptych)',
     description: 'Acrylics on canvas - 118 cm x 83 cm (individual painting)'
   },
   {
     position: 30,
-    src: '/images/paintings/carousel/Morning Promises.jpg',
+    src: '/images/paintings/carousel/pa-ca-03.jpg',
     alt: 'Morning Promises',
     title: 'Morning Promises',
     description: 'Acrylics on canvas - 118 cm x 83 cm'
   },
   {
     position: 40,
-    src: '/images/paintings/carousel/Afternoon escape.jpg',
+    src: '/images/paintings/carousel/pa-ca-04.jpg',
     alt: 'Afternoon escape',
     title: 'Afternoon escape',
     description: 'Acrylics on canvas - 118 cm x 83 cm'
   },
   {
     position: 50,
-    src: '/images/paintings/carousel/Evening reminiscing of day.jpg',
+    src: '/images/paintings/carousel/pa-ca-05.jpg',
     alt: 'Evening reminiscing of day',
     title: 'Evening reminiscing of day',
     description: 'Acrylics on canvas - 118 cm x 83 cm'
   },
   {
     position: 60,
-    src: '/images/paintings/carousel/Athena in Paris.jpg',
+    src: '/images/paintings/carousel/pa-ca-06.jpg',
     alt: 'Athena in Paris',
     title: 'Athena in Paris',
     description: 'Acrylics on canvas - 135 cm x 90 cm'
   },
   {
+    position: 62,
+    src: '/images/paintings/carousel/pa-ca-10.jpg',
+    alt: 'The Stare of things to come... (Demian)',
+    title: 'The Stare of things to come... (Demian)',
+    description: 'Acrylics on canvas - 100 cm x 67 cm'
+  },
+  {
+    position: 64,
+    src: '/images/paintings/carousel/pa-ca-11.jpg',
+    alt: '...remembering himself',
+    title: '...remembering himself',
+    description: 'Acrylics on canvas - 100 cm x 67 cm'
+  },
+  {
+    position: 66,
+    src: '/images/paintings/carousel/pa-ca-12.jpg',
+    alt: 'Zero is infinity reversed to time (cosmos)',
+    title: 'Zero is infinity reversed to time (cosmos)',
+    description: 'Acrylics on canvas - 100 cm x 67 cm'
+  },
+  {
     position: 70,
-    src: '/images/paintings/carousel/The deception of Spring (Portrait of Tamara De Lempika).jpg',
+    src: '/images/paintings/carousel/pa-ca-07.jpg',
     alt: 'The deception of Spring (Portrait of Tamara De Lempika)',
     title: 'The deception of Spring (Portrait of Tamara De Lempika)',
     description: 'Acrylics on canvas - 118.5 cm x 97.5 cm'
   },
   {
-    position: 50,
-    src: '/images/paintings/carousel/The temptation of innocence - Acrylics on canvas.jpg',
+    position: 80,
+    src: '/images/paintings/carousel/pa-ca-08.jpg',
     alt: 'The temptation of innocence - Acrylics on canvas',
     title: 'The temptation of innocence - Acrylics on canvas',
     description: 'Acrylics on canvas - 130 cm x 105 cm'
   },
   {
-    position: 50,
-    src: '/images/paintings/carousel/The future awaits said the flower - Oil, acrylics & pastels on canvas.jpg',
+    position: 90,
+    src: '/images/paintings/carousel/pa-ca-09.jpg',
     alt: 'The future awaits said the flower',
     title: 'The future awaits said the flower',
     description: 'Oil, acrylics & pastels on canvas - 162 cm x 113 cm'

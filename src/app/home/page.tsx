@@ -31,7 +31,7 @@ export default function HomePage() {
         position="left"
         ornament={
           <img
-            src="/images/ornament_flower.png"
+            src="/images/ornament_egg.png"
             alt="Ornament Flower"
             width={64}
             height={128}
@@ -73,13 +73,14 @@ export default function HomePage() {
         <HomeFashion />
       </div>
       <SectionSeparator
-        position="right"
+        position="left"
         ornament={
           <img
             src="/images/ornament_bird.png"
-            alt="Ornament Lips"
+            alt="Ornament Bird"
             width={64}
             height={64}
+            style={{marginTop: '32px'}}
           />
         }
       ></SectionSeparator>

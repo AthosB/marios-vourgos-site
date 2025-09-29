@@ -25,5 +25,9 @@
 - [X] 1st athena triptych, and then each one standalone
 - [X] 2nd Athena in paris
 - [X] 3rd Deception of spring
-- [X] The temptation of inoocence
+- [X] The temptation of innocence
 - [X] "The future awaits" said the flower
+- [ ] check blue photos from mobile lines
+- [X] increase about photo size
+- [X] lips on fashion
+- [X] send updated mario sig to Oresis and marios
