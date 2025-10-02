@@ -1116,6 +1116,13 @@ export const paintingsCarousel = [
     description: 'Acrylics on canvas - 147 cm x 105 cm'
   },
   {
+    position: 14,
+    src: '/images/paintings/carousel/pa-ca-01c.jpg',
+    alt: 'An orange state of red',
+    title: 'An orange state of red',
+    description: 'Acrylics on canvas - 150 cm x 115 cm'
+  },
+  {
     position: 20,
     src: '/images/paintings/carousel/pa-ca-02.jpg',
     alt: 'The illusion of time (Triptych)',
@@ -1142,6 +1149,20 @@ export const paintingsCarousel = [
     alt: 'Evening reminiscing of day',
     title: 'Evening reminiscing of day',
     description: 'Acrylics on canvas - 118 cm x 83 cm'
+  },
+  {
+    position: 52,
+    src: '/images/paintings/carousel/pa-ca-05b.jpg',
+    alt: 'The Achronic Remembrances of Time',
+    title: 'The Achronic Remembrances of Time',
+    description: 'Acrylics on canvas - 135 cm x 90 cm'
+  },
+  {
+    position: 54,
+    src: '/images/paintings/carousel/pa-ca-05c.jpg',
+    alt: 'Innocent Memories of Red',
+    title: 'Innocent Memories of Red',
+    description: 'Acrylics on canvas - 135 cm x 90 cm'
   },
   {
     position: 60,
@@ -1178,13 +1199,13 @@ export const paintingsCarousel = [
     title: 'The deception of Spring (Portrait of Tamara De Lempika)',
     description: 'Acrylics on canvas - 118.5 cm x 97.5 cm'
   },
-  {
-    position: 80,
-    src: '/images/paintings/carousel/pa-ca-08.jpg',
-    alt: 'The temptation of innocence - Acrylics on canvas',
-    title: 'The temptation of innocence - Acrylics on canvas',
-    description: 'Acrylics on canvas - 130 cm x 105 cm'
-  },
+  // {
+  //   position: 80,
+  //   src: '/images/paintings/carousel/pa-ca-08.jpg',
+  //   alt: 'The temptation of innocence - Acrylics on canvas',
+  //   title: 'The temptation of innocence - Acrylics on canvas',
+  //   description: 'Acrylics on canvas - 130 cm x 105 cm'
+  // },
   {
     position: 90,
     src: '/images/paintings/carousel/pa-ca-09.jpg',
