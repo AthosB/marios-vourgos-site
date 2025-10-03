@@ -27,7 +27,8 @@
 - [X] 3rd Deception of spring
 - [X] The temptation of innocence
 - [X] "The future awaits" said the flower
-- [ ] check blue photos from mobile lines
+- [X] check blue photos from mobile lines
 - [X] increase about photo size
 - [X] lips on fashion
 - [X] send updated mario sig to Oresis and marios
+- [ ] add more contrast/vibrance on Eudemonia, and Morning Promises

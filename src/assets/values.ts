@@ -1206,13 +1206,13 @@ export const paintingsCarousel = [
   //   title: 'The temptation of innocence - Acrylics on canvas',
   //   description: 'Acrylics on canvas - 130 cm x 105 cm'
   // },
-  {
-    position: 90,
-    src: '/images/paintings/carousel/pa-ca-09.jpg',
-    alt: 'The future awaits said the flower',
-    title: 'The future awaits said the flower',
-    description: 'Oil, acrylics & pastels on canvas - 162 cm x 113 cm'
-  },
+  // {
+  //   position: 90,
+  //   src: '/images/paintings/carousel/pa-ca-09.jpg',
+  //   alt: 'The future awaits said the flower',
+  //   title: 'The future awaits said the flower',
+  //   description: 'Oil, acrylics & pastels on canvas - 162 cm x 113 cm'
+  // },
 ];
 
 export const fashionEntries = [
