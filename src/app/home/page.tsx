@@ -43,13 +43,14 @@ export default function HomePage() {
         <HomeAbout />
       </div>
       <SectionSeparator
-        position="center"
+        position="left"
         ornament={
           <img
             src="/images/ornament_bird.png"
             alt="Ornament Bird"
             width={64}
             height={64}
+            style={{marginBottom: '-56px'}}
           />
         }
       ></SectionSeparator>

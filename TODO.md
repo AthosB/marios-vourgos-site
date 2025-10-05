@@ -32,3 +32,19 @@
 - [X] lips on fashion
 - [X] send updated mario sig to Oresis and marios
 - [ ] add more contrast/vibrance on Eudemonia, and Morning Promises
+- [ ] fix flower ornament on mobile view
+- [ ] blue photos show vertical lines on mobile view android meium size screen
+, check with samsung phone
+- [ ] on android phone, photography carousel does not scroll to the end to show all photos
+- [ ] About home page on android phone text is hidden (check safe area margin/padding)
+- [ ] on android paintings preview paintings are clipped, again safe area problem
+- [ ] triptych on both iphone and android are clipped (on selected photo) - resize/contain
+- [ ] on android phone, back button navigates away form page and to the previous page, instead of same page previous view
+- [X] on paintings, the bird ornament to be moved to the left
+- [ ] replace egg with (replace with hand fom old SM)
+- [X] slightly increase disclaimer text size
+- [ ] change literature ornament
+- [ ] fix scratches on scanned fashion photos
+- [ ] remove plug and cable on the white wall from scanned photo
+- [ ] consider sub-categories for fashion, paintings, literature with "Press Coverage"
+- [ ] 
