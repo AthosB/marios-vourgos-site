@@ -3,6 +3,7 @@
 
 import {useEffect, useState, ReactNode} from 'react';
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 
 const MobileLayout = dynamic(() => import('@/components/layouts/MobileLayout'), {ssr: false});
 const DesktopLayout = dynamic(() => import('@/components/layouts/DesktopLayout'), {ssr: false});
@@ -95,7 +96,14 @@ function useLayoutChoice(breakpoint = '(max-width: 767px)') {
 }
 
 export default function AppLayoutChooser({children}: { children: ReactNode }) {
+
+  const pathname = usePathname();
   const choice = useLayoutChoice();
+
+  if (pathname === '/view') {
+    const BlankLayout = dynamic(() => import('@/components/layouts/BlankLayout'), {ssr: false});
+    return <BlankLayout>{children}</BlankLayout>;
+  }
 
   // Render nothing until we know the layout (prevents hydration mismatch)
   if (choice === null) return <div suppressHydrationWarning />;

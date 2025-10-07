@@ -25,7 +25,9 @@ export default function HomePhotography() {
   };
 
   const viewPhotoHandler = () => {
-    setOpenPhotoViewer(true);
+    localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
+    window.location.href = '/view';
+    // setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {

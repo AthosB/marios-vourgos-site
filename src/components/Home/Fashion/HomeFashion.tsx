@@ -25,7 +25,9 @@ export default function HomeFashion() {
   };
 
   const viewPhotoHandler = () => {
-    setOpenPhotoViewer(true);
+    localStorage.setItem('previewData', JSON.stringify(selectedFashion));
+    window.location.href = '/view';
+    // setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {

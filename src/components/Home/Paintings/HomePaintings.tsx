@@ -17,7 +17,9 @@ export default function HomePaintings() {
   }
 
   const viewPhotoHandler = () => {
-    setOpenPhotoViewer(true);
+    localStorage.setItem('previewData', JSON.stringify(selectedPainting));
+    window.location.href = '/view';
+    // setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {

@@ -61,6 +61,7 @@ export default function PreviewCarousel({
   ));
 
   const clickPaintingHandler = (paintingData: GenericItemType) => {
+    localStorage.setItem('previewData', JSON.stringify(paintingData));
     if (onSelect) onSelect(paintingData);
   }
 
