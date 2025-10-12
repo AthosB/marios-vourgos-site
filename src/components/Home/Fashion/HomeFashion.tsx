@@ -1,6 +1,7 @@
 'use client';
 
 import {useState} from "react";
+import '@/styles/mario.scss';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
 import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
@@ -36,7 +37,7 @@ export default function HomeFashion() {
 
   /** RENDER **/
   return <>
-    <div style={{width:'100%',height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+    <div className="preview-canvas">
       <img
         src={selectedFashion?.src || ''}
         alt={selectedFashion?.title || "Fashion"}

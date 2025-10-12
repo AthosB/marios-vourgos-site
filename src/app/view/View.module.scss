@@ -10,10 +10,31 @@
   .Photo {
     height: calc(100dvh - 64px);
     width: max-content;
+    max-width: none;
     z-index: 200;
+    touch-action: manipulation;
 
     img {
-      height: calc(100dvh - 194px);
+      //height: calc(100dvh - 194px);
+      height: auto;
+    }
+  }
+}
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+  .Photo {
+    //height: max-content;
+    width: max-content;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: calc(100vw - 32px);
+      height: auto !important;
     }
   }
 }

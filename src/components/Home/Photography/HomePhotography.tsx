@@ -7,10 +7,10 @@ import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import {photographyCarouselFilenames} from "@/assets/values";
 
 type imageType = {
-	src: string;
-	alt: string;
-	title?: string;
-	description?: string;
+  src: string;
+  alt: string;
+  title?: string;
+  description?: string;
 }
 
 export default function HomePhotography() {
@@ -21,7 +21,7 @@ export default function HomePhotography() {
   /** CONSTS **/
   const selectImageHandler = (imageData: imageType) => {
     // console.log('Selected image: ', imageData);
-	  setSelectedPhoto(imageData);
+    setSelectedPhoto(imageData);
   };
 
   const viewPhotoHandler = () => {
@@ -36,17 +36,19 @@ export default function HomePhotography() {
 
   /** RENDER **/
   return <>
-    <div className={'HomePhotography'} style={{width:'100%',height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
+    <div className="preview-canvas">
       <img
         src={selectedPhoto?.src || '/images/home-photography-first.JPG'}
         alt={selectedPhoto?.title || "Photography"}
         width={360}
-        style={{ marginBottom: '16px' }}
+        style={{marginBottom: '16px'}}
         onClick={viewPhotoHandler}
       />
       <div className={'ImageTitle'}>{selectedPhoto?.title}</div>
       <div className={'ImageDescription'}>{selectedPhoto?.description}</div>
-      <div className={'ImageDisclaimer'}>Disclaimer: All photos are original photos as shot without any digital manipulation</div>
+      <div className={'ImageDisclaimer'}>Disclaimer: All photos are original photos as shot without any digital
+        manipulation
+      </div>
       <PreviewCarousel
         items={photographyCarouselFilenames}
         showTitle={false}

@@ -37,15 +37,14 @@
 , check with samsung phone
 - [ ] on android phone, photography carousel does not scroll to the end to show all photos
 - [X] About home page on android phone text is hidden (check safe area margin/padding)
-- [ ] on android paintings preview paintings are clipped, again safe area problem
+- [X] on android paintings preview paintings are clipped, again safe area problem
 - [X] consider full screen view to be on new page (fixes android back button navigating away issue)
-- [ ] triptych on both iphone and android are clipped (on selected photo) - resize/contain
-- [ ] on android phone, back button navigates away form page and to the previous page, instead of same page previous view
+- [X] triptych on both iphone and android are clipped (on selected photo) - resize/contain
+- [X] on android phone, back button navigates away form page and to the previous page, instead of same page previous view
 - [X] on paintings, the bird ornament to be moved to the left
-- [ ] replace egg with (replace with hand fom old SM)
+- [ ] replace egg with (replace with hand from old SM)
 - [X] slightly increase disclaimer text size
 - [ ] change literature ornament
 - [ ] fix scratches on scanned fashion photos
 - [ ] remove plug and cable on the white wall from scanned photo
 - [ ] consider sub-categories for fashion, paintings, literature with "Press Coverage"
-- [ ] 

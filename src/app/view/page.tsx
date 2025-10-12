@@ -4,6 +4,7 @@ import styles from './View.module.scss'
 import {GenericItemType} from "@/Types/types";
 import Image from "next/image";
 import React from "react";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function View() {
   /** PRES **/
@@ -11,6 +12,12 @@ export default function View() {
   const previewData = storedData ? JSON.parse(storedData) as GenericItemType : null;
   const showDisclaimer = (previewData && previewData.src && previewData.src.includes('photography')) as boolean;
 
+  /** CONSTS **/
+
+  const backButtonClickHandler = () => {
+    // localStorage.removeItem('previewData');
+    window.history.back();
+  }
 
   /** RENDER **/
   if(!previewData) return null;
@@ -20,6 +27,11 @@ export default function View() {
         src={'/logo1080p.png'}
         alt={'Mario Logo'} height={64} width={128}
         style={{position: 'absolute', top: '16px', left: '16px', zIndex: 100}}
+      />
+      <CloseIcon
+        onClick={backButtonClickHandler}
+        style={{position: 'absolute', top: '16px', right: '16px', zIndex: 100}}
+        fontSize={'large'}
       />
       <div className={styles.Photo}>
         <img src={previewData.src} alt="Preview" />

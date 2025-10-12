@@ -28,14 +28,7 @@ export default function HomePaintings() {
 
   /** RENDER **/
   return <>
-    <div style={{
-      width: '100%',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }}>
+    <div className="preview-canvas">
       <img
         src={selectedPainting?.src || '/images/paintings/img-001.jpg'}
         alt={selectedPainting?.title || "Paintings"}
