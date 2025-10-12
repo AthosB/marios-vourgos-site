@@ -19,7 +19,7 @@ export default function HomePage() {
             alt="Ornament Lips"
             width={64}
             height={132}
-            style={{marginTop: '-40px'}}
+            // style={{marginTop: '-40px'}}
           />
         }
       ></SectionSeparator>
@@ -50,7 +50,7 @@ export default function HomePage() {
             alt="Ornament Bird"
             width={64}
             height={64}
-            style={{marginBottom: '-56px'}}
+            // style={{marginBottom: '-56px'}}
           />
         }
       ></SectionSeparator>
@@ -81,7 +81,7 @@ export default function HomePage() {
             alt="Ornament Bird"
             width={64}
             height={64}
-            style={{marginTop: '32px'}}
+            // style={{marginTop: '32px'}}
           />
         }
       ></SectionSeparator>

@@ -7,18 +7,37 @@
 
   .Ornament {
     position: relative;
+    height: min-content;
     top: -2rem;
     //bottom: 0;
     z-index: 900;
+
+    img {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+    }
   }
 }
 
 @media only screen /* Phone Portrait */
-and (max-device-width: 550px) and (orientation: portrait) {
-  .Ornament {
-    img {
-      height: 40px;
-      width: unset;
+and (max-width: 550px) and (orientation: portrait) {
+  .SectionSeparator {
+
+    .Ornament {
+      top: unset;
+      height: auto;
+
+      img {
+        position: absolute;
+        top: -25px;
+        left: -25px;
+        //height: 40px;
+        //width: unset;
+        height: auto;
+        max-height: 54px;
+        width: unset;
+      }
     }
   }
 }

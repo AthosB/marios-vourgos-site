@@ -32,11 +32,11 @@
 - [X] lips on fashion
 - [X] send updated mario sig to Oresis and marios
 - [ ] add more contrast/vibrance on Eudemonia, and Morning Promises
-- [ ] fix flower ornament on mobile view
-- [ ] blue photos show vertical lines on mobile view android meium size screen
+- [X] fix flower ornament on mobile view
+- [ ] blue photos show vertical lines on mobile view android medium size screen
 , check with samsung phone
 - [ ] on android phone, photography carousel does not scroll to the end to show all photos
-- [ ] About home page on android phone text is hidden (check safe area margin/padding)
+- [X] About home page on android phone text is hidden (check safe area margin/padding)
 - [ ] on android paintings preview paintings are clipped, again safe area problem
 - [X] consider full screen view to be on new page (fixes android back button navigating away issue)
 - [ ] triptych on both iphone and android are clipped (on selected photo) - resize/contain
