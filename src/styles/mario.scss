@@ -319,6 +319,11 @@ $accent-color: #fcb040;
   //  padding: 0 2px;
   //  margin: 0 auto;
   //}
+  img {
+    min-height: 268px;
+    max-height: 50vh;
+    width: auto;
+  }
 }
 
 .ImageTitle {
@@ -369,6 +374,8 @@ and (max-device-width: 550px) and (orientation: portrait) {
       height: auto;
       padding: 0 8px;
       margin: 0 auto;
+      min-height: unset !important;
+      max-height: unset !important;
     }
   }
 

@@ -10,7 +10,9 @@ import HomeFashion from "@/components/Home/Fashion/HomeFashion";
 export default function HomePage() {
   return (
     <div className={'HomePage ' + styles.Home}>
-      <HomeVideo />
+      <div className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column + ' HomeSection'}>
+        <HomeVideo />
+      </div>
       <SectionSeparator
         position="right"
         ornament={
