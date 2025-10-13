@@ -25,7 +25,9 @@ export default function View() {
     <div className={styles.ViewPage}>
       <Image
         src={'/logo1080p.png'}
-        alt={'Mario Logo'} height={64} width={128}
+        alt={'Mario Logo'}
+        height={64}
+        width={128}
         style={{position: 'absolute', top: '16px', left: '16px', zIndex: 100}}
       />
       <CloseIcon
@@ -34,7 +36,11 @@ export default function View() {
         fontSize={'large'}
       />
       <div className={styles.Photo}>
-        <img src={previewData.src} alt="Preview" />
+        <img
+          src={previewData.src}
+          alt="Preview"
+          style={{ width: 'auto', display: 'block', margin: '0 auto', maxWidth: '100%' }}
+        />
         <div className={'ImageTitle'}>{previewData?.title}</div>
         <div className={'ImageDescription'} style={{textAlign: 'center'}}>{previewData?.description}</div>
         {showDisclaimer && <div className={'ImageDisclaimer'}>Disclaimer: All photos are original photos as shot without any digital
