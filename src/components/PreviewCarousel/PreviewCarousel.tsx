@@ -114,8 +114,7 @@ export default function PreviewCarousel({
   };
 
   const carouselSettings = {
-    dots: true,
-    appendDots: (dots: never) => <ul style={{ margin: 0 }}>{dots}</ul>,
+    dots: !isMobile,
     infinite: loopable,
     speed: 500,
     // slidesToShow: isMobile ? 5 : 7,
@@ -124,7 +123,7 @@ export default function PreviewCarousel({
     touchMove: true,
 
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 1,
     rows: 1,
     slidesPerRow: 1,
     variableWidth: true,
