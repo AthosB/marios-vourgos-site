@@ -1,20 +1,29 @@
 "use client"
-
-import {Swiper, SwiperSlide} from "swiper/react";
-import {Navigation, Pagination, Autoplay} from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import {CSSProperties, MouseEventHandler, FC} from 'react';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import './PreviewCarousel.css';
 import styles from './PreviewCarousel.module.scss';
 import {GenericItemType} from "@/Types/types";
 
 import CarouselItem from "@/components/PreviewCarousel/CarouselItem";
 
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
+type ArrowProps = {
+  className?: string;
+  style?: CSSProperties;
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLDivElement>;
+};
+
 interface CarouselItemProps {
   items: GenericItemType[];
   onSelect?: (imagePath: GenericItemType) => void;
   loopable?: boolean;
-  autoPlay?: { duration: number; pauseOnMouseEnter: boolean; };
+  autoPlay?: boolean;
   showTitle?: boolean;
   showDescription?: boolean;
   disclaimer?: string;
@@ -22,10 +31,10 @@ interface CarouselItemProps {
 
 export default function PreviewCarousel({
   items = [] as GenericItemType[],
-  loopable = undefined,
-  autoPlay = undefined,
+  loopable = false,
   showTitle = true,
   showDescription = false,
+  autoPlay = false,
   disclaimer,
   onSelect
 }: CarouselItemProps) {
@@ -34,30 +43,28 @@ export default function PreviewCarousel({
   const drawingsFilenames = items?.slice();
 
   const slides = () => drawingsFilenames.map((paintingItem: GenericItemType, paintingsItemIndex: number) => (
-    <SwiperSlide key={`paintings-item-${paintingsItemIndex}`}
-      style={
-        {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100%",
-          width: 'min-content !important',
-          columnGap: isMobile ? '4px' : 'unset'
-        }
-      }
-    >
-      <CarouselItem
-        src={paintingItem.src}
-        alt={paintingItem.alt}
-        title={showTitle ? paintingItem.title as string : undefined}
-        description={showDescription ? paintingItem.description as string : undefined}
-        disclaimer={disclaimer}
-        height={isMobile ? undefined : 250}
-        width={isMobile ? 200 : 'min-content !important'}
-        className={styles.CarouselItem}
-        onClick={() => clickPaintingHandler(paintingItem)}
-      />
-    </SwiperSlide>
+    <CarouselItem
+      src={paintingItem.src}
+      alt={paintingItem.alt}
+      title={showTitle ? paintingItem.title as string : undefined}
+      description={showDescription ? paintingItem.description as string : undefined}
+      disclaimer={disclaimer}
+      height={isMobile ? undefined : 250}
+      width={isMobile ? 200 : 'min-content !important'}
+      className={styles.CarouselItem}
+      onClick={() => clickPaintingHandler(paintingItem)}
+      key={`paintings-item-${paintingsItemIndex}`}
+      // style={
+      //   {
+      //     display: "flex",
+      //     justifyContent: "center",
+      //     alignItems: "center",
+      //     height: "100%",
+      //     width: 'min-content !important',
+      //     columnGap: isMobile ? '4px' : 'unset'
+      //   }
+      // }
+    />
   ));
 
   const clickPaintingHandler = (paintingData: GenericItemType) => {
@@ -65,22 +72,70 @@ export default function PreviewCarousel({
     if (onSelect) onSelect(paintingData);
   }
 
+  const arrowStyleBase: CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "transparent",
+    color: "#fff",
+    width: 36,
+    height: 36,
+    boxShadow: 'none'
+  };
+
+  const PrevArrow: FC<ArrowProps> = ({className, style, onClick} : ArrowProps) => {
+    return (
+      <div className={className + ' slick-arrow'} style={{...style, display: 'block'}}>
+        <IconButton
+          aria-label="previous"
+          onClick={onClick}
+          size="small"
+          sx={{...arrowStyleBase}}
+        >
+          <ArrowBackIosNewIcon fontSize="small" color={'warning'} />
+        </IconButton>
+      </div>
+    );
+  };
+
+  const NextArrow: FC<ArrowProps> = ({className, style, onClick} : ArrowProps) => {
+    return (
+      <div className={className} style={{...style, display: 'block'}}>
+        <IconButton
+          aria-label="next"
+          onClick={onClick}
+          size="small"
+          sx={{...arrowStyleBase}}
+        >
+          <ArrowForwardIosIcon fontSize="small" color={'warning'} />
+        </IconButton>
+      </div>
+    );
+  };
+
+  const carouselSettings = {
+    dots: true,
+    infinite: loopable,
+    speed: 500,
+    // slidesToShow: isMobile ? 5 : 7,
+    // slidesToShow: drawingsFilenames.length,
+    slidesToShow: 5,
+    slidesToScroll: isMobile ? 3 : 4,
+    rows: 1,
+    slidesPerRow: 1,
+    variableWidth: true,
+    draggable: true,
+    autoPlay: autoPlay,
+    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow />
+  };
+
   /** RENDER **/
   return (
     <div className={styles.PreviewCarousel}>
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={isMobile ? 8 : 20}
-        slidesPerView={5}
-        loop={loopable}
-        pagination={{clickable: true}}
-        navigation={!isMobile}
-        autoplay={autoPlay}
-        style={{marginTop: '32px', minHeight: '360px', marginBottom: '46px'}}
-        className={styles.SwiperContainer}
-      >
+      <Slider {...carouselSettings}>
         {slides()}
-      </Swiper>
+      </Slider>
     </div>
   );
 }

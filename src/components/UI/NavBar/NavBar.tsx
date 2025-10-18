@@ -6,10 +6,10 @@ import '@/styles/mario.scss';
 import {usePathname} from 'next/navigation';
 import Link from 'next/link'
 import Image from "next/image";
-import {MsearchField} from "@/components/UI/MsearchField";
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import SearchIcon from '@mui/icons-material/Search';
+// import {MsearchField} from "@/components/UI/MsearchField";
+// import InputAdornment from '@mui/material/InputAdornment';
+// import FormControl from '@mui/material/FormControl';
+// import SearchIcon from '@mui/icons-material/Search';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
@@ -101,22 +101,22 @@ export default function NavBar() {
           href="/contact"
         >Contact</Link></div>
       </div>
-      <div>
-        <FormControl variant="filled">
-          <MsearchField
-            id="search-field-icon-adornment"
-            variant={'filled'}
-            slotProps={{
-              input: {
-                startAdornment: <InputAdornment position="start"><InputAdornment position="start">
-                  <SearchIcon htmlColor={'var(--mario-bg-color)'} />
-                </InputAdornment></InputAdornment>,
-              },
-            }}
-            // sx={{color: '#000', backgroundColor: 'white', borderRadius: '32px'}}
-          />
-        </FormControl>
-      </div>
+      {/*<div>*/}
+      {/*  <FormControl variant="filled">*/}
+      {/*    <MsearchField*/}
+      {/*      id="search-field-icon-adornment"*/}
+      {/*      variant={'filled'}*/}
+      {/*      slotProps={{*/}
+      {/*        input: {*/}
+      {/*          startAdornment: <InputAdornment position="start"><InputAdornment position="start">*/}
+      {/*            <SearchIcon htmlColor={'var(--mario-bg-color)'} />*/}
+      {/*          </InputAdornment></InputAdornment>,*/}
+      {/*        },*/}
+      {/*      }}*/}
+      {/*      // sx={{color: '#000', backgroundColor: 'white', borderRadius: '32px'}}*/}
+      {/*    />*/}
+      {/*  </FormControl>*/}
+      {/*</div>*/}
       {/*</div>*/}
     </header>
   );

@@ -9,7 +9,7 @@ interface CarouselItemProps {
   description?: string;
   disclaimer?: string;
   onClick?: () => void;
-  height?: number;
+  height?: number | string;
   width?: number | string;
   elevated?: boolean;
   className?: string;
@@ -21,8 +21,8 @@ export default function CarouselItem({
   title = '',
   description,
   onClick,
-  height,
-  width,
+  height = 'auto',
+  width = '100%',
   elevated = false,
   className = '',
 }: CarouselItemProps) {

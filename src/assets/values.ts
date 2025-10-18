@@ -539,13 +539,14 @@ export const photographyCarouselFilenames = [
     title: 'Rapture',
     description: '100 cm x 80 cm'
   },
-  {
-    position: 17,
-    src: '/images/photography/carousel/ph-ca-17.JPG',
-    alt: 'The ecstatic recollection of self',
-    title: 'The ecstatic recollection of self',
-    description: '100 cm x 80 cm'
-  },
+  // DUPLICATE
+  // {
+  //   position: 17,
+  //   src: '/images/photography/carousel/ph-ca-17.JPG',
+  //   alt: 'The ecstatic recollection of self',
+  //   title: 'The ecstatic recollection of self',
+  //   description: '100 cm x 80 cm'
+  // },
   {
     position: 18,
     src: '/images/photography/carousel/ph-ca-18.JPG',

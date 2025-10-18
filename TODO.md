@@ -48,3 +48,7 @@
 - [ ] fix scratches on scanned fashion photos
 - [ ] remove plug and cable on the white wall from scanned photo
 - [ ] consider sub-categories for fashion, paintings, literature with "Press Coverage"
+- [X] fix react slick navigation arrows
+- [X] fix react slick navigation dots
+- [X] fix react slick slides spacing (variable width
+- [ ] fix main nav menu sub-menu stuck on hover (persistent overlay for blur)
