@@ -14,9 +14,9 @@ type imageType = {
   description?: string;
 }
 
-export default function HomeFashion() {
+export default function HomeFashion({dots = false} : {dots?: boolean}) {
   /** HOOKS **/
-  const [selectedFashion, setSelectedFashion] = useState<GenericItemType>({position: 1, src: '/images/fashion/fashion_07.jpg', alt: 'Fashion 1', title: 'Fashion 1', description: ''});
+  const [selectedFashion, setSelectedFashion] = useState<GenericItemType>(fashionEntries[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
@@ -50,6 +50,7 @@ export default function HomeFashion() {
       <PreviewCarousel
         items={fashionEntries}
         showTitle={false}
+        showDots={dots}
         onSelect={selectImageHandler}
       />
     </div>

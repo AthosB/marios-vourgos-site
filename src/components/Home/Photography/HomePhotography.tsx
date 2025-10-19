@@ -13,7 +13,7 @@ type imageType = {
   description?: string;
 }
 
-export default function HomePhotography() {
+export default function HomePhotography({dots = false} : {dots?: boolean}) {
   /** HOOKS **/
   const [selectedPhoto, setSelectedPhoto] = useState<imageType | null>(photographyCarouselFilenames[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
@@ -53,6 +53,7 @@ export default function HomePhotography() {
         items={photographyCarouselFilenames}
         showTitle={false}
         showDescription={false}
+        showDots={dots}
         onSelect={selectImageHandler}
       />
     </div>

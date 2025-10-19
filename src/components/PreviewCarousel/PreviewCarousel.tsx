@@ -24,6 +24,7 @@ interface CarouselItemProps {
   onSelect?: (imagePath: GenericItemType) => void;
   loopable?: boolean;
   autoPlay?: boolean;
+  showDots?: boolean;
   showTitle?: boolean;
   showDescription?: boolean;
   disclaimer?: string;
@@ -35,6 +36,7 @@ export default function PreviewCarousel({
   showTitle = true,
   showDescription = false,
   autoPlay = false,
+  showDots = false,
   disclaimer,
   onSelect
 }: CarouselItemProps) {
@@ -114,7 +116,7 @@ export default function PreviewCarousel({
   };
 
   const carouselSettings = {
-    dots: !isMobile,
+    dots: showDots,
     infinite: loopable,
     speed: 500,
     // slidesToShow: isMobile ? 5 : 7,

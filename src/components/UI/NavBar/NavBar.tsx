@@ -67,36 +67,36 @@ export default function NavBar() {
         <div className={`${styles.entry} ${isActive(['News']) ? ' ' + styles.active : ''}`}><Link
           href="/news"
         >News</Link></div>
+
         <div
-          style={{display: 'inline-block'}}
+          className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
+          id="gallery-menu-item"
           onMouseEnter={galleryMenuHover}
-          onMouseLeave={handleClose}
+          // onMouseLeave={handleClose}
           onClick={galleryMenuHover}
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
         >
-          <div
-            className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
-            id="gallery-menu-item"
-          >
-            Gallery
-          </div>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            slotProps={{
-              list: {
-                'aria-labelledby': 'basic-button',
-              },
-            }}
-            className={"PopupMenu"}
-          >
-            <MenuItem onClick={handleClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
-            <MenuItem onClick={handleClose}><Link href="/gallery/paintings">Paintings</Link></MenuItem>
-            <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
-            <MenuItem onClick={handleClose}><Link href="/gallery/fashion">Fashion</Link></MenuItem>
-          </Menu>
+          Gallery
         </div>
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          slotProps={{
+            list: {
+              'aria-labelledby': 'gallery-menu-item',
+            },
+          }}
+          className={"PopupMenu"}
+        >
+          <MenuItem onClick={handleClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link href="/gallery/paintings">Paintings</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link href="/gallery/fashion">Fashion</Link></MenuItem>
+        </Menu>
         <div className={`${styles.entry} ${isActive(['Contact']) ? ' ' + styles.active : ''}`}><Link
           href="/contact"
         >Contact</Link></div>

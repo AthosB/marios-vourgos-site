@@ -1,5 +1,6 @@
-import styles from './fashionPage.module.scss';
-import FashionPageContent from "@/components/Fashion/FashionPageContent";
+import '@/styles/generic-page.scss';
+import Image from "next/image";
+import HomeFashion from "@/components/Home/Fashion/HomeFashion";
 
 export const generateMetadata = () => ({
   title: "Marios Vourgos - Fashion",
@@ -8,9 +9,17 @@ export const generateMetadata = () => ({
 export default function FashionPage() {
   /** RENDER **/
   return (
-    <div className={styles.FashionPage}>
-      <h1>Fashion Gallery</h1>
-      <FashionPageContent className={styles.FashionEntries} />
+    <div className="generic-items-page">
+      <div className={'generic-items-page__header'}>
+        <Image src="/images/ornament_lips.png" alt="Fashion" width={72} height={72}
+          style={{marginRight: '8px', marginBottom: '12px'}}
+        />
+        Fashion
+      </div>
+      <div className={'generic-items-page__line'}></div>
+      <div style={{padding: '16px 32px'}}>
+        <HomeFashion dots={true} />
+      </div>
     </div>
   );
 }

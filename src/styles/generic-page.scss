@@ -1,0 +1,134 @@
+.generic-items-page {
+  position: relative;
+  width: 100%;
+  max-width: 90vw;
+  padding: 16px 32px;
+
+  .generic-items-page__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.5rem;
+    font-family: 'CinzelRegular', sans-serif;
+    text-align: center;
+    color: var(--mario-accent-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .generic-items-page__line {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: var(--mario-section-bg-color);
+    margin: 8px 0 24px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .generic-items-container {
+    //display: grid;
+    //grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    //column-gap: 16px;
+    //row-gap: 32px;
+    //margin-top: 48px;
+    //padding: 16px 0;
+    //justify-items: center;
+    //align-items: start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    column-gap: 24px;
+
+    &.random-rotate {
+      .generic-item {
+        //transform: rotate(calc(10deg * var(--random-rotate)));
+
+      }
+    }
+  }
+}
+
+.generic-item-modal {
+  border-radius: 8px;
+
+  .generic-item-modal__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    //background-color: rgba(250,250,250,0.6);
+    background-color: rgba(250,250,250,1);
+    color: var(--mario-text-color);
+
+    .generic-item__title {
+      font-size: 2rem;
+      font-family: 'CinzelRegular', sans-serif;
+      margin-bottom: 4px;
+      text-align: center;
+      color: var(--mario-bg-color);
+    }
+
+    .generic-item__description {
+      font-size: 1.5rem;
+      font-family: 'CinzelRegular', sans-serif;
+      margin-bottom: 16px;
+      color: var(--mario-bg-color);
+      opacity: 0.8;
+    }
+
+    .generic-item-modal__close-button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      font-size: 2rem;
+      color: #000000;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--mario-accent-color);
+      }
+    }
+  }
+}
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+
+  .generic-items-page {
+    width: 100dvw;
+    max-width: fit-content;
+    padding: 8px 16px;
+  }
+
+  .generic-items-container {
+    //display: grid !important;
+    //grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    //column-gap: 16px !important;
+    //row-gap: 32px !important;
+    //justify-items: center !important;
+    //align-items: start !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: start !important;
+    flex-wrap: wrap !important;
+  }
+
+  .generic-item-entry {
+
+    img {
+      width: calc(100%);
+      height: unset;
+    }
+  }
+}

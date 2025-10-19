@@ -13,7 +13,7 @@
 - [X] 1st photo above carousel SSL11041
 - [X] Home page: intro video, photos, about, paintings
 - [X] move about after the photo carousel
-- [ ] fix carousel navigation chevrons
+- [X] fix carousel navigation chevrons
 - [X] decrease size of carousel preview text (title, description/dimensions)
 - [X] under Photography section under each image preview under dimensions - like old photo, add "The photogeaphs were not manupul..."
 - [X] Carousel photos keep uneven thumbs to fit photos and now squash on wide ones
@@ -35,7 +35,7 @@
 - [X] fix flower ornament on mobile view
 - [ ] blue photos show vertical lines on mobile view android medium size screen
 , check with samsung phone
-- [ ] on android phone, photography carousel does not scroll to the end to show all photos
+- [X] on android phone, photography carousel does not scroll to the end to show all photos
 - [X] About home page on android phone text is hidden (check safe area margin/padding)
 - [X] on android paintings preview paintings are clipped, again safe area problem
 - [X] consider full screen view to be on new page (fixes android back button navigating away issue)

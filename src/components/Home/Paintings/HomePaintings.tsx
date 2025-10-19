@@ -6,7 +6,7 @@ import {GenericItemType} from "@/Types/types";
 import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import {paintingsCarousel} from "@/assets/values";
 
-export default function HomePaintings() {
+export default function HomePaintings({dots = false} : {dots?: boolean} ) {
   /** HOOKS **/
   const [selectedPainting, setSelectedPainting] = useState<GenericItemType>(paintingsCarousel[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
@@ -42,6 +42,7 @@ export default function HomePaintings() {
         items={paintingsCarousel}
         showTitle={false}
         showDescription={false}
+        showDots={dots}
         onSelect={selectPaintingHandler}
       />
     </div>
