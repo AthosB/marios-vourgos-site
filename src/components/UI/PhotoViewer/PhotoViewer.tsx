@@ -34,7 +34,7 @@ export default function PhotoViewer({
     setZoom(zoom === 1 ? 4 : 1);
   };
 
-  console.log('disclaimer', disclaimer);
+  // console.log('disclaimer', disclaimer);
 
   /** RENDER **/
   return (

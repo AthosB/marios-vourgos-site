@@ -6,17 +6,6 @@ import {ThemeProvider} from '@mui/material/styles';
 import theme from '@/theme';
 import {Geist, Geist_Mono} from "next/font/google";
 
-
-const getDeviceType = () => {
-  if (typeof navigator === 'undefined') return 'unknown';
-  const ua = navigator.userAgent;
-  if (/Mobi|Android/i.test(ua)) return 'mobile';
-  if (/iPad|Tablet/i.test(ua)) return 'tablet';
-  return 'desktop';
-};
-const deviceType = typeof window !== 'undefined' ? getDeviceType() : 'unknown';
-console.log('deviceType', deviceType);
-
 export const metadata: Metadata = {
   title: "Marios Vourgos",
   description: "Marios Vourgos - Artist Portfolio",

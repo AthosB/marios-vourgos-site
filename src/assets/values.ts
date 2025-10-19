@@ -571,8 +571,8 @@ export const photographyCarouselFilenames = [
   {
     position: 21,
     src: '/images/photography/carousel/ph-ca-21.JPG',
-    alt: 'The illusions of Space and Time',
-    title: 'The illusions of Space and Time',
+    alt: 'The Entanglement of Hope',
+    title: 'The Entanglement of Hope',
     description: '80 cm x 100 cm'
   },
   {
@@ -606,8 +606,8 @@ export const photographyCarouselFilenames = [
   {
     position: 28,
     src: '/images/photography/carousel/ph-ca-28.JPG',
-    alt: 'Whispering Secrets of Space to Time',
-    title: 'Whispering Secrets of Space to Time',
+    alt: 'Remembrances of Thoughts to come',
+    title: 'Remembrances of Thoughts to come',
     description: '100 cm x 80 cm'
   }
 ].sort((a, b) => a.position! - b.position!) as GenericItemType[];

@@ -25,7 +25,9 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <div className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column + ' HomeSection'}>
+      <div
+        className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column + ' HomeSection'}
+      >
         <div className={'section-title'}>Photography</div>
         <HomePhotography />
       </div>

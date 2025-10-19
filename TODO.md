@@ -51,4 +51,11 @@
 - [X] fix react slick navigation arrows
 - [X] fix react slick navigation dots
 - [X] fix react slick slides spacing (variable width
-- [ ] fix main nav menu sub-menu stuck on hover (persistent overlay for blur)
+- [X] fix main nav menu sub-menu stuck on hover (persistent overlay for blur)
+
+- [X] find a way to have the back button go to previous anchor
+- [ ] Fashion 10 - remove smudge on shoulder pads
+- [ ] photo with plug to be removed was in scanned photos (check)
+- [X] Fashion 2 - remove bag brand
+- [ ] Undefined parapraxis dimension
+- [X] "Whispering" secrets of space to time"(last photos) ⇒ "Remembrances of thoughts to come" 
