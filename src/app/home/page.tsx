@@ -35,10 +35,11 @@ export default function HomePage() {
         position="left"
         ornament={
           <img
-            src="/images/ornament_egg.png"
+            src="/images/ornament_bird_3.png"
             alt="Ornament Flower"
             width={64}
             height={128}
+            style={{marginTop: '-6px', transform: 'rotate(45deg)', transformOrigin: 'center'}}
           />
         }
       ></SectionSeparator>
@@ -81,11 +82,11 @@ export default function HomePage() {
         position="left"
         ornament={
           <img
-            src="/images/ornament_bird.png"
+            src="/images/ornament_bird_2.png"
             alt="Ornament Bird"
-            width={64}
-            height={64}
-            // style={{marginTop: '32px'}}
+            width={32}
+            height={32}
+            style={{transform: 'rotate(30deg)', transformOrigin: 'center'}}
           />
         }
       ></SectionSeparator>
