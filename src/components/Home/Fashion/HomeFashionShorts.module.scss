@@ -1,0 +1,25 @@
+.FashionGifWrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 0 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 16px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  overflow: hidden;
+  background: transparent;
+  //box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+  img {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 256px;
+    -webkit-clip-path: inset(0 0 4px 0);
+    clip-path: inset(2px 0 6px 0);
+  }
+}

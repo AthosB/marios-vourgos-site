@@ -18,7 +18,7 @@
 - [X] under Photography section under each image preview under dimensions - like old photo, add "The photogeaphs were not manupul..."
 - [X] Carousel photos keep uneven thumbs to fit photos and now squash on wide ones
 - [X] add zoom feature on carousel preview
-- [ ] thoughts of future days gone by  II and I (test putting both together)
+- [X] thoughts of future days gone by  II and I (test putting both together)
 - [X] Euphoria replace The Sweet Melancholia of Timeless Being
 - [X] new paintings then add the following
 - [X] paintings - Eudemonia first
@@ -31,9 +31,9 @@
 - [X] increase about photo size
 - [X] lips on fashion
 - [X] send updated mario sig to Oresis and marios
-- [ ] add more contrast/vibrance on Eudemonia, and Morning Promises
+- [X] add more contrast/vibrance on Eudemonia, and Morning Promises
 - [X] fix flower ornament on mobile view
-- [ ] blue photos show vertical lines on mobile view android medium size screen
+- [X] blue photos show vertical lines on mobile view android medium size screen
 , check with samsung phone
 - [X] on android phone, photography carousel does not scroll to the end to show all photos
 - [X] About home page on android phone text is hidden (check safe area margin/padding)
@@ -42,10 +42,10 @@
 - [X] triptych on both iphone and android are clipped (on selected photo) - resize/contain
 - [X] on android phone, back button navigates away form page and to the previous page, instead of same page previous view
 - [X] on paintings, the bird ornament to be moved to the left
-- [ ] replace egg with (replace with hand from old SM)
+- [X] replace egg with (replace with hand from old SM)
 - [X] slightly increase disclaimer text size
-- [ ] change literature ornament
-- [ ] fix scratches on scanned fashion photos
+- [X] change literature ornament
+- [X] fix scratches on scanned fashion photos
 - [ ] remove plug and cable on the white wall from scanned photo
 - [ ] consider sub-categories for fashion, paintings, literature with "Press Coverage"
 - [X] fix react slick navigation arrows
