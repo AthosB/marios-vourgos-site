@@ -1229,12 +1229,12 @@ export const fashionEntries = [
     alt: 'Fashion 2',
     title: 'Fashion 2',
   },
-  {
-    position: 300,
-    src: '/images/fashion/fashion_03.jpg',
-    alt: 'Fashion 3',
-    title: 'Fashion 3',
-  },
+  // {
+  //   position: 300,
+  //   src: '/images/fashion/fashion_03.jpg',
+  //   alt: 'Fashion 3',
+  //   title: 'Fashion 3',
+  // },
   {
     position: 400,
     src: '/images/fashion/fashion_04.jpg',
@@ -1381,3 +1381,46 @@ export const fashionEntries = [
     title: 'Fashion 27',
   },
 ] as GenericItemType[];
+
+export const fashionPressEntries: GenericItemType[] = [
+  {
+    title: 'Fashion Press 1',
+    src: '/images/fashion/press/fashion_press_01.jpg',
+    alt: 'Fashion Press 1',
+  },
+  {
+    title: 'Fashion Press 2',
+    src: '/images/fashion/press/fashion_press_02.jpg',
+    alt: 'Fashion Press 2',
+  },
+  {
+    title: 'Fashion Press 3',
+    src: '/images/fashion/press/fashion_press_03.jpg',
+    alt: 'Fashion Press 3',
+  },
+  {
+    title: 'Fashion Press 4',
+    src: '/images/fashion/press/fashion_press_04.jpg',
+    alt: 'Fashion Press 4',
+  },
+  {
+    title: 'Fashion Press 5',
+    src: '/images/fashion/press/fashion_press_05.jpg',
+    alt: 'Fashion Press 5',
+  },
+  {
+    title: 'Fashion Press 6',
+    src: '/images/fashion/press/fashion_press_06.jpg',
+    alt: 'Fashion Press 6',
+  },
+  {
+    title: 'Fashion Press 7',
+    src: '/images/fashion/press/fashion_press_07.jpg',
+    alt: 'Fashion Press 7',
+  },
+  {
+    title: 'Fashion Press 8',
+    src: '/images/fashion/press/fashion_press_08.jpg',
+    alt: 'Fashion Press 8',
+  },
+];

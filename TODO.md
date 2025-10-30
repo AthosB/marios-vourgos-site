@@ -46,7 +46,8 @@
 - [X] slightly increase disclaimer text size
 - [X] change literature ornament
 - [X] fix scratches on scanned fashion photos
-- [ ] remove plug and cable on the white wall from scanned photo
+- [ ] remove plug and cable on the white wall from scanned photo (File_000 (15))
+- [ ] check physical photo with shoulder smudge again
 - [ ] consider sub-categories for fashion, paintings, literature with "Press Coverage"
 - [X] fix react slick navigation arrows
 - [X] fix react slick navigation dots
@@ -57,5 +58,15 @@
 - [X] Fashion 10 - remove smudge on shoulder pads (original contains smudge)
 - [ ] photo with plug to be removed was in scanned photos (check) ???
 - [X] Fashion 2 - remove bag brand
-- [ ] Undefined parapraxis dimension
+- [X] Undefined parapraxis dimension --- 67 x 150 cm
 - [X] "Whispering" secrets of space to time"(last photos) ⇒ "Remembrances of thoughts to come" 
+- [ ] add another sub section in home page under photos with GIFs (indent move to right)
+- [ ] add gifs in fashion carousel, separation landscape and portrait
+- [ ] remove About - replace with News tab
+- [ ] News rename to Press with current content
+- [ ] indent subcategory for paintings "recent, etc" follow sort of old website
+- [ ] from news event photos from old site (do NOT plave any photo that contain Photography)
+- [ ] contact page contact details (email, NOT contact form)
+- [ ] disclaimer for Parapraxis (multiple photos in line): 67cm x 150cm
+- [ ] disclaimer for infinite parapraxis "Not digitally manipulated photo repeated printing"
+- 

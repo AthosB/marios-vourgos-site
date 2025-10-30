@@ -1,19 +1,14 @@
-export const generateMetadata = () => ({
-  title: "Marios Vourgos - News",
-});
+'use client';
+
+import styles from './newsPage.module.scss';
+import NewsFashion from "@/components/News/NewsFashion";
 
 export default function NewsPage() {
+  /** RENDER */
   return (
-    <div className="news-page">
-      <h1>Latest News</h1>
-      <p>
-        Stay updated with the latest news and announcements. We bring you the
-        most recent updates from our team and the industry.
-      </p>
-      <p>
-        Check back often for new articles, insights, and stories that matter to
-        you.
-      </p>
+    <div className={styles.NewsPage}>
+      <div className={'section-title'} style={{width: '100%'}}>Fashion</div>
+      <NewsFashion />
     </div>
   );
 }
