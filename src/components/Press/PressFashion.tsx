@@ -3,7 +3,7 @@ import {GenericItemType} from "@/Types/types";
 import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import {fashionPressEntries} from "@/assets/values";
 
-export default function NewsFashion() {
+export default function PressFashion() {
   /** HOOKS **/
   const [selectedFashionPress, setSelectedFashionPress] = useState<GenericItemType | null>(fashionPressEntries[0]);
 
@@ -16,7 +16,7 @@ export default function NewsFashion() {
     // window.location.href = '/view';
   };
 
-  const viewNewsItemHandler = (newsItem: GenericItemType) => {
+  const viewPressItemHandler = (newsItem: GenericItemType) => {
     if (!newsItem) return;
     localStorage.setItem('previewData', JSON.stringify(newsItem));
     window.location.href = '/view';
@@ -27,11 +27,11 @@ export default function NewsFashion() {
 
     <div id="press-fashion" className="preview-canvas">
       <img
-        src={selectedFashionPress?.src || '/images/home-photography-first.JPG'}
-        alt={selectedFashionPress?.title || "Photography"}
+        src={selectedFashionPress?.src || '/images/fashion/fashion_01.jpg'}
+        alt={selectedFashionPress?.title || "Fashion-Press"}
         width={360}
         style={{marginBottom: '16px'}}
-        onClick={() => viewNewsItemHandler(selectedFashionPress as GenericItemType)}
+        onClick={() => viewPressItemHandler(selectedFashionPress as GenericItemType)}
       />
       <div className={'ImageTitle'}>{selectedFashionPress?.title}</div>
       <div className={'ImageDescription'}>{selectedFashionPress?.description}</div>

@@ -22,17 +22,17 @@ export default function NavBar() {
   const open = Boolean(anchorEl);
 
   /**
-	 * Handles the hover event to open the gallery menu.
-	 * @param event {React.MouseEvent<HTMLDivElement>} - The mouse event triggered by hovering over the gallery menu item.
-	 */
+   * Handles the hover event to open the gallery menu.
+   * @param event {React.MouseEvent<HTMLDivElement>} - The mouse event triggered by hovering over the gallery menu item.
+   */
   const galleryMenuHover = (event: React.MouseEvent<HTMLDivElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
   /**
-	 * Checks if the current page is active based on the provided pages.
-	 * @param pages {string[]} - An array of page names to check against the current path.
-	 */
+   * Checks if the current page is active based on the provided pages.
+   * @param pages {string[]} - An array of page names to check against the current path.
+   */
   const isActive = (pages: string[]) => {
     const path = pathname ? pathname?.replace(/^\/+/, '').toLowerCase() : '';
     // console.log('Checking active pages:', pages);
@@ -43,8 +43,8 @@ export default function NavBar() {
   };
 
   /**
-	 * Handles the close event to close the menu.
-	 */
+   * Handles the close event to close the menu.
+   */
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -61,12 +61,12 @@ export default function NavBar() {
         <div className={`${styles.entry} ${isActive(['Home']) ? ' ' + styles.active : ''}`}><Link
           href="/home"
         >Home</Link></div>
-        <div className={`${styles.entry} ${isActive(['About']) ? ' ' + styles.active : ''}`}><Link
-          href="/about"
-        >About</Link></div>
         <div className={`${styles.entry} ${isActive(['News']) ? ' ' + styles.active : ''}`}><Link
           href="/news"
         >News</Link></div>
+        <div className={`${styles.entry} ${isActive(['Press']) ? ' ' + styles.active : ''}`}><Link
+          href="/press"
+        >Press</Link></div>
 
         <div
           className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
@@ -93,7 +93,18 @@ export default function NavBar() {
           className={"PopupMenu"}
         >
           <MenuItem onClick={handleClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
-          <MenuItem onClick={handleClose}><Link href="/gallery/paintings">Paintings</Link></MenuItem>
+          <MenuItem
+            onClick={handleClose}
+            style={{flexDirection: 'column', alignItems: 'start'}}
+          >
+            {/*<Link href="/gallery/paintings">Paintings</Link>*/}
+            <div className={'menu-sub-header'}>Paintings</div>
+            <ul>
+              <li><Link href={"/gallery/paintings/recent"}>Recent Work</Link></li>
+              <li><Link href={"/gallery/paintings/previous"}>Previous Work</Link></li>
+              <li><Link href={"/gallery/paintings/older"}>Older Work</Link></li>
+            </ul>
+          </MenuItem>
           <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link href="/gallery/fashion">Fashion</Link></MenuItem>
         </Menu>

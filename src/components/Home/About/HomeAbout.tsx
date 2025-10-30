@@ -17,7 +17,7 @@ export default function HomeAbout() {
 
   /** RENDER **/
   return (
-    <div id={"#home-about"} className={styles.aboutContent} onClick={addAnchor}>
+    <div id={"#home-news"} className={styles.aboutContent} onClick={addAnchor}>
       <div className={'about-image'}>
         <img
           src="/images/home-about.JPG"
@@ -25,7 +25,7 @@ export default function HomeAbout() {
           alt="Picture of the author"
         />
       </div>
-      {/*<div className={'about-text'} style={{fontWeight: '600'}}>*/}
+      {/*<div className={'news-text'} style={{fontWeight: '600'}}>*/}
       <p>I never took seriously enough my studies in finance and my long career in this field, my solo painting
         exhibitions, the fact that I was once an &apos;almost famous&apos; fashion designer in New York, the experience of
         singing

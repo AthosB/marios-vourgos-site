@@ -284,11 +284,19 @@ $accent-color: #fcb040;
 
       &:hover {
         background-color: var(--mario-accent-color);
-        color: var(--mario-bg-color);
+        color: var(--mario-bg-color) !important;
         font-weight: 600;
         //font-size: 1.2rem;
         transform: scale(1.2);
         transform-origin: center;
+
+        .menu-sub-header {
+          opacity: 0.4;
+        }
+
+        li {
+          color: var(--mario-bg-color) !important;
+        }
 
         a {
           color: var(--mario-bg-color);

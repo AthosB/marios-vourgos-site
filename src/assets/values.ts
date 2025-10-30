@@ -4,7 +4,7 @@ export const aboutText = 'I never took seriously enough my studies in finance an
   'field, my solo painting exhibitions, the fact that I was once an "almost famous"\n' +
   'fashion designer in New York, the experience of singing opera in ancient\n' +
   'amphitheaters, or even my poetry. And then the universe somehow decided it\n' +
-  'was about time to convince me to take myself seriously (enough), or at least\n' +
+  'was news time to convince me to take myself seriously (enough), or at least\n' +
   'my artistic and creative ability. So, one day totally unexpectedly and without\n' +
   'warning, it somehow messed up with my old, ordinary, inexpensive digital\n' +
   'camera, and it simply started capturing images beyond space and time. As\n' +
@@ -23,7 +23,7 @@ export const aboutText = 'I never took seriously enough my studies in finance an
   'convinced. She carefully saw and closely observed all twenty-five, or so, of\n' +
   'them. And categorically decided that these photographs not only deserved but\n' +
   'demanded and had to be shown on their own.\n' +
-  'It was there and then I finally got serious about something: my photographic\n' +
+  'It was there and then I finally got serious news something: my photographic\n' +
   'work. Over the next years I took more photographs meticulously setting the\n' +
   'settings and the mood, and most of the time using my daughter Athena as my\n' +
   'model. And over time the photographs became more “generous” revealing\n' +
@@ -614,11 +614,94 @@ export const photographyCarouselFilenames = [
 
 export const recentPaintingsCarouselEntries = [
   {
-    position: 1,
-    src: '/images/paintings/img-001.jpg',
-    alt: 'Painting 1',
-    title: 'Eternity',
-    description: 'Acrylics on canvas - 148 cm x 105 cm'
+    position: 10,
+    src: '/images/paintings/carousel/pa-ca-01c.jpg',
+    alt: 'An orange state of red',
+    title: 'An orange state of red',
+    description: 'Acrylics on canvas - 150 cm x 115 cm'
+  },
+  {
+    position: 20,
+    src: '/images/paintings/carousel/pa-ca-05b.jpg',
+    alt: 'The Achronic Remembrances of Time',
+    title: 'The Achronic Remembrances of Time',
+    description: 'Acrylics on canvas - 135 cm x 90 cm'
+  },
+  {
+    position: 30,
+    src: '/images/paintings/carousel/pa-ca-06.jpg',
+    alt: 'Athena in Paris',
+    title: 'Athena in Paris',
+    description: 'Acrylics on canvas - 135 cm x 90 cm'
+  },
+  {
+    position: 40,
+    src: '/images/paintings/carousel/pa-ca-01.jpg',
+    alt: 'Eudaimonia',
+    title: 'Eudaimonia',
+    description: 'Acrylics on canvas - 147 cm x 105 cm'
+  },
+  {
+    position: 50,
+    src: '/images/paintings/carousel/pa-ca-02.jpg',
+    alt: 'The illusion of time (Triptych)',
+    title: 'The illusion of time (Triptych)',
+    description: 'Acrylics on canvas - 118 cm x 83 cm (individual painting)'
+  },
+  {
+    position: 60,
+    src: '/images/paintings/carousel/pa-ca-03.jpg',
+    alt: 'Morning Promises',
+    title: 'Morning Promises',
+    description: 'Acrylics on canvas - 118 cm x 83 cm'
+  },
+  {
+    position: 70,
+    src: '/images/paintings/carousel/pa-ca-04.jpg',
+    alt: 'Afternoon escape',
+    title: 'Afternoon escape',
+    description: 'Acrylics on canvas - 118 cm x 83 cm'
+  },
+  {
+    position: 80,
+    src: '/images/paintings/carousel/pa-ca-05.jpg',
+    alt: 'Evening reminiscing of day',
+    title: 'Evening reminiscing of day',
+    description: 'Acrylics on canvas - 118 cm x 83 cm'
+  },{
+    position: 90,
+    src: '/images/paintings/carousel/pa-ca-10.jpg',
+    alt: 'The Stare of things to come... (Demian)',
+    title: 'The Stare of things to come... (Demian)',
+    description: 'Acrylics on canvas - 100 cm x 67 cm'
+  },
+  {
+    position: 95,
+    src: '/images/paintings/carousel/pa-ca-11.jpg',
+    alt: '...remembering himself',
+    title: '...remembering himself',
+    description: 'Acrylics on canvas - 100 cm x 67 cm'
+  },
+  {
+    position: 100,
+    src: '/images/paintings/carousel/pa-ca-12.jpg',
+    alt: 'Zero is infinity reversed to time (cosmos)',
+    title: 'Zero is infinity reversed to time (cosmos)',
+    description: 'Acrylics on canvas - 100 cm x 67 cm'
+  },
+  {
+    position: 110,
+    src: '/images/paintings/carousel/pa-ca-07.jpg',
+    alt: 'The deception of Spring (Portrait of Tamara De Lempika)',
+    title: 'The deception of Spring (Portrait of Tamara De Lempika)',
+    description: 'Acrylics on canvas - 118.5 cm x 97.5 cm'
+  },
+  {
+    position: 120,
+    src: '/images/paintings/carousel/pa-ca-05c.jpg',
+    alt: 'Innocent Memories of Red',
+    title: 'Innocent Memories of Red',
+    description: 'Acrylics on canvas - 135 cm x 90 cm'
   },
 ]
 

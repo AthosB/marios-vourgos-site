@@ -1,14 +1,11 @@
-'use client';
+export const generateMetadata = () => ({
+  title: "Marios Vourgos - News",
+});
 
-import styles from './newsPage.module.scss';
-import NewsFashion from "@/components/News/NewsFashion";
-
-export default function NewsPage() {
-  /** RENDER */
+export default function AboutPage() {
   return (
-    <div className={styles.NewsPage}>
-      <div className={'section-title'} style={{width: '100%'}}>Fashion</div>
-      <NewsFashion />
+    <div className="news-page">
+      <h1>News</h1>
     </div>
   );
 }
