@@ -705,6 +705,411 @@ export const recentPaintingsCarouselEntries = [
   },
 ]
 
+export const previousPaintingsCarouselEntries = [
+  {
+    position: 10,
+    src: '/images/paintings/img-002.jpg',
+    alt: 'The ecstatic renaissance of life',
+    title: 'The ecstatic renaissance of life',
+    description: 'Acrylics on canvas - 148 cm x 105 cm'
+  },
+  {
+    position: 20,
+    src: '/images/paintings/img-011.jpg',
+    alt: 'Conception II',
+    title: 'Conception II',
+    description: 'Acrylics on canvas - 148 cm x 105 cm'
+  },
+  {
+    position: 30,
+    src: '/images/paintings/img-010.jpg',
+    alt: 'Life ',
+    title: 'Life ',
+    description: 'Acrylics on canvas - 160 cm x 120 cm'
+  },
+  {
+    position: 40,
+    src: '/images/paintings/img-029.jpg',
+    alt: 'The future awaits" said the flower',
+    title: 'The future awaits" said the flower',
+    description: 'Oil, acrylics & pastels on canvas - 162 cm x 113 cm'
+  },
+  {
+    position: 50,
+    src: '/images/paintings/img-004.jpg',
+    alt: 'The future awaits" said the bird',
+    title: 'The future awaits" said the bird',
+    description: 'Acrylics on canvas - 115 cm x 95 cm'
+  },
+  {
+    position: 60,
+    src: '/images/paintings/img-001.jpg',
+    alt: 'Eternity',
+    title: 'Eternity',
+    description: 'Acrylics on canvas - 148 cm x 105 cm'
+  },
+  {
+    position: 70,
+    src: '/images/paintings/img-013.jpg',
+    alt: 'The temptation of innocence',
+    title: 'The temptation of innocence',
+    description: 'Acrylics on canvas - 130 cm x 105 cm'
+  },
+  {
+    position: 80,
+    src: '/images/paintings/img-003.jpg',
+    alt: 'The seduction of spring',
+    title: 'The seduction of spring',
+    description: 'Acrylics on canvas - 148 cm x 105 cm'
+  },
+  {
+    position: 90,
+    src: '/images/paintings/img-005.jpg',
+    alt: 'Zen in the garden of roses',
+    title: 'Zen in the garden of roses',
+    description: 'Acrylics on canvas - 118 cm x 84 cm'
+  },
+  {
+    position: 100,
+    src: '/images/paintings/img-006.jpg',
+    alt: 'Awaiting hope',
+    title: 'Awaiting hope',
+    description: 'Acrylics on canvas - 115 cm x 80 cm'
+  },
+  {
+    position: 110,
+    src: '/images/paintings/img-007.jpg',
+    alt: 'Unconscious memories of self I',
+    title: 'Unconscious memories of self I',
+    description: 'Acrylics on canvas - 80 cm x 60 cm'
+  },
+  {
+    position: 120,
+    src: '/images/paintings/img-008.jpg',
+    alt: 'Unconscious memories of self II',
+    title: 'Unconscious memories of self II',
+    description: 'Acrylics on canvas - 80 cm x 60 cm'
+  },
+  {
+    position: 130,
+    src: '/images/paintings/img-009.jpg',
+    alt: 'The protection II',
+    title: 'The protection II',
+    description: 'Acrylics & crayons on canvas - 160 cm x 120 cm'
+  },
+  {
+    position: 140,
+    src: '/images/paintings/img-012.jpg',
+    alt: 'Summer is a glance at infinity',
+    title: 'Summer is a glance at infinity',
+    description: 'Acrylics on canvas - 120 cm x 90 cm'
+  },
+  {
+    position: 150,
+    src: '/images/paintings/img-014.jpg',
+    alt: 'Spring is a glance at the future I',
+    title: 'Spring is a glance at the future I',
+    description: 'Acrylics on canvas - 80 cm x 60 cm'
+  },
+  {
+    position: 160,
+    src: '/images/paintings/img-015.jpg',
+    alt: 'Spring is a glance at the future II',
+    title: 'Spring is a glance at the future II',
+    description: 'Acrylics on canvas - 80 cm x 60 cm'
+  },
+  {
+    position: 170,
+    src: '/images/paintings/img-016.jpg',
+    alt: 'Reflections of the future',
+    title: 'Reflections of the future',
+    description: 'Acrylics on canvas - 120 cm x 90 cm'
+  },
+  {
+    position: 180,
+    src: '/images/paintings/img-017.jpg',
+    alt: 'Wisdom',
+    title: 'Wisdom',
+    description: 'Oil, acrylics & pastels on canvas - 145 cm x 96 cm'
+  },
+  {
+    position: 190,
+    src: '/images/paintings/img-018.jpg',
+    alt: 'Dreaming of daylight through the night',
+    title: 'Dreaming of daylight through the night',
+    description: 'Acrylics on canvas - 146 cm x 114 cm'
+  },
+  {
+    position: 200,
+    src: '/images/paintings/img-019.jpg',
+    alt: 'Venus in Paris II',
+    title: 'Venus in Paris II',
+    description: 'Acrylics on canvas - 100 cm diameter'
+  },
+  {
+    position: 210,
+    src: '/images/paintings/img-020.jpg',
+    alt: 'The whispering of dreams to come',
+    title: 'The whispering of dreams to come',
+    description: 'Acrylics on canvas - 130 cm x 105 cm'
+  },
+  {
+    position: 220,
+    src: '/images/paintings/img-035.jpg',
+    alt: 'Infinity',
+    title: 'Infinity',
+    description: 'Acrylics & pastels on canvas - 120 cm x 90 cm'
+  },
+  {
+    position: 230,
+    src: '/images/paintings/img-021.jpg',
+    alt: 'Life II',
+    title: 'Life II',
+    description: 'Acrylics on canvas - 130 cm x 105 cm'
+  },
+  {
+    position: 240,
+    src: '/images/paintings/img-022.jpg',
+    alt: 'Conception II',
+    title: 'Conception II',
+    description: 'Acrylics on canvas - 130 cm x 105 cm'
+  },
+  {
+    position: 250,
+    src: '/images/paintings/img-023.jpg',
+    alt: 'Contemplating herself',
+    title: 'Contemplating herself',
+    description: 'Acrylics on canvas - 130 cm x 105 cm'
+  },
+  {
+    position: 260,
+    src: '/images/paintings/img-024.jpg',
+    alt: 'Whispering hope',
+    title: 'Whispering hope',
+    description: 'Acrylics on canvas - 135 cm x 105 cm'
+  },
+  {
+    position: 270,
+    src: '/images/paintings/img-025.jpg',
+    alt: 'Temptation',
+    title: 'Temptation',
+    description: 'Acrylics on canvas - 135 cm x 105 cm'
+  }
+]
+
+export const olderPaintingsCarouselEntries = [
+  {
+    position: 10,
+    src: '/images/paintings/img-026.jpg',
+    alt: 'Infinity II',
+    title: 'Infinity II',
+    description: 'Acrylics on canvas - 135 cm x 105 cm'
+  },
+  {
+    position: 20,
+    src: '/images/paintings/img-027.jpg',
+    alt: 'Athena',
+    title: 'Athena',
+    description: 'Acrylics on canvas - 135 cm x 105 cm'
+  },
+  {
+    position: 30,
+    src: '/images/paintings/img-028.jpg',
+    alt: 'The bird and the spider',
+    title: 'The bird and the spider',
+    description: 'Oil, acrylics & pastels on canvas - 160 cm x 120 cm'
+  },
+  {
+    position: 40,
+    src: '/images/paintings/img-036.jpg',
+    alt: 'Memories of a summer gone by',
+    title: 'Memories of a summer gone by',
+    description: 'Oil & acrylics on canvas - 130 cm x 96 cm'
+  },
+  {
+    position: 50,
+    src: '/images/paintings/img-046.jpg',
+    alt: 'Venus in Paris',
+    title: 'Venus in Paris',
+    description: 'Oil, acrylics & pastels on canvas - 130 cm x 96 cm'
+  },
+  {
+    position: 60,
+    src: '/images/paintings/img-030.jpg',
+    alt: '...remembering herself',
+    title: '...remembering herself',
+    description: 'Oil, acrylics & pastels on canvas - 120 cm x 100 cm'
+  },
+  {
+    position: 70,
+    src: '/images/paintings/img-031.jpg',
+    alt: 'Euphoria',
+    title: 'Euphoria',
+    description: 'Oil, acrylics & pastels on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 80,
+    src: '/images/paintings/img-032.jpg',
+    alt: 'Romeo and Juliet',
+    title: 'Romeo and Juliet',
+    description: 'Oil & acrylics on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 90,
+    src: '/images/paintings/img-033.jpg',
+    alt: 'Always summer',
+    title: 'Always summer',
+    description: 'Mixed media on canvas - 120 cm x 100 cm'
+  },
+  {
+    position: 100,
+    src: '/images/paintings/img-034.jpg',
+    alt: 'The flower that fell in love with a woman',
+    title: 'The flower that fell in love with a woman',
+    description: 'Oil on canvas - 77 cm x 51 cm'
+  },
+  {
+    position: 110,
+    src: '/images/paintings/img-037.jpg',
+    alt: 'Epiphany',
+    title: 'Epiphany',
+    description: 'Oil, acrylics & pastels on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 120,
+    src: '/images/paintings/img-038.jpg',
+    alt: 'The torture of spring',
+    title: 'The torture of spring',
+    description: 'Oil, acrylics & watercolours on canvas - 46 cm x 36 cm'
+  },
+  {
+    position: 130,
+    src: '/images/paintings/img-039.jpg',
+    alt: 'The triumph of illusions',
+    title: 'The triumph of illusions',
+    description: 'Acrylics on canvas - 55 cm x 45 cm'
+  },
+  {
+    position: 140,
+    src: '/images/paintings/img-040.jpg',
+    alt: 'The falling angel',
+    title: 'The falling angel',
+    description: 'Oil on canvas - 77 cm x 61 cm'
+  },
+  {
+    position: 150,
+    src: '/images/paintings/img-041.jpg',
+    alt: 'Epigraph',
+    title: 'Epigraph',
+    description: 'Oil, acrylics & pastels on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 160,
+    src: '/images/paintings/img-042.jpg',
+    alt: 'Apollo and Daphne',
+    title: 'Apollo and Daphne',
+    description: 'Oil & acrylics on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 170,
+    src: '/images/paintings/img-043.jpg',
+    alt: 'Angels remembering themselves',
+    title: 'Angels remembering themselves',
+    description: 'Oil & acrylics on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 180,
+    src: '/images/paintings/img-044.jpg',
+    alt: 'The instinct of rebirth',
+    title: 'The instinct of rebirth',
+    description: 'Oil, acrylics & pastels on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 190,
+    src: '/images/paintings/img-045.jpg',
+    alt: 'The rock that started to feel',
+    title: 'The rock that started to feel',
+    description: 'Burned oil on canvas - 61 cm x 46 cm'
+  },
+  {
+    position: 200,
+    src: '/images/paintings/img-047.jpg',
+    alt: 'Venus in winter thinking of summer',
+    title: 'Venus in winter thinking of summer',
+    description: 'Oil & acrylics on canvas - 75 cm x 40 cm'
+  },
+  {
+    position: 210,
+    src: '/images/paintings/img-048.jpg',
+    alt: 'The endless struggle',
+    title: 'The endless struggle',
+    description: 'Oil, acrylics & pastels on canvas - 120 cm x 100 cm'
+  },
+  {
+    position: 220,
+    src: '/images/paintings/img-053.jpg',
+    alt: 'The escape of dreams',
+    title: 'The escape of dreams',
+    description: 'Oil, acrylics & pastels on canvas - 120 cm x 100 cm'
+  },
+  {
+    position: 230,
+    src: '/images/paintings/img-049.jpg',
+    alt: 'Together we view the world as one',
+    title: 'Together we view the world as one',
+    description: 'Acrylics & watercolors on canvas - 50 cm x 50 cm'
+  },
+  {
+    position: 240,
+    src: '/images/paintings/img-050.jpg',
+    alt: 'In the web of stability',
+    title: 'In the web of stability',
+    description: 'Oil & acrylics on canvas - 92 cm x 67 cm'
+  },
+  {
+    position: 250,
+    src: '/images/paintings/img-051.jpg',
+    alt: 'The secret life of plants',
+    title: 'The secret life of plants',
+    description: 'Oil & acrylics on canvas - 120 cm x 87 cm'
+  },
+  {
+    position: 260,
+    src: '/images/paintings/img-052.jpg',
+    alt: 'The tree and the spirit',
+    title: 'The tree and the spirit',
+    description: 'Oil & acrylics on canvas - 60 cm x 50 cm'
+  },
+  {
+    position: 270,
+    src: '/images/paintings/img-054.jpg',
+    alt: 'The woman that fell in love with a flower',
+    title: 'The woman that fell in love with a flower',
+    description: 'Oil on canvas - 46 cm x 36 cm'
+  },
+  {
+    position: 280,
+    src: '/images/paintings/img-055.jpg',
+    alt: 'The Archangel of regret',
+    title: 'The Archangel of regret',
+    description: 'Oil on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 290,
+    src: '/images/paintings/img-056.jpg',
+    alt: 'The Archangel of silence',
+    title: 'The Archangel of silence',
+    description: 'Oil, acrylics & pastels on canvas - 102 cm x 76 cm'
+  },
+  {
+    position: 300,
+    src: '/images/paintings/img-057.jpg',
+    alt: 'Conception',
+    title: 'Conception',
+    description: 'Oil, acrylics & pastels on canvas - 102 cm x 76 cm'
+  },
+]
+
 export const paintingsEntries = [
   {
     position: 1,

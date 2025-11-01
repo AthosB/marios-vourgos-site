@@ -8,7 +8,6 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Divider from '@mui/material/Divider';
 import Link from "next/link";
 import Image from "next/image";
 
@@ -48,12 +47,19 @@ export default function MobileMenu() {
           className={"PopupMenu"}
         >
           <MenuItem onClick={handleClose}><Link href="/home">Home</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link href="/news">News</Link></MenuItem>
+          <MenuItem onClick={handleClose}><Link href="/press">Press</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
-          <MenuItem onClick={handleClose}><Link href="/gallery/paintings">Paintings</Link></MenuItem>
+          <MenuItem onClick={handleClose}>
+            <div style={{display: 'flex', flexDirection: 'column', rowGap: '8px'}}>
+              <div style={{opacity: 0.5}}>Paintings</div>
+              <Link href="/gallery/paintings/recent" style={{marginLeft: '16px'}}>Recent Work</Link>
+              <Link href="/gallery/paintings/previous" style={{marginLeft: '16px'}}>Previous Work</Link>
+              <Link href="/gallery/paintings/older" style={{marginLeft: '16px'}}>Older Work</Link>
+            </div>
+          </MenuItem>
           <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link href="/gallery/fashion">Fashion</Link></MenuItem>
-          <Divider />
-          <MenuItem onClick={handleClose}><Link href="/about">About</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link href="/contact">Contact</Link></MenuItem>
         </Menu>
       </div>

@@ -25,6 +25,7 @@ interface CarouselItemProps {
   loopable?: boolean;
   autoPlay?: boolean;
   showDots?: boolean;
+  showArrows?: boolean;
   showTitle?: boolean;
   showDescription?: boolean;
   disclaimer?: string;
@@ -37,6 +38,7 @@ export default function PreviewCarousel({
   showDescription = false,
   autoPlay = false,
   showDots = false,
+  showArrows = true,
   disclaimer,
   onSelect
 }: CarouselItemProps) {
@@ -132,8 +134,8 @@ export default function PreviewCarousel({
     draggable: true,
     waitForAnimate: false,
     autoPlay: autoPlay,
-    prevArrow: <PrevArrow />,
-    nextArrow: <NextArrow />
+    prevArrow: showArrows ? <PrevArrow /> : undefined,
+    nextArrow: showArrows ? <NextArrow /> : undefined
   };
 
   /** RENDER **/

@@ -21,6 +21,7 @@ export default function RecentPaintingsPage() {
   useAnchorState();
 
   /** CONSTS **/
+  const isMobile = window.innerWidth <= 768;
   const getIndexForImage = (imageData: GenericItemType) =>
     recentPaintingsCarouselEntries.findIndex(i => i.src === imageData.src);
 
@@ -83,19 +84,19 @@ export default function RecentPaintingsPage() {
       window.removeEventListener('hashchange', parseHashAndSelect);
     };
   }, []);
-  
+
   /** RENDER **/
   return (
     <div className="generic-items-page">
       <div className={'generic-items-page__header'}>
-        <Image src="/images/ornament_bird.png" alt="Paintings" width={72} height={72}
-          style={{marginRight: '8px', marginBottom: '12px'}}
+        <Image src="/images/ornament_bird.png" alt="Paintings" width={isMobile ? 32 : 72} height={isMobile ? 32 : 72}
+          style={{marginRight: '8px', marginTop: '6px', marginBottom: '12px'}}
         />
         Recent Paintings
       </div>
       <div className={'generic-items-page__line'}></div>
-      <div style={{width: '100%', margin: '0 auto', padding: '16px 32px'}}>
-        <div id="home-paintings" className="preview-canvas">
+      <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
+        <div id="recent-paintings" className="preview-canvas">
           <img
             src={selectedPainting?.src || '/images/paintings/img-001.jpg'}
             alt={selectedPainting?.title || "Paintings"}
@@ -109,7 +110,8 @@ export default function RecentPaintingsPage() {
             items={recentPaintingsCarouselEntries}
             showTitle={false}
             showDescription={false}
-            showDots={true}
+            showDots={!isMobile}
+            showArrows={!isMobile}
             onSelect={selectPaintingHandler}
           />
         </div>
