@@ -1,0 +1,53 @@
+.NewsPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  row-gap: 64px;
+
+  .NewsEntry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 32px;
+
+
+    .EntryText {
+      font-family: Lato, serif;
+      font-size: 1rem;
+      text-align: center;
+      padding: 16px 10px;
+      max-width: 50%;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+      a {
+        color: var(--mario-accent-color);
+        text-decoration: none;
+      }
+    }
+
+    .EntryPhoto {
+      padding: 8px 16px;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+  .NewsPage {
+    margin-bottom: 32px;
+
+    .NewsEntry {
+      flex-direction: column !important;
+      align-items: center;
+      justify-content: center;
+      row-gap: 16px;
+    }
+  }
+}

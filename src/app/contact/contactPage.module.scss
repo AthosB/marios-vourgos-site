@@ -1,0 +1,26 @@
+.ContactPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100dvw;
+  font-family: "CinzelRegular", sans-serif;
+
+  .Title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .ContactEmail {
+    svg {
+      color: var(--mario-accent-color);
+      margin-bottom: -6px;
+    }
+
+    a{
+      color: var(--mario-accent-color);
+      text-decoration: none;
+    }
+  }
+}

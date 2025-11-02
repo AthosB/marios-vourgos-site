@@ -5,10 +5,9 @@ import "slick-carousel/slick/slick-theme.css";
 
 import '@/styles/generic-page.scss';
 
-import Image from "next/image";
 import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
-import {fashionEntries} from "@/assets/values";
+import {news01Entries} from "@/assets/values";
 import {useAnchorState} from "@/hooks/useAnchorState";
 import {pushAnchor} from "@/utils/helpers";
 import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
@@ -16,28 +15,28 @@ import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function RecentPaintingsPage() {
   /** HOOKS **/
-  const [selectedFashion, setSelectedFashion] = useState<GenericItemType>(fashionEntries[0]);
+  const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(news01Entries[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
   useAnchorState();
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
   const getIndexForImage = (imageData: GenericItemType) =>
-    fashionEntries.findIndex(i => i.src === imageData.src);
+    news01Entries.findIndex(i => i.src === imageData.src);
 
-  const selectPaintingHandler = (fashionItem: GenericItemType, push = true) => {
-    setSelectedFashion(fashionItem);
-    const idx = getIndexForImage(selectedFashion);
+  const selectPhotoHandler = (fashionItem: GenericItemType, push = true) => {
+    setSelectedPhoto(fashionItem);
+    const idx = getIndexForImage(selectedPhoto);
     if (push) {
-      pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'selected'}`);
+      pushAnchor(`#cna-2019-item-${idx >= 0 ? idx : 'selected'}`);
     }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedFashion ? getIndexForImage(selectedFashion) : -1;
+    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
     pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'none'}`);
 
-    localStorage.setItem('previewData', JSON.stringify(selectedFashion));
+    localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
     window.location.href = '/view';
     // setOpenPhotoViewer(true);
   }
@@ -63,9 +62,9 @@ export default function RecentPaintingsPage() {
         if (photoMatch) idx = Number(photoMatch[1]);
         else if (viewMatch) idx = Number(viewMatch[1]);
 
-        if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < fashionEntries.length) {
+        if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < news01Entries.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPaintingHandler(fashionEntries[idx], false);
+          selectPhotoHandler(news01Entries[idx], false);
         }
       } catch {
         // noop
@@ -89,17 +88,14 @@ export default function RecentPaintingsPage() {
   return (
     <div className="generic-items-page">
       <div className={'generic-items-page__header'}>
-        <Image src="/images/ornament_lips.png" alt="Fashion" width={isMobile ? 32 : 72} height={isMobile ? 32 : 72}
-          style={{marginRight: '8px', marginTop: '6px', marginBottom: '12px'}}
-        />
-        Fashion
+        “The Achronic Remembrances of Time... a note not to forget the future...”
       </div>
       <div className={'generic-items-page__line'}></div>
       <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
-        <div id="recent-paintings" className="preview-canvas">
+        <div id="cna-2019" className="preview-canvas">
           <img
-            src={selectedFashion?.src || '/images/paintings/img-001.jpg'}
-            alt={selectedFashion?.title || "Paintings"}
+            src={selectedPhoto?.src || '/images/news/cna2019/news_01-01.jpg'}
+            alt={selectedPhoto?.title || "CNA 2019"}
             height={720}
             style={{marginBottom: '16px'}}
             onClick={viewPhotoHandler}
@@ -107,19 +103,19 @@ export default function RecentPaintingsPage() {
             onContextMenu={(e) => e.preventDefault()}
             onDragStart={(e) => e.preventDefault()}
           />
-          <div className={'ImageTitle'}>{selectedFashion.title}</div>
+          <div className={'ImageTitle'}>{selectedPhoto.description}</div>
           {/*<div className={'ImageDescription'}>{selectedFashion.description}</div>*/}
           <PreviewCarousel
-            items={fashionEntries}
+            items={news01Entries}
             showTitle={false}
             showDescription={false}
             showDots={!isMobile}
             showArrows={!isMobile}
-            onSelect={selectPaintingHandler}
+            onSelect={selectPhotoHandler}
           />
         </div>
         <PhotoViewer
-          photo={selectedFashion}
+          photo={selectedPhoto}
           open={openPhotoViewer}
           onClose={closePhotoViewerHandler}
         />

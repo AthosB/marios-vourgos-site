@@ -60,13 +60,14 @@
 - [X] Fashion 2 - remove bag brand
 - [X] Undefined parapraxis dimension --- 67 x 150 cm
 - [X] "Whispering" secrets of space to time"(last photos) ⇒ "Remembrances of thoughts to come" 
-- [ ] add another sub section in home page under photos with GIFs (indent move to right)
+- [X] add another sub section in home page under photos with GIFs (indent move to right)
 - [ ] add gifs in fashion carousel, separation landscape and portrait
 - [X] remove About - replace with News tab
 - [X] News rename to Press with current content
 - [X] indent subcategory for paintings "recent, etc" follow sort of old website
-- [ ] from news event photos from old site (do NOT plave any photo that contain Photography)
-- [ ] contact page contact details (email, NOT contact form)
-- [ ] disclaimer for Parapraxis (multiple photos in line): 67cm x 150cm
-- [ ] disclaimer for infinite parapraxis "Not digitally manipulated photo repeated printing"
-- [ ] add guard to disable image saving
+- [X] from news event photos from old site (do NOT plave any photo that contain Photography)
+- [X] contact page contact details (email, NOT contact form)
+- [X] disclaimer for Parapraxis (multiple photos in line): 67cm x 150cm
+- [X] disclaimer for infinite parapraxis "Not digitally manipulated photo repeated printing"
+- [X] add guard to disable image saving
+- [ ] fix carousel slider for CNA 2019 page (overflow on mobile last slide)
