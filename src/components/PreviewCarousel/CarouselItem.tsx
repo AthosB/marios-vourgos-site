@@ -38,6 +38,9 @@ export default function CarouselItem({
           alt={alt}
           height={height}
           width={width}
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
         />
       </div>
       <div className={styles.Title}>{title}</div>

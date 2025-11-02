@@ -1,0 +1,23 @@
+.HomeLiterature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .LiteratureEntry {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    column-gap: 16px;
+
+    .EntryPhoto {
+      width: 100%;
+    }
+
+    .EntryDescription {
+      width: 100%;
+      text-align: start;
+    }
+  }
+}

@@ -23,6 +23,9 @@ export default function HomeAbout() {
           src="/images/home-about.JPG"
           width={320}
           alt="Picture of the author"
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
         />
       </div>
       {/*<div className={'news-text'} style={{fontWeight: '600'}}>*/}

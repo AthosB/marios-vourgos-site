@@ -32,6 +32,9 @@ export default function View() {
           src={previewData.src}
           alt="Preview"
           style={{ width: 'auto', display: 'block', margin: '0 auto', maxWidth: '100%' }}
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
         />
         <div className={'ImageTitle'}>{previewData?.title}</div>
         <div className={'ImageDescription'} style={{textAlign: 'center'}}>{previewData?.description}</div>

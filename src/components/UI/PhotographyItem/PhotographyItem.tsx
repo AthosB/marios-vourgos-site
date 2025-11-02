@@ -46,6 +46,9 @@ export default function PhotographyItem({
           src={photoSrc}
           alt={photoAlt}
           height={height}
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
         />
       </div>
       <div className={styles.Title}>{title}</div>

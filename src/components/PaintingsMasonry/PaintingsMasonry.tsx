@@ -16,6 +16,9 @@ export default function PaintingsMasonry({ images }: { images: string[] }) {
                 objectFit: 'cover',
                 borderRadius: '6px',
               }}
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
             />
           </div>
         ))}

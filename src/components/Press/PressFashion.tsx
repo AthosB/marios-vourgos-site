@@ -32,6 +32,9 @@ export default function PressFashion() {
         width={360}
         style={{marginBottom: '16px'}}
         onClick={() => viewPressItemHandler(selectedFashionPress as GenericItemType)}
+        draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
       />
       <div className={'ImageTitle'}>{selectedFashionPress?.title}</div>
       <div className={'ImageDescription'}>{selectedFashionPress?.description}</div>

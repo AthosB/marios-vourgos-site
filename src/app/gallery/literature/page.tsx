@@ -1,21 +1,24 @@
+import '@/styles/generic-page.scss';
+import Image from "next/image";
+import HomeLiterature from "@/components/Home/Literature/HomeLiterature";
+
 export const generateMetadata = () => ({
   title: "Marios Vourgos - Literature",
 });
 
 export default function LiteraturePage() {
   return (
-    <div className="literature-page">
-      <h1>Literature Gallery</h1>
-      <p>
-        Explore our curated collection of literary works, including poetry,
-        short stories, and essays. Each piece reflects the beauty and complexity
-        of the written word, inviting you to immerse yourself in different
-        perspectives and experiences.
-      </p>
-      <p>
-        Whether you are a literature enthusiast or simply looking for inspiration,
-        this gallery offers a diverse range of voices and styles to enjoy.
-      </p>
+    <div className="generic-items-page">
+      <div className={'generic-items-page__header'}>
+        <Image src="/images/ornament_bird_2.png" alt="Fashion" width={72} height={54}
+          style={{marginRight: '12px', marginBottom: '12px'}}
+        />
+        Literature
+      </div>
+      <div className={'generic-items-page__line'}></div>
+      <div style={{padding: '16px 32px'}}>
+        <HomeLiterature />
+      </div>
     </div>
   );
 }

@@ -101,6 +101,9 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
         width={360}
         style={{marginBottom: '16px'}}
         onClick={viewPhotoHandler}
+        draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
       />
       <div className={'ImageTitle'}>{selectedPhoto?.title}</div>
       <div className={'ImageDescription'}>{selectedPhoto?.description}</div>

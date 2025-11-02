@@ -87,6 +87,9 @@ export default function HomePaintings({dots = false} : {dots?: boolean} ) {
         height={720}
         style={{marginBottom: '16px'}}
         onClick={viewPhotoHandler}
+        draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
       />
       <div className={'ImageTitle'}>{selectedPainting.title}</div>
       <div className={'ImageDescription'}>{selectedPainting.description}</div>

@@ -96,6 +96,9 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
         height={720}
         style={{ marginBottom: '16px' }}
         onClick={viewPhotoHandler}
+        draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
       />
       <div className={'ImageTitle'}>{selectedFashion?.title}</div>
       <div className={'ImageDescription'}>{selectedFashion?.description}</div>
