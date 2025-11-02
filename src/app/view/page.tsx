@@ -24,7 +24,7 @@ export default function View() {
     <div className={styles.ViewPage}>
       <CloseIcon
         onClick={backButtonClickHandler}
-        style={{position: 'absolute', top: '16px', right: '16px', zIndex: 100}}
+        style={{position: 'absolute', top: '16px', right: '16px', zIndex: 100, cursor: 'pointer'}}
         fontSize={'large'}
       />
       <div className={styles.Photo}>

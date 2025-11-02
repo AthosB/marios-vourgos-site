@@ -54,7 +54,7 @@ export default function PreviewCarousel({
       description={showDescription ? paintingItem.description as string : undefined}
       disclaimer={disclaimer}
       height={isMobile ? undefined : 250}
-      width={isMobile ? 200 : 'min-content !important'}
+      width={isMobile ? paintingItem.cols ? (paintingItem.cols * 200) : 200 : 'min-content !important'}
       className={styles.CarouselItem}
       onClick={() => clickPaintingHandler(paintingItem)}
       key={`paintings-item-${paintingsItemIndex}`}

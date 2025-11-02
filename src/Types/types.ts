@@ -4,6 +4,7 @@ export type GenericItemType = {
   alt: string;
   title?: string;
   description?: string;
+  cols?: number
 }
 
 export type FashionItemType = {

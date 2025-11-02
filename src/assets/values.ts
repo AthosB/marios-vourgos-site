@@ -1925,76 +1925,87 @@ export const news01Entries = [
     src: '/images/news/news01/news_01-01.jpg',
     alt: 'CNA Charity Gala 1',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 2
   },
   {
     position: 20,
     src: '/images/news/news01/news_01-02.jpg',
     alt: 'CNA Charity Gala 2',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 30,
     src: '/images/news/news01/news_01-03.jpg',
     alt: 'CNA Charity Gala 4',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 40,
     src: '/images/news/news01/news_01-04.jpg',
     alt: 'CNA Charity Gala 4',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 50,
     src: '/images/news/news01/news_01-05.jpg',
     alt: 'CNA Charity Gala 5',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 60,
     src: '/images/news/news01/news_01-06.jpg',
     alt: 'CNA Charity Gala 6',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 70,
     src: '/images/news/news01/news_01-07.jpg',
     alt: 'CNA Charity Gala 7',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 80,
     src: '/images/news/news01/news_01-08.jpg',
     alt: 'CNA Charity Gala 8',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 90,
     src: '/images/news/news01/news_01-09.jpg',
     alt: 'CNA Charity Gala 9',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 100,
     src: '/images/news/news01/news_01-10.jpg',
     alt: 'CNA Charity Gala 10',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 1
   },
   {
     position: 110,
     src: '/images/news/news01/news_01-11.jpg',
     alt: 'CNA Charity Gala 11',
     title: '“The Achronic Remembrances of Time... a note not to forget the future...”',
-    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port'
+    description: 'Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port',
+    cols: 3
   },
 ];

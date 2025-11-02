@@ -20,6 +20,10 @@ export default function MobileLayout({
     <AppRouterCacheProvider>
       <MobileMenu />
       {children}
+      <p className={'copyright-footer'}>
+        © 2025 Mario Vourgos.
+        All rights reserved.
+      </p>
     </AppRouterCacheProvider>
   );
 }

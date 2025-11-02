@@ -14,6 +14,10 @@ export default function DesktopLayout({
     <AppRouterCacheProvider>
       <NavBar />
       {children}
+      <p style={ {textAlign: 'center', marginTop: '2rem', opacity: 0.5}}>
+        © 2025 Mario Vourgos.
+        All rights reserved.
+      </p>
     </AppRouterCacheProvider>
   );
 }
