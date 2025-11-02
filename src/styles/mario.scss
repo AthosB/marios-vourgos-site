@@ -361,6 +361,7 @@ and (max-device-width: 550px) and (orientation: portrait) {
 
   html, body {
     font-size: 9px !important;
+    overflow-x: hidden;
   }
   // mobile styles
   .HomeSection {

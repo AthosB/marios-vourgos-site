@@ -50,14 +50,15 @@ export default function MobileMenu() {
           <MenuItem onClick={handleClose}><Link href="/news">News</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link href="/press">Press</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
-          <MenuItem onClick={handleClose}>
-            <div style={{display: 'flex', flexDirection: 'column', rowGap: '8px'}}>
-              <div style={{opacity: 0.5}}>Paintings</div>
-              <Link href="/gallery/paintings/recent" style={{marginLeft: '16px'}}>Recent Work</Link>
-              <Link href="/gallery/paintings/previous" style={{marginLeft: '16px'}}>Previous Work</Link>
-              <Link href="/gallery/paintings/older" style={{marginLeft: '16px'}}>Older Work</Link>
-            </div>
-          </MenuItem>
+          <div style={{display: 'flex', flexDirection: 'column', rowGap: '8px'}}>
+            <div className={styles.MenuCategory}>Paintings</div>
+            <MenuItem onClick={handleClose}><Link href="/gallery/paintings/recent" style={{marginLeft: '16px'}}>Recent
+              Work</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/gallery/paintings/previous" style={{marginLeft: '16px'}}>Previous
+              Work</Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/gallery/paintings/older" style={{marginLeft: '16px'}}>Older
+              Work</Link></MenuItem>
+          </div>
           <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link href="/gallery/fashion">Fashion</Link></MenuItem>
           <MenuItem onClick={handleClose}><Link href="/contact">Contact</Link></MenuItem>
