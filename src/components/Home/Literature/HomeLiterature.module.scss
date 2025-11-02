@@ -3,21 +3,91 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 32px;
 
   .LiteratureEntry {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    column-gap: 16px;
 
-    .EntryPhoto {
-      width: 100%;
+    .EntryContent {
+      //width: 100%;
+      //display: flex;
+      //flex-direction: row;
+      //align-items: center;
+      //justify-content: space-around;
+      //column-gap: 16px;
+      margin-bottom: 32px;
+      padding: 16px 32px;
+
+      .EntryPhoto {
+        //width: 100%;
+        margin-right: 2rem;
+      }
+
+      .EntryDescription > p {
+        font-family: 'Lato Medium', sans-serif;
+        //font-family: "CinzelRegular", sans-serif;
+        //font-size: 1.25rem;
+        //text-align: justify;
+        //font-weight: 600;
+        //padding: 8px 32px;
+        text-align: justify;
+
+        &:nth-child(2) {
+          margin-top: -4px;
+        }
+      }
     }
 
-    .EntryDescription {
+    .EntryMore {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      column-gap: 16px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+  .EntryContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px !important;
+    padding: 16px 4px !important;
+
+    .EntryPhoto {
+      margin: 0 auto !important;
+
+      img {
+        margin-right: 0;
+        margin-bottom: 16px;
+        height: auto;
+        width: 100%;
+        max-width: 95vw;
+      }
+    }
+
+    p {
+      //padding: 4px 8px;
       width: 100%;
-      text-align: start;
+      max-width: 95vw;
+    }
+  }
+
+  .EntryMore {
+    width: 100vw;
+    justify-content: unset !important;
+    overflow-x: auto;
+
+    & > img:first-child {
+      margin-left: 16px;
+    }
+
+    & > img:last-child {
+      margin-right: 16px;
     }
   }
 }

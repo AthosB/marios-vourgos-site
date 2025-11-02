@@ -17,7 +17,7 @@ export default function HomeAbout() {
 
   /** RENDER **/
   return (
-    <div id={"#home-news"} className={styles.aboutContent} onClick={addAnchor}>
+    <div id={"#home-about"} className={styles.aboutContent} onClick={addAnchor}>
       <div className={'about-image'}>
         <img
           src="/images/home-about.JPG"

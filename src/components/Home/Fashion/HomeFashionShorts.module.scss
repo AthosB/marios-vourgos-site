@@ -23,3 +23,17 @@
     clip-path: inset(2px 0 6px 0);
   }
 }
+
+@media only screen /* Phone Portrait */
+and (max-device-width: 550px) and (orientation: portrait) {
+  .FashionGifWrapper {
+    width: 100vw;
+    justify-content: space-evenly !important;
+    overflow-x: auto;
+
+    img {
+      width: 128px;
+      height: unset !important;
+    }
+  }
+}
