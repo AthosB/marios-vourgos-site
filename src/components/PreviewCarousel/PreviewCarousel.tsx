@@ -52,8 +52,9 @@ export default function PreviewCarousel({
       alt={paintingItem.alt}
       title={showTitle ? paintingItem.title as string : undefined}
       description={showDescription ? paintingItem.description as string : undefined}
+      video={paintingItem.video}
       disclaimer={disclaimer}
-      height={isMobile ? undefined : 250}
+      height={isMobile ? undefined : paintingItem.video ? 264 :  250}
       width={isMobile ? paintingItem.cols ? (paintingItem.cols * 200) : 200 : 'min-content !important'}
       className={styles.CarouselItem}
       onClick={() => clickPaintingHandler(paintingItem)}

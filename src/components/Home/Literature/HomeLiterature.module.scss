@@ -23,20 +23,6 @@
         margin-right: 2rem;
       }
 
-      .EntryDescription > p {
-        font-family: 'Lato Medium', sans-serif;
-        //font-family: "CinzelRegular", sans-serif;
-        //font-size: 1.25rem;
-        //text-align: justify;
-        //font-weight: 600;
-        //padding: 8px 32px;
-        text-align: justify;
-
-        &:nth-child(2) {
-          margin-top: -4px;
-        }
-      }
-
       .Action {
         width: 100%;
         text-align: center;
@@ -45,12 +31,32 @@
 
     .EntryMore {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      column-gap: 16px;
-      cursor: pointer;
     }
+  }
+}
+
+.EntryDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 32px;
+}
+
+.EntryDescription > p {
+  font-family: 'Lato Medium', sans-serif;
+  //font-family: "CinzelRegular", sans-serif;
+  //font-size: 1.25rem;
+  //text-align: justify;
+  //font-weight: 600;
+  //padding: 8px 32px;
+  text-align: justify;
+
+  &:nth-child(2) {
+    margin-top: -4px;
   }
 }
 

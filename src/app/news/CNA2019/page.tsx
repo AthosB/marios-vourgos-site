@@ -113,6 +113,41 @@ export default function RecentPaintingsPage() {
             showArrows={!isMobile}
             onSelect={selectPhotoHandler}
           />
+          {/*<div*/}
+          {/*  className={styles.CNA2019Carousel}*/}
+          {/*  style={{*/}
+          {/*    height: isMobile ? '96px' : '128px',*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  {*/}
+          {/*    news01Entries.map((item, idx) => (*/}
+          {/*      <div*/}
+          {/*        key={idx}*/}
+          {/*        className={styles.CNA2019CarouselItem}*/}
+          {/*        style={{*/}
+          {/*          height: isMobile ? '96px' : '128px'*/}
+          {/*        }}*/}
+          {/*      >*/}
+          {/*        <img*/}
+          {/*          src={item.src}*/}
+          {/*          alt={item.title}*/}
+          {/*          height={isMobile ? '96px !important' : 128}*/}
+          {/*          width={'fit-content'}*/}
+          {/*          onClick={() => selectPhotoHandler(item)}*/}
+          {/*          onDragStart={(e) => e.preventDefault()}*/}
+          {/*          draggable={false}*/}
+          {/*          onContextMenu={(e) => e.preventDefault()}*/}
+          {/*          style={{*/}
+          {/*            cursor: 'pointer',*/}
+          {/*            objectFit: 'contain',*/}
+          {/*            boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)',*/}
+          {/*            transition: 'transform 0.3s ease-in-out',*/}
+          {/*          }}*/}
+          {/*        />*/}
+          {/*      </div>*/}
+          {/*    ))*/}
+          {/*  }*/}
+          {/*</div>*/}
         </div>
         <PhotoViewer
           photo={selectedPhoto}

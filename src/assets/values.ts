@@ -1717,12 +1717,6 @@ export const fashionEntries = [
     alt: 'Fashion 2',
     title: 'Fashion 2',
   },
-  // {
-  //   position: 300,
-  //   src: '/images/fashion/fashion_03.jpg',
-  //   alt: 'Fashion 3',
-  //   title: 'Fashion 3',
-  // },
   {
     position: 400,
     src: '/images/fashion/fashion_04.jpg',
@@ -1734,6 +1728,13 @@ export const fashionEntries = [
     src: '/images/fashion/fashion_05.jpg',
     alt: 'Fashion 5',
     title: 'Fashion 5',
+  },
+  {
+    position: 300,
+    src: '/images/fashion/clips/short_003.mp4',
+    alt: 'Fashion Clip 3',
+    title: 'Fashion Clip 3',
+    video: true,
   },
   {
     position: 600,
@@ -1759,6 +1760,13 @@ export const fashionEntries = [
     src: '/images/fashion/fashion_09.jpg',
     alt: 'Fashion 9',
     title: 'Fashion 9',
+  },
+  {
+    position: 300,
+    src: '/images/fashion/clips/short_001.mp4',
+    alt: 'Fashion Clip 1',
+    title: 'Fashion Clip 1',
+    video: true,
   },
   {
     position: 1000,
@@ -1789,6 +1797,13 @@ export const fashionEntries = [
     src: '/images/fashion/fashion_14.jpg',
     alt: 'Fashion 14',
     title: 'Fashion 14',
+  },
+  {
+    position: 300,
+    src: '/images/fashion/clips/short_002.mp4',
+    alt: 'Fashion Clip 2',
+    title: 'Fashion Clip 2',
+    video: true,
   },
   {
     position: 1500,
@@ -1878,42 +1893,42 @@ export const fashionEntries = [
 
 export const fashionPressEntries: GenericItemType[] = [
   {
-    title: 'Fashion Press 1',
+    title: 'Travel & Life',
     src: '/images/fashion/press/fashion_press_01.jpg',
     alt: 'Fashion Press 1',
   },
   {
-    title: 'Fashion Press 2',
+    title: "Women's Wear Daily",
     src: '/images/fashion/press/fashion_press_02.jpg',
     alt: 'Fashion Press 2',
   },
   {
-    title: 'Fashion Press 3',
+    title: 'Women\'s Wear Daily - New York',
     src: '/images/fashion/press/fashion_press_03.jpg',
     alt: 'Fashion Press 3',
   },
   {
-    title: 'Fashion Press 4',
+    title: 'Estivant',
     src: '/images/fashion/press/fashion_press_04.jpg',
     alt: 'Fashion Press 4',
   },
   {
-    title: 'Fashion Press 5',
+    title: 'Retailing in focus',
     src: '/images/fashion/press/fashion_press_05.jpg',
     alt: 'Fashion Press 5',
   },
+  // {
+  //   title: 'Fashion Press 6',
+  //   src: '/images/fashion/press/fashion_press_06.jpg',
+  //   alt: 'Fashion Press 6',
+  // },
   {
-    title: 'Fashion Press 6',
-    src: '/images/fashion/press/fashion_press_06.jpg',
-    alt: 'Fashion Press 6',
-  },
-  {
-    title: 'Fashion Press 7',
+    title: 'Travel & Life',
     src: '/images/fashion/press/fashion_press_07.jpg',
     alt: 'Fashion Press 7',
   },
   {
-    title: 'Fashion Press 8',
+    title: 'Framed',
     src: '/images/fashion/press/fashion_press_08.jpg',
     alt: 'Fashion Press 8',
   },
@@ -2009,3 +2024,124 @@ export const news01Entries = [
     cols: 3
   },
 ];
+
+export const literatureTango29Carousel = [
+  {
+    position: 10,
+    src: '/images/literature/tango-1.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  // {
+  //   position: 20,
+  //   src: '/images/literature/tango29/carousel/tango-kolossi-01.jpg',
+  //   alt: 'Tango 29',
+  //   title: 'Tango 29',
+  // },
+  {
+    position: 30,
+    src: '/images/literature/tango29/carousel/CHR_2893.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 40,
+    src: '/images/literature/tango29/carousel/CHR_3024.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 50,
+    src: '/images/literature/tango29/carousel/CHR_3354.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 60,
+    src: '/images/literature/tango29/carousel/CHR_3398.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 70,
+    src: '/images/literature/tango29/carousel/CHR_2748.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 80,
+    src: '/images/literature/tango29/carousel/CHR_2872.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 90,
+    src: '/images/literature/tango29/carousel/CHR_2776.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 100,
+    src: '/images/literature/tango29/carousel/CHR_2777.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 110,
+    src: '/images/literature/tango29/carousel/CHR_3208_B.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 120,
+    src: '/images/literature/tango29/carousel/CHR_3259.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 130,
+    src: '/images/literature/tango29/carousel/CHR_3482.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 140,
+    src: '/images/literature/tango29/carousel/CHR_3490.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 150,
+    src: '/images/literature/tango29/carousel/tango-kolossi-03.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 160,
+    src: '/images/literature/tango29/carousel/CHR_3639.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  },
+  {
+    position: 170,
+    src: '/images/literature/tango29/carousel/CHR_3718.jpg',
+    alt: 'Tango 29',
+    title: 'Tango 29',
+    cols: 5
+  }
+] as GenericItemType[];

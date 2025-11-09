@@ -1,0 +1,36 @@
+.PreviewCanvas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  img {
+    min-height: 268px;
+    max-height: 50vh;
+    width: auto;
+  }
+}
+
+.CNA2019Carousel {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  column-gap: 16px;
+  width: 100%;
+  max-width: 95vw;
+  overflow-x: auto;
+  padding: 16px 32px;
+
+  .CNA2019CarouselItem {
+    //display: flex;
+    //flex-direction: column;
+    //align-items: center;
+    //justify-content: center;
+    width: fit-content;
+    //height: fit-content;
+  }
+}

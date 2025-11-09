@@ -71,3 +71,15 @@
 - [X] disclaimer for infinite parapraxis "Not digitally manipulated photo repeated printing"
 - [X] add guard to disable image saving
 - [ ] fix carousel slider for CNA 2019 page (overflow on mobile last slide)
+- [ ] fix loading images pushing carousel
+- [X] add contrast to Eudaimonia painting
+- [X] increase contrast on Morning Athena painting
+- [X] add gifs of fashion to carousel as they are. The landscape makes them to be different from the rest
+- [X] fix smudged fashion photo (took on iPhone)
+- [X] change photos for News Tango 29
+- [X] ask elena for Photos from the Kolossi event
+- [ ] more vibrance to Eudaimonia painting
+- [X] remove duplicate photo from press/fashion (4th-5th photo)
+- [ ] News and Events --> categories (follow submenus approach like Gallery Paintings)
+- [ ] reduce size of Photography names and disclaimers
+- [ ] photograhpy carousel 1st item --> Sardonic Smile (5th) - (swap with first)

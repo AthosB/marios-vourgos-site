@@ -90,7 +90,20 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
   /** RENDER **/
   return <>
     <div id="home-fashion" className="preview-canvas">
-      <img
+      {selectedFashion && selectedFashion.src && selectedFashion.video ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          // width={width}
+          height={720}
+          style={{objectFit: "cover", marginTop: '6px'}}
+        >
+          <source src={selectedFashion.src} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      ) : (<img
         src={selectedFashion?.src || ''}
         alt={selectedFashion?.title || "Fashion"}
         height={720}
@@ -99,7 +112,7 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
         draggable={false}
         onContextMenu={(e) => e.preventDefault()}
         onDragStart={(e) => e.preventDefault()}
-      />
+      />) }
       <div className={'ImageTitle'}>{selectedFashion?.title}</div>
       <div className={'ImageDescription'}>{selectedFashion?.description}</div>
       <PreviewCarousel

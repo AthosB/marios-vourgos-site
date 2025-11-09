@@ -7,6 +7,7 @@ interface CarouselItemProps {
   alt: string;
   title?: string;
   description?: string;
+  video?: boolean;
   disclaimer?: string;
   onClick?: () => void;
   height?: number | string;
@@ -20,6 +21,7 @@ export default function CarouselItem({
   alt = '',
   title = '',
   description,
+  video = false,
   onClick,
   height = 'auto',
   width = '100%',
@@ -33,7 +35,20 @@ export default function CarouselItem({
     }}
     >
       <div className={`${styles.Image}${elevated ? ` ${styles.Elevated}` : ''}`}>
-        <img
+        {video ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            // width={width}
+            height={height}
+            style={{objectFit: "cover", marginTop: '6px'}}
+          >
+            <source src={src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        ) : (<img
           src={src}
           alt={alt}
           height={height}
@@ -41,7 +56,7 @@ export default function CarouselItem({
           draggable={false}
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
-        />
+        />)}
       </div>
       <div className={styles.Title}>{title}</div>
       {(description && description.length > 0) && (<div className={styles.Description}>{description}</div>)}

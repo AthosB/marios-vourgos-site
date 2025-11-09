@@ -1,20 +1,21 @@
 'use client'
 
+import {literatureTango29Carousel} from "@/assets/values";
 import {Button} from "@mui/material";
 import styles from './HomeLiterature.module.scss';
 import {pushAnchor} from "@/utils/helpers";
+import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
+import {GenericItemType} from "@/Types/types";
+import {useState} from "react";
 
 export default function HomeLiterature() {
+  /** HOOKS **/
+  const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType | null>(literatureTango29Carousel[0]);
+
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
 
-  const viewPhotoHandler = (imageData: {
-    src: string;
-    alt?: string;
-    title?: string;
-    description?: string;
-
-  }) => {
+  const viewPhotoHandler = (imageData: GenericItemType) => {
     pushAnchor(`#home-literature-view-${imageData.title}`);
 
     const previewData = {
@@ -29,127 +30,61 @@ export default function HomeLiterature() {
     // setOpenPhotoViewer(true);
   }
 
+  const getIndexForImage = (photoData: GenericItemType) =>
+    literatureTango29Carousel.findIndex(i => i.src === photoData.src);
+
+  const selectPhotoHandler = (photoData: GenericItemType, push = true) => {
+    setSelectedPhoto(photoData);
+    const idx = getIndexForImage(photoData);
+    if (push) {
+      pushAnchor(`#home-photography-${idx >= 0 ? idx : 'selected'}`);
+    }
+  };
+
   /** RENDER **/
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-    >
-      <div className={styles.HomeLiterature}>
-        <div className={styles.LiteratureEntry}>
-          <div className={styles.EntryContent}>
-            <div className={styles.EntryPhoto}>
-              <img
-                src="/images/literature/tango-1.jpg"
-                alt="Tango 29"
-                height={430}
-                draggable={false}
-                onContextMenu={(e) => e.preventDefault()}
-                onDragStart={(e) => e.preventDefault()}
-              />
-            </div>
-            <div className={styles.EntryDescription}>
-              <p>
-                The medieval castle was transformed into a modern stage, with live theatrical characters and visual
-                installations, where attendees watched the verses from Marios Vourgos’ poetry collection “Tango 29” come
-                to life through a group of acclaimed artists, under the direction of theatre director Elena Sokratous.
-              </p>
-              <div className={styles.Action}>
-                <a
-                  href={'https://www.tango29.eu/'}
-                  target="_blank"
-                  rel={'noreferrer'}
-                  style={{margin: '0 auto'}}
-                  title="Tango 29 (opens in a new tab)"
-                >
-                  <Button
-                    variant="contained"
-                    color="warning"
-                  >
-                    More
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className={styles.EntryMore}>
-            <img
-              src={'/images/literature/tango-kolossi-01.jpg'}
-              alt="Tango 29"
-              height={isMobile ? undefined : 196}
-              width={isMobile ? 128 : undefined}
-              draggable={false}
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
-              onClick={() => {
-                viewPhotoHandler({
-                  src: '/images/literature/tango-kolossi-01.jpg',
-                  alt: 'Tango 29',
-                  title: 'Tango 29',
-                  description: 'Tango 29 - "Μνήμης Ταλάντωση"',
-                })
-              }}
-            />
-            <img
-              src={'/images/literature/tango-kolossi-02.jpg'}
-              alt="Tango 29"
-              height={isMobile ? undefined : 196}
-              width={isMobile ? 128 : undefined}
-              draggable={false}
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
-              onClick={() => {
-                viewPhotoHandler({
-                  src: '/images/literature/tango-kolossi-02.jpg',
-                  alt: 'Tango 29',
-                  title: 'Tango 29',
-                  description: 'Tango 29 - "Μνήμης Ταλάντωση"',
-                })
-              }}
-            />
-            <img
-              src={'/images/literature/tango-kolossi-03.jpg'}
-              alt="Tango 29"
-              height={isMobile ? undefined : 196}
-              width={isMobile ? 128 : undefined}
-              draggable={false}
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
-              onClick={() => {
-                viewPhotoHandler({
-                  src: '/images/literature/tango-kolossi-03.jpg',
-                  alt: 'Tango 29',
-                  title: 'Tango 29',
-                  description: 'Tango 29 - "Μνήμης Ταλάντωση"',
-                })
-              }}
-            />
-            <img
-              src={'/images/literature/tango-kolossi-04.jpg'}
-              alt="Tango 29"
-              height={isMobile ? undefined : 196}
-              width={isMobile ? 128 : undefined}
-              draggable={false}
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
-              onClick={() => {
-                viewPhotoHandler({
-                  src: '/images/literature/tango-kolossi-04.jpg',
-                  alt: 'Tango 29',
-                  title: 'Tango 29',
-                  description: 'Tango 29 - "Μνήμης Ταλάντωση"',
-                })
-              }}
-            />
-          </div>
+    <div className="preview-canvas">
+      <img
+        // src="/images/literature/tango-1.jpg"
+        src={selectedPhoto?.src || '/images/literature/tango29/carousel/tango-kolossi-01.jpg'}
+        alt="Tango 29"
+        height={430}
+        draggable={false}
+        onContextMenu={(e) => e.preventDefault()}
+        onDragStart={(e) => e.preventDefault()}
+        onClick={() => viewPhotoHandler(selectedPhoto as GenericItemType)}
+      />
+      <div className={'ImageTitle'}>
+        <p>
+          The medieval castle was transformed into a modern stage, with live theatrical characters and visual
+          installations, where attendees watched the verses from Marios Vourgos’ poetry collection “Tango 29” come
+          to life through a group of acclaimed artists, under the direction of theatre director Elena Sokratous.
+        </p>
+        <div className={styles.Action}>
+          <a
+            href={'https://www.tango29.eu/'}
+            target="_blank"
+            rel={'noreferrer'}
+            style={{margin: '0 auto'}}
+            title="Tango 29 (opens in a new tab)"
+          >
+            <Button
+              variant="contained"
+              color="warning"
+            >
+              More
+            </Button>
+          </a>
         </div>
       </div>
+      <PreviewCarousel
+        items={literatureTango29Carousel}
+        showTitle={false}
+        showDescription={false}
+        showDots={!isMobile}
+        showArrows={!isMobile}
+        onSelect={selectPhotoHandler}
+      />
     </div>
   );
 }
