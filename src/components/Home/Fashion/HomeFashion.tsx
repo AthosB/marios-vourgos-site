@@ -113,7 +113,7 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
           loop
           muted
           playsInline
-          width={isMobile ? '95%' : 230}
+          width={isMobile ? '95%' : 'auto'}
           height={isMobile ? 'auto' : 720}
           style={{objectFit: "cover", marginTop: '6px'}}
         >
