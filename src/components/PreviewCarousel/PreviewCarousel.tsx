@@ -54,8 +54,8 @@ export default function PreviewCarousel({
       description={showDescription ? paintingItem.description as string : undefined}
       video={paintingItem.video}
       disclaimer={disclaimer}
-      height={isMobile ? undefined : paintingItem.video ? 264 :  250}
-      width={isMobile ? paintingItem.cols ? (paintingItem.cols * 200) : 200 : 'min-content !important'}
+      height={isMobile ? paintingItem.video ? 'auto' : undefined : paintingItem.video ? 264 :  250}
+      width={isMobile ? paintingItem.video ? 94 : paintingItem.cols ? (paintingItem.cols * 200) : 200 : 'min-content !important'}
       className={styles.CarouselItem}
       onClick={() => clickPaintingHandler(paintingItem)}
       key={`paintings-item-${paintingsItemIndex}`}
@@ -73,6 +73,7 @@ export default function PreviewCarousel({
   ));
 
   const clickPaintingHandler = (paintingData: GenericItemType) => {
+    console.log('clickPaintingHandler', paintingData);
     localStorage.setItem('previewData', JSON.stringify(paintingData));
     if (onSelect) onSelect(paintingData);
   }

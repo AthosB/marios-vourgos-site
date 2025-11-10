@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useState} from "react";
+import {useEffect, useState, useRef} from "react";
 import { useAnchorState } from '@/hooks/useAnchorState';
 import '@/styles/mario.scss';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
@@ -18,9 +18,13 @@ type imageType = {
 }
 
 export default function HomeFashion({dots = false} : {dots?: boolean}) {
+  /** PRES **/
+  const isMobile = window.innerWidth <= 768;
+
   /** HOOKS **/
   const [selectedFashion, setSelectedFashion] = useState<GenericItemType>(fashionEntries[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   useAnchorState();
 
   /** CONSTS **/
@@ -28,6 +32,7 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
     fashionEntries.findIndex(i => i.src === imageData.src);
 
   const selectImageHandler = (imageData: imageType, push = true) => {
+    // console.log('selectImageHandler in HomeFashion', imageData);
     setSelectedFashion(imageData);
     const idx = getIndexForImage(imageData);
     if (push) {
@@ -48,6 +53,15 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
     setOpenPhotoViewer(false);
     pushAnchor('#home-fashion');
   }
+
+  useEffect(() => {
+    if (!selectedFashion?.video) return;
+    const v = videoRef.current;
+    if (!v) return;
+    // Force reload and try to play (catch promise rejection)
+    try { v.load(); } catch { /* noop */ }
+    v.play && v.play().catch(() => { /* autoplay may be blocked */ });
+  }, [selectedFashion?.src, selectedFashion?.video]);
 
   /** EFFECTS **/
   useEffect(() => {
@@ -92,12 +106,15 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
     <div id="home-fashion" className="preview-canvas">
       {selectedFashion && selectedFashion.src && selectedFashion.video ? (
         <video
+          key={selectedFashion.src}
+          ref={videoRef}
+          src={selectedFashion.src}
           autoPlay
           loop
           muted
           playsInline
-          // width={width}
-          height={720}
+          width={isMobile ? '95%' : 230}
+          height={isMobile ? 'auto' : 720}
           style={{objectFit: "cover", marginTop: '6px'}}
         >
           <source src={selectedFashion.src} type="video/mp4" />

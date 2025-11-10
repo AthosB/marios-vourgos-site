@@ -408,9 +408,9 @@ export const photoFilenames = [
 export const photographyCarouselFilenames = [
   {
     position: 1,
-    src: '/images/photography/carousel/ph-ca-01.JPG',
-    alt: 'The escape of dreams',
-    title: 'The escape of dreams',
+    src: '/images/photography/carousel/ph-ca-06.JPG',
+    alt: 'Sardonic Smile',
+    title: 'Sardonic Smile',
     description: '100 cm x 80 cm'
   },
   {
@@ -443,9 +443,9 @@ export const photographyCarouselFilenames = [
   },
   {
     position: 6,
-    src: '/images/photography/carousel/ph-ca-06.JPG',
-    alt: 'Sardonic Smile',
-    title: 'Sardonic Smile',
+    src: '/images/photography/carousel/ph-ca-01.JPG',
+    alt: 'The escape of dreams',
+    title: 'The escape of dreams',
     description: '100 cm x 80 cm'
   },
   {
@@ -1730,7 +1730,7 @@ export const fashionEntries = [
     title: 'Fashion 5',
   },
   {
-    position: 300,
+    position: 550,
     src: '/images/fashion/clips/short_003.mp4',
     alt: 'Fashion Clip 3',
     title: 'Fashion Clip 3',
@@ -1762,7 +1762,7 @@ export const fashionEntries = [
     title: 'Fashion 9',
   },
   {
-    position: 300,
+    position: 950,
     src: '/images/fashion/clips/short_001.mp4',
     alt: 'Fashion Clip 1',
     title: 'Fashion Clip 1',
@@ -1781,6 +1781,13 @@ export const fashionEntries = [
     title: 'Fashion 11',
   },
   {
+    position: 1150,
+    src: '/images/fashion/clips/short_004.mp4',
+    alt: 'Fashion Clip 4',
+    title: 'Fashion Clip 4',
+    video: true,
+  },
+  {
     position: 1200,
     src: '/images/fashion/fashion_12.jpg',
     alt: 'Fashion 12',
@@ -1793,13 +1800,20 @@ export const fashionEntries = [
     title: 'Fashion 13',
   },
   {
+    position: 1350,
+    src: '/images/fashion/clips/short_011.mp4',
+    alt: 'Fashion Clip 11',
+    title: 'Fashion Clip 11',
+    video: true,
+  },
+  {
     position: 1400,
     src: '/images/fashion/fashion_14.jpg',
     alt: 'Fashion 14',
     title: 'Fashion 14',
   },
   {
-    position: 300,
+    position: 1450,
     src: '/images/fashion/clips/short_002.mp4',
     alt: 'Fashion Clip 2',
     title: 'Fashion Clip 2',
@@ -1812,10 +1826,24 @@ export const fashionEntries = [
     title: 'Fashion 15',
   },
   {
+    position: 1550,
+    src: '/images/fashion/clips/short_012.mp4',
+    alt: 'Fashion Clip 12',
+    title: 'Fashion Clip 12',
+    video: true,
+  },
+  {
     position: 1600,
     src: '/images/fashion/fashion_16.jpg',
     alt: 'Fashion 16',
     title: 'Fashion 16',
+  },
+  {
+    position: 1650,
+    src: '/images/fashion/clips/short_005.mp4',
+    alt: 'Fashion Clip 5',
+    title: 'Fashion Clip 5',
+    video: true,
   },
   {
     position: 1700,
@@ -1824,10 +1852,31 @@ export const fashionEntries = [
     title: 'Fashion 17',
   },
   {
+    position: 1750,
+    src: '/images/fashion/clips/short_013.mp4',
+    alt: 'Fashion Clip 13',
+    title: 'Fashion Clip 13',
+    video: true,
+  },
+  {
     position: 1800,
     src: '/images/fashion/fashion_18.jpg',
     alt: 'Fashion 18',
     title: 'Fashion 18',
+  },
+  {
+    position: 1850,
+    src: '/images/fashion/clips/short_007.mp4',
+    alt: 'Fashion Clip 7',
+    title: 'Fashion Clip 7',
+    video: true,
+  },
+  {
+    position: 1875,
+    src: '/images/fashion/clips/short_014.mp4',
+    alt: 'Fashion Clip 14',
+    title: 'Fashion Clip 14',
+    video: true,
   },
   {
     position: 1900,
@@ -1842,10 +1891,24 @@ export const fashionEntries = [
     title: 'Fashion 20',
   },
   {
+    position: 2050,
+    src: '/images/fashion/clips/short_015.mp4',
+    alt: 'Fashion Clip 15',
+    title: 'Fashion Clip 15',
+    video: true,
+  },
+  {
     position: 2100,
     src: '/images/fashion/fashion_21.jpg',
     alt: 'Fashion 21',
     title: 'Fashion 21',
+  },
+  {
+    position: 2150,
+    src: '/images/fashion/clips/short_006.mp4',
+    alt: 'Fashion Clip 6',
+    title: 'Fashion Clip 6',
+    video: true,
   },
   {
     position: 2200,
@@ -1854,10 +1917,38 @@ export const fashionEntries = [
     title: 'Fashion 22',
   },
   {
+    position: 2250,
+    src: '/images/fashion/clips/short_016.mp4',
+    alt: 'Fashion Clip 16',
+    title: 'Fashion Clip 16',
+    video: true,
+  },
+  {
     position: 2300,
     src: '/images/fashion/fashion_23.jpg',
     alt: 'Fashion 23',
     title: 'Fashion 23',
+  },
+  {
+    position: 2350,
+    src: '/images/fashion/clips/short_008.mp4',
+    alt: 'Fashion Clip 8',
+    title: 'Fashion Clip 8',
+    video: true,
+  },
+  {
+    position: 2375,
+    src: '/images/fashion/clips/short_018.mp4',
+    alt: 'Fashion Clip 18',
+    title: 'Fashion Clip 18',
+    video: true,
+  },
+  {
+    position: 2385,
+    src: '/images/fashion/clips/short_022.mp4',
+    alt: 'Fashion Clip 22',
+    title: 'Fashion Clip 22',
+    video: true,
   },
   {
     position: 2400,
@@ -1872,10 +1963,38 @@ export const fashionEntries = [
     title: 'Fashion 25',
   },
   {
+    position: 2525,
+    src: '/images/fashion/clips/short_019.mp4',
+    alt: 'Fashion Clip 19',
+    title: 'Fashion Clip 19',
+    video: true,
+  },
+  {
+    position: 2550,
+    src: '/images/fashion/clips/short_017.mp4',
+    alt: 'Fashion Clip 17',
+    title: 'Fashion Clip 17',
+    video: true,
+  },
+  {
     position: 2600,
     src: '/images/fashion/fashion_26.jpg',
     alt: 'Fashion 26',
     title: 'Fashion 26',
+  },
+  {
+    position: 2650,
+    src: '/images/fashion/clips/short_009.mp4',
+    alt: 'Fashion Clip 9',
+    title: 'Fashion Clip 9',
+    video: true,
+  },
+  {
+    position: 2675,
+    src: '/images/fashion/clips/short_020.mp4',
+    alt: 'Fashion Clip 20',
+    title: 'Fashion Clip 20',
+    video: true,
   },
   {
     position: 2700,
@@ -1888,6 +2007,20 @@ export const fashionEntries = [
     src: '/images/fashion/fashion_28.jpg',
     alt: 'Fashion 28',
     title: 'Fashion 28',
+  },
+  {
+    position: 2825,
+    src: '/images/fashion/clips/short_021.mp4',
+    alt: 'Fashion Clip 21',
+    title: 'Fashion Clip 21',
+    video: true,
+  },
+  {
+    position: 2850,
+    src: '/images/fashion/clips/short_010.mp4',
+    alt: 'Fashion Clip 10',
+    title: 'Fashion Clip 10',
+    video: true,
   },
 ] as GenericItemType[];
 

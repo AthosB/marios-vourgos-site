@@ -41,9 +41,9 @@ export default function CarouselItem({
             loop
             muted
             playsInline
-            // width={width}
+            width={width}
             height={height}
-            style={{objectFit: "cover", marginTop: '6px'}}
+            style={{objectFit: "cover", marginTop: '1px'}}
           >
             <source src={src} type="video/mp4" />
             Your browser does not support the video tag.

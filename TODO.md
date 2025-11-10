@@ -46,8 +46,8 @@
 - [X] slightly increase disclaimer text size
 - [X] change literature ornament
 - [X] fix scratches on scanned fashion photos
-- [ ] remove plug and cable on the white wall from scanned photo (File_000 (15))
-- [ ] check physical photo with shoulder smudge again
+- [X] remove plug and cable on the white wall from scanned photo (File_000 (15))
+- [X] check physical photo with shoulder smudge again
 - [ ] consider sub-categories for fashion, paintings, literature with "Press Coverage"
 - [X] fix react slick navigation arrows
 - [X] fix react slick navigation dots
@@ -56,12 +56,12 @@
 
 - [X] find a way to have the back button go to previous anchor
 - [X] Fashion 10 - remove smudge on shoulder pads (original contains smudge)
-- [ ] photo with plug to be removed was in scanned photos (check) ???
+- [X] photo with plug to be removed was in scanned photos (check) ???
 - [X] Fashion 2 - remove bag brand
 - [X] Undefined parapraxis dimension --- 67 x 150 cm
 - [X] "Whispering" secrets of space to time"(last photos) ⇒ "Remembrances of thoughts to come" 
 - [X] add another sub section in home page under photos with GIFs (indent move to right)
-- [ ] add gifs in fashion carousel, separation landscape and portrait
+- [X] add gifs in fashion carousel, separation landscape and portrait
 - [X] remove About - replace with News tab
 - [X] News rename to Press with current content
 - [X] indent subcategory for paintings "recent, etc" follow sort of old website
@@ -78,8 +78,8 @@
 - [X] fix smudged fashion photo (took on iPhone)
 - [X] change photos for News Tango 29
 - [X] ask elena for Photos from the Kolossi event
-- [ ] more vibrance to Eudaimonia painting
+- [X] more vibrance to Eudaimonia painting
 - [X] remove duplicate photo from press/fashion (4th-5th photo)
 - [ ] News and Events --> categories (follow submenus approach like Gallery Paintings)
-- [ ] reduce size of Photography names and disclaimers
-- [ ] photograhpy carousel 1st item --> Sardonic Smile (5th) - (swap with first)
+- [X] reduce size of Photography names and disclaimers
+- [X] photograhpy carousel 1st item --> Sardonic Smile (5th) - (swap with first)
