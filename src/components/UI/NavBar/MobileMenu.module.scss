@@ -9,6 +9,7 @@
 
 .MobileMenu {
   height: min-content;
+  width: calc(100% - 64px);
   z-index: 1000;
   display: flex;
   flex-direction: row;

@@ -4,6 +4,7 @@ import {ReactNode} from "react";
 import '@/styles/globals.scss';
 import '@/styles/mario.scss';
 import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
+import {getAppVersion} from "@/utils/helpers";
 
 export default function BlankLayout({
   children,
@@ -16,7 +17,7 @@ export default function BlankLayout({
       {children}
       <p style={ {textAlign: 'center', marginTop: 0, opacity: 0.5}}>
         © 2025 Mario Vourgos.
-        All rights reserved.
+        All rights reserved. {getAppVersion()}
       </p>
     </AppRouterCacheProvider>
   );

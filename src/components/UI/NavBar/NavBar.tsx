@@ -79,8 +79,8 @@ export default function NavBar() {
           href="/home"
         >Home</Link></div>
         <div
-          className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
-          id="gallery-menu-item"
+          className={`${styles.entry} ${isActive(['news/photography', 'news/paintings', 'news/literature']) ? ' ' + styles.active : ''}`}
+          id="news-menu-item"
           onMouseEnter={newsMenuHover}
           // onMouseLeave={handleClose}
           onClick={newsMenuHover}
@@ -91,7 +91,7 @@ export default function NavBar() {
           News
         </div>
         <Menu
-          id="basic-menu"
+          id="news-menu"
           anchorEl={newsAnchorEl}
           open={newsOpen}
           onClose={handleNewsClose}
@@ -111,10 +111,9 @@ export default function NavBar() {
         >Press</Link></div>
 
         <div
-          className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
+          className={`${styles.entry} ${isActive(['gallery/photography', 'gallery/paintings', 'gallery/literature']) ? ' ' + styles.active : ''}`}
           id="gallery-menu-item"
-          onMouseEnter={newsMenuHover}
-          // onMouseLeave={handleClose}
+          onMouseEnter={galleryMenuHover}
           onClick={galleryMenuHover}
           aria-controls={galleryOpen ? 'basic-menu' : undefined}
           aria-haspopup="true"
@@ -123,7 +122,7 @@ export default function NavBar() {
           Gallery
         </div>
         <Menu
-          id="basic-menu"
+          id="gallery-menu"
           anchorEl={galleryAnchorEl}
           open={galleryOpen}
           onClose={handleGalleryClose}

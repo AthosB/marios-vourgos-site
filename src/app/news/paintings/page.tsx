@@ -6,6 +6,9 @@ import Image from 'next/image';
 import Link from "next/link";
 
 export default function NewsEventsPaintingsPage() {
+  /** CONSTS **/
+  const isMobile = window.innerWidth <= 768;
+
   /** EFFECTS **/
   useEffect(() => {
     document.title = 'Marios Vourgos - News & Events - Paintings';
@@ -13,7 +16,7 @@ export default function NewsEventsPaintingsPage() {
 
   /** RENDER **/
   return (
-    <div className={styles.NewsEventsPage}>
+    <div className={styles.NewsEventsPage + (isMobile ? ` ${styles.Mobile}` : '')}>
       <div className={styles.Header}>
         <Image src="/images/ornament_bird.png" alt="Paintings" width={52} height={64}
           style={{marginRight: '8px', marginBottom: '12px'}}
