@@ -48,7 +48,7 @@
 - [X] fix scratches on scanned fashion photos
 - [X] remove plug and cable on the white wall from scanned photo (File_000 (15))
 - [X] check physical photo with shoulder smudge again
-- [ ] consider sub-categories for fashion, paintings, literature with "Press Coverage"
+- [X] consider sub-categories for fashion, paintings, literature with "Press Coverage"
 - [X] fix react slick navigation arrows
 - [X] fix react slick navigation dots
 - [X] fix react slick slides spacing (variable width
