@@ -15,18 +15,28 @@ import MenuItem from '@mui/material/MenuItem';
 
 export default function NavBar() {
   /** HOOKS **/
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [galleryAnchorEl, setGalleryAnchorEl] = useState<null | HTMLElement>(null);
+  const [newsAnchorEl, setNewsAnchorEl] = useState<null | HTMLElement>(null);
   const pathname = usePathname();
 
   /** CONSTS **/
-  const open = Boolean(anchorEl);
+  const galleryOpen = Boolean(galleryAnchorEl);
+  const newsOpen = Boolean(newsAnchorEl);
+
+  /**
+   * Handles the hover event to open the news menu.
+   * @param event {React.MouseEvent<HTMLDivElement>} - The mouse event triggered by hovering over the news menu item.
+   */
+  const newsMenuHover = (event: React.MouseEvent<HTMLDivElement>) => {
+    setNewsAnchorEl(event.currentTarget);
+  };
 
   /**
    * Handles the hover event to open the gallery menu.
    * @param event {React.MouseEvent<HTMLDivElement>} - The mouse event triggered by hovering over the gallery menu item.
    */
   const galleryMenuHover = (event: React.MouseEvent<HTMLDivElement>) => {
-    setAnchorEl(event.currentTarget);
+    setGalleryAnchorEl(event.currentTarget);
   };
 
   /**
@@ -43,10 +53,17 @@ export default function NavBar() {
   };
 
   /**
-   * Handles the close event to close the menu.
+   * Handles the close event to close the news menu.
    */
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleNewsClose = () => {
+    setNewsAnchorEl(null);
+  };
+
+  /**
+   * Handles the close event to close the gallery menu.
+   */
+  const handleGalleryClose = () => {
+    setGalleryAnchorEl(null);
   };
 
 
@@ -61,30 +78,23 @@ export default function NavBar() {
         <div className={`${styles.entry} ${isActive(['Home']) ? ' ' + styles.active : ''}`}><Link
           href="/home"
         >Home</Link></div>
-        <div className={`${styles.entry} ${isActive(['News']) ? ' ' + styles.active : ''}`}><Link
-          href="/news"
-        >News</Link></div>
-        <div className={`${styles.entry} ${isActive(['Press']) ? ' ' + styles.active : ''}`}><Link
-          href="/press"
-        >Press</Link></div>
-
         <div
           className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
           id="gallery-menu-item"
-          onMouseEnter={galleryMenuHover}
+          onMouseEnter={newsMenuHover}
           // onMouseLeave={handleClose}
-          onClick={galleryMenuHover}
-          aria-controls={open ? 'basic-menu' : undefined}
+          onClick={newsMenuHover}
+          aria-controls={galleryOpen ? 'basic-menu' : undefined}
           aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
+          aria-expanded={galleryOpen ? 'true' : undefined}
         >
-          Gallery
+          News
         </div>
         <Menu
           id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
+          anchorEl={newsAnchorEl}
+          open={newsOpen}
+          onClose={handleNewsClose}
           slotProps={{
             list: {
               'aria-labelledby': 'gallery-menu-item',
@@ -92,9 +102,41 @@ export default function NavBar() {
           }}
           className={"PopupMenu"}
         >
-          <MenuItem onClick={handleClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
+          <MenuItem onClick={handleGalleryClose}><Link href="/news/photography">Photography</Link></MenuItem>
+          <MenuItem onClick={handleGalleryClose}><Link href="/news/paintings">Paintings</Link></MenuItem>
+          <MenuItem onClick={handleGalleryClose}><Link href="/news/literature">Literature</Link></MenuItem>
+        </Menu>
+        <div className={`${styles.entry} ${isActive(['Press']) ? ' ' + styles.active : ''}`}><Link
+          href="/press"
+        >Press</Link></div>
+
+        <div
+          className={`${styles.entry} ${isActive(['Photography', 'Paintings', 'Literature']) ? ' ' + styles.active : ''}`}
+          id="gallery-menu-item"
+          onMouseEnter={newsMenuHover}
+          // onMouseLeave={handleClose}
+          onClick={galleryMenuHover}
+          aria-controls={galleryOpen ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={galleryOpen ? 'true' : undefined}
+        >
+          Gallery
+        </div>
+        <Menu
+          id="basic-menu"
+          anchorEl={galleryAnchorEl}
+          open={galleryOpen}
+          onClose={handleGalleryClose}
+          slotProps={{
+            list: {
+              'aria-labelledby': 'gallery-menu-item',
+            },
+          }}
+          className={"PopupMenu"}
+        >
+          <MenuItem onClick={handleGalleryClose}><Link href="/gallery/photography">Photography</Link></MenuItem>
           <MenuItem
-            onClick={handleClose}
+            onClick={handleGalleryClose}
             style={{flexDirection: 'column', alignItems: 'start'}}
           >
             {/*<Link href="/gallery/paintings">Paintings</Link>*/}
@@ -105,8 +147,8 @@ export default function NavBar() {
               <li><Link href={"/gallery/paintings/older"}>Older Work</Link></li>
             </ul>
           </MenuItem>
-          <MenuItem onClick={handleClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
-          <MenuItem onClick={handleClose}><Link href="/gallery/fashion">Fashion</Link></MenuItem>
+          <MenuItem onClick={handleGalleryClose}><Link href="/gallery/literature">Literature</Link></MenuItem>
+          <MenuItem onClick={handleGalleryClose}><Link href="/gallery/fashion">Fashion</Link></MenuItem>
         </Menu>
         <div className={`${styles.entry} ${isActive(['Contact']) ? ' ' + styles.active : ''}`}><Link
           href="/contact"

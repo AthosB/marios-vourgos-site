@@ -2278,3 +2278,103 @@ export const literatureTango29Carousel = [
     cols: 5
   }
 ] as GenericItemType[];
+
+
+export const newsEventsPaintings01Carousel = [
+  {
+    position: 10,
+    src: '/images/news/paintings/newsEvents01/news_01-01.jpg',
+    alt: 'June 2019 - Old Limassol Port 1',
+  },
+  {
+    position: 20,
+    src: '/images/news/paintings/newsEvents01/news_01-02.jpg',
+    alt: 'June 2019 - Old Limassol Port 2',
+  },
+  {
+    position: 30,
+    src: '/images/news/paintings/newsEvents01/news_01-03.jpg',
+    alt: 'June 2019 - Old Limassol Port 3',
+  },
+  {
+    position: 40,
+    src: '/images/news/paintings/newsEvents01/news_01-04.jpg',
+    alt: 'June 2019 - Old Limassol Port 4',
+  },
+  {
+    position: 50,
+    src: '/images/news/paintings/newsEvents01/news_01-05.jpg',
+    alt: 'June 2019 - Old Limassol Port 5',
+  },
+  {
+    position: 60,
+    src: '/images/news/paintings/newsEvents01/news_01-06.jpg',
+    alt: 'June 2019 - Old Limassol Port 6',
+  },
+  {
+    position: 70,
+    src: '/images/news/paintings/newsEvents01/news_01-07.jpg',
+    alt: 'June 2019 - Old Limassol Port 7',
+  },
+  {
+    position: 80,
+    src: '/images/news/paintings/newsEvents01/news_01-08.jpg',
+    alt: 'June 2019 - Old Limassol Port 8',
+  },
+  {
+    position: 90,
+    src: '/images/news/paintings/newsEvents01/news_01-09.jpg',
+    alt: 'June 2019 - Old Limassol Port 9',
+  },
+  {
+    position: 100,
+    src: '/images/news/paintings/newsEvents01/news_01-10.jpg',
+    alt: 'June 2019 - Old Limassol Port 10',
+  },
+  {
+    position: 110,
+    src: '/images/news/paintings/newsEvents01/news_01-11.jpg',
+    alt: 'June 2019 - Old Limassol Port 11',
+  }
+]
+
+export const newsEventsPaintings01GalleryCarousel : GenericItemType[] = [
+  { position: 10, src: '/images/news/paintings/newsEvents01B/news_01B-01.jpg', alt: 'June 2019 - Exhibition Gallery 1' },
+  { position: 20, src: '/images/news/paintings/newsEvents01B/news_01B-02.jpg', alt: 'June 2019 - Exhibition Gallery 2' },
+  { position: 30, src: '/images/news/paintings/newsEvents01B/news_01B-03.jpg', alt: 'June 2019 - Exhibition Gallery 3' },
+  { position: 40, src: '/images/news/paintings/newsEvents01B/news_01B-04.jpg', alt: 'June 2019 - Exhibition Gallery 4' },
+  { position: 50, src: '/images/news/paintings/newsEvents01B/news_01B-05.jpg', alt: 'June 2019 - Exhibition Gallery 5' },
+  { position: 60, src: '/images/news/paintings/newsEvents01B/news_01B-06.jpg', alt: 'June 2019 - Exhibition Gallery 6' },
+  { position: 70, src: '/images/news/paintings/newsEvents01B/news_01B-07.jpg', alt: 'June 2019 - Exhibition Gallery 7' },
+  { position: 80, src: '/images/news/paintings/newsEvents01B/news_01B-08.jpg', alt: 'June 2019 - Exhibition Gallery 8' },
+  { position: 90, src: '/images/news/paintings/newsEvents01B/news_01B-09.jpg', alt: 'June 2019 - Exhibition Gallery 9' },
+  { position: 100, src: '/images/news/paintings/newsEvents01B/news_01B-10.jpg', alt: 'June 2019 - Exhibition Gallery 10' },
+  { position: 110, src: '/images/news/paintings/newsEvents01B/news_01B-11.jpg', alt: 'June 2019 - Exhibition Gallery 11' },
+  { position: 120, src: '/images/news/paintings/newsEvents01B/news_01B-12.jpg', alt: 'June 2019 - Exhibition Gallery 12' },
+  { position: 130, src: '/images/news/paintings/newsEvents01B/news_01B-13.jpg', alt: 'June 2019 - Exhibition Gallery 13' },
+  { position: 140, src: '/images/news/paintings/newsEvents01B/news_01B-14.jpg', alt: 'June 2019 - Exhibition Gallery 14' },
+  { position: 150, src: '/images/news/paintings/newsEvents01B/news_01B-15.jpg', alt: 'June 2019 - Exhibition Gallery 15' },
+  { position: 160, src: '/images/news/paintings/newsEvents01B/news_01B-16.jpg', alt: 'June 2019 - Exhibition Gallery 16' },
+  { position: 170, src: '/images/news/paintings/newsEvents01B/news_01B-17.jpg', alt: 'June 2019 - Exhibition Gallery 17' },
+  { position: 180, src: '/images/news/paintings/newsEvents01B/news_01B-18.jpg', alt: 'June 2019 - Exhibition Gallery 18' },
+  { position: 190, src: '/images/news/paintings/newsEvents01B/news_01B-19.jpg', alt: 'June 2019 - Exhibition Gallery 19' },
+  { position: 200, src: '/images/news/paintings/newsEvents01B/news_01B-20.jpg', alt: 'June 2019 - Exhibition Gallery 20' },
+  { position: 210, src: '/images/news/paintings/newsEvents01B/news_01B-21.jpg', alt: 'June 2019 - Exhibition Gallery 21' },
+  { position: 220, src: '/images/news/paintings/newsEvents01B/news_01B-22.jpg', alt: 'June 2019 - Exhibition Gallery 22' },
+  { position: 230, src: '/images/news/paintings/newsEvents01B/news_01B-23.jpg', alt: 'June 2019 - Exhibition Gallery 23' },
+  { position: 240, src: '/images/news/paintings/newsEvents01B/news_01B-24.jpg', alt: 'June 2019 - Exhibition Gallery 24' },
+  { position: 250, src: '/images/news/paintings/newsEvents01B/news_01B-25.jpg', alt: 'June 2019 - Exhibition Gallery 25' },
+  { position: 260, src: '/images/news/paintings/newsEvents01B/news_01B-26.jpg', alt: 'June 2019 - Exhibition Gallery 26' },
+  { position: 270, src: '/images/news/paintings/newsEvents01B/news_01B-27.jpg', alt: 'June 2019 - Exhibition Gallery 27' },
+  { position: 280, src: '/images/news/paintings/newsEvents01B/news_01B-28.jpg', alt: 'June 2019 - Exhibition Gallery 28' },
+  { position: 290, src: '/images/news/paintings/newsEvents01B/news_01B-29.jpg', alt: 'June 2019 - Exhibition Gallery 29' },
+  { position: 300, src: '/images/news/paintings/newsEvents01B/news_01B-30.jpg', alt: 'June 2019 - Exhibition Gallery 30' },
+  { position: 310, src: '/images/news/paintings/newsEvents01B/news_01B-31.jpg', alt: 'June 2019 - Exhibition Gallery 31' },
+  { position: 320, src: '/images/news/paintings/newsEvents01B/news_01B-32.jpg', alt: 'June 2019 - Exhibition Gallery 32' },
+  { position: 330, src: '/images/news/paintings/newsEvents01B/news_01B-33.jpg', alt: 'June 2019 - Exhibition Gallery 33' },
+  { position: 340, src: '/images/news/paintings/newsEvents01B/news_01B-34.jpg', alt: 'June 2019 - Exhibition Gallery 34' },
+  { position: 350, src: '/images/news/paintings/newsEvents01B/news_01B-35.jpg', alt: 'June 2019 - Exhibition Gallery 35' },
+  { position: 360, src: '/images/news/paintings/newsEvents01B/news_01B-36.jpg', alt: 'June 2019 - Exhibition Gallery 36' },
+  { position: 370, src: '/images/news/paintings/newsEvents01B/news_01B-37.jpg', alt: 'June 2019 - Exhibition Gallery 37' },
+  { position: 380, src: '/images/news/paintings/newsEvents01B/news_01B-38.jpg', alt: 'June 2019 - Exhibition Gallery 38' },
+];

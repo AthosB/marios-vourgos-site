@@ -21,7 +21,7 @@ type ArrowProps = {
 
 interface CarouselItemProps {
   items: GenericItemType[];
-  onSelect?: (imagePath: GenericItemType) => void;
+  onSelect?: (src: GenericItemType) => void;
   loopable?: boolean;
   autoPlay?: boolean;
   showDots?: boolean;
@@ -57,7 +57,13 @@ export default function PreviewCarousel({
       height={isMobile ? paintingItem.video ? 'auto' : undefined : paintingItem.video ? 264 :  250}
       width={isMobile ? paintingItem.video ? 94 : paintingItem.cols ? (paintingItem.cols * 200) : 200 : 'min-content !important'}
       className={styles.CarouselItem}
-      onClick={() => clickPaintingHandler(paintingItem)}
+      onClick={() => clickPaintingHandler({
+        position: paintingItem.position as number || 1,
+        src: paintingItem.src as string,
+        alt: paintingItem.alt as string,
+        title: paintingItem.title as string,
+        description: paintingItem.description as string,
+      })}
       key={`paintings-item-${paintingsItemIndex}`}
       // style={
       //   {
@@ -75,7 +81,15 @@ export default function PreviewCarousel({
   const clickPaintingHandler = (paintingData: GenericItemType) => {
     console.log('clickPaintingHandler', paintingData);
     localStorage.setItem('previewData', JSON.stringify(paintingData));
-    if (onSelect) onSelect(paintingData);
+    if (onSelect) onSelect({
+      ...paintingData,
+      position: paintingData.position || 1,
+      cols: paintingData.cols || 1,
+      src: paintingData.src || '',
+      alt: paintingData.alt || '',
+      title: paintingData.title || '',
+      description: paintingData.description || '',
+    });
   }
 
   const arrowStyleBase: CSSProperties = {

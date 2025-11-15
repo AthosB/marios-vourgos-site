@@ -80,6 +80,7 @@
 - [X] ask elena for Photos from the Kolossi event
 - [X] more vibrance to Eudaimonia painting
 - [X] remove duplicate photo from press/fashion (4th-5th photo)
-- [ ] News and Events --> categories (follow submenus approach like Gallery Paintings)
+- [X] News and Events → categories (follow submenus approach like Gallery Paintings)
 - [X] reduce size of Photography names and disclaimers
-- [X] photograhpy carousel 1st item --> Sardonic Smile (5th) - (swap with first)
+- [X] photography carousel 1st item → Sardonic Smile (5th) → (swap with first)
+- [ ] clarify News and Events VS Press, as some events include press coverage like the CNA at old port in 2019
