@@ -2,6 +2,7 @@ import {useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import {fashionPressEntries} from "@/assets/values";
+import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function PressFashion() {
   /** HOOKS **/
@@ -38,6 +39,14 @@ export default function PressFashion() {
       />
       <div className={'ImageTitle'}>{selectedFashionPress?.title}</div>
       <div className={'ImageDescription'}>{selectedFashionPress?.description}</div>
+      <SliderCarousel
+        items={fashionPressEntries}
+        showTitle={false}
+        showDescription={false}
+        showDots={true}
+        showArrows={false}
+        onSelect={selectFashionPress}
+      />
       <PreviewCarousel
         items={fashionPressEntries}
         showTitle={false}

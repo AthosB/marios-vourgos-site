@@ -151,7 +151,8 @@ export default function PreviewCarousel({
     waitForAnimate: false,
     autoPlay: autoPlay,
     prevArrow: showArrows ? <PrevArrow /> : undefined,
-    nextArrow: showArrows ? <NextArrow /> : undefined
+    nextArrow: showArrows ? <NextArrow /> : undefined,
+    centerMode: true,
   };
 
   /** RENDER **/

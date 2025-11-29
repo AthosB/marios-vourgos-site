@@ -34,7 +34,7 @@
 - [X] add more contrast/vibrance on Eudemonia, and Morning Promises
 - [X] fix flower ornament on mobile view
 - [X] blue photos show vertical lines on mobile view android medium size screen
-, check with samsung phone
+  , check with samsung phone
 - [X] on android phone, photography carousel does not scroll to the end to show all photos
 - [X] About home page on android phone text is hidden (check safe area margin/padding)
 - [X] on android paintings preview paintings are clipped, again safe area problem
@@ -59,7 +59,7 @@
 - [X] photo with plug to be removed was in scanned photos (check) ???
 - [X] Fashion 2 - remove bag brand
 - [X] Undefined parapraxis dimension --- 67 x 150 cm
-- [X] "Whispering" secrets of space to time"(last photos) ⇒ "Remembrances of thoughts to come" 
+- [X] "Whispering" secrets of space to time"(last photos) ⇒ "Remembrances of thoughts to come"
 - [X] add another sub section in home page under photos with GIFs (indent move to right)
 - [X] add gifs in fashion carousel, separation landscape and portrait
 - [X] remove About - replace with News tab
@@ -83,4 +83,18 @@
 - [X] News and Events → categories (follow submenus approach like Gallery Paintings)
 - [X] reduce size of Photography names and disclaimers
 - [X] photography carousel 1st item → Sardonic Smile (5th) → (swap with first)
-- [ ] clarify News and Events VS Press, as some events include press coverage like the CNA at old port in 2019
+- [X] clarify News and Events VS Press, as some events include press coverage like the CNA at old port in 2019
+- [ ] move press part of first news event press coverage to Press page under Paintings section
+- [ ] News/Events photography section: "In the process of coordinating with international galleries for upcoming exhibitions in 2026 - 2027"
+- [ ] Exhibitions List: CNA "Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish."
+- [ ] for Silks gallery event add "Solo exhibition and titled ..."
+- [ ] move content from clickable Silks gallery event backt o CNA (erroneous content)
+- [ ] news Paintings Exhibition: The ecstatic rensesance of time - Silks Galler "12th June 2029"
+- [ ] add Fashion section under News and Events with related content "Marios Vourgos was designing under his own brand name Mario Marini Vourgos, based in New York and was showing his collections at New York fashion week between the years 1991 to 1993, prior to continuing his studies in finance and international relations in the University of Pennsylvania (ebdPhd)."
+- [ ] events --> Paintings Exhibition: Collection of poems in Greek Language, published in 2021 (Armida publications - //add website)
+- [ ] sca n magazines to add to Press page
+- [ ] check messenger and email for links from mario regarding events
+- [ ] for Kolossi event add notice "Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer), as well as from sponsors totaling to 30,000 Euros."
+- [ ] on Press page for Tango 29 add critique text (https://www.tango29.eu/tango29.pdf)
+- [ ] on Contact page leave only the line "contact us at..." - remove introductory text from above
+- [ ] ARIS invoice!!!
