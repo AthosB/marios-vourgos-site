@@ -11,8 +11,8 @@ import {GenericItemType} from "@/Types/types";
 import {olderPaintingsCarouselEntries} from "@/assets/values";
 import {useAnchorState} from "@/hooks/useAnchorState";
 import {pushAnchor} from "@/utils/helpers";
-import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
+import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function OlderPaintingsPage() {
   /** HOOKS **/
@@ -109,13 +109,14 @@ export default function OlderPaintingsPage() {
           />
           <div className={'ImageTitle'}>{selectedPainting.title}</div>
           <div className={'ImageDescription'}>{selectedPainting.description}</div>
-          <PreviewCarousel
+          <SliderCarousel
             items={olderPaintingsCarouselEntries}
             showTitle={false}
             showDescription={false}
             showDots={!isMobile}
             showArrows={!isMobile}
             onSelect={selectPaintingHandler}
+            style={{margin: '16px 0'}}
           />
         </div>
         <PhotoViewer

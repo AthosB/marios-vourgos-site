@@ -10,8 +10,8 @@ import {GenericItemType} from "@/Types/types";
 import {newsEventsPaintings01Carousel} from "@/assets/values";
 import {useAnchorState} from "@/hooks/useAnchorState";
 import {pushAnchor} from "@/utils/helpers";
-import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
+import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function RecentPaintingsPage() {
   /** HOOKS **/
@@ -104,13 +104,14 @@ export default function RecentPaintingsPage() {
             onDragStart={(e) => e.preventDefault()}
           />
           {/*<div className={'ImageDescription'}>{selectedFashion.description}</div>*/}
-          <PreviewCarousel
+          <SliderCarousel
             items={newsEventsPaintings01Carousel}
             showTitle={false}
             showDescription={false}
             showDots={!isMobile}
             showArrows={!isMobile}
             onSelect={(item: GenericItemType) => selectPhotoHandler(item)}
+            style={{margin: '16px 0'}}
           />
           {/*<div*/}
           {/*  className={styles.CNA2019Carousel}*/}

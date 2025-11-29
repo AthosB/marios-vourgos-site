@@ -3,11 +3,11 @@
 import {useState, useEffect} from "react";
 import { useAnchorState } from '@/hooks/useAnchorState';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
-import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 
 import {photographyCarouselFilenames} from "@/assets/values";
 
 import {pushAnchor} from "@/utils/helpers";
+import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 type imageType = {
   src: string;
@@ -110,12 +110,13 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
       <div className={'ImageDisclaimer'}>Disclaimer: All photos are original photos as shot without any digital
         manipulation
       </div>
-      <PreviewCarousel
+      <SliderCarousel
         items={photographyCarouselFilenames}
         showTitle={false}
         showDescription={false}
         showDots={dots}
         onSelect={selectImageHandler}
+        style={{margin: '16px 0'}}
       />
     </div>
     <PhotoViewer

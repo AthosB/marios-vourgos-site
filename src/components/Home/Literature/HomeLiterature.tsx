@@ -4,9 +4,9 @@ import {literatureTango29Carousel} from "@/assets/values";
 import {Button} from "@mui/material";
 import styles from './HomeLiterature.module.scss';
 import {pushAnchor} from "@/utils/helpers";
-import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import {GenericItemType} from "@/Types/types";
 import {useState} from "react";
+import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function HomeLiterature() {
   /** HOOKS **/
@@ -77,13 +77,14 @@ export default function HomeLiterature() {
           </a>
         </div>
       </div>
-      <PreviewCarousel
+      <SliderCarousel
         items={literatureTango29Carousel}
         showTitle={false}
         showDescription={false}
         showDots={!isMobile}
         showArrows={!isMobile}
         onSelect={selectPhotoHandler}
+        style={{margin: '16px 0'}}
       />
     </div>
   );

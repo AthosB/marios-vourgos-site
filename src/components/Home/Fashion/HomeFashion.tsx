@@ -5,10 +5,10 @@ import { useAnchorState } from '@/hooks/useAnchorState';
 import '@/styles/mario.scss';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
-import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import {fashionEntries} from '@/assets/values';
 
 import {pushAnchor} from "@/utils/helpers";
+import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 type imageType = {
   src: string;
@@ -132,11 +132,12 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
       />) }
       <div className={'ImageTitle'}>{selectedFashion?.title}</div>
       <div className={'ImageDescription'}>{selectedFashion?.description}</div>
-      <PreviewCarousel
+      <SliderCarousel
         items={fashionEntries}
         showTitle={false}
         showDots={dots}
         onSelect={selectImageHandler}
+        style={{margin: '16px 0'}}
       />
     </div>
     <PhotoViewer

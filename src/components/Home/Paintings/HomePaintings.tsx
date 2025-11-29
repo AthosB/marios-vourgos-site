@@ -4,9 +4,9 @@ import {useState, useEffect} from "react";
 import { useAnchorState } from '@/hooks/useAnchorState';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
-import PreviewCarousel from "@/components/PreviewCarousel/PreviewCarousel";
 import {paintingsCarousel} from "@/assets/values";
 import {pushAnchor} from "@/utils/helpers";
+import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function HomePaintings({dots = false} : {dots?: boolean} ) {
   /** HOOKS **/
@@ -93,12 +93,13 @@ export default function HomePaintings({dots = false} : {dots?: boolean} ) {
       />
       <div className={'ImageTitle'}>{selectedPainting.title}</div>
       <div className={'ImageDescription'}>{selectedPainting.description}</div>
-      <PreviewCarousel
+      <SliderCarousel
         items={paintingsCarousel}
         showTitle={false}
         showDescription={false}
         showDots={dots}
         onSelect={selectPaintingHandler}
+        style={{margin: '16px 0'}}
       />
     </div>
     <PhotoViewer
