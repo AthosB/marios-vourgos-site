@@ -70,7 +70,7 @@
 - [X] disclaimer for Parapraxis (multiple photos in line): 67cm x 150cm
 - [X] disclaimer for infinite parapraxis "Not digitally manipulated photo repeated printing"
 - [X] add guard to disable image saving
-- [ ] fix carousel slider for CNA 2019 page (overflow on mobile last slide)
+- [X] fix carousel slider for CNA 2019 page (overflow on mobile last slide)
 - [ ] fix loading images pushing carousel
 - [X] add contrast to Eudaimonia painting
 - [X] increase contrast on Morning Athena painting
@@ -84,14 +84,14 @@
 - [X] reduce size of Photography names and disclaimers
 - [X] photography carousel 1st item → Sardonic Smile (5th) → (swap with first)
 - [X] clarify News and Events VS Press, as some events include press coverage like the CNA at old port in 2019
-- [ ] move press part of first news event press coverage to Press page under Paintings section
-- [ ] News/Events photography section: "In the process of coordinating with international galleries for upcoming exhibitions in 2026 - 2027"
-- [ ] Exhibitions List: CNA "Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish."
-- [ ] for Silks gallery event add "Solo exhibition and titled ..."
-- [ ] move content from clickable Silks gallery event backt o CNA (erroneous content)
-- [ ] news Paintings Exhibition: The ecstatic rensesance of time - Silks Galler "12th June 2029"
+- [X] move press part of first news event press coverage to Press page under Paintings section
+- [X] News/Events photography section: "In the process of coordinating with international galleries for upcoming exhibitions in 2026 - 2027"
+- [X] Exhibitions List: CNA "Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish."
+- [X] for Silks gallery event add "Solo exhibition and titled ..."
+- [X] move content from clickable Silks gallery event backt o CNA (erroneous content)
+- [X] news Paintings Exhibition: The ecstatic rensesance of time - Silks Galler "12th June 2029"
 - [ ] add Fashion section under News and Events with related content "Marios Vourgos was designing under his own brand name Mario Marini Vourgos, based in New York and was showing his collections at New York fashion week between the years 1991 to 1993, prior to continuing his studies in finance and international relations in the University of Pennsylvania (ebdPhd)."
-- [ ] events --> Paintings Exhibition: Collection of poems in Greek Language, published in 2021 (Armida publications - //add website)
+- [ ] events → Paintings Exhibition: Collection of poems in Greek Language, published in 2021 (Armida publications - //add website)
 - [ ] sca n magazines to add to Press page
 - [ ] check messenger and email for links from mario regarding events
 - [ ] for Kolossi event add notice "Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer), as well as from sponsors totaling to 30,000 Euros."
