@@ -6,6 +6,7 @@ import PressFashion from "@/components/Press/PressFashion";
 import Image from "next/image";
 import Link from "next/link";
 import Spacer from "@/components/UI/Spacer";
+import PressPaintings from "@/components/Press/PressPaintings";
 
 export default function PressPage() {
   /** CONSTS **/
@@ -47,9 +48,17 @@ export default function PressPage() {
             />
           </div>
         </div>
+        <div className={styles.PressEntry} style={{margin: '64px auto 16px auto'}}>
+          <PressPaintings />
+        </div>
         <Spacer height={128} width={'100%'} />
         <div className={'section-title'} style={{width: '100%'}}>Fashion</div>
         <PressFashion />
+        <Spacer height={128} width={'100%'} />
+        <div className={'section-title'} style={{width: '100%'}}>Literature</div>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%'}}>
+          <img src={'/images/press/literature/tango29_critique.png'} alt={'Tango 29 - Critique'} width={720} />
+        </div>
       </div>
     </div>
   );

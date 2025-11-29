@@ -104,6 +104,7 @@ export default function NavBar() {
         >
           <MenuItem onClick={handleGalleryClose}><Link href="/news/photography">Photography</Link></MenuItem>
           <MenuItem onClick={handleGalleryClose}><Link href="/news/paintings">Paintings</Link></MenuItem>
+          <MenuItem onClick={handleGalleryClose}><Link href="/news/fashion">Fashion</Link></MenuItem>
           <MenuItem onClick={handleGalleryClose}><Link href="/news/literature">Literature</Link></MenuItem>
         </Menu>
         <div className={`${styles.entry} ${isActive(['Press']) ? ' ' + styles.active : ''}`}><Link

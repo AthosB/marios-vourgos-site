@@ -3,6 +3,7 @@
 import {useEffect} from "react";
 import styles from '../NewsEvents.module.scss';
 import Image from 'next/image';
+import HomeLiterature from "@/components/Home/Literature/HomeLiterature";
 
 export default function NewsEventsLiteraturePage() {
   /** EFFECTS **/
@@ -25,6 +26,15 @@ export default function NewsEventsLiteraturePage() {
         Literature News & Events
       </div>
       <div className={styles.Line}></div>
+      <div className={styles.NewsEntry} style={{marginTop: '32px'}}>
+        <div className={styles.Title} style={{marginBottom: '32px'}}>
+          <h2>
+            <p>Collection of poems in Greek Language, published in 2021.</p>
+            <p>(Armida publications - <a href="https://www.armidabooks.com/book/tagko-29/" target="_blank" rel="noopener noreferrer" style={{ color: 'tomato', textDecoration: 'none' }} aria-label="Open Tango 29 in new tab">🔗Tango 29</a>)</p>
+          </h2>
+        </div>
+        <HomeLiterature />
+      </div>
     </div>
   );
 }

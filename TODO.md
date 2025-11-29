@@ -90,11 +90,11 @@
 - [X] for Silks gallery event add "Solo exhibition and titled ..."
 - [X] move content from clickable Silks gallery event backt o CNA (erroneous content)
 - [X] news Paintings Exhibition: The ecstatic rensesance of time - Silks Galler "12th June 2029"
-- [ ] add Fashion section under News and Events with related content "Marios Vourgos was designing under his own brand name Mario Marini Vourgos, based in New York and was showing his collections at New York fashion week between the years 1991 to 1993, prior to continuing his studies in finance and international relations in the University of Pennsylvania (ebdPhd)."
-- [ ] events → Paintings Exhibition: Collection of poems in Greek Language, published in 2021 (Armida publications - //add website)
-- [ ] sca n magazines to add to Press page
+- [X] add Fashion section under News and Events with related content "Marios Vourgos was designing under his own brand name Mario Marini Vourgos, based in New York and was showing his collections at New York fashion week between the years 1991 to 1993, prior to continuing his studies in finance and international relations in the University of Pennsylvania (ebdPhd)."
+- [X] events → Paintings Exhibition: Collection of poems in Greek Language, published in 2021 (Armida publications - https://www.armidabooks.com/book/tagko-29/)
+- [X] scan magazines to add to Press page
 - [ ] check messenger and email for links from mario regarding events
-- [ ] for Kolossi event add notice "Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer), as well as from sponsors totaling to 30,000 Euros."
-- [ ] on Press page for Tango 29 add critique text (https://www.tango29.eu/tango29.pdf)
-- [ ] on Contact page leave only the line "contact us at..." - remove introductory text from above
-- [ ] ARIS invoice!!!
+- [X] for Kolossi event add notice "Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer), as well as from sponsors totaling to 30,000 Euros."
+- [X] on Press page for Tango 29 add critique text (https://www.tango29.eu/tango29.pdf)
+- [X] on Contact page leave only the line "contact us at..." - remove introductory text from above
+- [ ] ARIS invoice

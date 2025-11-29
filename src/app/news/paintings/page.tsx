@@ -1,7 +1,7 @@
 'use client'
 
 import {useEffect} from "react";
-import styles from '../NewsEvents.module.scss';
+import styles from "@/app/news/NewsEvents.module.scss";
 import Image from 'next/image';
 import Link from "next/link";
 

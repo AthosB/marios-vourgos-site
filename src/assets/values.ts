@@ -2378,3 +2378,31 @@ export const newsEventsPaintings01GalleryCarousel : GenericItemType[] = [
   { position: 370, src: '/images/news/paintings/newsEvents01B/news_01B-37.jpg', alt: 'June 2019 - Exhibition Gallery 37' },
   { position: 380, src: '/images/news/paintings/newsEvents01B/news_01B-38.jpg', alt: 'June 2019 - Exhibition Gallery 38' },
 ];
+
+export const pressPaintings02: GenericItemType[] = [
+  {
+    position: 10,
+    src: '/images/press/paintings/001.jpg',
+    alt: 'K Gallery',
+  },
+  {
+    position: 20,
+    src: '/images/press/paintings/100.jpg',
+    alt: 'K Gallery 2',
+  },
+  {
+    position: 30,
+    src: '/images/press/paintings/102.jpg',
+    alt: 'K Gallery 3',
+  },
+  {
+    position: 40,
+    src: '/images/press/paintings/300.jpg',
+    alt: 'K Gallery 4',
+  },
+  {
+    position: 50,
+    src: '/images/press/paintings/400.jpg',
+    alt: 'K Gallery 5',
+  }
+];
