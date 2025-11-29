@@ -28,4 +28,14 @@
       width: fit-content;
     }
   }
+
+  .DotsContainer {
+    .Dot {
+      background-color: var(--mario-accent-color-faintest);
+    }
+
+    .DotActive {
+      background-color: var(--mario-accent-color-faint);
+    }
+  }
 }
