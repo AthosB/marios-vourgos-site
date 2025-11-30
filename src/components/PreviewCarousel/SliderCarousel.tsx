@@ -19,49 +19,61 @@ export default function SliderCarousel({
                                          onSelect,
                                          height,
                                          showDots = true,
-  style = {},
+                                         style = {},
                                        }: SliderCarouselProps) {
-  /** HOOKS **/
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [pages, setPages] = useState<number[]>([]);
   const [activePage, setActivePage] = useState(0);
 
   useDragScroll(containerRef);
 
-  /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
 
+  // refs to avoid re-renders and to track active user interaction
+  const isInteractingRef = useRef(false);
+  const lastPagesRef = useRef<number[]>([]);
+
+  // computePages: only update state if pages actually changed and skip while interacting
   const computePages = useCallback(() => {
+    if (isInteractingRef.current) return; // avoid layout changes while user is interacting
     const el = containerRef.current;
     if (!el) {
-      setPages([]);
+      if (lastPagesRef.current.length !== 0) {
+        lastPagesRef.current = [];
+        setPages([]);
+      }
       return;
     }
     const viewport = el.clientWidth || 0;
     const total = el.scrollWidth || 0;
     if (viewport <= 0 || total <= 0) {
-      setPages([0]);
+      if (lastPagesRef.current.length !== 1 || lastPagesRef.current[0] !== 0) {
+        lastPagesRef.current = [0];
+        setPages([0]);
+      }
       return;
     }
 
     const positions = new Set<number>();
-    // step by viewport width to create responsive pages
     for (let pos = 0; pos < total; pos += viewport) {
-      // clamp last pages so they align to show the right-most content
       positions.add(Math.min(pos, Math.max(0, total - viewport)));
     }
-    // ensure final page covers the end
     positions.add(Math.max(0, total - viewport));
-
     const arr = Array.from(positions).sort((a, b) => a - b);
-    setPages(arr);
-    // adjust active page if out of range
-    setActivePage((prev) => Math.min(prev, Math.max(0, arr.length - 1)));
+
+    // only update state when pages actually changed
+    const old = lastPagesRef.current;
+    if (old.length === arr.length && arr.every((v, i) => v === old[i])) {
+      // no change
+    } else {
+      lastPagesRef.current = arr;
+      setPages(arr);
+      setActivePage((prev) => Math.min(prev, Math.max(0, arr.length - 1)));
+    }
   }, []);
 
   useEffect(() => {
     computePages();
-
     const el = containerRef.current;
     if (!el) return;
 
@@ -73,21 +85,31 @@ export default function SliderCarousel({
       img.addEventListener('load', onImgLoad);
     });
 
-    // ResizeObserver for responsive changes
     const ro = new ResizeObserver(computePages);
     ro.observe(el);
 
-    // window resize fallback
     window.addEventListener('resize', computePages);
+
+    // listen for pointer/touch interaction start/end so we can avoid recomputing during drag
+    const onPointerDown = () => { isInteractingRef.current = true; };
+    const onPointerUp = () => { isInteractingRef.current = false; };
+    el.addEventListener('pointerdown', onPointerDown, { passive: true });
+    window.addEventListener('pointerup', onPointerUp, { passive: true });
+    el.addEventListener('touchstart', onPointerDown, { passive: true });
+    window.addEventListener('touchend', onPointerUp, { passive: true });
 
     return () => {
       images.forEach((img) => img.removeEventListener('load', onImgLoad));
       ro.disconnect();
       window.removeEventListener('resize', computePages);
+      el.removeEventListener('pointerdown', onPointerDown);
+      window.removeEventListener('pointerup', onPointerUp);
+      el.removeEventListener('touchstart', onPointerDown);
+      window.removeEventListener('touchend', onPointerUp);
     };
   }, [items, computePages]);
 
-  // efficient scroll handler using rAF
+  // optimized scroll handler: only update active page if it actually changed
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -97,7 +119,6 @@ export default function SliderCarousel({
       if (!ticking) {
         requestAnimationFrame(() => {
           const left = el.scrollLeft;
-          // find nearest page
           let nearest = 0;
           let minDist = Math.abs(pages[0] - left);
           for (let i = 1; i < pages.length; i++) {
@@ -107,14 +128,14 @@ export default function SliderCarousel({
               nearest = i;
             }
           }
-          setActivePage(nearest);
+          // update only if different
+          setActivePage((prev) => (prev === nearest ? prev : nearest));
           ticking = false;
         });
         ticking = true;
       }
     };
     el.addEventListener('scroll', onScroll, { passive: true });
-    // set initial active
     onScroll();
 
     return () => el.removeEventListener('scroll', onScroll);
@@ -128,7 +149,6 @@ export default function SliderCarousel({
     setActivePage(index);
   };
 
-  /** RENDER **/
   return (
     <div className={styles.SliderCarousel} style={{ ...style, height }}>
       {items.length > 0 ? (
@@ -194,7 +214,6 @@ export default function SliderCarousel({
                     margin: '0 6px',
                     border: 'none',
                     padding: 0,
-                    // background: i === activePage ? '#222' : '#ccc',
                     cursor: 'pointer',
                   }}
                 />
