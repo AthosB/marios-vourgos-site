@@ -1,3 +1,4 @@
+// typescript
 // src/hooks/useDragScroll.ts
 import { useEffect, RefObject } from 'react';
 
@@ -14,58 +15,71 @@ export default function useDragScroll(ref: RefObject<HTMLElement | null>) {
     let pointerId: number | null = null;
     const MOVE_THRESHOLD = 6; // pixels
 
-    // track the original down target and whether a native click fired
     let downTarget: EventTarget | null = null;
     let nativeClickFired = false;
     let nativeClickListener: ((ev: MouseEvent) => void) | null = null;
 
-    const onPointerDown = (e: PointerEvent) => {
-      if (e.isPrimary === false) return;
-      const downEl = e.target;
-      if (downEl instanceof Element) {
-        const clickEvent = new MouseEvent('click', {
-          bubbles: true,
-          cancelable: true,
-          view: window,
-        });
-        downEl.dispatchEvent(clickEvent);
-      }
+    const recordDown = (clientX: number, clientY: number, target: EventTarget | null) => {
       isDown = true;
       hasMoved = false;
-      pointerId = e.pointerId;
-      try {
-        el.setPointerCapture(pointerId);
-      } catch {}
-      startX = e.clientX;
-      startY = e.clientY;
+      startX = clientX;
+      startY = clientY;
       startScrollLeft = el.scrollLeft;
       el.style.cursor = 'grabbing';
-
-      // record the original target for potential synthetic click
-      downTarget = e.target;
+      downTarget = target;
       nativeClickFired = false;
-      // listen for any native click that happens right after pointerup
       nativeClickListener = () => {
         nativeClickFired = true;
       };
-      // capture phase so we see the native click before child handlers run
       window.addEventListener('click', nativeClickListener, true);
     };
 
+    const onPointerDown = (e: PointerEvent) => {
+      if (e.isPrimary === false) return;
+      pointerId = e.pointerId;
+      try { el.setPointerCapture(pointerId); } catch {}
+      // keep non-passive so that some browsers allow preventDefault on move
+      recordDown(e.clientX, e.clientY, e.target);
+    };
+
     const onPointerMove = (e: PointerEvent) => {
-      if (!isDown) return;
+      if (!isDown || (e.isPrimary === false)) return;
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
-      if (!hasMoved && Math.hypot(dx, dy) > MOVE_THRESHOLD) {
-        hasMoved = true;
-      }
-
+      if (!hasMoved && Math.hypot(dx, dy) > MOVE_THRESHOLD) hasMoved = true;
       if (hasMoved) {
-        // prevent text selection / native gestures while dragging
+        // prevent native gestures and allow smooth JS scrolling
         e.preventDefault();
         el.scrollLeft = startScrollLeft - dx;
       }
     };
+
+    const onPointerUp = (e?: PointerEvent) => {
+      endDrag();
+    };
+
+    const onTouchStart = (e: TouchEvent) => {
+      const t = e.touches && e.touches[0];
+      if (!t) return;
+      // record with non-passive start so we can capture subsequent non-passive move
+      recordDown(t.clientX, t.clientY, e.target);
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isDown) return;
+      const t = e.touches && e.touches[0];
+      if (!t) return;
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+      if (!hasMoved && Math.hypot(dx, dy) > MOVE_THRESHOLD) hasMoved = true;
+      if (hasMoved) {
+        // non-passive listener on the element lets this preventDefault on iOS
+        e.preventDefault();
+        el.scrollLeft = startScrollLeft - dx;
+      }
+    };
+
+    const onTouchEnd = () => endDrag();
 
     const endDrag = () => {
       if (!isDown) {
@@ -73,59 +87,59 @@ export default function useDragScroll(ref: RefObject<HTMLElement | null>) {
         return;
       }
 
-      // if we actually dragged, swallow the following click event (one-time)
       if (hasMoved) {
         const onClickBlocker = (ev: MouseEvent) => {
           ev.stopImmediatePropagation?.();
           ev.preventDefault();
-          // remove listener (capturing) after first invocation
           window.removeEventListener('click', onClickBlocker, true);
         };
-        // capture phase so child click handlers won't run
         window.addEventListener('click', onClickBlocker, true);
       } else {
-        // no drag: if native click didn't fire, dispatch a synthetic one
-        // wait a tick so the native click (if any) can occur and be detected
         setTimeout(() => {
-          // remove native click detector
           if (nativeClickListener) {
             window.removeEventListener('click', nativeClickListener, true);
             nativeClickListener = null;
           }
-
           if (!nativeClickFired && downTarget instanceof Element) {
-            const clickEvent = new MouseEvent('click', {
-              bubbles: true,
-              cancelable: true,
-              view: window,
-            });
+            const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true, view: window });
             downTarget.dispatchEvent(clickEvent);
           }
         }, 0);
       }
 
-      // cleanup & reset
       isDown = false;
       hasMoved = false;
-      try {
-        if (pointerId !== null) el.releasePointerCapture(pointerId);
-      } catch {}
+      try { if (pointerId !== null) el.releasePointerCapture(pointerId); } catch {}
       pointerId = null;
       downTarget = null;
       nativeClickFired = false;
       el.style.cursor = 'grab';
     };
 
-    el.addEventListener('pointerdown', onPointerDown);
-    window.addEventListener('pointermove', onPointerMove);
-    window.addEventListener('pointerup', endDrag);
-    window.addEventListener('pointercancel', endDrag);
+    // Attach listeners to the element (not window) and make move listeners non-passive
+    el.addEventListener('pointerdown', onPointerDown, { passive: false } as AddEventListenerOptions);
+    el.addEventListener('pointermove', onPointerMove as EventListener, { passive: false } as AddEventListenerOptions);
+    el.addEventListener('pointerup', onPointerUp as EventListener, { passive: true } as AddEventListenerOptions);
+    el.addEventListener('pointercancel', endDrag as EventListener, { passive: true } as AddEventListenerOptions);
 
+    // iOS / older WebKit: attach touch handlers on the element with non-passive move
+    el.addEventListener('touchstart', onTouchStart, { passive: false } as AddEventListenerOptions);
+    el.addEventListener('touchmove', onTouchMove as EventListener, { passive: false } as AddEventListenerOptions);
+    el.addEventListener('touchend', onTouchEnd as EventListener, { passive: true } as AddEventListenerOptions);
+    el.addEventListener('touchcancel', endDrag as EventListener, { passive: true } as AddEventListenerOptions);
+
+    // cleanup
     return () => {
       el.removeEventListener('pointerdown', onPointerDown);
-      window.removeEventListener('pointermove', onPointerMove);
-      window.removeEventListener('pointerup', endDrag);
-      window.removeEventListener('pointercancel', endDrag);
+      el.removeEventListener('pointermove', onPointerMove as EventListener);
+      el.removeEventListener('pointerup', onPointerUp as EventListener);
+      el.removeEventListener('pointercancel', endDrag as EventListener);
+
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove as EventListener);
+      el.removeEventListener('touchend', onTouchEnd as EventListener);
+      el.removeEventListener('touchcancel', endDrag as EventListener);
+
       if (nativeClickListener) {
         window.removeEventListener('click', nativeClickListener, true);
         nativeClickListener = null;
