@@ -55,7 +55,7 @@ export default function PreviewCarousel({
       video={paintingItem.video}
       disclaimer={disclaimer}
       height={isMobile ? paintingItem.video ? 'auto' : undefined : paintingItem.video ? 264 :  250}
-      width={isMobile ? paintingItem.video ? 94 : paintingItem.cols ? (paintingItem.cols * 200) : 200 : 'min-content !important'}
+      width={isMobile ? paintingItem.video ? 94 : 200 : 'min-content !important'}
       className={styles.CarouselItem}
       onClick={() => clickPaintingHandler({
         position: paintingItem.position as number || 1,

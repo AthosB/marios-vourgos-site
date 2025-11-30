@@ -15,7 +15,7 @@ export default function BlankLayout({
   return (
     <AppRouterCacheProvider>
       {children}
-      <p style={ {textAlign: 'center', marginTop: 0, opacity: 0.5}}>
+      <p className={'footer-meta'}>
         © 2025 Mario Vourgos.
         All rights reserved. {getAppVersion()}
       </p>

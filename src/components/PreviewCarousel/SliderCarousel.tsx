@@ -17,15 +17,19 @@ interface SliderCarouselProps {
 export default function SliderCarousel({
                                          items = [],
                                          onSelect,
-                                         height = '256px',
+                                         height,
                                          showDots = true,
   style = {},
                                        }: SliderCarouselProps) {
+  /** HOOKS **/
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [pages, setPages] = useState<number[]>([]);
   const [activePage, setActivePage] = useState(0);
 
   useDragScroll(containerRef);
+
+  /** CONSTS **/
+  const isMobile = window.innerWidth <= 768;
 
   const computePages = useCallback(() => {
     const el = containerRef.current;
@@ -151,7 +155,8 @@ export default function SliderCarousel({
                     loop
                     muted
                     playsInline
-                    height={height}
+                    height={height ? height : isMobile ? 124 : 256}
+                    width={isMobile ? 164 : 'min-content !important'}
                     style={{ objectFit: 'cover', marginTop: '1px' }}
                   >
                     <source src={item.src} type="video/mp4" />
@@ -161,7 +166,8 @@ export default function SliderCarousel({
                   <img
                     src={item.src}
                     alt={item.alt}
-                    height={height}
+                    height={height ? height : isMobile ? item.video ? 94 : 128 : 256}
+                    width={isMobile ? 'unset' : 'min-content !important'}
                     draggable={false}
                     onContextMenu={(e) => e.preventDefault()}
                     onDragStart={(e) => e.preventDefault()}

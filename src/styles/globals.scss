@@ -132,3 +132,14 @@ html, body {
 .swiper-slide {
   width: min-content !important;
 }
+
+.footer-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2px;
+  opacity: 0.5;
+}

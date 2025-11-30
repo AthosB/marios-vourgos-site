@@ -327,7 +327,7 @@ $accent-color: #fcb040;
   //  padding: 0 2px;
   //  margin: 0 auto;
   //}
-  img {
+  & > img {
     min-height: 268px;
     max-height: 50vh;
     width: auto;
@@ -354,6 +354,28 @@ $accent-color: #fcb040;
 .ImageDisclaimer {
   font-family: 'CinzelRegular', sans-serif;
   font-size: 0.8rem;
+}
+
+.Photo {
+  .ImageTitle {
+    position: absolute;
+    bottom: 160px;
+  }
+  .ImageDescription {
+    position: absolute;
+    bottom: 128px;
+  }
+  .ImageDisclaimer {
+    position: absolute;
+    bottom: 94px;
+  }
+}
+
+.ImageZoomerContainer {
+
+  .ImageZoomerImg {
+    margin-bottom: 64px;
+  }
 }
 
 @media only screen /* Phone Portrait */
@@ -387,7 +409,7 @@ and (max-device-width: 550px) and (orientation: portrait) {
     height: 100%;
     width: 100%;
 
-    img {
+    & > img {
       width: calc(100% - 32px);
       height: auto;
       padding: 0 8px;
@@ -396,6 +418,7 @@ and (max-device-width: 550px) and (orientation: portrait) {
       max-height: unset !important;
     }
   }
+
 
   .PopupMenu {
     .MuiPaper-rounded {
