@@ -40,6 +40,15 @@ export default function useDragScroll(ref: RefObject<HTMLElement | null>) {
       try { el.setPointerCapture(pointerId); } catch {}
       // keep non-passive so that some browsers allow preventDefault on move
       recordDown(e.clientX, e.clientY, e.target);
+      const downEl = e.target;
+      if (downEl instanceof Element) {
+        const clickEvent = new MouseEvent('click', {
+          bubbles: true,
+          cancelable: true,
+          view: window,
+        });
+        downEl.dispatchEvent(clickEvent);
+      }
     };
 
     const onPointerMove = (e: PointerEvent) => {
