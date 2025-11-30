@@ -32,16 +32,9 @@ export default function useDragScroll(ref: RefObject<HTMLElement | null>) {
         nativeClickFired = true;
       };
       window.addEventListener('click', nativeClickListener, true);
-    };
-
-    const onPointerDown = (e: PointerEvent) => {
-      if (e.isPrimary === false) return;
-      pointerId = e.pointerId;
-      try { el.setPointerCapture(pointerId); } catch {}
-      // keep non-passive so that some browsers allow preventDefault on move
-      recordDown(e.clientX, e.clientY, e.target);
-      const downEl = e.target;
+      const downEl = target;
       if (downEl instanceof Element) {
+        // console.log('initiating click on downEl');
         const clickEvent = new MouseEvent('click', {
           bubbles: true,
           cancelable: true,
@@ -51,8 +44,16 @@ export default function useDragScroll(ref: RefObject<HTMLElement | null>) {
       }
     };
 
+    const onPointerDown = (e: PointerEvent) => {
+      if (!e.isPrimary) return;
+      pointerId = e.pointerId;
+      try { el.setPointerCapture(pointerId); } catch {}
+      // keep non-passive so that some browsers allow preventDefault on move
+      recordDown(e.clientX, e.clientY, e.target);
+    };
+
     const onPointerMove = (e: PointerEvent) => {
-      if (!isDown || (e.isPrimary === false)) return;
+      if (!isDown || !e.isPrimary) return;
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
       if (!hasMoved && Math.hypot(dx, dy) > MOVE_THRESHOLD) hasMoved = true;
@@ -63,7 +64,7 @@ export default function useDragScroll(ref: RefObject<HTMLElement | null>) {
       }
     };
 
-    const onPointerUp = (e?: PointerEvent) => {
+    const onPointerUp = () => {
       endDrag();
     };
 
