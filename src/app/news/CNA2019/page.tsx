@@ -7,7 +7,7 @@ import '@/styles/generic-page.scss';
 
 import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
-import {news01Entries} from "@/assets/values";
+import {news01Entries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
 import {pushAnchor} from "@/utils/helpers";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";

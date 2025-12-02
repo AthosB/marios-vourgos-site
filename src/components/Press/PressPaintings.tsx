@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {GenericItemType} from "@/Types/types";
-import {pressPaintings02} from "@/assets/values";
+import {pressPaintings02} from "@/assets/enhancedValues";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function PressPaintings() {

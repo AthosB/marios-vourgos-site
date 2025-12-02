@@ -8,7 +8,7 @@ import '@/styles/generic-page.scss';
 import Image from "next/image";
 import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
-import {fashionEntries} from "@/assets/values";
+import {fashionEntries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
 import {pushAnchor} from "@/utils/helpers";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";

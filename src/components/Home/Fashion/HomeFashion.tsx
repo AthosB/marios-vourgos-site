@@ -5,7 +5,7 @@ import { useAnchorState } from '@/hooks/useAnchorState';
 import '@/styles/mario.scss';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
-import {fashionEntries} from '@/assets/values';
+import {fashionEntries} from '@/assets/enhancedValues';
 
 import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";

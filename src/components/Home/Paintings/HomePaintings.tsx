@@ -4,7 +4,7 @@ import {useState, useEffect} from "react";
 import { useAnchorState } from '@/hooks/useAnchorState';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
-import {paintingsCarousel} from "@/assets/values";
+import {paintingsCarousel} from "@/assets/enhancedValues";
 import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 

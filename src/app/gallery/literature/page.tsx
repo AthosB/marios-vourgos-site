@@ -5,7 +5,7 @@ import Image from "next/image";
 import HomeLiterature from "@/components/Home/Literature/HomeLiterature";
 import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
-import {news01Entries} from "@/assets/values";
+import {news01Entries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
 import {pushAnchor} from "@/utils/helpers";
 

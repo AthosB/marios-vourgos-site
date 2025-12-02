@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {GenericItemType} from "@/Types/types";
-import {fashionPressEntries} from "@/assets/values";
+import {fashionPressEntries} from "@/assets/enhancedValues";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function PressFashion() {

@@ -1,6 +1,6 @@
 'use client'
 
-import {literatureTango29Carousel} from "@/assets/values";
+import {literatureTango29Carousel} from "@/assets/enhancedValues";
 import {Button} from "@mui/material";
 import styles from './HomeLiterature.module.scss';
 import {pushAnchor} from "@/utils/helpers";

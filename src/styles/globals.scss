@@ -133,6 +133,30 @@ html, body {
   width: min-content !important;
 }
 
+.Shimmer {
+  /* configurable greys and positions */
+  --g1: #eeeeee;
+  --g2: #dddddd;
+  --g3: #f6f6f6;
+  --p1: 0%;
+  --p2: 35%;
+  --p3: 70%;
+
+  /* emit the gradient as raw CSS so Sass doesn't try to re-parse the var() tokens */
+  background-image: unquote("linear-gradient(90deg, var(--g1) var(--p1), var(--g2) var(--p2), var(--g3) var(--p3))");
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+/* keyframes animate the background-position to create the shimmer */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
 .footer-meta {
   //position: absolute;
   position: relative;

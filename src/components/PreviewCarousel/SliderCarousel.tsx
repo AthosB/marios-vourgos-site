@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect, useCallback, CSSProperties } from 'react';
+import React, {useRef, useState, useEffect, useCallback, CSSProperties} from 'react';
 import styles from './SliderCarousel.module.scss';
-import { GenericItemType } from '@/Types/types';
+import {GenericItemType} from '@/Types/types';
 import useDragScroll from '@/hooks/useDragScroll';
 
 interface SliderCarouselProps {
@@ -35,7 +35,7 @@ export default function SliderCarousel({
 
   // computePages: only update state if pages actually changed and skip while interacting
   const computePages = useCallback(() => {
-    if (isInteractingRef.current) return; // avoid layout changes while user is interacting
+    if (isInteractingRef.current) return; // avoid layout changes while the user is interacting
     const el = containerRef.current;
     if (!el) {
       if (lastPagesRef.current.length !== 0) {
@@ -91,12 +91,16 @@ export default function SliderCarousel({
     window.addEventListener('resize', computePages);
 
     // listen for pointer/touch interaction start/end so we can avoid recomputing during drag
-    const onPointerDown = () => { isInteractingRef.current = true; };
-    const onPointerUp = () => { isInteractingRef.current = false; };
-    el.addEventListener('pointerdown', onPointerDown, { passive: true });
-    window.addEventListener('pointerup', onPointerUp, { passive: true });
-    el.addEventListener('touchstart', onPointerDown, { passive: true });
-    window.addEventListener('touchend', onPointerUp, { passive: true });
+    const onPointerDown = () => {
+      isInteractingRef.current = true;
+    };
+    const onPointerUp = () => {
+      isInteractingRef.current = false;
+    };
+    el.addEventListener('pointerdown', onPointerDown, {passive: true});
+    window.addEventListener('pointerup', onPointerUp, {passive: true});
+    el.addEventListener('touchstart', onPointerDown, {passive: true});
+    window.addEventListener('touchend', onPointerUp, {passive: true});
 
     return () => {
       images.forEach((img) => img.removeEventListener('load', onImgLoad));
@@ -109,7 +113,7 @@ export default function SliderCarousel({
     };
   }, [items, computePages]);
 
-  // optimized scroll handler: only update active page if it actually changed
+  // optimized scroll handler: only update the active page if it actually changed
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -135,7 +139,7 @@ export default function SliderCarousel({
         ticking = true;
       }
     };
-    el.addEventListener('scroll', onScroll, { passive: true });
+    el.addEventListener('scroll', onScroll, {passive: true});
     onScroll();
 
     return () => el.removeEventListener('scroll', onScroll);
@@ -145,60 +149,76 @@ export default function SliderCarousel({
     const el = containerRef.current;
     if (!el || !pages.length) return;
     const pos = pages[Math.max(0, Math.min(index, pages.length - 1))];
-    el.scrollTo({ left: pos, behavior: 'smooth' });
+    el.scrollTo({left: pos, behavior: 'smooth'});
     setActivePage(index);
   };
 
   return (
-    <div className={styles.SliderCarousel} style={{ ...style, height }}>
+    <div className={styles.SliderCarousel} style={{...style, height}}>
       {items.length > 0 ? (
         <>
           <div
             ref={containerRef}
             className={styles.ItemsContainer}
             tabIndex={0}
-            style={{ touchAction: 'pan-y' }}
+            style={{touchAction: 'pan-y'}}
             aria-roledescription="carousel"
           >
             {items.map((item: GenericItemType, itemIndex: number) => (
               <div
                 key={`slider-item-${itemIndex}`}
                 className={styles.SliderItem}
-                style={{ height, width: 'min-content', display: 'inline-block', margin: '0 16px 16px 0' }}
+                style={{height, width: 'min-content', display: 'inline-block', margin: '0 16px 16px 0'}}
                 onClick={() => {
                   if (onSelect) onSelect(item);
                 }}
               >
                 {item.video ? (
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    height={height ? height : isMobile ? 124 : 256}
-                    width={isMobile ? 164 : 'min-content !important'}
-                    style={{ objectFit: 'cover', marginTop: '1px' }}
+                  <div
+                    className={'Shimmer'}
+                    style={{
+                      height: height ? height : isMobile ? 124 : 256,
+                      width: isMobile ? 164 : 'min-content !important',
+                    }}
                   >
-                    <source src={item.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      height={height ? height : isMobile ? 124 : 256}
+                      width={isMobile ? 164 : 'min-content !important'}
+                      style={{objectFit: 'cover'}}
+                    >
+                      <source src={item.src} type="video/mp4"/>
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
                 ) : (
-                  <img
-                    src={item.src}
-                    alt={item.alt}
-                    height={height ? height : isMobile ? item.video ? 94 : 128 : 256}
-                    width={isMobile ? 'unset' : 'min-content !important'}
-                    draggable={false}
-                    onContextMenu={(e) => e.preventDefault()}
-                    onDragStart={(e) => e.preventDefault()}
-                  />
+                  <div
+                    className={'Shimmer'}
+                    style={{
+                      height: height ? height : isMobile ? 124 : 256,
+                      width: isMobile ? 164 : 'min-content !important',
+                    }}
+                  >
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      height={height ? height : isMobile ? item.video ? 94 : 128 : 256}
+                      width={isMobile ? 'unset' : 'min-content !important'}
+                      draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
+                    />
+                  </div>
                 )}
               </div>
             ))}
           </div>
 
           {showDots && pages.length > 1 ? (
-            <div className={styles.DotsContainer} aria-hidden={false} style={{ marginTop: 12, textAlign: 'center' }}>
+            <div className={styles.DotsContainer} aria-hidden={false} style={{marginTop: 12, textAlign: 'center'}}>
               {pages.map((_, i) => (
                 <button
                   key={`dot-${i}`}

@@ -6,6 +6,9 @@ export type GenericItemType = {
   description?: string;
   video?: boolean;
   cols?: number
+  height?: number | string;
+  width?: number | string;
+  landscape?: boolean;
 }
 
 export type FashionItemType = {
