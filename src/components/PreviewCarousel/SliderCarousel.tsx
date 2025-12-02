@@ -199,8 +199,8 @@ export default function SliderCarousel({
                     className={'Shimmer'}
                     style={{
                       height: height ? height : isMobile ? 124 : 256,
-                      width: isMobile ? 164 : 'min-content !important',
-                      minWidth: isMobile ? item.landscape ? 124 : 62 : 164,
+                      width: 'min-content !important',
+                      minWidth: isMobile ? item.landscape ? 124 : 72 : 164,
                     }}
                   >
                     <img

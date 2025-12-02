@@ -612,7 +612,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   },
   {
     "position": 2,
@@ -662,7 +662,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   },
   {
     "position": 7,
@@ -732,7 +732,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   },
   {
     "position": 11,
@@ -742,7 +742,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   },
   {
     "position": 12,
@@ -772,7 +772,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   },
   {
     "position": 15,
@@ -792,7 +792,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   },
   {
     "position": 18,
@@ -812,7 +812,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   },
   {
     "position": 20,
@@ -872,7 +872,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   },
   {
     "position": 28,
@@ -882,7 +882,7 @@ export const photographyCarouselFilenames = [
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
-    "landscape": true
+    "landscape": false
   }
 ].sort((a, b) => a.position! - b.position!) as GenericItemType[];
 
