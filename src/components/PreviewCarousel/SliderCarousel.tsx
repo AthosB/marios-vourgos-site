@@ -200,6 +200,7 @@ export default function SliderCarousel({
                     style={{
                       height: height ? height : isMobile ? 124 : 256,
                       width: isMobile ? 164 : 'min-content !important',
+                      minWidth: isMobile ? item.landscape ? 124 : 62 : 164,
                     }}
                   >
                     <img
