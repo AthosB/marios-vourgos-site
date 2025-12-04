@@ -2,6 +2,7 @@ import React, {useRef, useState, useEffect, useCallback, CSSProperties} from 're
 import styles from './SliderCarousel.module.scss';
 import {GenericItemType} from '@/Types/types';
 import useDragScroll from '@/hooks/useDragScroll';
+import Image from 'next/image';
 
 interface SliderCarouselProps {
   items: GenericItemType[];
@@ -203,11 +204,12 @@ export default function SliderCarousel({
                       minWidth: isMobile ? item.landscape ? 124 : 72 : 164,
                     }}
                   >
-                    <img
+                    <Image
                       src={item.src}
                       alt={item.alt}
-                      height={height ? height : isMobile ? item.video ? 94 : 128 : 256}
-                      width={isMobile ? 'unset' : 'min-content !important'}
+                      width={124}
+                      height={94}
+                      style={{ height: height ? height : isMobile ? item.video ? 94 : 128 : 256, width: isMobile ? 'unset' : 'min-content !important' }} // actual rendered size
                       draggable={false}
                       onContextMenu={(e) => e.preventDefault()}
                       onDragStart={(e) => e.preventDefault()}
