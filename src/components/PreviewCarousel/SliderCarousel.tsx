@@ -19,23 +19,23 @@ export default function SliderCarousel({
                                          onSelect,
                                          height,
                                          showDots = true,
+                                         showArrows = true,
                                          style = {},
                                        }: SliderCarouselProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [pages, setPages] = useState<number[]>([]);
   const [activePage, setActivePage] = useState(0);
+  const [scrollLeftPos, setScrollLeftPos] = useState(0);
 
   useDragScroll(containerRef);
 
   const isMobile = window.innerWidth <= 768;
 
-  // refs to avoid re-renders and to track active user interaction
   const isInteractingRef = useRef(false);
   const lastPagesRef = useRef<number[]>([]);
 
-  // computePages: only update state if pages actually changed and skip while interacting
   const computePages = useCallback(() => {
-    if (isInteractingRef.current) return; // avoid layout changes while the user is interacting
+    if (isInteractingRef.current) return;
     const el = containerRef.current;
     if (!el) {
       if (lastPagesRef.current.length !== 0) {
@@ -61,11 +61,8 @@ export default function SliderCarousel({
     positions.add(Math.max(0, total - viewport));
     const arr = Array.from(positions).sort((a, b) => a - b);
 
-    // only update state when pages actually changed
     const old = lastPagesRef.current;
-    if (old.length === arr.length && arr.every((v, i) => v === old[i])) {
-      // no change
-    } else {
+    if (!(old.length === arr.length && arr.every((v, i) => v === old[i]))) {
       lastPagesRef.current = arr;
       setPages(arr);
       setActivePage((prev) => Math.min(prev, Math.max(0, arr.length - 1)));
@@ -77,7 +74,6 @@ export default function SliderCarousel({
     const el = containerRef.current;
     if (!el) return;
 
-    // recompute when images load (they affect scrollWidth)
     const images = Array.from(el.querySelectorAll('img'));
     const onImgLoad = () => computePages();
     images.forEach((img) => {
@@ -90,7 +86,6 @@ export default function SliderCarousel({
 
     window.addEventListener('resize', computePages);
 
-    // listen for pointer/touch interaction start/end so we can avoid recomputing during drag
     const onPointerDown = () => {
       isInteractingRef.current = true;
     };
@@ -113,16 +108,19 @@ export default function SliderCarousel({
     };
   }, [items, computePages]);
 
-  // optimized scroll handler: only update the active page if it actually changed
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     let ticking = false;
     const onScroll = () => {
-      if (!pages.length) return;
+      if (!pages.length) {
+        setScrollLeftPos(el.scrollLeft);
+        return;
+      }
       if (!ticking) {
         requestAnimationFrame(() => {
           const left = el.scrollLeft;
+          setScrollLeftPos(left);
           let nearest = 0;
           let minDist = Math.abs(pages[0] - left);
           for (let i = 1; i < pages.length; i++) {
@@ -132,7 +130,6 @@ export default function SliderCarousel({
               nearest = i;
             }
           }
-          // update only if different
           setActivePage((prev) => (prev === nearest ? prev : nearest));
           ticking = false;
         });
@@ -145,16 +142,118 @@ export default function SliderCarousel({
     return () => el.removeEventListener('scroll', onScroll);
   }, [pages]);
 
+  const findNearestPageIndex = (left: number) => {
+    if (!pages.length) return 0;
+    let nearest = 0;
+    let minDist = Math.abs(pages[0] - left);
+    for (let i = 1; i < pages.length; i++) {
+      const d = Math.abs(pages[i] - left);
+      if (d < minDist) {
+        minDist = d;
+        nearest = i;
+      }
+    }
+    return nearest;
+  };
+
   const goToPage = (index: number) => {
     const el = containerRef.current;
     if (!el || !pages.length) return;
-    const pos = pages[Math.max(0, Math.min(index, pages.length - 1))];
+    const clamped = Math.max(0, Math.min(index, pages.length - 1));
+    const pos = pages[clamped];
     el.scrollTo({left: pos, behavior: 'smooth'});
-    setActivePage(index);
+    setActivePage(clamped);
+    setScrollLeftPos(pos);
   };
 
+  // measure single item full width (offsetWidth + right margin)
+  const getItemFullWidth = () => {
+    const el = containerRef.current;
+    if (!el) return 164;
+    const first = el.querySelector('[data-slider-item]') as HTMLElement | null;
+    if (!first) return 164;
+    const style = window.getComputedStyle(first);
+    const marginRight = parseFloat(style.marginRight || '0') || 0;
+    return first.offsetWidth + marginRight;
+  };
+
+  // step helpers: scroll by itemWidth * (itemsPerViewport - 1), at least 1 item
+  const computeStepPixels = () => {
+    const el = containerRef.current;
+    if (!el) return 164;
+    const viewport = el.clientWidth || 1;
+    const itemW = getItemFullWidth();
+    const itemsPerViewport = Math.max(1, Math.floor(viewport / itemW));
+    const stepItems = Math.max(1, itemsPerViewport - 1);
+    return itemW * stepItems;
+  };
+
+  const clamp = (v: number, a = 0, b = Infinity) => Math.min(Math.max(v, a), b);
+
+  const goByPixels = (delta: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const maxLeft = Math.max(0, el.scrollWidth - el.clientWidth);
+    const target = clamp(el.scrollLeft + delta, 0, maxLeft);
+    el.scrollTo({left: target, behavior: 'smooth'});
+    setScrollLeftPos(target);
+    setActivePage(findNearestPageIndex(target));
+  };
+
+  const goToNext = () => {
+    const pixels = computeStepPixels();
+    goByPixels(pixels);
+  };
+
+  const goToPrev = () => {
+    const pixels = computeStepPixels();
+    goByPixels(-pixels);
+  };
+
+  const elNow = containerRef.current;
+  const maxScrollLeft = elNow ? Math.max(0, elNow.scrollWidth - elNow.clientWidth) : 0;
+  const epsilon = 1;
+  const leftDisabled = scrollLeftPos <= epsilon;
+  const rightDisabled = scrollLeftPos >= Math.max(0, maxScrollLeft - epsilon);
+
   return (
-    <div className={styles.SliderCarousel} style={{...style, height}}>
+    <div className={styles.SliderCarousel} style={{...style, height, position: 'relative'}}>
+      {showArrows && !isMobile && items.length > 0 ? (
+        <>
+          <button
+            type="button"
+            aria-label="Previous page"
+            onClick={goToPrev}
+            disabled={leftDisabled}
+            style={{
+              cursor: leftDisabled ? 'not-allowed' : 'pointer',
+              opacity: leftDisabled ? 0.5 : 1,
+            }}
+            className={styles.PrevArrow}
+          >
+            <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+              <path d="M16 20 L8 12 L16 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            aria-label="Next page"
+            onClick={goToNext}
+            disabled={rightDisabled}
+            style={{
+              cursor: rightDisabled ? 'not-allowed' : 'pointer',
+              opacity: rightDisabled ? 0.5 : 1,
+            }}
+            className={styles.NextArrow}
+          >
+            <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+              <path d="M8 4 L16 12 L8 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </>
+      ) : null}
+
       {items.length > 0 ? (
         <>
           <div
@@ -167,6 +266,7 @@ export default function SliderCarousel({
             {items.map((item: GenericItemType, itemIndex: number) => (
               <div
                 key={`slider-item-${itemIndex}`}
+                data-slider-item
                 className={styles.SliderItem}
                 style={{height, width: 'min-content', display: 'inline-block', margin: '0 16px 16px 0'}}
                 onClick={() => {

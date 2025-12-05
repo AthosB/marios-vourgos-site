@@ -130,8 +130,8 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
         onContextMenu={(e) => e.preventDefault()}
         onDragStart={(e) => e.preventDefault()}
       />) }
-      <div className={'ImageTitle'}>{selectedFashion?.title}</div>
-      <div className={'ImageDescription'}>{selectedFashion?.description}</div>
+      {/*<div className={'ImageTitle'}>{selectedFashion?.title}</div>*/}
+      {/*<div className={'ImageDescription'}>{selectedFashion?.description}</div>*/}
       <SliderCarousel
         items={fashionEntries}
         showTitle={false}
