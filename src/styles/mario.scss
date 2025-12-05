@@ -400,6 +400,10 @@ and (max-device-width: 550px) and (orientation: portrait) {
     box-sizing: border-box;
   }
 
+  .home-video {
+    min-height: auto !important;
+  }
+
   .preview-canvas {
     //element that previews selected item from carousel on top of it
     display: flex;
