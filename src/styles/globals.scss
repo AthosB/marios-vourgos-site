@@ -38,6 +38,25 @@ html, body {
   }
 }
 
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  margin: 0;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
 .full-width {
   width: 100%;
 }

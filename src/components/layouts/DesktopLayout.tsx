@@ -15,10 +15,12 @@ export default function DesktopLayout({
     <AppRouterCacheProvider>
       <NavBar />
       {children}
-      <p className={'footer-meta'}>
-        © 2025 Mario Vourgos.
-        All rights reserved. {getAppVersion()}
-      </p>
+      <footer>
+        <p className={'footer-meta'}>
+          © 2025 Mario Vourgos.
+          All rights reserved. {getAppVersion()}
+        </p>
+      </footer>
     </AppRouterCacheProvider>
   );
 }
