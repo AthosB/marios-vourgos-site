@@ -4,7 +4,8 @@ import styles from './View.module.scss'
 import {GenericItemType} from "@/Types/types";
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
-import {ZoomImage} from "@/components/UI/ImageZoomer/ImageZoomer";
+// import {ZoomImage} from "@/components/UI/ImageZoomer/ImageZoomer";
+import {ImageZoomer2} from "@/components/UI/ImageZoomer/ImageZoomer2";
 
 export default function View() {
   /** PRES **/
@@ -29,7 +30,7 @@ export default function View() {
         fontSize={'large'}
       />
       <div className={styles.Photo + ' Photo'}>
-        <ZoomImage
+        <ImageZoomer2
           src={previewData.src} 
           alt={"Preview"}
           style={{display: 'inline-block', width: 'auto', margin: '0 auto', maxWidth: '100%' }}

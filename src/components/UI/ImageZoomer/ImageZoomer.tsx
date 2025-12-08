@@ -1,4 +1,4 @@
-// File: `src/components/UI/ImageZoomer/ImageZoomer.tsx`
+// File: src/components/UI/ImageZoomer/ImageZoomer.tsx
 import {
   FC,
   CSSProperties,
@@ -71,11 +71,18 @@ export const ZoomImage: FC<ZoomImageProps> = ({
     [minScale, maxScale, scale, onScaleChange]
   );
 
+  const getReferenceRect = (): DOMRect | null => {
+    // Prefer the actual image element's bounding box so clicks map to the visual image.
+    if (imgRef.current) return imgRef.current.getBoundingClientRect();
+    if (containerRef.current) return containerRef.current.getBoundingClientRect();
+    return null;
+  };
+
   const handleMouseDown = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
-      if (!containerRef.current) return;
+      const rect = getReferenceRect();
+      if (!rect) return;
 
-      const rect = containerRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
@@ -98,9 +105,9 @@ export const ZoomImage: FC<ZoomImageProps> = ({
     (e: WheelEvent<HTMLDivElement>) => {
       e.preventDefault();
 
-      if (!containerRef.current) return;
+      const rect = getReferenceRect();
+      if (!rect) return;
 
-      const rect = containerRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 

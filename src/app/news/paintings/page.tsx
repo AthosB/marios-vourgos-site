@@ -26,7 +26,8 @@ export default function NewsEventsPaintingsPage() {
       <div className={styles.Line}></div>
       <div className={styles.NewsEntry} style={{marginTop: '32px'}}>
         <div className={styles.Title}>
-          <h2><p>Art Exhibition and Charity Gala Dinner “The Achronic Remembrances of Time... a note not to forget the future...”</p><p>Under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port</p></h2>
+          <h2><p>Solo Art Exhibition and Charity Gala Dinner and titled “The Achronic Remembrances of Time... a note not to forget the future...”</p><p>Under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port</p></h2>
+          <h2><p>Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish.</p></h2>
         </div>
         <div className={styles.Content}>
           {/*<div>*/}
@@ -49,7 +50,6 @@ export default function NewsEventsPaintingsPage() {
           {/*  </Link>*/}
           {/*</div>*/}
           <div style={{marginTop: '16px'}}>
-            <h2>Exhibition Gallery</h2>
           </div>
           <div>
             <Link
@@ -84,7 +84,7 @@ export default function NewsEventsPaintingsPage() {
       <div className={styles.NewsEntry} style={{marginTop: '16px'}}>
         <div className={styles.Title} style={{marginBottom: '32px'}}>
           <h2>
-            <p>The Ecstatic Renaissance of Life</p><p>Silks Gallery - 12th June 2029 Limassol</p>
+            <p>Solo Art Exhibition and titled &#34;The Ecstatic Renaissance of Life&#34;</p><p>Silks Gallery - 12th June 2009 Limassol</p>
           </h2>
         </div>
         <div className={styles.Content}>
@@ -93,7 +93,6 @@ export default function NewsEventsPaintingsPage() {
             alt={'Silks Gallery - Limassol'}
             width={512}
           />
-          <div style={{width: '512px', fontStyle: 'italic'}}>Solo exhibition and titled &#34;The Ecstatic Renaissance of Life&#34;</div>
         </div>
       </div>
     </div>

@@ -61,7 +61,7 @@ export default function HomeLiterature() {
           to life through a group of acclaimed artists, under the direction of theatre director Elena Sokratous.
         </p>
         <p style={{color: '#fff', fontSize: '1.2rem', fontWeight: 500, textAlign: 'center', marginTop: '16px'}}>
-          Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer), as well as from sponsors totaling to 30,000 Euros. &hearts;
+          Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer).
         </p>
         <div className={styles.Action}>
           <a
