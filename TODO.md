@@ -100,13 +100,13 @@
 - [ ] ARIS invoice
 - [X] fix navigation arrows after scroll fix
 - [X] adjust zoom to zoom with more precision and follow mouse click
-- [ ] remove first duplicate from Fashion slides (colored dress with black glasses)
-- [ ] remove the second duplication of Fashion short black and white model turning
-- [ ] move fashion 25 photo nest to its same (after photo 27)
-- [ ] remove amount of donation from all occurrences
+- [X] remove first duplicate from Fashion slides (colored dress with black glasses)
+- [X] remove the second duplication of Fashion short black and white model turning
+- [ ] move fashion 25 photo next to its same (after photo 27)
+- [X] remove amount of donation from all occurrences
 - [ ] on page visit from submenu stays open (erroneous behavior)
-- [ ] after paintings events first <p> add "Paintings were not for sale"
-- [ ] Fix News Press date 2029 (2019)
+- [X] after paintings events first <p> add "Paintings were not for sale"
+- [X] Fix News Press date 2029 (2019)
 - [ ] k-gallery missing in news page
 - [ ] check for 2nd book "the overused unconsciousness of life (a book of images and words)" Marios Vourgos published the collection of poems in English in {date} - Check with Dina
 - [ ] under the Video of Interview by the Cyprus News Agency... will add a photo from a book
@@ -114,13 +114,13 @@
 - [ ] for Silks event, under the photo, a photo of the book of the exhibitions
 - [ ] add K-gallery in news same title as 2nd book (the overused... literature)
 - [ ] Press fits photo (art exhibition and charity gala) will be also added  under the Video of old port in News
-- [ ] move CNA page content carousel and text under the text and photo "Art Exhibition and Charity Gala Dinner “The Achronic Remembrances of Time... a note not to forget the future...” Under the auspices of Cyprus President Mr. Nicos Anastasiades"
-- [ ] no "more" button, just move content under the paragraph and photo → More button content to be moved to Press page, NOT News
-- [ ] fix anchor for URL, check CNA
+- [X move CNA page content carousel and text under the text and photo "Art Exhibition and Charity Gala Dinner “The Achronic Remembrances of Time... a note not to forget the future...” Under the auspices of Cyprus President Mr. Nicos Anastasiades"
+- [X] no "more" button, just move content under the paragraph and photo → More button content to be moved to Press page, NOT News
+- [X] fix anchor for URL, check CNA
 - [ ] first Silks, then K-Gallery (18/02/2004) → both in News and Press
 - [ ] take video from old site and only keep the beginning with paintings—no photography, no people, no interviews
-- [ ] move video of CNA in news and event page, to press page
-- [ ] for Silks Gallrey news add photo from old site that shows the cameraman and mario, and add it in Press page until more content available
+- [X] move video of CNA in news and event page, to press page
+- [ ] for Silks Gallery news add photo from old site that shows the cameraman and mario, and add it in Press page until more content available
 - [ ] remove bottom green line from News section items title (confusing as end of item) 
 on News page, under 1st photo add a couple of photos of the area, not the paintings
 - [ ] Remove title "Exhibition Gallery" just leave the photo and the new ones under it

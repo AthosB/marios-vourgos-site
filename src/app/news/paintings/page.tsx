@@ -4,6 +4,7 @@ import {useEffect} from "react";
 import styles from "@/app/news/NewsEvents.module.scss";
 import Image from 'next/image';
 import Link from "next/link";
+import CNAevent from "@/components/NewsEvents/CNA/CNAevent";
 
 export default function NewsEventsPaintingsPage() {
   /** CONSTS **/
@@ -30,25 +31,6 @@ export default function NewsEventsPaintingsPage() {
           <h2><p>Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish.</p></h2>
         </div>
         <div className={styles.Content}>
-          {/*<div>*/}
-          {/*  <h2>Exhibition in the Press</h2>*/}
-          {/*</div>*/}
-          {/*<div>*/}
-          {/*  <Link*/}
-          {/*    href="/news/CNA2019"*/}
-          {/*  >*/}
-          {/*    <img*/}
-          {/*      src={'/images/news/paintings/newsEvent01/news_01-01.jpg'}*/}
-          {/*      alt={'28th June 2019 - Old Limassol Port '}*/}
-          {/*      width={512}*/}
-          {/*    />*/}
-          {/*  </Link>*/}
-          {/*  <Link*/}
-          {/*    href="/news/CNA2019"*/}
-          {/*  >*/}
-          {/*    <div style={{width: '100%', textAlign: 'end'}}>more...</div>*/}
-          {/*  </Link>*/}
-          {/*</div>*/}
           <div style={{marginTop: '16px'}}>
           </div>
           <div>
@@ -62,23 +44,9 @@ export default function NewsEventsPaintingsPage() {
               />
             </Link>
             <div style={{width: '512px', fontStyle: 'italic'}}>Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish.</div>
-            <Link
-              href="/news/CNA2019"
-            >
-              <div style={{width: '100%', textAlign: 'end'}}>more...</div>
-            </Link>
           </div>
-          <div style={{marginTop: '16px'}}>
-            <h2>Interview by the Cyprus News Agency</h2>
-          </div>
-          <div>
-            <iframe width="512" height="315" src="https://www.youtube.com/embed/t8r5eeYGMnE?si=3PsqY0aY7cXNyTxe"
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
-            ></iframe>
-          </div>
+          <CNAevent />
+
         </div>
       </div>
       <div className={styles.NewsEntry} style={{marginTop: '16px'}}>

@@ -48,6 +48,22 @@ export default function PressPage() {
             />
           </div>
         </div>
+        <div className={styles.PressEntry} style={{width: '100%', margin: '0 auto'}}>
+          <div className={styles.EntryPhoto}>
+            <iframe
+              width="512"
+              height="315"
+              src="https://www.youtube.com/embed/t8r5eeYGMnE?si=3PsqY0aY7cXNyTxe"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            ></iframe>
+          </div>
+          <div className={styles.EntryText} style={{marginTop: '16px'}}>
+            <h2>Interview by the Cyprus News Agency</h2>
+          </div>
+        </div>
         <div className={styles.PressEntry} style={{margin: '64px auto 16px auto'}}>
           <PressPaintings />
         </div>

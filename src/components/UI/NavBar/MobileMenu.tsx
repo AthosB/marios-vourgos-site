@@ -79,6 +79,17 @@ export default function MobileMenu() {
             <MenuItem onClick={handleClose}><Link href="/news/literature" style={{marginLeft: '16px'}}><span className={isActive('/news/literature') ? styles.Active : ''}>Literature</span></Link></MenuItem>
           </div>
           <MenuItem onClick={handleClose}><Link href="/press"><span className={isActive('/press') ? styles.Active : ''}>Press</span></Link></MenuItem>
+          <div style={{display: 'flex', flexDirection: 'column', rowGap: '8px'}}>
+            <div className={styles.MenuCategory}>Press</div>
+            <MenuItem onClick={handleClose}><Link href="/press/photography"
+              style={{marginLeft: '16px'}}
+            ><span className={isActive('/press/photography') ? styles.Active : ''}>Photography</span></Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/press/paintings"
+              style={{marginLeft: '16px'}}
+            ><span className={isActive('/press/paintings') ? styles.Active : ''}>Paintings</span></Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/press/fashion" style={{marginLeft: '16px'}}><span className={isActive('/press/fashion') ? styles.Active : ''}>Fashion</span></Link></MenuItem>
+            <MenuItem onClick={handleClose}><Link href="/press/literature" style={{marginLeft: '16px'}}><span className={isActive('/press/literature') ? styles.Active : ''}>Literature</span></Link></MenuItem>
+          </div>
           <MenuItem onClick={handleClose}><Link href="/gallery/photography"><span className={isActive('/gallery/photography') ? styles.Active : ''}>Photography</span></Link></MenuItem>
           <div style={{display: 'flex', flexDirection: 'column', rowGap: '8px'}}>
             <div className={styles.MenuCategory}>Paintings</div>

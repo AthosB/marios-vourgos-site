@@ -67,3 +67,103 @@ and (max-device-width: 550px) and (orientation: portrait) {
     }
   }
 }
+
+.PressSectionPage {
+  position: relative;
+  width: 100%;
+  max-width: 90vw;
+  padding: 16px 32px;
+
+  .Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.5rem;
+    font-family: 'CinzelRegular', sans-serif;
+    text-align: center;
+    color: var(--mario-accent-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .Line {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: var(--mario-section-bg-color);
+    margin: 8px 0 24px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .PressEntry {
+    padding-bottom: 32px;
+
+    .Title {
+      border-top: 1px solid var(--mario-section-separator-color);
+      //border-bottom: 1px solid var(--mario-section-separator-color);
+
+      h2 {
+        font-size: 1.2rem;
+        font-weight: normal;
+        text-align: center;
+
+        p {
+          margin: 2px 0;
+        }
+      }
+    }
+
+    .Content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      h2 {
+        font-size: 1.2rem;
+        font-weight: normal;
+        text-align: center;
+        color: var(--mario-accent-color);
+      }
+
+      a {
+        color: var(--mario-accent-color);
+        text-decoration: none;
+      }
+    }
+  }
+
+  &.Mobile {
+    padding: 16px 4px;
+    max-width: 95vw;
+    margin: 0 auto;
+
+    .PressEntry {
+      width: 100%;
+      text-align: center;
+
+      div {
+        width: 100%;
+      }
+
+      .Title {
+        p {
+          text-align: start;
+        }
+      }
+
+      .Content {
+        img {
+          margin: 0 auto;
+          width: 100% !important;
+        }
+
+        iframe {
+          width: calc(100% - 6px) !important;
+        }
+      }
+    }
+  }
+}

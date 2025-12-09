@@ -17,11 +17,13 @@ export default function NavBar() {
   /** HOOKS **/
   const [galleryAnchorEl, setGalleryAnchorEl] = useState<null | HTMLElement>(null);
   const [newsAnchorEl, setNewsAnchorEl] = useState<null | HTMLElement>(null);
+  const [pressAnchorEl, setPressAnchorEl] = useState<null | HTMLElement>(null);
   const pathname = usePathname();
 
   /** CONSTS **/
   const galleryOpen = Boolean(galleryAnchorEl);
   const newsOpen = Boolean(newsAnchorEl);
+  const pressOpen = Boolean(pressAnchorEl);
 
   /**
    * Handles the hover event to open the news menu.
@@ -29,6 +31,14 @@ export default function NavBar() {
    */
   const newsMenuHover = (event: React.MouseEvent<HTMLDivElement>) => {
     setNewsAnchorEl(event.currentTarget);
+  };
+
+  /**
+   * Handles the hover event to open the press menu.
+   * @param event
+   */
+  const pressMenuHover = (event: React.MouseEvent<HTMLDivElement>) => {
+    setPressAnchorEl(event.currentTarget);
   };
 
   /**
@@ -59,6 +69,10 @@ export default function NavBar() {
     setNewsAnchorEl(null);
   };
 
+  const handlePressClose = () => {
+    setPressAnchorEl(null);
+  };
+
   /**
    * Handles the close event to close the gallery menu.
    */
@@ -84,9 +98,9 @@ export default function NavBar() {
           onMouseEnter={newsMenuHover}
           // onMouseLeave={handleClose}
           onClick={newsMenuHover}
-          aria-controls={galleryOpen ? 'basic-menu' : undefined}
+          aria-controls={newsOpen ? 'basic-menu' : undefined}
           aria-haspopup="true"
-          aria-expanded={galleryOpen ? 'true' : undefined}
+          aria-expanded={newsOpen ? 'true' : undefined}
         >
           News
         </div>
@@ -97,19 +111,45 @@ export default function NavBar() {
           onClose={handleNewsClose}
           slotProps={{
             list: {
-              'aria-labelledby': 'gallery-menu-item',
+              'aria-labelledby': 'news-menu-item',
             },
           }}
           className={"PopupMenu"}
         >
-          <MenuItem onClick={handleGalleryClose}><Link href="/news/photography">Photography</Link></MenuItem>
-          <MenuItem onClick={handleGalleryClose}><Link href="/news/paintings">Paintings</Link></MenuItem>
-          <MenuItem onClick={handleGalleryClose}><Link href="/news/fashion">Fashion</Link></MenuItem>
-          <MenuItem onClick={handleGalleryClose}><Link href="/news/literature">Literature</Link></MenuItem>
+          <MenuItem onClick={handleNewsClose}><Link href="/news/photography">Photography</Link></MenuItem>
+          <MenuItem onClick={handleNewsClose}><Link href="/news/paintings">Paintings</Link></MenuItem>
+          <MenuItem onClick={handleNewsClose}><Link href="/news/fashion">Fashion</Link></MenuItem>
+          <MenuItem onClick={handleNewsClose}><Link href="/news/literature">Literature</Link></MenuItem>
         </Menu>
-        <div className={`${styles.entry} ${isActive(['Press']) ? ' ' + styles.active : ''}`}><Link
-          href="/press"
-        >Press</Link></div>
+        <div
+          className={`${styles.entry} ${isActive(['press/photography', 'press/paintings', 'press/fashion', 'press/literature']) ? ' ' + styles.active : ''}`}
+          id="press-menu-item"
+          onMouseEnter={pressMenuHover}
+          // onMouseLeave={handleClose}
+          onClick={pressMenuHover}
+          aria-controls={pressOpen ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={pressOpen ? 'true' : undefined}
+        >
+          Press
+        </div>
+        <Menu
+          id="press-menu"
+          anchorEl={pressAnchorEl}
+          open={pressOpen}
+          onClose={handlePressClose}
+          slotProps={{
+            list: {
+              'aria-labelledby': 'press-menu-item',
+            },
+          }}
+          className={"PopupMenu"}
+        >
+          <MenuItem onClick={handlePressClose}><Link href="/press/photography">Photography</Link></MenuItem>
+          <MenuItem onClick={handlePressClose}><Link href="/press/paintings">Paintings</Link></MenuItem>
+          <MenuItem onClick={handlePressClose}><Link href="/press/fashion">Fashion</Link></MenuItem>
+          <MenuItem onClick={handlePressClose}><Link href="/press/literature">Literature</Link></MenuItem>
+        </Menu>
 
         <div
           className={`${styles.entry} ${isActive(['gallery/photography', 'gallery/paintings', 'gallery/literature']) ? ' ' + styles.active : ''}`}

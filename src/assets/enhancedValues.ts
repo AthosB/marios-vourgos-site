@@ -2487,15 +2487,15 @@ export const fashionEntries = [
     "height": 3507,
     "landscape": false
   },
-  {
-    "position": 900,
-    "src": "/images/fashion/fashion_09.jpg",
-    "alt": "Fashion 9",
-    "title": "Fashion 9",
-    "width": 2266,
-    "height": 3430,
-    "landscape": false
-  },
+  // {
+  //   "position": 900,
+  //   "src": "/images/fashion/fashion_09.jpg",
+  //   "alt": "Fashion 9",
+  //   "title": "Fashion 9",
+  //   "width": 2266,
+  //   "height": 3430,
+  //   "landscape": false
+  // },
   {
     "position": 950,
     "src": "/images/fashion/clips/short_001.mp4",
@@ -2633,13 +2633,13 @@ export const fashionEntries = [
     "title": "Fashion Clip 7",
     "video": true
   },
-  {
-    "position": 1875,
-    "src": "/images/fashion/clips/short_014.mp4",
-    "alt": "Fashion Clip 14",
-    "title": "Fashion Clip 14",
-    "video": true
-  },
+  // {
+  //   "position": 1875,
+  //   "src": "/images/fashion/clips/short_014.mp4",
+  //   "alt": "Fashion Clip 14",
+  //   "title": "Fashion Clip 14",
+  //   "video": true
+  // },
   {
     "position": 1900,
     "src": "/images/fashion/fashion_19.jpg",
