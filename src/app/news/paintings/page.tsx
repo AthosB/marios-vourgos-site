@@ -3,7 +3,6 @@
 import {useEffect} from "react";
 import styles from "@/app/news/NewsEvents.module.scss";
 import Image from 'next/image';
-import Link from "next/link";
 import CNAevent from "@/components/NewsEvents/CNA/CNAevent";
 import KGalleryModule from "@/components/NewsEvents/KGallery/KGallery";
 
@@ -35,16 +34,30 @@ export default function NewsEventsPaintingsPage() {
           <div style={{marginTop: '16px'}}>
           </div>
           <div>
-            <Link
-              href="/news/CNA2019"
-            >
-              <img
-                src={'/images/news/paintings/newsEvent01B/news_01B-09.jpg'}
-                alt={'28th June 2019 - Old Limassol Port'}
-                width={512}
-              />
-            </Link>
-            <div style={{width: '512px', fontStyle: 'italic'}}>Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish.</div>
+            <img
+              src={'/images/news/paintings/newsEvent01B/news_01B-09.jpg'}
+              alt={'28th June 2019 - Old Limassol Port'}
+              width={512}
+            />
+          </div>
+          <div style={{margin: '16px auto'}}>
+            <img
+              src={'/images/news/paintings/newsEvent01B/news_01B-36.jpg'}
+              alt={'28th June 2019 - Old Limassol Port'}
+              width={512}
+            />
+          </div>
+          <div style={{margin: '16px auto',display: 'flex', flexDirection:'row', flexWrap:'wrap', gap: '16px'}}>
+            <img
+              src={'/images/news/paintings/newsEvent01B/news_01B-28.jpg'}
+              alt={'28th June 2019 - Old Limassol Port'}
+              width={isMobile ? 512 : 276}
+            />
+            <img
+              src={'/images/news/paintings/newsEvent01B/news_01B-30.jpg'}
+              alt={'28th June 2019 - Old Limassol Port'}
+              width={isMobile ? 512 : 276}
+            />
           </div>
           <CNAevent />
         </div>
@@ -66,7 +79,7 @@ export default function NewsEventsPaintingsPage() {
       </div>
       <div className={styles.NewsEntry} style={{marginTop: '32px'}}>
         <div className={styles.Title}>
-          <h2><p>&#34;Solo art Exhibition and titled &#34;The overused unconsciousness of everyday life...&#34;</p><p>K-Gallery - 18th February 2004 Nicosia</p></h2>
+          <h2><p>&#34;Solo art Exhibition and titled &#34;The overused unconsciousness of everyday life&#34;</p><p>K-Gallery - 18th February 2004 Nicosia</p></h2>
           <h2><p>Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish.</p></h2>
         </div>
         <div className={styles.Content}>

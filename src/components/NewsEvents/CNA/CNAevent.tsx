@@ -70,7 +70,7 @@ export default function CNAevent({showTitle = false} : { showTitle?: boolean}) {
   }, []);
 
   /** RENDER **/
-  return       <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
+  return       <div style={{width: '100%', padding: isMobile ? 0 : '16px 32px'}}>
     <div id="cna-2019" className="preview-canvas">
       <img
         src={selectedPhoto?.src || '/images/news/cna2019/news_01-01.jpg'}
