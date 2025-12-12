@@ -10,7 +10,7 @@ type YouTubePlayer = {
 };
 
 export default function HomeVideo() {
-  const VIDEO_ID = "RBhmLkhI-WI";
+  const VIDEO_ID = "kGrb5D-pTCU";
   const playerRef = useRef<HTMLDivElement | null>(null);
   const playerInstance = useRef<YouTubePlayer | null>(null);
   const [unmuted, setUnmuted] = useState(false);

@@ -5,6 +5,7 @@ import styles from "@/app/news/NewsEvents.module.scss";
 import Image from 'next/image';
 import Link from "next/link";
 import CNAevent from "@/components/NewsEvents/CNA/CNAevent";
+import KGalleryModule from "@/components/NewsEvents/KGallery/KGallery";
 
 export default function NewsEventsPaintingsPage() {
   /** CONSTS **/
@@ -39,14 +40,13 @@ export default function NewsEventsPaintingsPage() {
             >
               <img
                 src={'/images/news/paintings/newsEvent01B/news_01B-09.jpg'}
-                alt={'28th June 2019 - Old Limassol Port '}
+                alt={'28th June 2019 - Old Limassol Port'}
                 width={512}
               />
             </Link>
             <div style={{width: '512px', fontStyle: 'italic'}}>Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish.</div>
           </div>
           <CNAevent />
-
         </div>
       </div>
       <div className={styles.NewsEntry} style={{marginTop: '16px'}}>
@@ -61,6 +61,18 @@ export default function NewsEventsPaintingsPage() {
             alt={'Silks Gallery - Limassol'}
             width={512}
           />
+        </div>
+
+      </div>
+      <div className={styles.NewsEntry} style={{marginTop: '32px'}}>
+        <div className={styles.Title}>
+          <h2><p>&#34;Solo art Exhibition and titled &#34;The overused unconsciousness of everyday life...&#34;</p><p>K-Gallery - 18th February 2004 Nicosia</p></h2>
+          <h2><p>Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish.</p></h2>
+        </div>
+        <div className={styles.Content}>
+          <div style={{marginTop: '16px'}}>
+            <KGalleryModule />
+          </div>
         </div>
       </div>
     </div>

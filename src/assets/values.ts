@@ -2406,3 +2406,42 @@ export const pressPaintings02: GenericItemType[] = [
     alt: 'K Gallery 5',
   }
 ];
+
+export const newsEventsPaintingsKGallery: GenericItemType[] = [
+  {
+    position: 10,
+    src: '/images/news/paintings/KGallery/k-gallery-front.jpg',
+    alt: 'K Gallery',
+    cols: 3,
+  },
+  {
+    position: 10,
+    src: '/images/news/paintings/KGallery/001.jpg',
+    alt: 'K Gallery',
+    cols: 3,
+  },
+  {
+    position: 10,
+    src: '/images/news/paintings/KGallery/100.jpg',
+    alt: 'K Gallery',
+    cols: 1,
+  },
+  {
+    position: 10,
+    src: '/images/news/paintings/KGallery/102.jpg',
+    alt: 'K Gallery',
+    cols: 1
+  },
+  {
+    position: 10,
+    src: '/images/news/paintings/KGallery/300.jpg',
+    alt: 'K Gallery',
+    cols: 1,
+  },
+  {
+    position: 10,
+    src: '/images/news/paintings/KGallery/400.jpg',
+    alt: 'K Gallery',
+    cols: 1,
+  },
+]

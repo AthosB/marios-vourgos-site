@@ -8,7 +8,7 @@ import {paintingsCarousel} from "@/assets/enhancedValues";
 import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
-export default function HomePaintings({dots = false} : {dots?: boolean} ) {
+export default function HomePaintings({dots = false} : {dots?: boolean}) {
   /** HOOKS **/
   const [selectedPainting, setSelectedPainting] = useState<GenericItemType>(paintingsCarousel[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);

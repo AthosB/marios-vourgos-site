@@ -104,7 +104,7 @@
 - [X] remove the second duplication of Fashion short black and white model turning
 - [ ] move fashion 25 photo next to its same (after photo 27)
 - [X] remove amount of donation from all occurrences
-- [ ] on page visit from submenu stays open (erroneous behavior)
+- [X] on page visit from submenu stays open (erroneous behavior)
 - [X] after paintings events first <p> add "Paintings were not for sale"
 - [X] Fix News Press date 2029 (2019)
 - [ ] k-gallery missing in news page
@@ -126,7 +126,7 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [ ] Remove title "Exhibition Gallery" just leave the photo and the new ones under it
 - [ ] News Page sp;p art exhibition: under first photo, add photo with people in gallery (check old site) and 1-2 from the gala dinner with people siting outisde
 - [ ] under the above add the catalog photo shown in Press
-- [ ] after Solo rt exhibition The ecstatic renaissance..." add another section "Solo art Exhibition and titled "The overused unconsciousness of everyday life..." gallery
-- [ ] add photo (4th) with four small ones that shows people, in News page of same event  (k-gallery)
-- [ ] add "Solo .. and titled" in all occurrences of same context
-- [ ] also break down sections for Press in sub-pages like News
+- [X] after Solo rt exhibition The ecstatic renaissance..." add another section "Solo art Exhibition and titled "The overused unconsciousness of everyday life..." gallery
+- [X] add photo (4th) with four small ones that shows people, in News page of same event  (k-gallery)
+- [X] add "Solo .. and titled" in all occurrences of same context
+- [X] also break down sections for Press in sub-pages like News
