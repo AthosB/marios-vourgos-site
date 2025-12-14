@@ -49,9 +49,15 @@ export const ZoomImage: FC<ZoomImageProps> = ({
   const imgRef = useRef<HTMLImageElement | null>(null);
 
   const [internalScale, setInternalScale] = useState<number>(initialScale);
-  const [transformOrigin, setTransformOrigin] = useState<string>("50% 50%");
   const [initialImgHeight, setInitialImgHeight] = useState<number | null>(null);
-  const [initialImgWidth, setInitialImgWidth] = useState<number | null>(null);
+
+  // translate in pixels (top-left origin)
+  const [translateX, setTranslateX] = useState<number>(0);
+  const [translateY, setTranslateY] = useState<number>(0);
+
+  // panning state
+  const [isPanning, setIsPanning] = useState<boolean>(false);
+  const lastClientRef = useRef<{ x: number; y: number } | null>(null);
 
   const effectiveScale = scale ?? internalScale;
   const isZoomed = effectiveScale > initialScale;
@@ -72,34 +78,68 @@ export const ZoomImage: FC<ZoomImageProps> = ({
   );
 
   const getReferenceRect = (): DOMRect | null => {
-    // Prefer the actual image element's bounding box so clicks map to the visual image.
     if (imgRef.current) return imgRef.current.getBoundingClientRect();
     if (containerRef.current) return containerRef.current.getBoundingClientRect();
     return null;
   };
 
-  const handleMouseDown = useCallback(
-    (e: MouseEvent<HTMLDivElement>) => {
+  // Compute new translate so that the point under the cursor stays fixed when scaling.
+  const applyAnchoredZoom = useCallback(
+    (clientX: number, clientY: number, nextScale: number) => {
       const rect = getReferenceRect();
       if (!rect) return;
 
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      // local image coordinate before scale
+      const localX = (clientX - rect.left - translateX) / effectiveScale;
+      const localY = (clientY - rect.top - translateY) / effectiveScale;
 
-      const originX = (x / rect.width) * 100;
-      const originY = (y / rect.height) * 100;
+      // new translate to keep same screen position for localX/localY
+      const newTx = translateX + localX * (effectiveScale - nextScale);
+      const newTy = translateY + localY * (effectiveScale - nextScale);
 
-      setTransformOrigin(`${originX}% ${originY}%`);
+      setTranslateX(newTx);
+      setTranslateY(newTy);
+    },
+    [translateX, translateY, effectiveScale]
+  );
 
-      // left click (0) -> zoom in, right click (2) -> zoom out
+  const handleMouseDown = useCallback(
+    (e: MouseEvent<HTMLDivElement>) => {
+      // left button -> start panning
       if (e.button === 0) {
-        updateScale(effectiveScale + step);
+        setIsPanning(true);
+        lastClientRef.current = { x: e.clientX, y: e.clientY };
       } else if (e.button === 2) {
-        updateScale(effectiveScale - step);
+        // right click -> zoom out anchored at cursor
+        const nextScale = clamp(effectiveScale - step, minScale, maxScale);
+        applyAnchoredZoom(e.clientX, e.clientY, nextScale);
+        updateScale(nextScale);
       }
     },
-    [updateScale, effectiveScale, step]
+    [applyAnchoredZoom, effectiveScale, step, minScale, maxScale, updateScale]
   );
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent<HTMLDivElement>) => {
+      if (!isPanning) return;
+      const last = lastClientRef.current;
+      if (!last) return;
+
+      const dx = e.clientX - last.x;
+      const dy = e.clientY - last.y;
+
+      lastClientRef.current = { x: e.clientX, y: e.clientY };
+
+      setTranslateX((tx) => tx + dx);
+      setTranslateY((ty) => ty + dy);
+    },
+    [isPanning]
+  );
+
+  const handleMouseUp = useCallback(() => {
+    setIsPanning(false);
+    lastClientRef.current = null;
+  }, []);
 
   const handleWheel = useCallback(
     (e: WheelEvent<HTMLDivElement>) => {
@@ -108,20 +148,15 @@ export const ZoomImage: FC<ZoomImageProps> = ({
       const rect = getReferenceRect();
       if (!rect) return;
 
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      const delta = e.deltaY;
+      const nextScale =
+        delta < 0 ? effectiveScale + step : effectiveScale - step;
 
-      const originX = (x / rect.width) * 100;
-      const originY = (y / rect.height) * 100;
-      setTransformOrigin(`${originX}% ${originY}%`);
-
-      if (e.deltaY < 0) {
-        updateScale(effectiveScale + step);
-      } else if (e.deltaY > 0) {
-        updateScale(effectiveScale - step);
-      }
+      const clamped = clamp(nextScale, minScale, maxScale);
+      applyAnchoredZoom(e.clientX, e.clientY, clamped);
+      updateScale(clamped);
     },
-    [effectiveScale, step, updateScale]
+    [effectiveScale, step, minScale, maxScale, applyAnchoredZoom, updateScale]
   );
 
   const onImageLoad = () => {
@@ -156,27 +191,21 @@ export const ZoomImage: FC<ZoomImageProps> = ({
       150
     );
 
-    const parentWidth = parent?.clientWidth || 0;
-    const minDesiredWidth = parentWidth ? Math.round(parentWidth * 0.75) : 0;
-    const chosenWidth = Math.max(img.clientWidth || 0, minDesiredWidth, naturalW, 150);
-
     setInitialImgHeight(chosenHeight || null);
-    setInitialImgWidth(chosenWidth || null);
   };
 
   const containerStyle: CSSProperties = {
     position: "relative",
-    // toggle overflow according to zoom state: when zoomed allow visible overflow so scaled image can expand,
-    // otherwise keep overflow hidden so layout stays fixed.
+    // allow overflow when zoomed so sides won't clip
     overflow: isZoomed ? "visible" : "hidden",
-    display: "block",
-    alignContent: "center",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     width: "100%",
     zIndex: 1600,
     ...(initialImgHeight
       ? { height: `${initialImgHeight}px`, maxHeight: `${initialImgHeight}px` }
       : { minHeight: "150px" }),
-    ...(initialImgWidth ? { width: `${initialImgWidth}px`, maxWidth: `${initialImgWidth}px` } : {}),
     ...style,
   };
 
@@ -185,13 +214,18 @@ export const ZoomImage: FC<ZoomImageProps> = ({
   };
 
   const imageStyle: ExtendedImageStyle = {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    transform: `scale(${effectiveScale})`,
-    transformOrigin,
-    transition: "transform 0.15s ease-out",
-    cursor: "crosshair",
+    display: "block",
+    // keep natural aspect ratio and allow expansion beyond container when scaled
+    width: "auto",
+    height: "auto",
+    maxWidth: "100%",
+    maxHeight: initialImgHeight ? `${initialImgHeight}px` : "none",
+    objectFit: "contain",
+    // translate first, then scale. transform-origin set to top-left so translations are pixel-accurate.
+    transform: `translate(${translateX}px, ${translateY}px) scale(${effectiveScale})`,
+    transformOrigin: "0 0",
+    transition: isPanning ? "none" : "transform 0.15s ease-out",
+    cursor: isPanning ? "grabbing" : "grab",
     userSelect: "none",
     WebkitUserDrag: "none",
     ...imgStyle,
@@ -203,6 +237,9 @@ export const ZoomImage: FC<ZoomImageProps> = ({
       className={(className || "") + " ImageZoomerContainer"}
       style={containerStyle}
       onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
       onWheel={handleWheel}
       onContextMenu={(e) => e.preventDefault()}
     >

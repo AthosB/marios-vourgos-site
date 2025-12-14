@@ -277,8 +277,8 @@ export default function SliderCarousel({
                   <div
                     className={'Shimmer'}
                     style={{
-                      height: height ? height : isMobile ? 124 : 256,
-                      width: isMobile ? 164 : 'min-content !important',
+                      height: height ? (height) : isMobile ? 74 : 154,
+                      width: isMobile ? 98 : 'min-content !important',
                     }}
                   >
                     <video
@@ -286,8 +286,8 @@ export default function SliderCarousel({
                       loop
                       muted
                       playsInline
-                      height={height ? height : isMobile ? 124 : 256}
-                      width={isMobile ? 164 : 'min-content !important'}
+                      height={height ? height : isMobile ? 74 : 154}
+                      width={isMobile ? 98 : 'min-content !important'}
                       style={{objectFit: 'cover'}}
                     >
                       <source src={item.src} type="video/mp4"/>
@@ -298,15 +298,15 @@ export default function SliderCarousel({
                   <div
                     className={'Shimmer'}
                     style={{
-                      height: height ? height : isMobile ? 124 : 256,
+                      height: height ? height : isMobile ? 74 : 154,
                       width: 'min-content !important',
-                      minWidth: isMobile ? item.landscape ? 124 : 72 : 164,
+                      minWidth: isMobile ? item.landscape ? 74 : 44 : 98,
                     }}
                   >
                     <img
                       src={item.src}
                       alt={item.alt}
-                      height={height ? height : isMobile ? item.video ? 94 : 128 : 256}
+                      height={height ? height : isMobile ? item.video ? 56 : 77 : 154}
                       width={isMobile ? 'unset' : 'min-content !important'}
                       draggable={false}
                       onContextMenu={(e) => e.preventDefault()}

@@ -136,4 +136,20 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] move Silks carousel from news to Press
 - [X] for K-gallery news move carousel to Press
 - [X] for K-gallery news add only one photo and catalog under it
+- [X] fix arrows on home page carousel
+- [X] decrease size of photography selected and decrease the carousel ones
+- [X] increase initial size view page of photo
+- [X] change zoomer Image with  the on click version
+- [X] decrease title and dimensions description on View Page
+- [ ] on viewer page "X" click, navigate to previous page at the specific previous location (selected and vertical scroll)
+- [ ] before video "shorts_001.mp4" find and add same static
+- [ ] add fashion 19 photo before corresponding video short
+- [ ] find equivalent static for video short _010  (last in carousel fashion)
+- [ ] find equivalent static for video short _009  (black with blue/cyan lines)
+- [ ] find ebony model short with black suit (add close to the end)
+- [ ] investigate after home video documentary ends, youtube shows recommended next based on user's previous activity (if not, check with Orestis for alternative hosting)
+- [ ] for Press silks photos, crop, straighten, contrast, etc
+- [ ] for Press literature add Fileleutheros photo as first
+- [ ] Gallery paintings slider not working
+- [ ] revert youtube controls remove YouTube link and share/expand controls etc
 - [ ] ARIS invoice

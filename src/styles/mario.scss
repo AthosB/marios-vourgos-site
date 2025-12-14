@@ -329,14 +329,14 @@ $accent-color: #fcb040;
   //}
   & > img {
     min-height: 268px;
-    max-height: 50vh;
+    max-height: 80vh;
     width: auto;
   }
 }
 
 .ImageTitle {
   //font-size: 2rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: 'CinzelRegular', sans-serif;
   margin-bottom: 4px;
   text-align: center;
@@ -344,7 +344,7 @@ $accent-color: #fcb040;
 }
 
 .ImageDescription {
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-family: 'CinzelRegular', sans-serif;
   margin-bottom: 16px;
   color: var(--mario-accent-color);
@@ -353,7 +353,7 @@ $accent-color: #fcb040;
 
 .ImageDisclaimer {
   font-family: 'CinzelRegular', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 
 .Photo {
@@ -453,4 +453,13 @@ and (max-device-width: 550px) and (orientation: portrait) {
   text-align: center;
   margin-top: 2rem;
   opacity: 0.5;
+}
+
+// ViewerJS overrides
+.viewer-move {
+  bottom: 24px !important;
+}
+
+.viewer-button {
+  transform: scale(1.5);
 }
