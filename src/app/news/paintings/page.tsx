@@ -3,8 +3,6 @@
 import {useEffect} from "react";
 import styles from "@/app/news/NewsEvents.module.scss";
 import Image from 'next/image';
-import CNAevent from "@/components/NewsEvents/CNA/CNAevent";
-import KGalleryModule from "@/components/NewsEvents/KGallery/KGallery";
 
 export default function NewsEventsPaintingsPage() {
   /** CONSTS **/
@@ -59,23 +57,35 @@ export default function NewsEventsPaintingsPage() {
               width={isMobile ? 512 : 276}
             />
           </div>
-          <CNAevent />
+          <div style={{margin: '16px auto'}}>
+            <img
+              src={'/images/news/news01/news_01-01.jpg'}
+              alt={'The Achronic Remembrances of Time... a note not to forget the future...'}
+              width={720}
+            />
+          </div>
         </div>
       </div>
       <div className={styles.NewsEntry} style={{marginTop: '16px'}}>
         <div className={styles.Title} style={{marginBottom: '32px'}}>
           <h2>
-            <p>Solo Art Exhibition and titled &#34;The Ecstatic Renaissance of Life&#34;</p><p>Silks Gallery - 12th June 2009 Limassol</p>
+            <p>Solo Art Exhibition and titled &#34;The Ecstatic Renaissance of Life&#34;</p>
+            <p>Silks Gallery - 12th June 2009 Limassol</p>
           </h2>
         </div>
         <div className={styles.Content}>
           <img
-            src={'/images/news/paintings/news_02-01.jpg'}
-            alt={'Silks Gallery - Limassol'}
-            width={512}
+            src={'/images/news/paintings/SilksGallery/news-silks-gallery_01.jpg'}
+            alt={' 18th February 2004 Nicosia'}
+            width={isMobile ? 512 : 720}
+            style={{marginBottom: '32px'}}
+          />
+          <img
+            src={'/images/news/paintings/book_02.jpg'}
+            alt={' 18th February 2004 Nicosia'}
+            width={isMobile ? 512 : 720}
           />
         </div>
-
       </div>
       <div className={styles.NewsEntry} style={{marginTop: '32px'}}>
         <div className={styles.Title}>
@@ -83,8 +93,19 @@ export default function NewsEventsPaintingsPage() {
           <h2><p>Paintings were not for sale, and 30,000 euros were raised through the gala dinner for the charity foundation - One Dream, One Wish.</p></h2>
         </div>
         <div className={styles.Content}>
+          <div style={{margin: '16px auto'}}>
+            <img
+              src={'/images/news/paintings/KGallery/k-gallery-front.jpg'}
+              alt={' 18th February 2004 Nicosia'}
+              width={isMobile ? 512 : 720}
+            />
+          </div>
           <div style={{marginTop: '16px'}}>
-            <KGalleryModule />
+            <img
+              src={'/images/news/paintings/book_03.jpg'}
+              alt={' 18th February 2004 Nicosia'}
+              width={isMobile ? 512 : 720}
+            />
           </div>
         </div>
       </div>

@@ -71,7 +71,7 @@
 - [X] disclaimer for infinite parapraxis "Not digitally manipulated photo repeated printing"
 - [X] add guard to disable image saving
 - [X] fix carousel slider for CNA 2019 page (overflow on mobile last slide)
-- [ ] fix loading images pushing carousel
+- [X] fix loading images pushing carousel
 - [X] add contrast to Eudaimonia painting
 - [X] increase contrast on Morning Athena painting
 - [X] add gifs of fashion to carousel as they are. The landscape makes them to be different from the rest
@@ -107,16 +107,16 @@
 - [X] after paintings events first <p> add "Paintings were not for sale"
 - [X] Fix News Press date 2029 (2019)
 - [X] k-gallery missing in news page
-- [ ] check for 2nd book "the overused unconsciousness of life (a book of images and words)" Marios Vourgos published the collection of poems in English in {date} - Check with Dina
-- [ ] under the Video of Interview by the Cyprus News Agency... will add a photo from a book
+- [X] check for 2nd book "the overused unconsciousness of life (a book of images and words)" Marios Vourgos published the collection of poems in English in {date} - Check with Dina
+- [X] under the Video of Interview by the Cyprus News Agency... will add a photo from a book
 - [X] check for book for news with Dina (purple book) Ecstatic renaissance of life (exhibition catalogue Silks Gallery)
-- [ ] for Silks event, under the photo, a photo of the book of the exhibitions
-- [ ] add K-gallery in news same title as 2nd book (the overused... literature)
+- [X] for Silks event, under the photo, a photo of the book of the exhibitions
+- [X] add K-gallery in news same title as 2nd book (the overused... literature)
 - [ ] Press fits photo (art exhibition and charity gala) will be also added  under the Video of old port in News
 - [X move CNA page content carousel and text under the text and photo "Art Exhibition and Charity Gala Dinner “The Achronic Remembrances of Time... a note not to forget the future...” Under the auspices of Cyprus President Mr. Nicos Anastasiades"
 - [X] no "more" button, just move content under the paragraph and photo → More button content to be moved to Press page, NOT News
 - [X] fix anchor for URL, check CNA
-- [ ] first Silks, then K-Gallery (18/02/2004) → both in News and Press
+- [X] first Silks, then K-Gallery (18/02/2004) → both in News and Press
 - [ ] take video from old site and only keep the beginning with paintings—no photography, no people, no interviews
 - [X] move video of CNA in news and event page, to press page
 - [X] for Silks Gallery news add photo from old site that shows the cameraman and mario, and add it in Press page until more content available
@@ -124,9 +124,16 @@
 on News page, under 1st photo add a couple of photos of the area, not the paintings
 - [X] Remove title "Exhibition Gallery" just leave the photo and the new ones under it
 - [X] News Page sp;p art exhibition: under first photo, add photo with people in gallery (check old site) and 1-2 from the gala dinner with people siting outisde
-- [?] under the above add the catalog photo shown in Press
+- [X] under the above add the catalog photo shown in Press
 - [X] after Solo rt exhibition The ecstatic renaissance..." add another section "Solo art Exhibition and titled "The overused unconsciousness of everyday life..." gallery
 - [X] add photo (4th) with four small ones that shows people, in News page of same event  (k-gallery)
 - [X] add "Solo .. and titled" in all occurrences of same context
 - [X] also break down sections for Press in sub-pages like News
+- [X] find Silks gallery photos in mario/press/photos
+- [X] for CNA news remove first photo and add it as static (its the catalog)
+- [X] literature news add after tango 29 the red photo of book with title and date (Published in 2004)
+- [X] on news for Silks, only photo with camera operator and catalog
+- [X] move Silks carousel from news to Press
+- [X] for K-gallery news move carousel to Press
+- [X] for K-gallery news add only one photo and catalog under it
 - [ ] ARIS invoice

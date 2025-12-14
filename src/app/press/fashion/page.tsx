@@ -3,6 +3,7 @@
 import {useEffect} from "react";
 import styles from '../pressPage.module.scss';
 import Image from 'next/image';
+import PressFashion from "@/components/Press/PressFashion";
 
 export default function PressFashionPage() {
   /** EFFECTS **/
@@ -25,6 +26,9 @@ export default function PressFashionPage() {
           Fashion Press Coverage
         </div>
         <div className={styles.Line}></div>
+      </div>
+      <div>
+        <PressFashion />
       </div>
     </div>
   );

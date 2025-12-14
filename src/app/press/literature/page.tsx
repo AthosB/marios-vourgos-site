@@ -3,6 +3,7 @@
 import {useEffect} from "react";
 import styles from '../pressPage.module.scss';
 import Image from 'next/image';
+import PressLiteratureTango29Module from "@/components/Press/PressLiteratureTango29";
 
 export default function PressLiteraturePage() {
   /** EFFECTS **/
@@ -22,9 +23,12 @@ export default function PressLiteraturePage() {
             height={40}
             style={{marginRight: '8px', marginBottom: '12px', transform: 'rotate(30deg)', transformOrigin: 'center'}}
           />
-          Fashion Press Coverage
+          Literature Press Coverage
         </div>
         <div className={styles.Line}></div>
+      </div>
+      <div>
+        <PressLiteratureTango29Module />
       </div>
     </div>
   );

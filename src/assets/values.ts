@@ -2445,3 +2445,69 @@ export const newsEventsPaintingsKGallery: GenericItemType[] = [
     cols: 1,
   },
 ]
+
+export const pressSilksGallery = [
+  {
+    position: 10,
+    src: '/images/press/paintings/silksGallery/silks-gallery_001.jpg',
+    alt: 'Silks Gallery',
+  },
+  {
+    position: 20,
+    src: '/images/press/paintings/silksGallery/silks-gallery_010.jpg',
+    alt: 'Silks Gallery',
+  },
+  {
+    position: 30,
+    src: '/images/press/paintings/silksGallery/silks-gallery_020.jpg',
+    alt: 'Silks Gallery',
+  },
+  {
+    position: 40,
+    src: '/images/press/paintings/silksGallery/silks-gallery_030.jpg',
+    alt: 'Silks Gallery',
+  },
+  {
+    position: 50,
+    src: '/images/press/paintings/silksGallery/silks-gallery_040.jpg',
+    alt: 'Silks Gallery',
+  },
+  {
+    position: 60,
+    src: '/images/press/paintings/silksGallery/silks-gallery_050.jpg',
+    alt: 'Silks Gallery',
+  },
+  {
+    position: 70,
+    src: '/images/press/paintings/silksGallery/silks-gallery_060.jpg',
+    alt: 'Silks Gallery',
+  },
+  {
+    position: 80,
+    src: '/images/press/paintings/silksGallery/silks-gallery_070.jpg',
+    alt: 'Silks Gallery',
+  }
+]
+
+export const pressLiteratureTango29 = [
+  {
+    position: 10,
+    src: '/images/press/literature/press_tango29_020.jpg',
+    alt: 'Tango 29',
+  },
+  {
+    position: 20,
+    src: '/images/press/literature/press_tango29_030.jpg',
+    alt: 'Tango 29',
+  },
+  {
+    position: 30,
+    src: '/images/press/literature/press_tango29_040.jpg',
+    alt: 'Tango 29',
+  },
+  {
+    position: 40,
+    src: '/images/press/literature/tango29_critique.png',
+    alt: 'Tango 29',
+  }
+]

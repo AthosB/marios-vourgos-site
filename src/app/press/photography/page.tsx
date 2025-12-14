@@ -22,7 +22,7 @@ export default function PressPhotographyPage() {
         </div>
         <div className={styles.Line}></div>
         <div>
-          <h2>In the process of coordinating with international galleries for upcoming exhibitions in 2026 - 2027</h2>
+          <h2 style={{textAlign:'center'}}>In the process of coordinating with international galleries for upcoming exhibitions in 2026 - 2027</h2>
         </div>
       </div>
     </div>

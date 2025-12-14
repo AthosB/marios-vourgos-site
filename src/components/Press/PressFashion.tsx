@@ -8,6 +8,7 @@ export default function PressFashion() {
   const [selectedFashionPress, setSelectedFashionPress] = useState<GenericItemType | null>(fashionPressEntries[0]);
 
   /** CONSTS **/
+  const isMobile = window.innerWidth <= 768;
 
   const selectFashionPress = (newsItem: GenericItemType) => {
     if (!newsItem) return;
@@ -43,17 +44,10 @@ export default function PressFashion() {
         showTitle={false}
         showDescription={false}
         showDots={true}
-        showArrows={false}
+        showArrows={!isMobile}
         onSelect={selectFashionPress}
         style={{marginBottom: '16px'}}
       />
-      {/*<PreviewCarousel*/}
-      {/*  items={fashionPressEntries}*/}
-      {/*  showTitle={false}*/}
-      {/*  showDescription={false}*/}
-      {/*  showDots={true}*/}
-      {/*  onSelect={selectFashionPress}*/}
-      {/*/>*/}
     </div>
   );
 }

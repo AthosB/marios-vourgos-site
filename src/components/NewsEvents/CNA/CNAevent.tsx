@@ -8,7 +8,7 @@ import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function CNAevent({showTitle = false} : { showTitle?: boolean}) {
   /** HOOKS **/
-  const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(news01Entries[0]);
+  const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(news01Entries[8]);
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
@@ -73,7 +73,7 @@ export default function CNAevent({showTitle = false} : { showTitle?: boolean}) {
   return       <div style={{width: '100%', padding: isMobile ? 0 : '16px 32px'}}>
     <div id="cna-2019" className="preview-canvas">
       <img
-        src={selectedPhoto?.src || '/images/news/cna2019/news_01-01.jpg'}
+        src={selectedPhoto?.src || '/images/news/news01/news_01-10.jpg'}
         alt={selectedPhoto?.title || "CNA 2019"}
         height={720}
         style={{marginBottom: '16px'}}

@@ -6,6 +6,9 @@ import Image from 'next/image';
 import HomeLiterature from "@/components/Home/Literature/HomeLiterature";
 
 export default function NewsEventsLiteraturePage() {
+  /** CONSTS **/
+  const isMobile = window.innerWidth <= 768;
+
   /** EFFECTS **/
   useEffect(() => {
     document.title = 'Marios Vourgos - News & Events - Literature';
@@ -34,6 +37,23 @@ export default function NewsEventsLiteraturePage() {
           </h2>
         </div>
         <HomeLiterature />
+      </div>
+      <div className={styles.Line}></div>
+      <div className={styles.NewsEntry} style={{marginTop: '32px'}}>
+        <div className={styles.Title} style={{marginBottom: '32px'}}>
+          <h2>
+            <p>The overused unconsciousness of everyday life - Published in 2004</p>
+          </h2>
+        </div>
+        <div className={styles.Content}>
+          <div style={{margin: '16px auto'}}>
+            <img
+              src={'/images/news/paintings/book_03.jpg'}
+              alt={' 18th February 2004 Nicosia'}
+              width={isMobile ? 512 : 720}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

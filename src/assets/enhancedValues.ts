@@ -2876,17 +2876,17 @@ export const fashionPressEntries: GenericItemType[] = [
 ];
 
 export const news01Entries = [
-  {
-    "position": 10,
-    "src": "/images/news/news01/news_01-01.jpg",
-    "alt": "CNA Charity Gala 1",
-    "title": "“The Achronic Remembrances of Time... a note not to forget the future...”",
-    "description": "Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port",
-    "cols": 2,
-    "width": 1024,
-    "height": 688,
-    "landscape": true
-  },
+  // {
+  //   "position": 10,
+  //   "src": "/images/news/news01/news_01-01.jpg",
+  //   "alt": "CNA Charity Gala 1",
+  //   "title": "The Achronic Remembrances of Time... a note not to forget the future...",
+  //   "description": "Art Exhibition and Charity Gala Dinner under the auspices of Cyprus President Mr. Nicos Anastasiades 28th June 2019 - Old Limassol Port",
+  //   "cols": 2,
+  //   "width": 1024,
+  //   "height": 688,
+  //   "landscape": true
+  // },
   {
     "position": 20,
     "src": "/images/news/news01/news_01-02.jpg",
