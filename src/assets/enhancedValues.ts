@@ -2497,6 +2497,15 @@ export const fashionEntries = [
   //   "landscape": false
   // },
   {
+    "position": 930,
+    "src": "/images/fashion/fashion_new_01.jpg",
+    "alt": "Fashion 9",
+    "title": "Fashion 9",
+    "width": 2266,
+    "height": 3430,
+    "landscape": false
+  },
+  {
     "position": 950,
     "src": "/images/fashion/clips/short_001.mp4",
     "alt": "Fashion Clip 1",
@@ -2519,6 +2528,15 @@ export const fashionEntries = [
     "title": "Fashion 11",
     "width": 2244,
     "height": 3377,
+    "landscape": false
+  },
+  {
+    "position": 1900,
+    "src": "/images/fashion/fashion_19.jpg",
+    "alt": "Fashion 19",
+    "title": "Fashion 19",
+    "width": 2272,
+    "height": 3433,
     "landscape": false
   },
   {
@@ -2640,15 +2658,6 @@ export const fashionEntries = [
   //   "title": "Fashion Clip 14",
   //   "video": true
   // },
-  {
-    "position": 1900,
-    "src": "/images/fashion/fashion_19.jpg",
-    "alt": "Fashion 19",
-    "title": "Fashion 19",
-    "width": 2272,
-    "height": 3433,
-    "landscape": false
-  },
   {
     "position": 2000,
     "src": "/images/fashion/fashion_20.jpg",
@@ -2806,6 +2815,15 @@ export const fashionEntries = [
     "alt": "Fashion Clip 21",
     "title": "Fashion Clip 21",
     "video": true
+  },
+  {
+    "position": 2830,
+    "src": "/images/fashion/fashion_new_02.jpg",
+    "alt": "Fashion 28",
+    "title": "Fashion 28",
+    "width": 2033,
+    "height": 3010,
+    "landscape": false
   },
   {
     "position": 2850,

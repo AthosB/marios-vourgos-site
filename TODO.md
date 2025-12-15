@@ -141,12 +141,12 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] increase initial size view page of photo
 - [X] change zoomer Image with  the on click version
 - [X] decrease title and dimensions description on View Page
-- [ ] on viewer page "X" click, navigate to previous page at the specific previous location (selected and vertical scroll)
-- [ ] before video "shorts_001.mp4" find and add same static
-- [ ] add fashion 19 photo before corresponding video short
-- [ ] find equivalent static for video short _010  (last in carousel fashion)
-- [ ] find equivalent static for video short _009  (black with blue/cyan lines)
-- [ ] find ebony model short with black suit (add close to the end)
+- [?] on viewer page "X" click, navigate to previous page at the specific previous location (selected and vertical scroll)
+- [X] before video "shorts_001.mp4" find and add same static
+- [X] add fashion 19 photo before corresponding video short
+- [X] find equivalent static for video short _010  (last in carousel fashion)
+- [?] find equivalent static for video short _009  (black with blue/cyan lines)
+- [?] find ebony model short with black suit (add close to the end)
 - [ ] investigate after home video documentary ends, youtube shows recommended next based on user's previous activity (if not, check with Orestis for alternative hosting)
 - [ ] for Press silks photos, crop, straighten, contrast, etc
 - [ ] for Press literature add Fileleutheros photo as first

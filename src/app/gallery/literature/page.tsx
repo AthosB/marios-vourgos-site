@@ -87,7 +87,7 @@ export default function LiteraturePage() {
         Literature
       </div>
       <div className={'generic-items-page__line'}></div>
-      <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
+      <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <HomeLiterature />
       </div>
     </div>

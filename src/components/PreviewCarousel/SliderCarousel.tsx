@@ -228,6 +228,7 @@ export default function SliderCarousel({
             style={{
               cursor: leftDisabled ? 'not-allowed' : 'pointer',
               opacity: leftDisabled ? 0.5 : 1,
+              top: showDots ? '40%' : '50%'
             }}
             className={styles.PrevArrow}
           >
@@ -244,6 +245,7 @@ export default function SliderCarousel({
             style={{
               cursor: rightDisabled ? 'not-allowed' : 'pointer',
               opacity: rightDisabled ? 0.5 : 1,
+              top: showDots ? '40%' : '50%'
             }}
             className={styles.NextArrow}
           >

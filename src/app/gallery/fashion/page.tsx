@@ -95,7 +95,7 @@ export default function RecentPaintingsPage() {
         Fashion
       </div>
       <div className={'generic-items-page__line'}></div>
-      <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
+      <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div id="recent-paintings" className="preview-canvas">
           <img
             src={selectedFashion?.src || '/images/paintings/img-001.jpg'}
