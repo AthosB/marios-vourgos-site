@@ -1,3 +1,4 @@
+// src/components/Home/Fashion/HomeFashion.tsx
 'use client';
 
 import {useEffect, useState, useRef} from "react";
@@ -7,7 +8,7 @@ import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
 import {fashionEntries} from '@/assets/enhancedValues';
 
-import {pushAnchor} from "@/utils/helpers";
+import {pushAnchor, scrollToHash} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 type imageType = {
@@ -32,7 +33,6 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
     fashionEntries.findIndex(i => i.src === imageData.src);
 
   const selectImageHandler = (imageData: imageType, push = true) => {
-    // console.log('selectImageHandler in HomeFashion', imageData);
     setSelectedFashion(imageData);
     const idx = getIndexForImage(imageData);
     if (push) {
@@ -46,7 +46,6 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
 
     localStorage.setItem('previewData', JSON.stringify(selectedFashion));
     window.location.href = '/view';
-    // setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {
@@ -58,7 +57,6 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
     if (!selectedFashion?.video) return;
     const v = videoRef.current;
     if (!v) return;
-    // Force reload and try to play (catch promise rejection)
     try { v.load(); } catch { /* noop */ }
     v.play && v.play().catch(() => { /* autoplay may be blocked */ });
   }, [selectedFashion?.src, selectedFashion?.video]);
@@ -82,6 +80,10 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < fashionEntries.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
           selectImageHandler(fashionEntries[idx], false);
+
+          // ensure the page scrolls to the anchor (retry if needed while React mounts)
+          // offset 16 to place the target slightly higher
+          scrollToHash(window.location.hash || `#home-fashion-${idx}`, 16, true);
         }
       } catch {
         // noop
@@ -130,8 +132,6 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
         onContextMenu={(e) => e.preventDefault()}
         onDragStart={(e) => e.preventDefault()}
       />) }
-      {/*<div className={'ImageTitle'}>{selectedFashion?.title}</div>*/}
-      {/*<div className={'ImageDescription'}>{selectedFashion?.description}</div>*/}
       <SliderCarousel
         items={fashionEntries}
         showTitle={false}

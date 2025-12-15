@@ -1,3 +1,4 @@
+// src/components/Home/Paintings/HomePaintings.tsx
 'use client';
 
 import {useState, useEffect} from "react";
@@ -5,7 +6,7 @@ import { useAnchorState } from '@/hooks/useAnchorState';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
 import {paintingsCarousel} from "@/assets/enhancedValues";
-import {pushAnchor} from "@/utils/helpers";
+import {pushAnchor, scrollToHash} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function HomePaintings({dots = false} : {dots?: boolean}) {
@@ -59,6 +60,9 @@ export default function HomePaintings({dots = false} : {dots?: boolean}) {
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < paintingsCarousel.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
           selectPaintingHandler(paintingsCarousel[idx], false);
+
+          // ensure the page scrolls to the anchor (retry if needed while React mounts)
+          scrollToHash(window.location.hash || `#home-paintings-${idx}`, 0, true);
         }
       } catch {
         // noop

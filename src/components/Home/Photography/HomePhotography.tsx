@@ -6,7 +6,7 @@ import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 import {photographyCarouselFilenames} from "@/assets/enhancedValues";
 
-import {pushAnchor} from "@/utils/helpers";
+import { pushAnchor, scrollToHash } from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 type imageType = {
@@ -71,7 +71,12 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < photographyCarouselFilenames.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
+          console.log('HomePhotography: selecting photo from hash index', idx);
           selectImageHandler(photographyCarouselFilenames[idx], false);
+
+          // ensure the page scrolls to the anchor (retry if needed while React mounts)
+          // use a small offset if you want the target slightly higher (e.g. 16)
+          scrollToHash(window.location.hash || `#home-photography-${idx}`, 0, true);
         }
       } catch {
         // noop

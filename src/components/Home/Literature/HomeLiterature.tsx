@@ -1,11 +1,13 @@
-'use client'
+// typescript
+// src/components/Home/Literature/HomeLiterature.tsx
+'use client';
 
 import {literatureTango29Carousel} from "@/assets/enhancedValues";
 import {Button} from "@mui/material";
 import styles from './HomeLiterature.module.scss';
-import {pushAnchor} from "@/utils/helpers";
+import {pushAnchor, scrollToHash} from "@/utils/helpers";
 import {GenericItemType} from "@/Types/types";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function HomeLiterature() {
@@ -13,7 +15,7 @@ export default function HomeLiterature() {
   const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType | null>(literatureTango29Carousel[0]);
 
   /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : true;
 
   const viewPhotoHandler = (imageData: GenericItemType) => {
     pushAnchor(`#home-literature-view-${imageData.title}`);
@@ -37,9 +39,56 @@ export default function HomeLiterature() {
     setSelectedPhoto(photoData);
     const idx = getIndexForImage(photoData);
     if (push) {
-      pushAnchor(`#home-photography-${idx >= 0 ? idx : 'selected'}`);
+      // corrected anchor to reference home-literature
+      pushAnchor(`#home-literature-${idx >= 0 ? idx : 'selected'}`);
     }
   };
+
+  /** Restore selection + scroll on mount / back/forward */
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const parseHashAndSelect = () => {
+      try {
+        const hash = window.location.hash || '';
+        if (!hash) return;
+
+        const photoMatch = hash.match(/^#home-literature-(\d+)$/);
+        const viewMatch = hash.match(/^#home-literature-view-(.+)$/);
+
+        let idx: number | null = null;
+        if (photoMatch) {
+          idx = Number(photoMatch[1]);
+        } else if (viewMatch) {
+          const title = decodeURIComponent(viewMatch[1]);
+          const found = literatureTango29Carousel.findIndex(i => i.title === title);
+          if (found >= 0) idx = found;
+        }
+
+        if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < literatureTango29Carousel.length) {
+          // select the item without pushing a new anchor
+          setSelectedPhoto(literatureTango29Carousel[idx]);
+
+          // ensure the page scrolls to the anchor (retry if needed while React mounts)
+          scrollToHash(window.location.hash || `#home-literature-${idx}`, 0, true);
+        }
+      } catch {
+        // noop
+      }
+    };
+
+    // initial run on mount
+    parseHashAndSelect();
+
+    // respond to back/forward and direct hash changes
+    window.addEventListener('popstate', parseHashAndSelect);
+    window.addEventListener('hashchange', parseHashAndSelect);
+
+    return () => {
+      window.removeEventListener('popstate', parseHashAndSelect);
+      window.removeEventListener('hashchange', parseHashAndSelect);
+    };
+  }, []);
 
   /** RENDER **/
   return (
