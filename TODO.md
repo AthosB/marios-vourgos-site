@@ -145,11 +145,12 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] before video "shorts_001.mp4" find and add same static
 - [X] add fashion 19 photo before corresponding video short
 - [X] find equivalent static for video short _010  (last in carousel fashion)
-- [?] find equivalent static for video short _009  (black with blue/cyan lines)
-- [?] find ebony model short with black suit (add close to the end)
-- [ ] investigate after home video documentary ends, youtube shows recommended next based on user's previous activity (if not, check with Orestis for alternative hosting)
-- [ ] for Press silks photos, crop, straighten, contrast, etc
-- [ ] for Press literature add Fileleutheros photo as first
-- [ ] Gallery paintings slider not working
-- [ ] revert youtube controls remove YouTube link and share/expand controls etc
+- [X] find equivalent static for video short _009  (black with blue/cyan lines)
+- [X] find ebony model short with black suit (add close to the end)
+- [X] investigate after home video documentary ends, youtube shows recommended next based on user's previous activity (if not, check with Orestis for alternative hosting)
+- [O] for Press silks photos, crop, straighten, contrast, etc
+- [X] for Press literature add Fileleutheros photo as first
+- [X] Gallery paintings slider not working
+- [X] revert youtube controls remove YouTube link and share/expand controls etc
+- [X] alter Embedded Youtube iFrame
 - [ ] ARIS invoice

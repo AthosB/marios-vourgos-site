@@ -2491,6 +2491,11 @@ export const pressSilksGallery = [
 
 export const pressLiteratureTango29 = [
   {
+    position: 1,
+    src: '/images/press/literature/press_literature_tango29_001.jpg',
+    alt: 'Tango 29',
+  },
+  {
     position: 10,
     src: '/images/press/literature/press_tango29_020.jpg',
     alt: 'Tango 29',
