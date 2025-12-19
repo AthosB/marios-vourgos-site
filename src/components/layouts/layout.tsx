@@ -1,7 +1,7 @@
 // components/AppLayoutChooser.tsx
 'use client';
 
-import {useEffect, useState, ReactNode} from 'react';
+import {useEffect, useState, ReactNode, FormEvent} from 'react';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 
@@ -29,7 +29,7 @@ function PasswordGate({children}: { children: ReactNode }) {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (input === PREDEFINED_PASSWORD) {
       setAuthenticated(true);
