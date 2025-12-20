@@ -84,36 +84,38 @@ export default function HomeVideo() {
     <div className={styles.HomeVideo} style={{marginBottom: 64}}>
       <div className={styles.VideoContainer}>
         <div className={styles.ResponsiveWrapper} ref={observeRef}>
-          <iframe
-            src="https://customer-fpkmis8n2lxizrve.cloudflarestream.com/e4b2715df10b1e33c88dc8e1fe02e768/iframe?preload=true&loop=true&autoplay=true&muted=true&poster=https%3A%2F%2Fcustomer-fpkmis8n2lxizrve.cloudflarestream.com%2Fe4b2715df10b1e33c88dc8e1fe02e768%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
-            loading="lazy"
-            style={{
-              border: "none",
-              position: "absolute",
-              top: 0,
-              left: 0,
-              height: "100%",
-              width: "100%",
-            }}
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
-            allowFullScreen
-          />
-
+          {/*CLOUDFLARE*/}
           {/*<iframe*/}
-          {/*  src="https://player.vimeo.com/video/1148325516?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1"*/}
-          {/*  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"*/}
-          {/*  referrerPolicy="strict-origin-when-cross-origin"*/}
+          {/*  src="https://customer-fpkmis8n2lxizrve.cloudflarestream.com/e4b2715df10b1e33c88dc8e1fe02e768/iframe?preload=true&loop=true&autoplay=true&muted=true&poster=https%3A%2F%2Fcustomer-fpkmis8n2lxizrve.cloudflarestream.com%2Fe4b2715df10b1e33c88dc8e1fe02e768%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"*/}
+          {/*  loading="lazy"*/}
           {/*  style={{*/}
+          {/*    border: "none",*/}
           {/*    position: "absolute",*/}
           {/*    top: 0,*/}
           {/*    left: 0,*/}
-          {/*    width: "100%",*/}
           {/*    height: "100%",*/}
-          {/*    border: 0,*/}
+          {/*    width: "100%",*/}
           {/*  }}*/}
-          {/*  title="I see you"*/}
+          {/*  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"*/}
           {/*  allowFullScreen*/}
           {/*/>*/}
+
+          {/*VIMEO*/}
+          <iframe
+            src="https://player.vimeo.com/video/1148325516?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              border: 0,
+            }}
+            title="I see you"
+            allowFullScreen
+          />
           {/*<WistiaPlayer*/}
           {/*  mediaId="zihtlepmi6"*/}
           {/*  aspect={1.7777777777777777}*/}
