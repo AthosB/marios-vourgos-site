@@ -1,29 +1,37 @@
 'use client';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import styles from "@/app/home/Home.module.scss";
 
 const MOBILE_BREAKPOINT = 768;
 
 export default function HomeVideo() {
-  const ref = useRef<HTMLVideoElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const observeRef = useRef<HTMLDivElement | null>(null);
 
   const [shouldLoad, setShouldLoad] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isIOS, setIsIOS] = useState(false);
 
-  /* Detect mobile safely (client-only) */
+  // Detect mobile + iOS (client only)
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
-    check();
+    const checkMobile = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
+    checkMobile();
 
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    const ua = navigator.userAgent;
+    const ios =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (ua.includes("Mac") && "ontouchend" in document);
+    setIsIOS(ios);
+
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  /* Lazy-load when visible */
+  // Observe wrapper (not the <video>) + failsafe
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const target = observeRef.current;
+    if (!target) return;
 
     const io = new IntersectionObserver(
       ([entry]) => {
@@ -35,31 +43,48 @@ export default function HomeVideo() {
       { rootMargin: "200px" }
     );
 
-    io.observe(el);
-    return () => io.disconnect();
+    io.observe(target);
+
+    // Failsafe for iOS/WebKit quirks
+    const t = window.setTimeout(() => setShouldLoad(true), 2500);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+    };
   }, []);
 
-  /* Force load + autoplay when src becomes available */
+  const src = useMemo(() => {
+    if (!shouldLoad) return undefined;
+    if (isIOS) return "/video/site_720p_ios.mp4";
+    if (isMobile) return "/video/site_720p_mobile.mp4";
+    return "/video/site_720p.mp4";
+  }, [shouldLoad, isIOS, isMobile]);
+
+  // Load + autoplay when src is set (more reliable on iOS when using events)
   useEffect(() => {
-    const el = ref.current;
-    if (!el || !shouldLoad) return;
+    const el = videoRef.current;
+    if (!el || !src) return;
+
+    const tryPlay = () => el.play().catch(() => {});
+    el.addEventListener("loadedmetadata", tryPlay, { once: true });
+    el.addEventListener("canplay", tryPlay, { once: true });
 
     el.load();
-    el.play().catch(() => {});
-  }, [shouldLoad, isMobile]);
 
-  const src = shouldLoad
-    ? isMobile
-      ? "/video/site_720p_mobile.mp4"
-      : "/video/site_720p.mp4"
-    : undefined;
+    return () => {
+      el.removeEventListener("loadedmetadata", tryPlay);
+      el.removeEventListener("canplay", tryPlay);
+    };
+  }, [src]);
 
   return (
     <div className={styles.Section} style={{ marginBottom: 64 }}>
+      {isIOS ? <div>iOS</div> : null}
       <div className={styles.VideoContainer}>
-        <div className={styles.ResponsiveWrapper}>
+        <div className={styles.ResponsiveWrapper} ref={observeRef}>
           <video
-            ref={ref}
+            ref={videoRef}
             muted
             autoPlay
             loop
@@ -68,10 +93,10 @@ export default function HomeVideo() {
             preload={shouldLoad ? "metadata" : "none"}
             poster="/video/video_720p_poster.jpg"
             src={src}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain"
+            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+            onError={(e) => {
+              // If it still fails on iOS, this will show in Safari remote inspector
+              console.log("Video error", e);
             }}
           />
         </div>

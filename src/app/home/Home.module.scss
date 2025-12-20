@@ -38,7 +38,13 @@
   .ResponsiveWrapper {
     position: relative;
     width: 100%;
+    aspect-ratio: 16 / 9;
     //padding-top: 56.25%; // 16:9 aspect ratio
+  }
+
+  .ResponsiveWrapper video {
+    position: absolute;
+    inset: 0;
   }
 
   .VideoIframe {
