@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import {useEffect, useMemo, useRef, useState} from "react";
 import styles from "@/app/home/Home.module.scss";
+// import {WistiaPlayer} from "@wistia/wistia-player-react";
 
 const MOBILE_BREAKPOINT = 768;
 
@@ -40,7 +41,7 @@ export default function HomeVideo() {
           io.disconnect();
         }
       },
-      { rootMargin: "200px" }
+      {rootMargin: "200px"}
     );
 
     io.observe(target);
@@ -66,9 +67,10 @@ export default function HomeVideo() {
     const el = videoRef.current;
     if (!el || !src) return;
 
-    const tryPlay = () => el.play().catch(() => {});
-    el.addEventListener("loadedmetadata", tryPlay, { once: true });
-    el.addEventListener("canplay", tryPlay, { once: true });
+    const tryPlay = () => el.play().catch(() => {
+    });
+    el.addEventListener("loadedmetadata", tryPlay, {once: true});
+    el.addEventListener("canplay", tryPlay, {once: true});
 
     el.load();
 
@@ -79,26 +81,66 @@ export default function HomeVideo() {
   }, [src]);
 
   return (
-    <div className={styles.Section} style={{ marginBottom: 64 }}>
-      {isIOS ? <div>iOS</div> : null}
+    <div className={styles.HomeVideo} style={{marginBottom: 64}}>
       <div className={styles.VideoContainer}>
         <div className={styles.ResponsiveWrapper} ref={observeRef}>
-          <video
-            ref={videoRef}
-            muted
-            autoPlay
-            loop
-            controls
-            playsInline
-            preload={shouldLoad ? "metadata" : "none"}
-            poster="/video/video_720p_poster.jpg"
-            src={src}
-            style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            onError={(e) => {
-              // If it still fails on iOS, this will show in Safari remote inspector
-              console.log("Video error", e);
+          <iframe
+            src="https://customer-fpkmis8n2lxizrve.cloudflarestream.com/e4b2715df10b1e33c88dc8e1fe02e768/iframe?preload=true&loop=true&autoplay=true&muted=true&poster=https%3A%2F%2Fcustomer-fpkmis8n2lxizrve.cloudflarestream.com%2Fe4b2715df10b1e33c88dc8e1fe02e768%2Fthumbnails%2Fthumbnail.jpg%3Ftime%3D%26height%3D600"
+            loading="lazy"
+            style={{
+              border: "none",
+              position: "absolute",
+              top: 0,
+              left: 0,
+              height: "100%",
+              width: "100%",
             }}
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowFullScreen
           />
+
+          {/*<iframe*/}
+          {/*  src="https://player.vimeo.com/video/1148325516?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1"*/}
+          {/*  allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"*/}
+          {/*  referrerPolicy="strict-origin-when-cross-origin"*/}
+          {/*  style={{*/}
+          {/*    position: "absolute",*/}
+          {/*    top: 0,*/}
+          {/*    left: 0,*/}
+          {/*    width: "100%",*/}
+          {/*    height: "100%",*/}
+          {/*    border: 0,*/}
+          {/*  }}*/}
+          {/*  title="I see you"*/}
+          {/*  allowFullScreen*/}
+          {/*/>*/}
+          {/*<WistiaPlayer*/}
+          {/*  mediaId="zihtlepmi6"*/}
+          {/*  aspect={1.7777777777777777}*/}
+          {/*  autoplay={true}*/}
+          {/*  controlsVisibleOnLoad={false}*/}
+          {/*  fullscreenControl={true}*/}
+          {/*  endVideoBehavior={'loop'}*/}
+          {/*  playerColor={'transparent'}*/}
+          {/*  preload={shouldLoad ? "metadata" : "none"}*/}
+          {/*  poster={'/video/video_720p_poster.jpg'}*/}
+          {/*/>*/}
+
+          {/*  ref={videoRef}*/}
+          {/*  muted*/}
+          {/*  autoPlay*/}
+          {/*  loop*/}
+          {/*  controls*/}
+          {/*  playsInline*/}
+          {/*  preload={shouldLoad ? "metadata" : "none"}*/}
+          {/*  poster="/video/video_720p_poster.jpg"*/}
+          {/*  src={src}*/}
+          {/*  style={{ width: "100%", height: "100%", objectFit: "contain" }}*/}
+          {/*  onError={(e) => {*/}
+          {/*    // If it still fails on iOS, this will show in Safari remote inspector*/}
+          {/*    console.log("Video error", e);*/}
+          {/*  }}*/}
+          {/*/>*/}
         </div>
       </div>
     </div>
