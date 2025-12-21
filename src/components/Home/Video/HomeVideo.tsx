@@ -102,8 +102,8 @@ export default function HomeVideo() {
 
           {/*VIMEO*/}
           <iframe
-            src="https://player.vimeo.com/video/1148325516?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1"
-            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            src="https://player.vimeo.com/video/1148325516?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&&playsinline=1loop=1&title=0&byline=0&portrait=0&texttrack=off&dnt=1"
+            allow="autoplay; fullscreen; clipboard-write; encrypted-media;"
             referrerPolicy="strict-origin-when-cross-origin"
             style={{
               position: "absolute",
@@ -116,6 +116,8 @@ export default function HomeVideo() {
             title="I see you"
             allowFullScreen
           />
+
+          {/*WISTIA*/}
           {/*<WistiaPlayer*/}
           {/*  mediaId="zihtlepmi6"*/}
           {/*  aspect={1.7777777777777777}*/}
@@ -128,6 +130,7 @@ export default function HomeVideo() {
           {/*  poster={'/video/video_720p_poster.jpg'}*/}
           {/*/>*/}
 
+          {/*LOCAL*/}
           {/*  ref={videoRef}*/}
           {/*  muted*/}
           {/*  autoPlay*/}

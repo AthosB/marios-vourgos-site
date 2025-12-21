@@ -154,3 +154,7 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] revert youtube controls remove YouTube link and share/expand controls etc
 - [X] alter Embedded Youtube iFrame
 - [ ] ARIS invoice
+
+
+- [ ] Vimeo --> 19 EUR per month
+- [ ] Wistia --> 79 USD per month
