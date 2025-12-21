@@ -158,3 +158,19 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 
 - [ ] Vimeo --> 19 EUR per month
 - [ ] Wistia --> 79 USD per month
+- Press Silks 1st and 2nd photos (cut Fileleftheros from 2nd, and add it as banner on the first, and then remove 2nd photo)
+- same with 3 and 4th photo (on 3rd cut or add on top of the top part that ahs text from other article)
+- remove 5th photo (too small content)
+- copy Bazaar outpage and add small layer on the next photo (inner of maagazine) ( put it on top to hide the "Antony Mprato" part)
+- remove last photo (duplicate of moratto one)
+- [X] on photo viewer zoom our caps on 50% and cannot zoom out to original size with mouse scroll
+- [ ] revisit scrolling ont ap select image on image view on top (capture scroll or click)
+- rethink photo view on Phone (no option on new page) sice user can just zoom with pinch in/out ---> when isMobile disable new page
+- for Desktop view change ImageViewer as a component popup - not new page(view)
+- Add arrows on Mobile as well for carousel (indicates there are more photos available)
+- on Mobile view Landscaoe mode, chack footer overlapping out pf place on top
+- [X] video should take full width
+- [ ] on mobile, when viewing vodeo fullscreen (expand) and changing orientation, starts video from the beginning
+- [X] News and events ---> red book photo make smaller → gets clipped on Mobile view
+- [X] on Mobile view nav bar has 2 PRESS entries (old page too)
+- [X] Add missing press youtube video for first version of press page

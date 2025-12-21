@@ -23,7 +23,7 @@ export function useAnchorState() {
     };
 
     // run once on mount in case page opened with a hash or a pushState already occurred
-    scrollToHash();
+    // scrollToHash();
 
     // handle back/forward and direct hash changes
     window.addEventListener('popstate', scrollToHash);

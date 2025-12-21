@@ -9,7 +9,7 @@ export const pushAnchor = (hash: string) => {
       window.location.hash = hash;
     }
     // try to scroll immediately after updating the URL
-    scrollToHash(hash);
+    // scrollToHash(hash);
   } catch {
     // noop in non-browser environments or if security prevents it
   }
@@ -25,8 +25,6 @@ export const scrollToHash = (
   hash?: string,
   offset = 0,
   smooth = true,
-  maxAttempts = 20,
-  attempt = 0
 ) => {
   if (typeof window === 'undefined' || !hash) return;
 
@@ -62,12 +60,12 @@ export const scrollToHash = (
   }
 
   // Retry with delay while React may be rendering the target element
-  if (attempt < maxAttempts) {
-    window.setTimeout(() => {
-      console.log(`[scrollToHash] Retrying... (${attempt + 1}/${maxAttempts}): ${hash}`);
-      scrollToHash(hash, offset, smooth, maxAttempts, attempt + 1);
-    }, 2000);
-  }
+  // if (attempt < maxAttempts) {
+  //   window.setTimeout(() => {
+  //     console.log(`[scrollToHash] Retrying... (${attempt + 1}/${maxAttempts}): ${hash}`);
+  //     scrollToHash(hash, offset, smooth, maxAttempts, attempt + 1);
+  //   }, 2000);
+  // }
 };
 
 /**

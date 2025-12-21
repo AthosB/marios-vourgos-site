@@ -78,7 +78,6 @@ export default function MobileMenu() {
             <MenuItem onClick={handleClose}><Link href="/news/fashion" style={{marginLeft: '16px'}}><span className={isActive('/news/fashion') ? styles.Active : ''}>Fashion</span></Link></MenuItem>
             <MenuItem onClick={handleClose}><Link href="/news/literature" style={{marginLeft: '16px'}}><span className={isActive('/news/literature') ? styles.Active : ''}>Literature</span></Link></MenuItem>
           </div>
-          <MenuItem onClick={handleClose}><Link href="/press"><span className={isActive('/press') ? styles.Active : ''}>Press</span></Link></MenuItem>
           <div style={{display: 'flex', flexDirection: 'column', rowGap: '8px'}}>
             <div className={styles.MenuCategory}>Press</div>
             <MenuItem onClick={handleClose}><Link href="/press/photography"

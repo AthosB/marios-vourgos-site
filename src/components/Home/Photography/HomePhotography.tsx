@@ -6,7 +6,7 @@ import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 import {photographyCarouselFilenames} from "@/assets/enhancedValues";
 
-import { pushAnchor, scrollToHash } from "@/utils/helpers";
+import { pushAnchor } from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 type imageType = {
@@ -44,8 +44,8 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
     pushAnchor(`#home-photography-view-${idx >= 0 ? idx : 'none'}`);
 
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {
@@ -76,7 +76,7 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
 
           // ensure the page scrolls to the anchor (retry if needed while React mounts)
           // use a small offset if you want the target slightly higher (e.g. 16)
-          scrollToHash(window.location.hash || `#home-photography-${idx}`, 0, true);
+          // scrollToHash(window.location.hash || `#home-photography-${idx}`, 0, true);
         }
       } catch {
         // noop
@@ -125,8 +125,6 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
       />
     </div>
     <PhotoViewer
-      photo={selectedPhoto}
-      disclaimer={'Disclaimer: All photos are original photos as shot without any digital manipulation'}
       open={openPhotoViewer}
       onClose={closePhotoViewerHandler}
     />

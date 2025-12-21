@@ -83,7 +83,7 @@ export default function NewsEventsPaintingsPage() {
           <img
             src={'/images/news/paintings/book_02.jpg'}
             alt={' 18th February 2004 Nicosia'}
-            width={isMobile ? 512 : 720}
+            width={isMobile ? 512 : 360}
           />
         </div>
       </div>
@@ -104,7 +104,7 @@ export default function NewsEventsPaintingsPage() {
             <img
               src={'/images/news/paintings/book_03.jpg'}
               alt={' 18th February 2004 Nicosia'}
-              width={isMobile ? 512 : 720}
+              width={isMobile ? 512 : 360}
             />
           </div>
         </div>

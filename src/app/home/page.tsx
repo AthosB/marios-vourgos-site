@@ -12,6 +12,7 @@ export default function HomePage() {
     <div className={'HomePage ' + styles.Home}>
       <div
         className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column + ' HomeSection home-video'}
+        style={{padding: '16px 0'}}
       >
         <HomeVideo />
       </div>

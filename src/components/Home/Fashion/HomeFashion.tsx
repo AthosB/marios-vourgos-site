@@ -8,7 +8,7 @@ import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
 import {fashionEntries} from '@/assets/enhancedValues';
 
-import {pushAnchor, scrollToHash} from "@/utils/helpers";
+import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 type imageType = {
@@ -83,7 +83,7 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
 
           // ensure the page scrolls to the anchor (retry if needed while React mounts)
           // offset 16 to place the target slightly higher
-          scrollToHash(window.location.hash || `#home-fashion-${idx}`, 16, true);
+          // scrollToHash(window.location.hash || `#home-fashion-${idx}`, 16, true);
         }
       } catch {
         // noop
@@ -141,7 +141,6 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
       />
     </div>
     <PhotoViewer
-      photo={selectedFashion}
       open={openPhotoViewer}
       onClose={closePhotoViewerHandler}
     />

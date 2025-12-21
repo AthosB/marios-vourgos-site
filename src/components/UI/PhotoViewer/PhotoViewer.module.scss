@@ -1,76 +1,92 @@
 .PhotoViewer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--mario-bg-color);
 
-  .PhotoModalContent {
+  .CloseActionIcon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    color: var(--mario-accent-color);
+    z-index: 1800;
+  }
+
+  .PhotoViewerContent {
+    width: 100%;
+    height: 100%;
+  }
+
+  .Photo {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 16px;
-    //background-color: rgba(250,250,250,0.6);
-    //background-color: rgba(250, 250, 250, 1);
-    background-color: var(--mario-bg-color);
-    color: var(--mario-text-color);
+    height: calc(80dvh - 64px);
+    //height: 100%;
+    width: auto;
+    max-width: none;
+    z-index: 90;
+    touch-action: manipulation;
+    margin-top: 32px;
 
-    .PhotoTitle {
-      font-size: 2rem;
-      font-family: 'CinzelRegular', sans-serif;
-      margin-bottom: 4px;
-      text-align: center;
-      color: var(--mario-accent-color);
-    }
-
-    .PhotoDescription {
-      font-size: 1.5rem;
-      font-family: 'CinzelRegular', sans-serif;
-      margin-bottom: 16px;
-      color: var(--mario-accent-color);
-      opacity: 0.8;
-    }
-
-    .PhotoDisclaimer {
+    img {
+      //height: calc(100dvh - 194px);
+      //max-width: calc(100% - 64px);
+      //height: auto;
+      //max-height: 60%;
+      //width: auto;
+      //display: none;
+      max-height: 90%;
+      width: auto;
+      height: auto;
+      max-width: 100%;
       display: block;
-      font-size: 0.7rem;
-      opacity: 0.7;
+      margin: 64px auto 0;
     }
+  }
 
-    .CloseButton {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      font-size: 2rem;
-      color: #9e6f28;
-      transition: color 0.3s ease;
+  .ImageTitle{
+    font-size: 1rem;
+    font-family: 'CinzelRegular', sans-serif;
+    margin-bottom: 4px;
+    text-align: center;
+    color: var(--mario-accent-color);
+    position: absolute;
+    bottom: 80px;
+  }
 
-      &:hover {
-        color: var(--mario-accent-color);
-      }
-    }
+  .ImageDescription{
+    font-size: 0.8rem;
+    font-family: 'CinzelRegular', sans-serif;
+    margin-bottom: 16px;
+    color: var(--mario-accent-color);
+    opacity: 0.8;
+    position: absolute;
+    bottom: 48px;
+  }
+
+  .ImageDisclaimer{
+    color: #FFFFFF;
+    font-family: 'CinzelRegular', sans-serif;
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: 46px;
   }
 }
 
-@media only screen /* Phone Portrait */
-and (max-device-width: 550px) and (orientation: portrait) {
-  .PhotoViewer {
-    height: 100dvh;
-    width: 100dvw;
+:global(.viewer-fullscreen),
+:global(.viewer-toolbar .viewer-fullscreen),
+:global(.viewer-toolbar .viewer-toggle-fullscreen),
+:global(.viewer-toolbar .viewer-maximize),
+:global(.viewer-toolbar .viewer-restore),
+:global(.viewer-toolbar .viewer-action-maximize),
+:global(.viewer-toolbar .viewer-action-restore),
+:global(.viewer-toolbar button[title*="Full"]),
+:global(.viewer-toolbar button[title*="Max"]){
+  display: none !important;
+}
 
-    .PhotoModalContent {
-      padding: 0 !important;
-    }
-
-    img {
-      height: auto !important;
-      width: 100dvw !important;
-      object-fit: contain;
-    }
-  }
+:global(.viewer-toolbar) {
+  bottom: 128px !important;
 }

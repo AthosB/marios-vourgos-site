@@ -5,7 +5,7 @@
 import {literatureTango29Carousel} from "@/assets/enhancedValues";
 import {Button} from "@mui/material";
 import styles from './HomeLiterature.module.scss';
-import {pushAnchor, scrollToHash} from "@/utils/helpers";
+import {pushAnchor} from "@/utils/helpers";
 import {GenericItemType} from "@/Types/types";
 import {useState, useEffect} from "react";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
@@ -70,7 +70,7 @@ export default function HomeLiterature() {
           setSelectedPhoto(literatureTango29Carousel[idx]);
 
           // ensure the page scrolls to the anchor (retry if needed while React mounts)
-          scrollToHash(window.location.hash || `#home-literature-${idx}`, 0, true);
+          // scrollToHash(window.location.hash || `#home-literature-${idx}`, 0, true);
         }
       } catch {
         // noop
