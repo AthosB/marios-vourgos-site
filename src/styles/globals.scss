@@ -213,3 +213,19 @@ footer {
   margin: 0 auto;
   opacity: 0.5;
 }
+
+.viewer-fullscreen,
+.viewer-toolbar .viewer-fullscreen,
+.viewer-toolbar .viewer-toggle-fullscreen,
+.viewer-toolbar .viewer-maximize,
+.viewer-toolbar .viewer-restore,
+.viewer-toolbar .viewer-action-maximize,
+.viewer-toolbar .viewer-action-restore,
+.viewer-toolbar button[title*="Full"],
+.viewer-toolbar button[title*="Max"]{
+  display: none !important;
+}
+
+.viewer-toolbar {
+  bottom: 128px !important;
+}

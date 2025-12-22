@@ -74,19 +74,3 @@
     bottom: 46px;
   }
 }
-
-:global(.viewer-fullscreen),
-:global(.viewer-toolbar .viewer-fullscreen),
-:global(.viewer-toolbar .viewer-toggle-fullscreen),
-:global(.viewer-toolbar .viewer-maximize),
-:global(.viewer-toolbar .viewer-restore),
-:global(.viewer-toolbar .viewer-action-maximize),
-:global(.viewer-toolbar .viewer-action-restore),
-:global(.viewer-toolbar button[title*="Full"]),
-:global(.viewer-toolbar button[title*="Max"]){
-  display: none !important;
-}
-
-:global(.viewer-toolbar) {
-  bottom: 128px !important;
-}
