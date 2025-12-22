@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import '@/styles/generic-page.scss';
 
 import Image from "next/image";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {fashionEntries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
@@ -18,6 +18,7 @@ export default function RecentPaintingsPage() {
   /** HOOKS **/
   const [selectedFashion, setSelectedFashion] = useState<GenericItemType>(fashionEntries[0]);
   const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   useAnchorState();
 
   /** CONSTS **/
@@ -38,8 +39,8 @@ export default function RecentPaintingsPage() {
     pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'none'}`);
 
     localStorage.setItem('previewData', JSON.stringify(selectedFashion));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {
@@ -97,16 +98,34 @@ export default function RecentPaintingsPage() {
       <div className={'generic-items-page__line'}></div>
       <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div id="recent-paintings" className="preview-canvas">
-          <img
-            src={selectedFashion?.src || '/images/paintings/img-001.jpg'}
-            alt={selectedFashion?.title || "Paintings"}
-            height={720}
-            style={{marginBottom: '16px'}}
-            onClick={viewPhotoHandler}
-            draggable={false}
-            onContextMenu={(e) => e.preventDefault()}
-            onDragStart={(e) => e.preventDefault()}
-          />
+          {selectedFashion && selectedFashion.src && selectedFashion.video ? (
+            <video
+              key={selectedFashion.src}
+              ref={videoRef}
+              src={selectedFashion.src}
+              autoPlay
+              loop
+              muted
+              playsInline
+              width={isMobile ? '95%' : 'auto'}
+              height={isMobile ? 'auto' : 720}
+              style={{objectFit: "cover", marginTop: '6px'}}
+              onClick={viewPhotoHandler}
+            >
+              <source src={selectedFashion.src} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <img
+              src={selectedFashion?.src || '/images/paintings/img-001.jpg'}
+              alt={selectedFashion?.title || "Paintings"}
+              height={720}
+              style={{marginBottom: '16px'}}
+              onClick={viewPhotoHandler}
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+            />) }
           <div className={'ImageTitle'}>{selectedFashion.title}</div>
           {/*<div className={'ImageDescription'}>{selectedFashion.description}</div>*/}
           <SliderCarousel
@@ -120,7 +139,6 @@ export default function RecentPaintingsPage() {
           />
         </div>
         <PhotoViewer
-          photo={selectedFashion}
           open={openPhotoViewer}
           onClose={closePhotoViewerHandler}
         />

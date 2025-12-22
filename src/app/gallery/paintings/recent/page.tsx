@@ -12,10 +12,12 @@ import {recentPaintingsCarouselEntries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
 import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function RecentPaintingsPage() {
   /** HOOKS **/
   const [selectedPainting, setSelectedPainting] = useState<GenericItemType>(recentPaintingsCarouselEntries[0]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
   useAnchorState();
 
   /** CONSTS **/
@@ -36,8 +38,13 @@ export default function RecentPaintingsPage() {
     pushAnchor(`#home-paintings-view-${idx >= 0 ? idx : 'none'}`);
 
     localStorage.setItem('previewData', JSON.stringify(selectedPainting));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
+    pushAnchor('#galllery-paintings-recent');
   }
 
   /** EFFECTS **/
@@ -113,6 +120,10 @@ export default function RecentPaintingsPage() {
           />
         </div>
       </div>
+      <PhotoViewer
+        open={openPhotoViewer}
+        onClose={closePhotoViewerHandler}
+      />
     </div>
   );
 }

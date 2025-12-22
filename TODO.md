@@ -153,18 +153,15 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] Gallery paintings slider not working
 - [X] revert youtube controls remove YouTube link and share/expand controls etc
 - [X] alter Embedded Youtube iFrame
-- [ ] ARIS invoice
-
-
-- [ ] Vimeo --> 19 EUR per month
-- [ ] Wistia --> 79 USD per month
+- [X] Vimeo --> 19 EUR per month
+- [X] Wistia --> 79 USD per month
 - Press Silks 1st and 2nd photos (cut Fileleftheros from 2nd, and add it as banner on the first, and then remove 2nd photo)
 - same with 3 and 4th photo (on 3rd cut or add on top of the top part that ahs text from other article)
 - remove 5th photo (too small content)
-- copy Bazaar outpage and add small layer on the next photo (inner of maagazine) ( put it on top to hide the "Antony Mprato" part)
+- copy Bazaar cover page and add small layer on the next photo (inner of magazine) ( put it on top to hide the "Antony Mprato" part)
 - remove last photo (duplicate of moratto one)
 - [X] on photo viewer zoom our caps on 50% and cannot zoom out to original size with mouse scroll
-- [ ] revisit scrolling ont ap select image on image view on top (capture scroll or click)
+- [ ] revisit scrolling up on select image on image view on top (capture scroll or click)
 - rethink photo view on Phone (no option on new page) sice user can just zoom with pinch in/out ---> when isMobile disable new page
 - for Desktop view change ImageViewer as a component popup - not new page(view)
 - Add arrows on Mobile as well for carousel (indicates there are more photos available)

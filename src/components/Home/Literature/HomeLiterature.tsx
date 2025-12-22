@@ -9,10 +9,12 @@ import {pushAnchor} from "@/utils/helpers";
 import {GenericItemType} from "@/Types/types";
 import {useState, useEffect} from "react";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function HomeLiterature() {
   /** HOOKS **/
   const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType | null>(literatureTango29Carousel[0]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
   const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : true;
@@ -28,8 +30,13 @@ export default function HomeLiterature() {
     }
 
     localStorage.setItem('previewData', JSON.stringify(previewData));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
+    pushAnchor('#home-literature');
   }
 
   const getIndexForImage = (photoData: GenericItemType) =>
@@ -137,6 +144,10 @@ export default function HomeLiterature() {
         showArrows={!isMobile}
         onSelect={selectPhotoHandler}
         style={{margin: '16px 0'}}
+      />
+      <PhotoViewer
+        open={openPhotoViewer}
+        onClose={closePhotoViewerHandler}
       />
     </div>
   );

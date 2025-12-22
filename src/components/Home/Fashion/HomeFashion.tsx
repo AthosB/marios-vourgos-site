@@ -45,7 +45,8 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
     pushAnchor(`#home-fashion-view-${idx >= 0 ? idx : 'none'}`);
 
     localStorage.setItem('previewData', JSON.stringify(selectedFashion));
-    window.location.href = '/view';
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {

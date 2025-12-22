@@ -32,8 +32,8 @@ export default function HomePaintings({dots = false} : {dots?: boolean}) {
     pushAnchor(`#home-paintings-view-${idx >= 0 ? idx : 'none'}`);
 
     localStorage.setItem('previewData', JSON.stringify(selectedPainting));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {
