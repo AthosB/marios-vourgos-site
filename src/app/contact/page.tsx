@@ -1,3 +1,5 @@
+'use client'
+
 import styles from './contactPage.module.scss';
 import './contact-page.scss';
 import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';

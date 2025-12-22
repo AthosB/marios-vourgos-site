@@ -10,7 +10,6 @@ import {useEffect, useRef, useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {fashionEntries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
-import {pushAnchor} from "@/utils/helpers";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
@@ -23,21 +22,12 @@ export default function RecentPaintingsPage() {
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    fashionEntries.findIndex(i => i.src === imageData.src);
 
-  const selectPaintingHandler = (fashionItem: GenericItemType, push = true) => {
+  const selectPaintingHandler = (fashionItem: GenericItemType) => {
     setSelectedFashion(fashionItem);
-    const idx = getIndexForImage(selectedFashion);
-    if (push) {
-      pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedFashion ? getIndexForImage(selectedFashion) : -1;
-    pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedFashion));
     // window.location.href = '/view';
     setOpenPhotoViewer(true);
@@ -45,7 +35,6 @@ export default function RecentPaintingsPage() {
 
   const closePhotoViewerHandler = () => {
     setOpenPhotoViewer(false);
-    pushAnchor('#home-paintings');
   }
 
   /** EFFECTS **/
@@ -66,7 +55,7 @@ export default function RecentPaintingsPage() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < fashionEntries.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPaintingHandler(fashionEntries[idx], false);
+          selectPaintingHandler(fashionEntries[idx]);
         }
       } catch {
         // noop

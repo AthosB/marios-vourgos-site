@@ -4,7 +4,6 @@ import {useState, useEffect} from "react";
 import {useAnchorState} from '@/hooks/useAnchorState';
 import {GenericItemType} from "@/Types/types";
 import {newsEventsPaintingsKGallery} from "@/assets/values";
-import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function KGalleryModule() {
@@ -14,23 +13,14 @@ export default function KGalleryModule() {
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    newsEventsPaintingsKGallery.findIndex(i => i.src === imageData.src);
 
-  const selectPhotoHandler = (photoItem: GenericItemType, push = true) => {
+  const selectPhotoHandler = (photoItem: GenericItemType) => {
     setSelectedPhoto(photoItem);
-    const idx = getIndexForImage(selectedPhoto);
-    if (push) {
-      pushAnchor(`#k-gallery-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#k-gallery-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
+    // window.location.href = '/view';
   }
 
   /** EFFECTS **/
@@ -51,7 +41,7 @@ export default function KGalleryModule() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < newsEventsPaintingsKGallery.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPhotoHandler(newsEventsPaintingsKGallery[idx], false);
+          selectPhotoHandler(newsEventsPaintingsKGallery[idx]);
         }
       } catch {
         // noop

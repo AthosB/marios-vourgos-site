@@ -9,7 +9,6 @@ import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {newsEventsPaintings01Carousel} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
-import {pushAnchor} from "@/utils/helpers";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
@@ -21,29 +20,19 @@ export default function RecentPaintingsPage() {
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    newsEventsPaintings01Carousel.findIndex(i => i.src === imageData.src);
 
-  const selectPhotoHandler = (newsItem: GenericItemType, push = true) => {
+  const selectPhotoHandler = (newsItem: GenericItemType) => {
     setSelectedPhoto(newsItem);
-    const idx = getIndexForImage(selectedPhoto);
-    if (push) {
-      pushAnchor(`#cna-2019-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {
     setOpenPhotoViewer(false);
-    pushAnchor('#home-paintings');
   }
 
   /** EFFECTS **/
@@ -64,7 +53,7 @@ export default function RecentPaintingsPage() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < newsEventsPaintings01Carousel.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPhotoHandler(newsEventsPaintings01Carousel[idx], false);
+          selectPhotoHandler(newsEventsPaintings01Carousel[idx]);
         }
       } catch {
         // noop
@@ -150,11 +139,14 @@ export default function RecentPaintingsPage() {
           {/*</div>*/}
         </div>
         <PhotoViewer
-          photo={selectedPhoto}
           open={openPhotoViewer}
           onClose={closePhotoViewerHandler}
         />
       </div>
+      <PhotoViewer
+        open={openPhotoViewer}
+        onClose={closePhotoViewerHandler}
+      />
     </div>
   );
 }

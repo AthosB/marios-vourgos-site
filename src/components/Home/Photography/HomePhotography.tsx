@@ -6,7 +6,6 @@ import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 import {photographyCarouselFilenames} from "@/assets/enhancedValues";
 
-import { pushAnchor } from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 type imageType = {
@@ -23,26 +22,17 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
   useAnchorState();
 
   /** CONSTS **/
-  const getIndexForImage = (imageData: imageType) =>
-    photographyCarouselFilenames.findIndex(i => i.src === imageData.src);
 
   /**
    * selectImageHandler
    * - `push` defaults to true so normal user interactions add a history entry
    * - when restoring from the URL/hash we call with `push = false` to avoid duplicating history
    */
-  const selectImageHandler = (imageData: imageType, push = true) => {
+  const selectImageHandler = (imageData: imageType) => {
     setSelectedPhoto(imageData);
-    const idx = getIndexForImage(imageData);
-    if (push) {
-      pushAnchor(`#home-photography-${idx >= 0 ? idx : 'selected'}`);
-    }
   };
 
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#home-photography-view-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
     // window.location.href = '/view';
     setOpenPhotoViewer(true);
@@ -50,7 +40,6 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
 
   const closePhotoViewerHandler = () => {
     setOpenPhotoViewer(false);
-    pushAnchor('#home-photography');
   }
 
   /** EFFECTS **/
@@ -72,7 +61,7 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < photographyCarouselFilenames.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
           console.log('HomePhotography: selecting photo from hash index', idx);
-          selectImageHandler(photographyCarouselFilenames[idx], false);
+          selectImageHandler(photographyCarouselFilenames[idx]);
 
           // ensure the page scrolls to the anchor (retry if needed while React mounts)
           // use a small offset if you want the target slightly higher (e.g. 16)

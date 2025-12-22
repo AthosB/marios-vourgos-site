@@ -6,7 +6,6 @@ import { useAnchorState } from '@/hooks/useAnchorState';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
 import {paintingsCarousel} from "@/assets/enhancedValues";
-import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function HomePaintings({dots = false} : {dots?: boolean}) {
@@ -16,21 +15,12 @@ export default function HomePaintings({dots = false} : {dots?: boolean}) {
   useAnchorState();
 
   /** CONSTS **/
-  const getIndexForImage = (imageData: GenericItemType) =>
-    paintingsCarousel.findIndex(i => i.src === imageData.src);
 
-  const selectPaintingHandler = (painting: GenericItemType, push = true) => {
+  const selectPaintingHandler = (painting: GenericItemType) => {
     setSelectedPainting(painting);
-    const idx = getIndexForImage(selectedPainting);
-    if (push) {
-      pushAnchor(`#home-paintings-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPainting ? getIndexForImage(selectedPainting) : -1;
-    pushAnchor(`#home-paintings-view-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPainting));
     // window.location.href = '/view';
     setOpenPhotoViewer(true);
@@ -38,7 +28,6 @@ export default function HomePaintings({dots = false} : {dots?: boolean}) {
 
   const closePhotoViewerHandler = () => {
     setOpenPhotoViewer(false);
-    pushAnchor('#home-paintings');
   }
 
   /** EFFECTS **/
@@ -59,7 +48,7 @@ export default function HomePaintings({dots = false} : {dots?: boolean}) {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < paintingsCarousel.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPaintingHandler(paintingsCarousel[idx], false);
+          selectPaintingHandler(paintingsCarousel[idx]);
 
           // ensure the page scrolls to the anchor (retry if needed while React mounts)
           // scrollToHash(window.location.hash || `#home-paintings-${idx}`, 0, true);

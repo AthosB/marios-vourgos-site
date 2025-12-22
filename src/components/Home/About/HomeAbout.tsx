@@ -3,21 +3,10 @@
 import styles from "@/app/home/Home.module.scss";
 import './HomeAbout.scss';
 
-import {pushAnchor} from "@/utils/helpers";
-
 export default function HomeAbout() {
-  /** CONSTS **/
-
-  /**
-   * add anchor to section
-   */
-  const addAnchor = () => {
-    pushAnchor(`#home-about`);
-  }
-
   /** RENDER **/
   return (
-    <div id={"#home-about"} className={styles.aboutContent} onClick={addAnchor}>
+    <div id={"#home-about"} className={styles.aboutContent}>
       <div className={'about-image'}>
         <img
           src="/images/home-about.JPG"

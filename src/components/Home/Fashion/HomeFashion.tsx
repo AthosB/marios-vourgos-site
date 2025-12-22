@@ -7,8 +7,6 @@ import '@/styles/mario.scss';
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
 import {fashionEntries} from '@/assets/enhancedValues';
-
-import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 type imageType = {
@@ -29,21 +27,12 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
   useAnchorState();
 
   /** CONSTS **/
-  const getIndexForImage = (imageData: imageType) =>
-    fashionEntries.findIndex(i => i.src === imageData.src);
 
-  const selectImageHandler = (imageData: imageType, push = true) => {
+  const selectImageHandler = (imageData: imageType) => {
     setSelectedFashion(imageData);
-    const idx = getIndexForImage(imageData);
-    if (push) {
-      pushAnchor(`#home-fashion-${idx >= 0 ? idx : 'selected'}`);
-    }
   };
 
   const viewPhotoHandler = () => {
-    const idx = selectedFashion ? getIndexForImage(selectedFashion) : -1;
-    pushAnchor(`#home-fashion-view-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedFashion));
     // window.location.href = '/view';
     setOpenPhotoViewer(true);
@@ -51,7 +40,6 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
 
   const closePhotoViewerHandler = () => {
     setOpenPhotoViewer(false);
-    pushAnchor('#home-fashion');
   }
 
   useEffect(() => {
@@ -80,7 +68,7 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < fashionEntries.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectImageHandler(fashionEntries[idx], false);
+          selectImageHandler(fashionEntries[idx]);
 
           // ensure the page scrolls to the anchor (retry if needed while React mounts)
           // offset 16 to place the target slightly higher

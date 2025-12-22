@@ -7,33 +7,28 @@ import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {news01Entries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
-import {pushAnchor} from "@/utils/helpers";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function LiteraturePage() {
   /** HOOKS **/
   const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(news01Entries[0]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
   useAnchorState();
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    news01Entries.findIndex(i => i.src === imageData.src);
 
-  const selectPhotoHandler = (literatureItem: GenericItemType, push = true) => {
+  const selectPhotoHandler = (literatureItem: GenericItemType) => {
     setSelectedPhoto(literatureItem);
-    const idx = getIndexForImage(selectedPhoto);
-    if (push) {
-      pushAnchor(`#cna-2019-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#literature-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
   }
 
   /** EFFECTS **/
@@ -54,7 +49,7 @@ export default function LiteraturePage() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < news01Entries.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPhotoHandler(news01Entries[idx], false);
+          selectPhotoHandler(news01Entries[idx]);
         }
       } catch {
         // noop
@@ -90,6 +85,10 @@ export default function LiteraturePage() {
       <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <HomeLiterature />
       </div>
+      <PhotoViewer
+        open={openPhotoViewer}
+        onClose={closePhotoViewerHandler}
+      />
     </div>
   );
 }

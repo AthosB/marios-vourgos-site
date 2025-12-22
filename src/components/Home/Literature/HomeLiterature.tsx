@@ -5,7 +5,6 @@
 import {literatureTango29Carousel} from "@/assets/enhancedValues";
 import {Button} from "@mui/material";
 import styles from './HomeLiterature.module.scss';
-import {pushAnchor} from "@/utils/helpers";
 import {GenericItemType} from "@/Types/types";
 import {useState, useEffect} from "react";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
@@ -20,8 +19,6 @@ export default function HomeLiterature() {
   const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : true;
 
   const viewPhotoHandler = (imageData: GenericItemType) => {
-    pushAnchor(`#home-literature-view-${imageData.title}`);
-
     const previewData = {
       src: imageData.src,
       alt: imageData.title,
@@ -36,19 +33,10 @@ export default function HomeLiterature() {
 
   const closePhotoViewerHandler = () => {
     setOpenPhotoViewer(false);
-    pushAnchor('#home-literature');
   }
 
-  const getIndexForImage = (photoData: GenericItemType) =>
-    literatureTango29Carousel.findIndex(i => i.src === photoData.src);
-
-  const selectPhotoHandler = (photoData: GenericItemType, push = true) => {
+  const selectPhotoHandler = (photoData: GenericItemType) => {
     setSelectedPhoto(photoData);
-    const idx = getIndexForImage(photoData);
-    if (push) {
-      // corrected anchor to reference home-literature
-      pushAnchor(`#home-literature-${idx >= 0 ? idx : 'selected'}`);
-    }
   };
 
   /** Restore selection + scroll on mount / back/forward */

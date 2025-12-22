@@ -4,7 +4,6 @@ import {useState, useEffect} from "react";
 import {useAnchorState} from '@/hooks/useAnchorState';
 import {GenericItemType} from "@/Types/types";
 import {pressSilksGallery} from "@/assets/values";
-import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function SilksGalleryModule() {
@@ -14,23 +13,14 @@ export default function SilksGalleryModule() {
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    pressSilksGallery.findIndex(i => i.src === imageData.src);
 
-  const selectPhotoHandler = (photoItem: GenericItemType, push = true) => {
+  const selectPhotoHandler = (photoItem: GenericItemType) => {
     setSelectedPhoto(photoItem);
-    const idx = getIndexForImage(selectedPhoto);
-    if (push) {
-      pushAnchor(`#silks-gallery-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#silks-gallery-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
+    // window.location.href = '/view';
   }
 
   /** EFFECTS **/
@@ -51,7 +41,7 @@ export default function SilksGalleryModule() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < pressSilksGallery.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPhotoHandler(pressSilksGallery[idx], false);
+          selectPhotoHandler(pressSilksGallery[idx]);
         }
       } catch {
         // noop

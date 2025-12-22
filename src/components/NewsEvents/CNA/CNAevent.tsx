@@ -1,34 +1,29 @@
 'use client'
 
-import {pushAnchor} from "@/utils/helpers";
 import {GenericItemType} from "@/Types/types";
 import {news01Entries} from "@/assets/enhancedValues";
 import {useEffect, useState} from "react";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function CNAevent({showTitle = false} : { showTitle?: boolean}) {
   /** HOOKS **/
   const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(news01Entries[8]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    news01Entries.findIndex(i => i.src === imageData.src);
 
-  const selectPhotoHandler = (fashionItem: GenericItemType, push = true) => {
+  const selectPhotoHandler = (fashionItem: GenericItemType) => {
     setSelectedPhoto(fashionItem);
-    const idx = getIndexForImage(selectedPhoto);
-    if (push) {
-      pushAnchor(`#cna-2019-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
   }
 
   /** EFFECTS **/
@@ -49,7 +44,7 @@ export default function CNAevent({showTitle = false} : { showTitle?: boolean}) {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < news01Entries.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPhotoHandler(news01Entries[idx], false);
+          selectPhotoHandler(news01Entries[idx]);
         }
       } catch {
         // noop
@@ -93,5 +88,9 @@ export default function CNAevent({showTitle = false} : { showTitle?: boolean}) {
         style={{margin: '16px 0'}}
       />
     </div>
+    <PhotoViewer
+      open={openPhotoViewer}
+      onClose={closePhotoViewerHandler}
+    />
   </div>;
 }

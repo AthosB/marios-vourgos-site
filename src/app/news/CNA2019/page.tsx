@@ -9,7 +9,6 @@ import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {news01Entries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
-import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function RecentPaintingsPage() {
@@ -19,21 +18,12 @@ export default function RecentPaintingsPage() {
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    news01Entries.findIndex(i => i.src === imageData.src);
 
-  const selectPhotoHandler = (fashionItem: GenericItemType, push = true) => {
+  const selectPhotoHandler = (fashionItem: GenericItemType) => {
     setSelectedPhoto(fashionItem);
-    const idx = getIndexForImage(selectedPhoto);
-    if (push) {
-      pushAnchor(`#cna-2019-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
     window.location.href = '/view';
     // setOpenPhotoViewer(true);
@@ -57,7 +47,7 @@ export default function RecentPaintingsPage() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < news01Entries.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPhotoHandler(news01Entries[idx], false);
+          selectPhotoHandler(news01Entries[idx]);
         }
       } catch {
         // noop

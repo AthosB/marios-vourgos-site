@@ -10,7 +10,6 @@ import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {recentPaintingsCarouselEntries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
-import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
@@ -22,21 +21,12 @@ export default function RecentPaintingsPage() {
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    recentPaintingsCarouselEntries.findIndex(i => i.src === imageData.src);
 
-  const selectPaintingHandler = (painting: GenericItemType, push = true) => {
+  const selectPaintingHandler = (painting: GenericItemType) => {
     setSelectedPainting(painting);
-    const idx = getIndexForImage(selectedPainting);
-    if (push) {
-      pushAnchor(`#home-paintings-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPainting ? getIndexForImage(selectedPainting) : -1;
-    pushAnchor(`#home-paintings-view-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPainting));
     // window.location.href = '/view';
     setOpenPhotoViewer(true);
@@ -44,7 +34,6 @@ export default function RecentPaintingsPage() {
 
   const closePhotoViewerHandler = () => {
     setOpenPhotoViewer(false);
-    pushAnchor('#galllery-paintings-recent');
   }
 
   /** EFFECTS **/
@@ -65,7 +54,7 @@ export default function RecentPaintingsPage() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < recentPaintingsCarouselEntries.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPaintingHandler(recentPaintingsCarouselEntries[idx], false);
+          selectPaintingHandler(recentPaintingsCarouselEntries[idx]);
         }
       } catch {
         // noop

@@ -9,7 +9,6 @@ import {useEffect, useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {newsEventsPaintings01Carousel} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
-import {pushAnchor} from "@/utils/helpers";
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
@@ -21,29 +20,19 @@ export default function RecentPaintingsPage() {
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    newsEventsPaintings01Carousel.findIndex(i => i.src === imageData.src);
 
-  const selectPhotoHandler = (newsItem: GenericItemType, push = true) => {
+  const selectPhotoHandler = (newsItem: GenericItemType) => {
     setSelectedPhoto(newsItem);
-    const idx = getIndexForImage(selectedPhoto);
-    if (push) {
-      pushAnchor(`#cna-2019-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#fashion-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
   }
 
   const closePhotoViewerHandler = () => {
     setOpenPhotoViewer(false);
-    pushAnchor('#home-paintings');
   }
 
   /** EFFECTS **/
@@ -64,7 +53,7 @@ export default function RecentPaintingsPage() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < newsEventsPaintings01Carousel.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPhotoHandler(newsEventsPaintings01Carousel[idx], false);
+          selectPhotoHandler(newsEventsPaintings01Carousel[idx]);
         }
       } catch {
         // noop
@@ -103,7 +92,6 @@ export default function RecentPaintingsPage() {
             onContextMenu={(e) => e.preventDefault()}
             onDragStart={(e) => e.preventDefault()}
           />
-          {/*<div className={'ImageDescription'}>{selectedFashion.description}</div>*/}
           <SliderCarousel
             items={newsEventsPaintings01Carousel}
             showTitle={false}
@@ -113,44 +101,8 @@ export default function RecentPaintingsPage() {
             onSelect={(item: GenericItemType) => selectPhotoHandler(item)}
             style={{margin: '16px 0'}}
           />
-          {/*<div*/}
-          {/*  className={styles.CNA2019Carousel}*/}
-          {/*  style={{*/}
-          {/*    height: isMobile ? '96px' : '128px',*/}
-          {/*  }}*/}
-          {/*>*/}
-          {/*  {*/}
-          {/*    news01Entries.map((item, idx) => (*/}
-          {/*      <div*/}
-          {/*        key={idx}*/}
-          {/*        className={styles.CNA2019CarouselItem}*/}
-          {/*        style={{*/}
-          {/*          height: isMobile ? '96px' : '128px'*/}
-          {/*        }}*/}
-          {/*      >*/}
-          {/*        <img*/}
-          {/*          src={item.src}*/}
-          {/*          alt={item.title}*/}
-          {/*          height={isMobile ? '96px !important' : 128}*/}
-          {/*          width={'fit-content'}*/}
-          {/*          onClick={() => selectPhotoHandler(item)}*/}
-          {/*          onDragStart={(e) => e.preventDefault()}*/}
-          {/*          draggable={false}*/}
-          {/*          onContextMenu={(e) => e.preventDefault()}*/}
-          {/*          style={{*/}
-          {/*            cursor: 'pointer',*/}
-          {/*            objectFit: 'contain',*/}
-          {/*            boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)',*/}
-          {/*            transition: 'transform 0.3s ease-in-out',*/}
-          {/*          }}*/}
-          {/*        />*/}
-          {/*      </div>*/}
-          {/*    ))*/}
-          {/*  }*/}
-          {/*</div>*/}
         </div>
         <PhotoViewer
-          photo={selectedPhoto}
           open={openPhotoViewer}
           onClose={closePhotoViewerHandler}
         />

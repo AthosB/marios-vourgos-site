@@ -4,7 +4,6 @@ import {useState, useEffect} from "react";
 import {useAnchorState} from '@/hooks/useAnchorState';
 import {GenericItemType} from "@/Types/types";
 import {pressLiteratureTango29} from "@/assets/values";
-import {pushAnchor} from "@/utils/helpers";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
 
 export default function PressLiteratureTango29Module() {
@@ -14,23 +13,14 @@ export default function PressLiteratureTango29Module() {
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-  const getIndexForImage = (imageData: GenericItemType) =>
-    pressLiteratureTango29.findIndex(i => i.src === imageData.src);
 
-  const selectPhotoHandler = (photoItem: GenericItemType, push = true) => {
+  const selectPhotoHandler = (photoItem: GenericItemType) => {
     setSelectedPhoto(photoItem);
-    const idx = getIndexForImage(selectedPhoto);
-    if (push) {
-      pushAnchor(`#press-tango-29-item-${idx >= 0 ? idx : 'selected'}`);
-    }
   }
 
   const viewPhotoHandler = () => {
-    const idx = selectedPhoto ? getIndexForImage(selectedPhoto) : -1;
-    pushAnchor(`#press-tango-29-item-${idx >= 0 ? idx : 'none'}`);
-
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
+    // window.location.href = '/view';
   }
 
   /** EFFECTS **/
@@ -51,7 +41,7 @@ export default function PressLiteratureTango29Module() {
 
         if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < pressLiteratureTango29.length) {
           // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPhotoHandler(pressLiteratureTango29[idx], false);
+          selectPhotoHandler(pressLiteratureTango29[idx]);
         }
       } catch {
         // noop
