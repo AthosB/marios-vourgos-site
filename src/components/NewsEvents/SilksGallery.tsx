@@ -5,10 +5,12 @@ import {useAnchorState} from '@/hooks/useAnchorState';
 import {GenericItemType} from "@/Types/types";
 import {pressSilksGallery} from "@/assets/values";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function SilksGalleryModule() {
   /** HOOKS **/
   const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(pressSilksGallery[0]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
   useAnchorState();
 
   /** CONSTS **/
@@ -21,6 +23,11 @@ export default function SilksGalleryModule() {
   const viewPhotoHandler = () => {
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
     // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
   }
 
   /** EFFECTS **/
@@ -84,5 +91,9 @@ export default function SilksGalleryModule() {
         style={{margin: '16px 0'}}
       />
     </div>
+    <PhotoViewer
+      open={openPhotoViewer}
+      onClose={closePhotoViewerHandler}
+    />
   </div>;
 }

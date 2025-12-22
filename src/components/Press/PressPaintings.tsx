@@ -2,10 +2,12 @@ import {useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {pressPaintings02} from "@/assets/enhancedValues";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function PressPaintings() {
   /** HOOKS **/
   const [selectedPaintingsPress, setSelectedPaintingsPress] = useState<GenericItemType | null>(pressPaintings02[0]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
 
@@ -19,7 +21,12 @@ export default function PressPaintings() {
   const viewPressItemHandler = (pressItem: GenericItemType) => {
     if (!pressItem) return;
     localStorage.setItem('previewData', JSON.stringify(pressItem));
-    window.location.href = '/view';
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
   }
 
   /** RENDER **/
@@ -47,13 +54,10 @@ export default function PressPaintings() {
         onSelect={selectPaintingsPress}
         style={{width: '100%', margin: '0 auto'}}
       />
-      {/*<PreviewCarousel*/}
-      {/*  items={fashionPressEntries}*/}
-      {/*  showTitle={false}*/}
-      {/*  showDescription={false}*/}
-      {/*  showDots={true}*/}
-      {/*  onSelect={selectPaintingsPress}*/}
-      {/*/>*/}
+      <PhotoViewer
+        open={openPhotoViewer}
+        onClose={closePhotoViewerHandler}
+      />
     </div>
   );
 }

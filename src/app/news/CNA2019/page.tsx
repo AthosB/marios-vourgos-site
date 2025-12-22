@@ -10,10 +10,12 @@ import {GenericItemType} from "@/Types/types";
 import {news01Entries} from "@/assets/enhancedValues";
 import {useAnchorState} from "@/hooks/useAnchorState";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function RecentPaintingsPage() {
   /** HOOKS **/
   const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(news01Entries[0]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
   useAnchorState();
 
   /** CONSTS **/
@@ -25,8 +27,12 @@ export default function RecentPaintingsPage() {
 
   const viewPhotoHandler = () => {
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    window.location.href = '/view';
-    // setOpenPhotoViewer(true);
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
   }
 
   /** EFFECTS **/
@@ -97,11 +103,10 @@ export default function RecentPaintingsPage() {
             style={{margin: '16px 0'}}
           />
         </div>
-        {/*<PhotoViewer*/}
-        {/*  photo={selectedPhoto}*/}
-        {/*  open={openPhotoViewer}*/}
-        {/*  onClose={closePhotoViewerHandler}*/}
-        {/*/>*/}
+        <PhotoViewer
+          open={openPhotoViewer}
+          onClose={closePhotoViewerHandler}
+        />
       </div>
     </div>
   );

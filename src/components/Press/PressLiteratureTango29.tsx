@@ -5,10 +5,12 @@ import {useAnchorState} from '@/hooks/useAnchorState';
 import {GenericItemType} from "@/Types/types";
 import {pressLiteratureTango29} from "@/assets/values";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function PressLiteratureTango29Module() {
   /** HOOKS **/
   const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(pressLiteratureTango29[0]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
   useAnchorState();
 
   /** CONSTS **/
@@ -21,6 +23,11 @@ export default function PressLiteratureTango29Module() {
   const viewPhotoHandler = () => {
     localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
     // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
   }
 
   /** EFFECTS **/
@@ -84,5 +91,9 @@ export default function PressLiteratureTango29Module() {
         style={{margin: '16px 0'}}
       />
     </div>
+    <PhotoViewer
+      open={openPhotoViewer}
+      onClose={closePhotoViewerHandler}
+    />
   </div>;
 }

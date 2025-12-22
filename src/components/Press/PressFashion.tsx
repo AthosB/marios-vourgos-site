@@ -2,10 +2,12 @@ import {useState} from "react";
 import {GenericItemType} from "@/Types/types";
 import {fashionPressEntries} from "@/assets/enhancedValues";
 import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 export default function PressFashion() {
   /** HOOKS **/
   const [selectedFashionPress, setSelectedFashionPress] = useState<GenericItemType | null>(fashionPressEntries[0]);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
@@ -20,7 +22,12 @@ export default function PressFashion() {
   const viewPressItemHandler = (newsItem: GenericItemType) => {
     if (!newsItem) return;
     localStorage.setItem('previewData', JSON.stringify(newsItem));
-    window.location.href = '/view';
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
   }
 
   /** RENDER **/
@@ -47,6 +54,10 @@ export default function PressFashion() {
         showArrows={!isMobile}
         onSelect={selectFashionPress}
         style={{marginBottom: '16px'}}
+      />
+      <PhotoViewer
+        open={openPhotoViewer}
+        onClose={closePhotoViewerHandler}
       />
     </div>
   );
