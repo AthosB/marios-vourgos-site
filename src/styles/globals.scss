@@ -102,12 +102,15 @@ footer {
 .width-25vw {
   width: 25vw;
 }
+
 .width-30vw {
   width: 30vw;
 }
+
 .width-50vw {
   width: 50vw;
 }
+
 .width-100vw {
   width: 100vw;
 }
@@ -125,7 +128,7 @@ footer {
     padding: 8px 16px;
     overflow: hidden;
 
-    li{
+    li {
       transition: all ease-in-out 0.2s;
       border-radius: 8px;
       color: var(--mario-text-color) !important;
@@ -222,10 +225,61 @@ footer {
 .viewer-toolbar .viewer-action-maximize,
 .viewer-toolbar .viewer-action-restore,
 .viewer-toolbar button[title*="Full"],
-.viewer-toolbar button[title*="Max"]{
+.viewer-toolbar button[title*="Max"] {
   display: none !important;
 }
 
 .viewer-toolbar {
   bottom: 128px !important;
+}
+
+.PopupMenu {
+  .MuiMenu-list {
+    padding: 0 !important;
+  }
+}
+
+.PopupMenu {
+  /* Accordion root */
+  .MuiAccordion-root {
+    background-color: transparent;
+    color: inherit;
+    box-shadow: none;
+    margin: 0;
+    border: none;
+
+    &::before {
+      display: none; // removes divider line
+    }
+  }
+
+  /* Accordion summary = clickable row */
+  .MuiAccordionSummary-root {
+    min-height: 48px; // MenuItem height
+    padding: 6px 16px;
+    color: inherit;
+    font-family: Cinzel, sans-serif;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04); // same as MenuItem hover
+    }
+  }
+
+  .MuiAccordionSummary-expandIconWrapper {
+    color: inherit;
+  }
+
+  /* Remove extra spacing when expanded */
+  .MuiAccordionSummary-content {
+    margin: 0;
+  }
+
+  .MuiAccordionSummary-root.Mui-expanded {
+    min-height: 48px;
+  }
+
+  /* Accordion details (submenu area) */
+  .MuiAccordionDetails-root {
+    padding: 0; // MenuItems inside already have padding
+  }
 }
