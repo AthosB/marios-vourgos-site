@@ -7,10 +7,7 @@ import {Button} from "@mui/material";
 import styles from './HomeLiterature.module.scss';
 import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
 
-export default function HomeLiterature() {
-  /** CONSTS **/
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth <= 768 : true;
-
+export default function HomeLiterature({dots = false} : {dots?: boolean}) {
   /** RENDER **/
   return (
     <div className="preview-canvas">
@@ -21,7 +18,7 @@ export default function HomeLiterature() {
         showDescription={false}
         showDisclaimer
         disclaimerText={<div className={'ImageTitle'}>
-          <p>
+          <p style={{textAlign: 'center', margin: '16px auto 0 auto', maxWidth: '80vw'}}>
             The medieval castle was transformed into a modern stage, with live theatrical characters and visual
             installations, where attendees watched the verses from Marios Vourgos’ poetry collection “Tango 29” come
             to life through a group of acclaimed artists, under the direction of theatre director Elena Sokratous.
@@ -47,7 +44,7 @@ export default function HomeLiterature() {
           </div>
         </div>}
         showArrows
-        showDots={!isMobile}
+        showDots={dots}
         style={{margin: '16px 0'}}
       />
     </div>

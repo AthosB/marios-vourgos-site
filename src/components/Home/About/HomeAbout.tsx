@@ -46,5 +46,3 @@ export default function HomeAbout() {
     </div>
   );
 }
-
-//TODO: image in line with 1st paragraph like newspaper

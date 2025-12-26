@@ -160,6 +160,3 @@ export default function MobileMenu() {
     </div>
   );
 }
-
-// TODO: look into full width and height navigation to account for nested routes
-// look into on click parent route, expand to bottom or left
