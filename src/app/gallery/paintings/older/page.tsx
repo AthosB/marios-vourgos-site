@@ -6,73 +6,12 @@ import "slick-carousel/slick/slick-theme.css";
 import '@/styles/generic-page.scss';
 
 import Image from "next/image";
-import {useEffect, useState} from "react";
-import {GenericItemType} from "@/Types/types";
 import {olderPaintingsCarouselEntries} from "@/assets/enhancedValues";
-import {useAnchorState} from "@/hooks/useAnchorState";
-import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
-import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
+import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
 
 export default function OlderPaintingsPage() {
-  /** HOOKS **/
-  const [selectedPainting, setSelectedPainting] = useState<GenericItemType>(olderPaintingsCarouselEntries[0]);
-  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
-  useAnchorState();
-
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-
-  const selectPaintingHandler = (painting: GenericItemType) => {
-    setSelectedPainting(painting);
-  }
-
-  const viewPhotoHandler = () => {
-    localStorage.setItem('previewData', JSON.stringify(selectedPainting));
-    // window.location.href = '/view';
-    setOpenPhotoViewer(true);
-  }
-
-  const closePhotoViewerHandler = () => {
-    setOpenPhotoViewer(false);
-  }
-
-  /** EFFECTS **/
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const parseHashAndSelect = () => {
-      try {
-        const hash = window.location.hash || '';
-        if (!hash) return;
-
-        const photoMatch = hash.match(/^#home-paintings-(\d+)$/);
-        const viewMatch = hash.match(/^#home-paintings-view-(\d+)$/);
-
-        let idx: number | null = null;
-        if (photoMatch) idx = Number(photoMatch[1]);
-        else if (viewMatch) idx = Number(viewMatch[1]);
-
-        if (idx !== null && !Number.isNaN(idx) && idx >= 0 && idx < olderPaintingsCarouselEntries.length) {
-          // call the same handler used by PreviewCarousel so any selection logic runs
-          selectPaintingHandler(olderPaintingsCarouselEntries[idx]);
-        }
-      } catch {
-        // noop
-      }
-    };
-
-    // initial run on mount
-    parseHashAndSelect();
-
-    // respond to back/forward and direct hash changes
-    window.addEventListener('popstate', parseHashAndSelect);
-    window.addEventListener('hashchange', parseHashAndSelect);
-
-    return () => {
-      window.removeEventListener('popstate', parseHashAndSelect);
-      window.removeEventListener('hashchange', parseHashAndSelect);
-    };
-  }, []);
 
   /** RENDER **/
   return (
@@ -86,33 +25,17 @@ export default function OlderPaintingsPage() {
       <div className={'generic-items-page__line'}></div>
       <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div className="preview-canvas">
-          <img
-            src={selectedPainting?.src || '/images/paintings/img-001.jpg'}
-            alt={selectedPainting?.title || "Paintings"}
-            height={720}
-            style={{marginBottom: '16px'}}
-            onClick={viewPhotoHandler}
-            draggable={false}
-            onContextMenu={(e) => e.preventDefault()}
-            onDragStart={(e) => e.preventDefault()}
-          />
-          <div className={'ImageTitle'}>{selectedPainting.title}</div>
-          <div className={'ImageDescription'}>{selectedPainting.description}</div>
-          <SliderCarousel
+          <MediaCarousel
             items={olderPaintingsCarouselEntries}
+            showCanvas
             showTitle={false}
             showDescription={false}
             showDots={!isMobile}
             showArrows={!isMobile}
-            onSelect={selectPaintingHandler}
             style={{margin: '16px 0'}}
           />
         </div>
       </div>
-      <PhotoViewer
-        open={openPhotoViewer}
-        onClose={closePhotoViewerHandler}
-      />
     </div>
   );
 }

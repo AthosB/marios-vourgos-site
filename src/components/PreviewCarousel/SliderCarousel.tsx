@@ -2,14 +2,16 @@ import React, {useRef, useState, useEffect, useCallback, CSSProperties} from 're
 import styles from './SliderCarousel.module.scss';
 import {GenericItemType} from '@/Types/types';
 import useDragScroll from '@/hooks/useDragScroll';
+import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 
 interface SliderCarouselProps {
   items: GenericItemType[];
-  onSelect: (item: GenericItemType) => void;
+  onSelect?: (item: GenericItemType) => void;
   showTitle?: boolean;
   showDescription?: boolean;
   showDots?: boolean;
   showArrows?: boolean;
+  showCanvas?: boolean;
   height?: string | number;
   style?: CSSProperties;
 }
@@ -20,17 +22,23 @@ export default function SliderCarousel({
                                          height,
                                          showDots = true,
                                          showArrows = true,
+                                         showCanvas = true,
+                                         showTitle = false,
                                          style = {},
                                        }: SliderCarouselProps) {
+  /** HOOKS **/
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [pages, setPages] = useState<number[]>([]);
   const [activePage, setActivePage] = useState(0);
   const [scrollLeftPos, setScrollLeftPos] = useState(0);
+  const [selectedMedia, setSelectedMedia] = useState<GenericItemType | null>(null);
+  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
 
   useDragScroll(containerRef);
 
   const isMobile = window.innerWidth <= 768;
 
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const isInteractingRef = useRef(false);
   const lastPagesRef = useRef<number[]>([]);
 
@@ -69,6 +77,7 @@ export default function SliderCarousel({
     }
   }, []);
 
+  /** EFFECTS **/
   useEffect(() => {
     computePages();
     const el = containerRef.current;
@@ -141,6 +150,17 @@ export default function SliderCarousel({
 
     return () => el.removeEventListener('scroll', onScroll);
   }, [pages]);
+
+  /** CONSTS **/
+  const viewPhotoHandler = () => {
+    localStorage.setItem('previewData', JSON.stringify(selectedMedia));
+    // window.location.href = '/view';
+    setOpenPhotoViewer(true);
+  }
+
+  const closePhotoViewerHandler = () => {
+    setOpenPhotoViewer(false);
+  }
 
   const findNearestPageIndex = (left: number) => {
     if (!pages.length) return 0;
@@ -216,135 +236,183 @@ export default function SliderCarousel({
   const leftDisabled = scrollLeftPos <= epsilon;
   const rightDisabled = scrollLeftPos >= Math.max(0, maxScrollLeft - epsilon);
 
+  const selectMediaHandler = (item: GenericItemType) => {
+    if (showCanvas) {
+      setSelectedMedia(item);
+    } else {
+      if (onSelect) onSelect(item);
+    }
+  }
+
+  /** RENDER **/
   return (
-    <div className={styles.SliderCarousel} style={{...style, height, position: 'relative'}}>
-      {showArrows && !isMobile && items.length > 0 ? (
-        <>
-          <button
-            type="button"
-            aria-label="Previous page"
-            onClick={goToPrev}
-            disabled={leftDisabled}
-            style={{
-              cursor: leftDisabled ? 'not-allowed' : 'pointer',
-              opacity: leftDisabled ? 0.5 : 1,
-              top: showDots ? '40%' : '50%'
-            }}
-            className={styles.PrevArrow}
-          >
-            <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-              <path d="M16 20 L8 12 L16 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
+    <>
+      {showCanvas && selectedMedia && selectedMedia.src && selectedMedia.video ? (
+        <video
+          key={selectedMedia.src}
+          ref={videoRef}
+          src={selectedMedia.src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          width={isMobile ? '95%' : 'auto'}
+          height={isMobile ? 'auto' : 720}
+          style={{objectFit: "cover", marginTop: '6px'}}
+          onClick={viewPhotoHandler}
+        >
+          <source src={selectedMedia.src} type="video/mp4"/>
+          Your browser does not support the video tag.
+        </video>
+      ) : (
+        <img
+          src={selectedMedia?.src || items[0]?.src || ''}
+          alt={selectedMedia?.title || "Paintings"}
+          height={720}
+          style={{marginBottom: '16px'}}
+          onClick={viewPhotoHandler}
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+        />)}
+      <div className={styles.SliderCarousel} style={{...style, height, position: 'relative'}}>
+        {showArrows && !isMobile && items.length > 0 ? (
+          <>
+            <button
+              type="button"
+              aria-label="Previous page"
+              onClick={goToPrev}
+              disabled={leftDisabled}
+              style={{
+                cursor: leftDisabled ? 'not-allowed' : 'pointer',
+                opacity: leftDisabled ? 0.5 : 1,
+                top: showDots ? '40%' : '50%'
+              }}
+              className={styles.PrevArrow}
+            >
+              <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+                <path d="M16 20 L8 12 L16 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                      strokeLinejoin="round"/>
+              </svg>
+            </button>
 
-          <button
-            type="button"
-            aria-label="Next page"
-            onClick={goToNext}
-            disabled={rightDisabled}
-            style={{
-              cursor: rightDisabled ? 'not-allowed' : 'pointer',
-              opacity: rightDisabled ? 0.5 : 1,
-              top: showDots ? '40%' : '50%'
-            }}
-            className={styles.NextArrow}
-          >
-            <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-              <path d="M8 4 L16 12 L8 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </button>
-        </>
-      ) : null}
+            <button
+              type="button"
+              aria-label="Next page"
+              onClick={goToNext}
+              disabled={rightDisabled}
+              style={{
+                cursor: rightDisabled ? 'not-allowed' : 'pointer',
+                opacity: rightDisabled ? 0.5 : 1,
+                top: showDots ? '40%' : '50%'
+              }}
+              className={styles.NextArrow}
+            >
+              <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+                <path d="M8 4 L16 12 L8 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                      strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </>
+        ) : null}
 
-      {items.length > 0 ? (
-        <>
-          <div
-            ref={containerRef}
-            className={styles.ItemsContainer}
-            tabIndex={0}
-            style={{touchAction: 'pan-y'}}
-            aria-roledescription="carousel"
-          >
-            {items.map((item: GenericItemType, itemIndex: number) => (
-              <div
-                key={`slider-item-${itemIndex}`}
-                data-slider-item
-                className={styles.SliderItem}
-                style={{height, width: 'min-content', display: 'inline-block', margin: '0 16px 16px 0'}}
-                onClick={() => {
-                  if (onSelect) onSelect(item);
-                }}
-              >
-                {item.video ? (
-                  <div
-                    className={'Shimmer'}
-                    style={{
-                      height: height ? (height) : isMobile ? 74 : 154,
-                      width: isMobile ? 98 : 'min-content !important',
-                    }}
-                  >
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      height={height ? height : isMobile ? 74 : 154}
-                      width={isMobile ? 98 : 'min-content !important'}
-                      style={{objectFit: 'cover'}}
-                    >
-                      <source src={item.src} type="video/mp4"/>
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                ) : (
-                  <div
-                    className={'Shimmer'}
-                    style={{
-                      height: height ? height : isMobile ? 74 : 154,
-                      width: 'min-content !important',
-                      minWidth: isMobile ? item.landscape ? 74 : 44 : 98,
-                    }}
-                  >
-                    <img
-                      src={item.src}
-                      alt={item.alt}
-                      height={height ? height : isMobile ? item.video ? 56 : 77 : 154}
-                      width={isMobile ? 'unset' : 'min-content !important'}
-                      draggable={false}
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                    />
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {showDots && pages.length > 1 ? (
-            <div className={styles.DotsContainer} aria-hidden={false} style={{marginTop: 12, textAlign: 'center'}}>
-              {pages.map((_, i) => (
-                <button
-                  key={`dot-${i}`}
-                  type="button"
-                  aria-label={`Go to page ${i + 1}`}
-                  aria-pressed={i === activePage}
-                  onClick={() => goToPage(i)}
-                  className={i === activePage ? styles.DotActive : styles.Dot}
-                  style={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: '50%',
-                    margin: '0 6px',
-                    border: 'none',
-                    padding: 0,
-                    cursor: 'pointer',
+        {items.length > 0 ? (
+          <>
+            <div
+              ref={containerRef}
+              className={styles.ItemsContainer}
+              tabIndex={0}
+              style={{touchAction: 'pan-y'}}
+              aria-roledescription="carousel"
+            >
+              {items.map((item: GenericItemType, itemIndex: number) => (
+                <div
+                  key={`slider-item-${itemIndex}`}
+                  data-slider-item
+                  className={styles.SliderItem}
+                  style={{height, width: 'min-content', display: 'inline-block', margin: '0 16px 16px 0'}}
+                  onClick={() => {
+                    selectMediaHandler(item);
                   }}
-                />
+                >
+                  {item.video ? (
+                    <div
+                      className={'Shimmer'}
+                      style={{
+                        height: height ? (height) : isMobile ? 74 : 154,
+                        width: isMobile ? 98 : 'min-content !important',
+                      }}
+                    >
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        height={height ? height : isMobile ? 74 : 154}
+                        width={isMobile ? 98 : 'min-content !important'}
+                        style={{objectFit: 'cover'}}
+                      >
+                        <source src={item.src} type="video/mp4"/>
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  ) : (
+                    <div
+                      className={'Shimmer'}
+                      style={{
+                        height: height ? height : isMobile ? 74 : 154,
+                        width: 'min-content !important',
+                        minWidth: isMobile ? item.landscape ? 74 : 44 : 98,
+                      }}
+                    >
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        height={height ? height : isMobile ? item.video ? 56 : 77 : 154}
+                        width={isMobile ? 'unset' : 'min-content !important'}
+                        draggable={false}
+                        onContextMenu={(e) => e.preventDefault()}
+                        onDragStart={(e) => e.preventDefault()}
+                      />
+                    </div>
+                  )}
+                  {showTitle && selectedMedia ? <div className={'ImageTitle'}>{selectedMedia.title}</div> : null}
+                  {showTitle && selectedMedia ?
+                    <div className={'ImageDescription'}>{selectedMedia.description}</div> : null}
+                </div>
               ))}
             </div>
-          ) : null}
-        </>
-      ) : null}
-    </div>
+
+            {showDots && pages.length > 1 ? (
+              <div className={styles.DotsContainer} aria-hidden={false} style={{marginTop: 12, textAlign: 'center'}}>
+                {pages.map((_, i) => (
+                  <button
+                    key={`dot-${i}`}
+                    type="button"
+                    aria-label={`Go to page ${i + 1}`}
+                    aria-pressed={i === activePage}
+                    onClick={() => goToPage(i)}
+                    className={i === activePage ? styles.DotActive : styles.Dot}
+                    style={{
+                      width: 10,
+                      height: 10,
+                      borderRadius: '50%',
+                      margin: '0 6px',
+                      border: 'none',
+                      padding: 0,
+                      cursor: 'pointer',
+                    }}
+                  />
+                ))}
+              </div>
+            ) : null}
+          </>
+        ) : null}
+        {showCanvas ? <PhotoViewer
+          open={openPhotoViewer}
+          onClose={closePhotoViewerHandler}
+        /> : null}
+      </div>
+    </>
   );
 }
