@@ -12,6 +12,7 @@ interface MediaCarouselProps {
   showDisclaimer?: boolean;
   disclaimerText?: string | ReactNode;
   showArrows?: boolean;
+  offsetArrows?: boolean;
   showDots?: boolean;
   showCanvas?: boolean;
   height?: number | string;
@@ -27,6 +28,7 @@ export default function MediaCarousel(
     showDisclaimer = false,
     disclaimerText = "Disclaimer: All photos are original photos as shot without any digital manipulation",
     showArrows = true,
+    offsetArrows = false,
     showDots = false,
     showCanvas = false,
     height,
@@ -276,9 +278,9 @@ export default function MediaCarousel(
                   cursor: leftDisabled ? 'not-allowed' : 'pointer',
                   opacity: leftDisabled ? 0.5 : 1,
                   top: showDots ? '40%' : '50%',
-                  marginTop: isMobile ? '-8px' : 0
+                  marginTop: isMobile ? '-8px' : 0,
                 }}
-                className={styles.PrevArrow}
+                className={`${styles.PrevArrow}${offsetArrows ? ' ' + styles.Offset : ''}`}
               >
                 <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
                   <path d="M16 20 L8 12 L16 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -294,9 +296,9 @@ export default function MediaCarousel(
                   cursor: rightDisabled ? 'not-allowed' : 'pointer',
                   opacity: rightDisabled ? 0.5 : 1,
                   top: showDots ? '40%' : '50%',
-                  marginTop: isMobile ? '-8px' : 0
+                  marginTop: isMobile ? '-8px' : 0,
                 }}
-                className={styles.NextArrow}
+                className={`${styles.NextArrow}${offsetArrows ? ' ' + styles.Offset : ''}`}
               >
                 <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
                   <path d="M8 4 L16 12 L8 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />

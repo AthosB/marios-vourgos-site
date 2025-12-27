@@ -53,7 +53,6 @@
 - [X] fix react slick navigation dots
 - [X] fix react slick slides spacing (variable width
 - [X] fix main nav menu sub-menu stuck on hover (persistent overlay for blur)
-
 - [X] find a way to have the back button go to previous anchor
 - [X] Fashion 10 - remove smudge on shoulder pads (original contains smudge)
 - [X] photo with plug to be removed was in scanned photos (check) ???
@@ -93,7 +92,7 @@
 - [X] add Fashion section under News and Events with related content "Marios Vourgos was designing under his own brand name Mario Marini Vourgos, based in New York and was showing his collections at New York fashion week between the years 1991 to 1993, prior to continuing his studies in finance and international relations in the University of Pennsylvania (ebdPhd)."
 - [X] events → Paintings Exhibition: Collection of poems in Greek Language, published in 2021 (Armida publications - https://www.armidabooks.com/book/tagko-29/)
 - [X] scan magazines to add to Press page
-- [ ] check messenger and email for links from mario regarding events
+- [X] check messenger and email for links from mario regarding events
 - [X] for Kolossi event add notice "Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer), as well as from sponsors totaling to 30,000 Euros."
 - [X] on Press page for Tango 29 add critique text (https://www.tango29.eu/tango29.pdf)
 - [X] on Contact page leave only the line "contact us at..." - remove introductory text from above
@@ -101,7 +100,7 @@
 - [X] adjust zoom to zoom with more precision and follow mouse click
 - [X] remove first duplicate from Fashion slides (colored dress with black glasses)
 - [X] remove the second duplication of Fashion short black and white model turning
-- [ ] move fashion 25 photo next to its same (after photo 27)
+- [X] move fashion 25 photo next to its same (after photo 27)
 - [X] remove amount of donation from all occurrences
 - [X] on page visit from submenu stays open (erroneous behavior)
 - [X] after paintings events first <p> add "Paintings were not for sale"
@@ -112,7 +111,7 @@
 - [X] check for book for news with Dina (purple book) Ecstatic renaissance of life (exhibition catalogue Silks Gallery)
 - [X] for Silks event, under the photo, a photo of the book of the exhibitions
 - [X] add K-gallery in news same title as 2nd book (the overused... literature)
-- [ ] Press fits photo (art exhibition and charity gala) will be also added  under the Video of old port in News
+- [X] Press fits photo (art exhibition and charity gala) will be also added  under the Video of old port in News
 - [X move CNA page content carousel and text under the text and photo "Art Exhibition and Charity Gala Dinner “The Achronic Remembrances of Time... a note not to forget the future...” Under the auspices of Cyprus President Mr. Nicos Anastasiades"
 - [X] no "more" button, just move content under the paragraph and photo → More button content to be moved to Press page, NOT News
 - [X] fix anchor for URL, check CNA
@@ -141,7 +140,7 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] increase initial size view page of photo
 - [X] change zoomer Image with  the on click version
 - [X] decrease title and dimensions description on View Page
-- [?] on viewer page "X" click, navigate to previous page at the specific previous location (selected and vertical scroll)
+- [X] on viewer page "X" click, navigate to previous page at the specific previous location (selected and vertical scroll)
 - [X] before video "shorts_001.mp4" find and add same static
 - [X] add fashion 19 photo before corresponding video short
 - [X] find equivalent static for video short _010  (last in carousel fashion)
@@ -155,17 +154,17 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] alter Embedded Youtube iFrame
 - [X] Vimeo --> 19 EUR per month
 - [X] Wistia --> 79 USD per month
-- Press Silks 1st and 2nd photos (cut Fileleftheros from 2nd, and add it as banner on the first, and then remove 2nd photo)
-- same with 3 and 4th photo (on 3rd cut or add on top of the top part that ahs text from other article)
-- remove 5th photo (too small content)
-- copy Bazaar cover page and add small layer on the next photo (inner of magazine) ( put it on top to hide the "Antony Mprato" part)
-- remove last photo (duplicate of moratto one)
+- [X] Press Silks 1st and 2nd photos (cut Fileleftheros from 2nd, and add it as banner on the first, and then remove 2nd photo)
+- [X] same with 3 and 4th photo (on 3rd cut or add on top of the top part that ahs text from other article)
+- [X] remove 5th photo (too small content)
+- [X]copy Bazaar cover page and add small layer on the next photo (inner of magazine) ( put it on top to hide the "Antony Mprato" part)
+- [X]remove last photo (duplicate of moratto one)
 - [X] on photo viewer zoom our caps on 50% and cannot zoom out to original size with mouse scroll
-- [ ] revisit scrolling up on select image on image view on top (capture scroll or click)
+- [X] revisit scrolling up on select image on image view on top (capture scroll or click)
 - rethink photo view on Phone (no option on new page) sice user can just zoom with pinch in/out ---> when isMobile disable new page
-- for Desktop view change ImageViewer as a component popup - not new page(view)
-- Add arrows on Mobile as well for carousel (indicates there are more photos available)
-- on Mobile view Landscaoe mode, chack footer overlapping out pf place on top
+- [X] for Desktop view change ImageViewer as a component popup - not new page(view)
+- [X] Add arrows on Mobile as well for carousel (indicates there are more photos available)
+- [ ] on Mobile view Landscaoe mode, chack footer overlapping out pf place on top
 - [X] video should take full width
 - [ ] on mobile, when viewing vodeo fullscreen (expand) and changing orientation, starts video from the beginning
 - [X] News and events ---> red book photo make smaller → gets clipped on Mobile view

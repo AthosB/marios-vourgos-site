@@ -17,8 +17,6 @@ export default function SilksGalleryModule() {
         showDescription={false}
         showDots={!isMobile}
         showArrows={!isMobile}
-        // onSelect={selectPhotoHandler}
-        style={{margin: '16px 0'}}
       />
     </div>
   </div>;

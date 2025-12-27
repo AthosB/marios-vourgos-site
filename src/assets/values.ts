@@ -2449,44 +2449,49 @@ export const newsEventsPaintingsKGallery: GenericItemType[] = [
 export const pressSilksGallery = [
   {
     position: 10,
-    src: '/images/press/paintings/silksGallery/silks-gallery_001.jpg',
+    src: '/images/press/paintings/silksGallery/silks-gallery_001_B.jpg',
     alt: 'Silks Gallery',
   },
-  {
-    position: 20,
-    src: '/images/press/paintings/silksGallery/silks-gallery_010.jpg',
-    alt: 'Silks Gallery',
-  },
+  // {
+  //   position: 20,
+  //   src: '/images/press/paintings/silksGallery/silks-gallery_010.jpg',
+  //   alt: 'Silks Gallery',
+  // },
   {
     position: 30,
-    src: '/images/press/paintings/silksGallery/silks-gallery_020.jpg',
+    src: '/images/press/paintings/silksGallery/silks-gallery_020_B.jpg',
     alt: 'Silks Gallery',
   },
-  {
-    position: 40,
-    src: '/images/press/paintings/silksGallery/silks-gallery_030.jpg',
-    alt: 'Silks Gallery',
-  },
+  // {
+  //   position: 40,
+  //   src: '/images/press/paintings/silksGallery/silks-gallery_030.jpg',
+  //   alt: 'Silks Gallery',
+  // },
   {
     position: 50,
-    src: '/images/press/paintings/silksGallery/silks-gallery_040.jpg',
+    src: '/images/press/paintings/silksGallery/silks-gallery_040_B.jpg',
     alt: 'Silks Gallery',
   },
-  {
-    position: 60,
-    src: '/images/press/paintings/silksGallery/silks-gallery_050.jpg',
-    alt: 'Silks Gallery',
-  },
+  // {
+  //   position: 60,
+  //   src: '/images/press/paintings/silksGallery/silks-gallery_050.jpg',
+  //   alt: 'Silks Gallery',
+  // },
+  // {
+  //   position: 70,
+  //   src: '/images/press/paintings/silksGallery/silks-gallery_060.jpg',
+  //   alt: 'Silks Gallery',
+  // },
   {
     position: 70,
-    src: '/images/press/paintings/silksGallery/silks-gallery_060.jpg',
+    src: '/images/press/paintings/silksGallery/silks-gallery_060_B.jpg',
     alt: 'Silks Gallery',
   },
-  {
-    position: 80,
-    src: '/images/press/paintings/silksGallery/silks-gallery_070.jpg',
-    alt: 'Silks Gallery',
-  }
+  // {
+  //   position: 80,
+  //   src: '/images/press/paintings/silksGallery/silks-gallery_070.jpg',
+  //   alt: 'Silks Gallery',
+  // }
 ]
 
 export const pressLiteratureTango29 = [

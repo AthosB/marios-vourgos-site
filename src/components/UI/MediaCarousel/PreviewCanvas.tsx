@@ -41,7 +41,7 @@ export default function PreviewCanvas({
         playsInline
         width={isMobile ? '95%' : 'auto'}
         height={isMobile ? 'auto' : 720}
-        style={{objectFit: "cover", marginTop: '6px'}}
+        style={{objectFit: "cover", marginTop: '6px', marginBottom: '8px'}}
         onClick={viewMediaHandler}
       >
         <source src={mediaData.src} type="video/mp4" />
