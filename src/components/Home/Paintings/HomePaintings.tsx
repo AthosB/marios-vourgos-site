@@ -15,7 +15,6 @@ export default function HomePaintings({dots = false} : {dots?: boolean}) {
         showDescription={true}
         showArrows
         showDots={dots}
-        style={{margin: '16px 0'}}
       />
     </div>
   </>;

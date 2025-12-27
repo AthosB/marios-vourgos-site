@@ -45,7 +45,6 @@ export default function HomeLiterature({dots = false} : {dots?: boolean}) {
         </div>}
         showArrows
         showDots={dots}
-        style={{margin: '16px 0'}}
       />
     </div>
   );

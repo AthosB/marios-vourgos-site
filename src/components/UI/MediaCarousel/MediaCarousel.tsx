@@ -33,9 +33,12 @@ export default function MediaCarousel(
     style = {},
   }: MediaCarouselProps
 ) {
+  /** PRES **/
   const isMobile = window.innerWidth <= 768;
 
+  /** HOOKS **/
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [pages, setPages] = useState<number[]>([]);
   const [activePage, setActivePage] = useState(0);
   const [scrollLeftPos, setScrollLeftPos] = useState(0);
@@ -44,6 +47,7 @@ export default function MediaCarousel(
   const isInteractingRef = useRef(false);
   const lastPagesRef = useRef<number[]>([]);
 
+  /** CONSTS **/
   const computePages = useCallback(() => {
     if (isInteractingRef.current) return;
     const el = containerRef.current;
@@ -159,6 +163,7 @@ export default function MediaCarousel(
   const leftDisabled = scrollLeftPos <= epsilon;
   const rightDisabled = scrollLeftPos >= Math.max(0, maxScrollLeft - epsilon);
 
+  /** EFFECTS **/
   useEffect(() => {
     computePages();
     const el = containerRef.current;
@@ -232,6 +237,15 @@ export default function MediaCarousel(
     return () => el.removeEventListener('scroll', onScroll);
   }, [pages]);
 
+  useEffect(() => {
+    if (!selectedMedia?.video) return;
+    const v = videoRef.current;
+    if (!v) return;
+    try { v.load(); } catch { /* noop */ }
+    v.play && v.play().catch(() => { /* autoplay may be blocked */ });
+  }, [selectedMedia?.src, selectedMedia?.video]);
+
+  /** RENDER **/
   return (
     <div className={`${styles.MediaCarousel}${isMobile ? ' ' + styles.Mobile : ''}`}>
       {/* PREVIEW CANVAS */}
@@ -317,6 +331,7 @@ export default function MediaCarousel(
                         onClick={() => selectMediaHandler(item)}
                       >
                         <video
+                          ref={videoRef}
                           autoPlay
                           loop
                           muted

@@ -16,7 +16,6 @@ export default function HomeFashion({dots = false} : {dots?: boolean}) {
         showDescription={false}
         showArrows
         showDots={dots}
-        style={{margin: '16px 0'}}
       />
     </div>
   </>;

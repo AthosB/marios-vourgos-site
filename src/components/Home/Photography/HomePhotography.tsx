@@ -17,7 +17,7 @@ export default function HomePhotography({dots = false}: { dots?: boolean }) {
         showArrows
         showDots={dots}
         // onSelect={selectImageHandler}
-        style={{margin: '16px 0'}}
+        style={{margin: '16px auto'}}
       />
     </div>
   </>;
