@@ -18,7 +18,7 @@ export default function PressPaintingsPage() {
 
   /** RENDER **/
   return (
-    <div className={styles.PressSectionPage} style={{minHeight: 'calc(100vh - 260px)'}}>
+    <div className={`${styles.PressSectionPage}${isMobile ? ' ' + styles.Mobile : ''}`} style={{minHeight: 'calc(100vh - 260px)'}}>
       <div className={styles.NewsEntry}>
         <div className={styles.Header}>
           <Image src="/images/ornament_bird.png" alt="Photography" width={52} height={64}

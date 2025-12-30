@@ -13,21 +13,79 @@
     width: 100%;
   }
 
+  .PreviewImageWrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .PreviewImage {
+    display: block;
+    width: 100%;
+    max-width: 60vw;
+    height: auto;
+    -webkit-user-drag: none;
+    user-select: none;
+    pointer-events: none;
+    margin: 0 auto;
+  }
+
+  .ImageShield {
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    cursor: pointer;
+    touch-action: none;
+  }
+
   .CarouselContainer {
-    //width: 100%;
+    width: 90vw;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
 
-    .ItemsContainer {
-      //width: 100%;
-      width: 90vw;
-      //max-width: 99%;
+    .SliderContainer {
+      width: 100%;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
+
+      .PreviousButton, .NextButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 96px;
+        width: 20px;
+
+
+        button {
+          z-index: 200;
+          height: 96px;
+          width: 20px;
+          border: none;
+          background: transparent;
+          color: var(--mario-button-color);
+          padding: 0;
+
+          svg {
+            transform: scaleY(4);
+            transform-origin: center;
+          }
+        }
+      }
+    }
+
+    .ItemsContainer {
+      //width: 100%;
+      //width: 90vw;
+      //max-width: 99%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: safe center;
       gap: 16px;
+      flex: 1;
       margin: 0 auto;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -109,39 +167,51 @@
 
     .PreviewCanvas {
       height: 80vh;
+      width: 95vw;
       //display: flex;
       //flex-direction: column;
       //align-items: center;
       //justify-content: space-between;
       flex: 1;
+      margin: 0 auto;
 
       img {
         max-height: 60vh;
+        width: auto;
+        max-width: inherit !important;
+        // TODO for portrait images --> width: auto, for landscape images --> width: inherit
       }
+    }
+
+    .PreviewImage {
+      max-width: 100%;
     }
 
     .CarouselContainer {
-      width: calc(100vw - 40px);
+      //width: calc(100vw - 40px);
+      width: calc(100vw - 16px);
     }
 
     .ItemsContainer {
-      width: calc(100vw - 64px) !important;
+      //width: calc(100vw - 64px) !important;
       //background-color: #541619 !important;
+      margin: 0 2px;
     }
 
-    .PrevArrow {
-      left: 24px;
-
-      &.Offset {
-        left: -16px;
-      }
-    }
-    .NextArrow {
-      right: 24px;
-
-      &.Offset {
-        right: -16px;
-      }
-    }
+    //.PrevArrow {
+    //  left: 24px;
+    //
+    //  &.Offset {
+    //    left: -16px;
+    //  }
+    //}
+    //
+    //.NextArrow {
+    //  right: 24px;
+    //
+    //  &.Offset {
+    //    right: -16px;
+    //  }
+    //}
   }
 }

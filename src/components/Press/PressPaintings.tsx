@@ -1,62 +1,21 @@
-import {useState} from "react";
-import {GenericItemType} from "@/Types/types";
 import {pressPaintings02} from "@/assets/enhancedValues";
-import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
-import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
+import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
 
 export default function PressPaintings() {
-  /** HOOKS **/
-  const [selectedPaintingsPress, setSelectedPaintingsPress] = useState<GenericItemType | null>(pressPaintings02[0]);
-  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
-
   /** CONSTS **/
-
-  const selectPaintingsPress = (pressItem: GenericItemType) => {
-    if (!pressItem) return;
-    setSelectedPaintingsPress(pressItem);
-    // localStorage.setItem('previewData', JSON.stringify(pressItem));
-    // window.location.href = '/view';
-  };
-
-  const viewPressItemHandler = (pressItem: GenericItemType) => {
-    if (!pressItem) return;
-    localStorage.setItem('previewData', JSON.stringify(pressItem));
-    // window.location.href = '/view';
-    setOpenPhotoViewer(true);
-  }
-
-  const closePhotoViewerHandler = () => {
-    setOpenPhotoViewer(false);
-  }
+  const isMobile = window.innerWidth <= 768;
 
   /** RENDER **/
   return (
-
     <div id="press-paintings" className="preview-canvas" style={{width: '100%',margin: '0 auto'}}>
-      <img
-        src={selectedPaintingsPress?.src || '/images/paintings/001.jpg'}
-        alt={selectedPaintingsPress?.title || "Paintings-Press"}
-        width={360}
-        style={{marginBottom: '16px'}}
-        onClick={() => viewPressItemHandler(selectedPaintingsPress as GenericItemType)}
-        draggable={false}
-        onContextMenu={(e) => e.preventDefault()}
-        onDragStart={(e) => e.preventDefault()}
-      />
-      <div className={'ImageTitle'}>{selectedPaintingsPress?.title}</div>
-      <div className={'ImageDescription'}>{selectedPaintingsPress?.description}</div>
-      <SliderCarousel
+      <MediaCarousel
         items={pressPaintings02}
-        showTitle={false}
-        showDescription={false}
-        showDots={false}
-        showArrows={false}
-        onSelect={selectPaintingsPress}
+        showCanvas
+        showTitle={true}
+        showDescription={true}
+        showDots={!isMobile}
+        showArrows
         style={{width: '100%', margin: '0 auto'}}
-      />
-      <PhotoViewer
-        open={openPhotoViewer}
-        onClose={closePhotoViewerHandler}
       />
     </div>
   );

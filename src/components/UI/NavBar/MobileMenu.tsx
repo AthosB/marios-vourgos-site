@@ -43,7 +43,9 @@ export default function MobileMenu() {
   return (
     <div className={styles.MobileMenu}>
       <div className={styles.Logo}>
-        <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={64} width={128} />
+        <Link href="/home" aria-label="Home">
+          <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={64} width={128} />
+        </Link>
       </div>
       <div className={styles.MenuIcon}>
         <IconButton
@@ -81,6 +83,7 @@ export default function MobileMenu() {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
+              sx={{ fontFamily: 'Cinzel SemiBold, sans-serif' }}
             >
               <div>News</div>
             </AccordionSummary>

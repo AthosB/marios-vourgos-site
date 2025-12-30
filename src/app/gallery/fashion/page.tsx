@@ -7,7 +7,7 @@ import '@/styles/generic-page.scss';
 
 import Image from "next/image";
 import {fashionEntries} from "@/assets/enhancedValues";
-import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
+import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
 
 export default function RecentPaintingsPage() {
   /** CONSTS **/
@@ -25,15 +25,12 @@ export default function RecentPaintingsPage() {
       <div className={'generic-items-page__line'}></div>
       <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div id="recent-paintings" className="preview-canvas">
-          <SliderCarousel
+          <MediaCarousel
             items={fashionEntries}
-            showTitle={false}
-            showDescription={false}
-            showDots={!isMobile}
-            showArrows={!isMobile}
             showCanvas
-            // onSelect={selectPaintingHandler}
-            style={{margin: '16px 0'}}
+            showArrows
+            showDots={!isMobile}
+            style={{margin: '16px auto'}}
           />
         </div>
       </div>

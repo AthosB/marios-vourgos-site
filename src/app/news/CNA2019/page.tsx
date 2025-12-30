@@ -5,33 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 
 import '@/styles/generic-page.scss';
 
-import {useState} from "react";
-import {GenericItemType} from "@/Types/types";
 import {news01Entries} from "@/assets/enhancedValues";
-import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
-import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
+import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
 
 export default function RecentPaintingsPage() {
-  /** HOOKS **/
-  const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType>(news01Entries[0]);
-  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
-
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-
-  const selectPhotoHandler = (fashionItem: GenericItemType) => {
-    setSelectedPhoto(fashionItem);
-  }
-
-  const viewPhotoHandler = () => {
-    localStorage.setItem('previewData', JSON.stringify(selectedPhoto));
-    // window.location.href = '/view';
-    setOpenPhotoViewer(true);
-  }
-
-  const closePhotoViewerHandler = () => {
-    setOpenPhotoViewer(false);
-  }
 
   /** RENDER **/
   return (
@@ -42,31 +21,16 @@ export default function RecentPaintingsPage() {
       <div className={'generic-items-page__line'}></div>
       <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div id="cna-2019" className="preview-canvas">
-          <img
-            src={selectedPhoto?.src || '/images/news/cna2019/news_01-01.jpg'}
-            alt={selectedPhoto?.title || "CNA 2019"}
-            height={720}
-            style={{marginBottom: '16px'}}
-            onClick={viewPhotoHandler}
-            draggable={false}
-            onContextMenu={(e) => e.preventDefault()}
-            onDragStart={(e) => e.preventDefault()}
-          />
-          <div className={'ImageTitle'}>{selectedPhoto.description}</div>
-          <SliderCarousel
+          <MediaCarousel
             items={news01Entries}
+            showCanvas
             showTitle={false}
             showDescription={false}
             showDots={!isMobile}
-            showArrows={!isMobile}
-            onSelect={selectPhotoHandler}
+            showArrows
             style={{margin: '16px 0'}}
           />
         </div>
-        <PhotoViewer
-          open={openPhotoViewer}
-          onClose={closePhotoViewerHandler}
-        />
       </div>
     </div>
   );

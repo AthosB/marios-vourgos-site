@@ -1,7 +1,7 @@
 .PhotographyPage {
   position: relative;
   width: 100%;
-  max-width: 90vw;
+  //max-width: 90vw;
   padding: 16px 32px;
 
   .Header {
@@ -49,6 +49,10 @@
 
       }
     }
+  }
+
+  &.Mobile {
+    padding: 16px 0;
   }
 }
 
@@ -105,9 +109,9 @@
 and (max-device-width: 550px) and (orientation: portrait) {
 
   .PhotographyPage {
-    width: 100dvw;
-    max-width: fit-content;
-    padding: 8px 16px;
+    //width: 100dvw;
+    //max-width: fit-content;
+    //padding: 8px 16px;
   }
 
   .PhotographsContainer {

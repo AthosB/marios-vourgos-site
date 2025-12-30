@@ -267,48 +267,29 @@ export default function MediaCarousel(
         </div>
 
         <div className={styles.CarouselContainer} style={{ ...style, height, position: 'relative' }}>
-          {showArrows && items.length > 0 ? (
-            <>
-              <button
-                type="button"
-                aria-label="Previous page"
-                onClick={goToPrev}
-                disabled={leftDisabled}
-                style={{
-                  cursor: leftDisabled ? 'not-allowed' : 'pointer',
-                  opacity: leftDisabled ? 0.5 : 1,
-                  top: showDots ? '40%' : '50%',
-                  marginTop: isMobile ? '-8px' : 0,
-                }}
-                className={`${styles.PrevArrow}${offsetArrows ? ' ' + styles.Offset : ''}`}
-              >
-                <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-                  <path d="M16 20 L8 12 L16 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-
-              <button
-                type="button"
-                aria-label="Next page"
-                onClick={goToNext}
-                disabled={rightDisabled}
-                style={{
-                  cursor: rightDisabled ? 'not-allowed' : 'pointer',
-                  opacity: rightDisabled ? 0.5 : 1,
-                  top: showDots ? '40%' : '50%',
-                  marginTop: isMobile ? '-8px' : 0,
-                }}
-                className={`${styles.NextArrow}${offsetArrows ? ' ' + styles.Offset : ''}`}
-              >
-                <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
-                  <path d="M8 4 L16 12 L8 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
-            </>
-          ) : null}
-
           {items.length > 0 ? (
-            <>
+            <div className={styles.SliderContainer}>
+              {showArrows && items.length > 0 && <div className={styles.PreviousButton}>
+                <button
+                  type="button"
+                  aria-label="Previous page"
+                  onClick={goToPrev}
+                  disabled={leftDisabled}
+                  style={{
+                    cursor: leftDisabled ? 'not-allowed' : 'pointer',
+                    opacity: leftDisabled ? 0.5 : 1,
+                    top: showDots ? '40%' : '50%',
+                    marginTop: isMobile ? '-8px' : 0,
+                  }}
+                  className={`${offsetArrows ? ' ' + styles.Offset : ''}`}
+                >
+                  <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+                    <path d="M16 20 L8 12 L16 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>}
               <div
                 ref={containerRef}
                 className={styles.ItemsContainer}
@@ -369,8 +350,29 @@ export default function MediaCarousel(
                   </div>
                 ))}
               </div>
+              {showArrows && items.length > 0 && <div className={styles.NextButton}>
+                <button
+                  type="button"
+                  aria-label="Next page"
+                  onClick={goToNext}
+                  disabled={rightDisabled}
+                  style={{
+                    cursor: rightDisabled ? 'not-allowed' : 'pointer',
+                    opacity: rightDisabled ? 0.5 : 1,
+                    top: showDots ? '40%' : '50%',
+                    marginTop: isMobile ? '-8px' : 0,
+                  }}
+                  className={`${offsetArrows ? ' ' + styles.Offset : ''}`}
+                >
+                  <svg width="18" height="24" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+                    <path d="M8 4 L16 12 L8 20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+              </div>}
 
-              {showDots && pages.length > 1 ? (
+              {showDots && !isMobile && pages.length > 1 ? (
                 <div className={styles.DotsContainer} aria-hidden={false} style={{ marginTop: 12, textAlign: 'center' }}>
                   {pages.map((_, i) => (
                     <button
@@ -393,7 +395,7 @@ export default function MediaCarousel(
                   ))}
                 </div>
               ) : null}
-            </>
+            </div>
           ) : null}
         </div>
       </div>

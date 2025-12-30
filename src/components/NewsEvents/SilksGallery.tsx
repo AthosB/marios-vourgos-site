@@ -16,7 +16,7 @@ export default function SilksGalleryModule() {
         showTitle={false}
         showDescription={false}
         showDots={!isMobile}
-        showArrows={!isMobile}
+        showArrows
       />
     </div>
   </div>;

@@ -1,36 +1,42 @@
 // typescript
-import React, { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import Dialog from "@mui/material/Dialog";
 import styles from "./PhotoViewer.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import { GenericItemType } from "@/Types/types";
 import Viewer from "viewerjs";
 import "viewerjs/dist/viewer.css";
-import panzoom from "panzoom"; // added
+import panzoom from "panzoom";
 
 interface photoViewerProps {
   open?: boolean;
   onClose?: () => void;
 }
 
+type PanzoomWithCleanup = ReturnType<typeof panzoom> & { _cleanup?: () => void } | null;
+
 export default function PhotoViewer({
-                                      open = false,
-                                      onClose = () => null
-                                    }: photoViewerProps) {
+  open = false,
+  onClose = () => null,
+}: photoViewerProps) {
   const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const viewerRef = useRef<InstanceType<typeof Viewer> | null>(null);
-  const panzoomRef = useRef<any>(null);
+  const panzoomRef = useRef<PanzoomWithCleanup>(null);
 
   const closeModalHandler = () => {
+    // cleanup any added shield listeners first
+    (viewerRef.current as any)?._shieldCleanup?.();
     viewerRef.current?.destroy();
     viewerRef.current = null;
+
     if (panzoomRef.current) {
       panzoomRef.current.dispose();
       panzoomRef.current = null;
     }
+
     setSelectedPhoto(null);
     if (onClose) onClose();
   };
@@ -62,8 +68,11 @@ export default function PhotoViewer({
 
   useEffect(() => {
     if (!open) {
+      // cleanup shield before destroying viewer
+      (viewerRef.current as any)?._shieldCleanup?.();
       viewerRef.current?.destroy();
       viewerRef.current = null;
+
       if (panzoomRef.current) {
         panzoomRef.current.dispose();
         panzoomRef.current = null;
@@ -73,9 +82,11 @@ export default function PhotoViewer({
   }, [open]);
 
   useEffect(() => {
-    // when changing selected photo, remove existing instances
+    // when changing selected photo, remove existing instances and cleanup listeners
+    (viewerRef.current as any)?._shieldCleanup?.();
     viewerRef.current?.destroy();
     viewerRef.current = null;
+
     if (panzoomRef.current) {
       panzoomRef.current.dispose();
       panzoomRef.current = null;
@@ -119,6 +130,27 @@ export default function PhotoViewer({
         closeModalHandler();
       },
     });
+
+    // protect viewer DOM from right-click / drag (block context menu and dragstart)
+    const vInst = viewerRef.current as any;
+    const vRoot: HTMLElement | null = vInst?.viewer || containerRef.current;
+
+    const preventCtx = (e: Event) => e.preventDefault();
+    const preventRightMouse = (e: MouseEvent) => {
+      if (e.button === 2) e.preventDefault();
+    };
+    const preventDrag = (e: Event) => e.preventDefault();
+
+    vRoot?.addEventListener("contextmenu", preventCtx);
+    vRoot?.addEventListener("mousedown", preventRightMouse);
+    vRoot?.addEventListener("dragstart", preventDrag);
+
+    // store cleanup so we can call it before destroying viewer
+    (viewerRef.current as any)._shieldCleanup = () => {
+      vRoot?.removeEventListener("contextmenu", preventCtx);
+      vRoot?.removeEventListener("mousedown", preventRightMouse);
+      vRoot?.removeEventListener("dragstart", preventDrag);
+    };
   };
 
   const onVideoReady = () => {
@@ -126,36 +158,32 @@ export default function PhotoViewer({
     if (panzoomRef.current) return;
     if (!videoRef.current) return;
 
-    // apply panzoom directly to the video element or a wrapper element
     panzoomRef.current = panzoom(videoRef.current, {
       maxZoom: 8,
       minZoom: 0.1,
       bounds: true,
       boundsPadding: 0.1,
-      // smoothScroll: false // optional
-    });
+    }) as ReturnType<typeof panzoom> & { _cleanup?: () => void };
 
-    // optional: double-click to reset to 1:1
     const dblHandler = () => {
-      panzoomRef.current.zoomAbs(0, 0, 1); // reset zoom to 1
-      panzoomRef.current.moveTo(0, 0); // reset pan
+      panzoomRef.current?.zoomAbs(0, 0, 1);
+      panzoomRef.current?.moveTo(0, 0);
     };
     videoRef.current.addEventListener("dblclick", dblHandler);
 
-    // cleanup dblclick if video changes
     const cleanup = () => {
       if (videoRef.current) videoRef.current.removeEventListener("dblclick", dblHandler);
     };
-    // store cleanup on ref so we can call it later if needed
-    (panzoomRef.current as any)._cleanup = cleanup;
+    if (panzoomRef.current) panzoomRef.current._cleanup = cleanup;
   };
 
-  // ensure we clean panzoom cleanup when disposing
   useEffect(() => {
     return () => {
       if (panzoomRef.current) {
         panzoomRef.current._cleanup?.();
       }
+      // cleanup viewer shield if component unmounts
+      (viewerRef.current as any)?._shieldCleanup?.();
     };
   }, []);
 
@@ -178,7 +206,13 @@ export default function PhotoViewer({
       </div>
 
       <div className={styles.PhotoViewerContent}>
-        <div ref={containerRef} className={styles.Photo + " Photo"}>
+        <div
+          ref={containerRef}
+          className={styles.Photo + " Photo"}
+          onContextMenu={(e) => e.preventDefault()}
+          onMouseDown={(e) => { if (e.button === 2) e.preventDefault(); }}
+          onDragStart={(e) => e.preventDefault()}
+        >
           {selectedPhoto && selectedPhoto.src && selectedPhoto.video ? (
             <video
               key={selectedPhoto.src}
@@ -192,6 +226,9 @@ export default function PhotoViewer({
               height={720}
               style={{objectFit: "cover", marginTop: '6px', transformOrigin: "center center"}}
               onLoadedMetadata={onVideoReady}
+              draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
             >
               <source src={selectedPhoto.src} type="video/mp4" />
               Your browser does not support the video tag.
@@ -199,11 +236,12 @@ export default function PhotoViewer({
           ) : (
             <img
               ref={imgRef}
-              src={selectedPhoto?.src}
+              src={selectedPhoto?.src ?? undefined}
               alt={selectedPhoto?.alt ?? "Preview"}
               style={{ display: "none", margin: "0 auto", maxWidth: "90vw", height: "auto", cursor: "zoom-in" }}
               draggable={false}
               onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
               onLoad={onImageLoad}
             />) }
           <div className={styles.ImageTitle}>{selectedPhoto?.title}</div>

@@ -6,6 +6,8 @@ import Image from 'next/image';
 import HomePhotography from "@/components/Home/Photography/HomePhotography";
 
 export default function PhotographyPage() {
+  /** CONSTS **/
+  const isMobile = window.innerWidth <= 768;
 
   /** EFFECTS **/
   useEffect(() => {
@@ -14,7 +16,7 @@ export default function PhotographyPage() {
 
   /** RENDER **/
   return (
-    <div className={styles.PhotographyPage}>
+    <div className={`${styles.PhotographyPage}${isMobile ? ` ${styles.Mobile}` : ''}`}>
       <div className={styles.Header}>
         <Image src="/images/ornament_flower.png" alt="Photography" width={52} height={96}
           style={{marginRight: '8px', marginBottom: '12px'}}

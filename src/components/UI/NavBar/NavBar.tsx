@@ -85,7 +85,9 @@ export default function NavBar() {
   return (
     <header className={styles.NavBar}>
       <div className={styles.logo}>
-        <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={128} width={256} />
+        <Link href="/home" aria-label="Home">
+          <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={128} width={256} />
+        </Link>
       </div>
       {/*<div>*/}
       <div className={styles.menu}>
@@ -194,23 +196,6 @@ export default function NavBar() {
           href="/contact"
         >Contact</Link></div>
       </div>
-      {/*<div>*/}
-      {/*  <FormControl variant="filled">*/}
-      {/*    <MsearchField*/}
-      {/*      id="search-field-icon-adornment"*/}
-      {/*      variant={'filled'}*/}
-      {/*      slotProps={{*/}
-      {/*        input: {*/}
-      {/*          startAdornment: <InputAdornment position="start"><InputAdornment position="start">*/}
-      {/*            <SearchIcon htmlColor={'var(--mario-bg-color)'} />*/}
-      {/*          </InputAdornment></InputAdornment>,*/}
-      {/*        },*/}
-      {/*      }}*/}
-      {/*      // sx={{color: '#000', backgroundColor: 'white', borderRadius: '32px'}}*/}
-      {/*    />*/}
-      {/*  </FormControl>*/}
-      {/*</div>*/}
-      {/*</div>*/}
     </header>
   );
 }

@@ -6,33 +6,12 @@ import "slick-carousel/slick/slick-theme.css";
 import '@/styles/generic-page.scss';
 
 import Image from "next/image";
-import {useState} from "react";
-import {GenericItemType} from "@/Types/types";
 import {recentPaintingsCarouselEntries} from "@/assets/enhancedValues";
-import SliderCarousel from "@/components/PreviewCarousel/SliderCarousel";
-import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
+import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
 
 export default function RecentPaintingsPage() {
-  /** HOOKS **/
-  const [selectedPainting, setSelectedPainting] = useState<GenericItemType>(recentPaintingsCarouselEntries[0]);
-  const [openPhotoViewer, setOpenPhotoViewer] = useState(false);
-
   /** CONSTS **/
   const isMobile = window.innerWidth <= 768;
-
-  const selectPaintingHandler = (painting: GenericItemType) => {
-    setSelectedPainting(painting);
-  }
-
-  const viewPhotoHandler = () => {
-    localStorage.setItem('previewData', JSON.stringify(selectedPainting));
-    // window.location.href = '/view';
-    setOpenPhotoViewer(true);
-  }
-
-  const closePhotoViewerHandler = () => {
-    setOpenPhotoViewer(false);
-  }
 
   /** RENDER **/
   return (
@@ -46,33 +25,17 @@ export default function RecentPaintingsPage() {
       <div className={'generic-items-page__line'}></div>
       <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div id="recent-paintings" className="preview-canvas">
-          <img
-            src={selectedPainting?.src || '/images/paintings/img-001.jpg'}
-            alt={selectedPainting?.title || "Paintings"}
-            height={720}
-            style={{marginBottom: '16px'}}
-            onClick={viewPhotoHandler}
-            draggable={false}
-            onContextMenu={(e) => e.preventDefault()}
-            onDragStart={(e) => e.preventDefault()}
-          />
-          <div className={'ImageTitle'}>{selectedPainting.title}</div>
-          <div className={'ImageDescription'}>{selectedPainting.description}</div>
-          <SliderCarousel
+          <MediaCarousel
             items={recentPaintingsCarouselEntries}
-            showTitle={false}
-            showDescription={false}
+            showCanvas
+            showTitle={true}
+            showDescription={true}
+            showArrows
             showDots={!isMobile}
-            showArrows={!isMobile}
-            onSelect={selectPaintingHandler}
-            style={{margin: '16px 0'}}
+            style={{margin: '16px auto'}}
           />
         </div>
       </div>
-      <PhotoViewer
-        open={openPhotoViewer}
-        onClose={closePhotoViewerHandler}
-      />
     </div>
   );
 }

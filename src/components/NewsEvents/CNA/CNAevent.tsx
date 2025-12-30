@@ -18,7 +18,7 @@ export default function CNAevent() {
         showTitle={false}
         showDescription={false}
         showDots={!isMobile}
-        showArrows={!isMobile}
+        showArrows
         // onSelect={selectPhotoHandler}
         style={{margin: '16px 0'}}
       />

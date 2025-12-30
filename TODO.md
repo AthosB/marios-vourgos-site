@@ -147,7 +147,7 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] find equivalent static for video short _009  (black with blue/cyan lines)
 - [X] find ebony model short with black suit (add close to the end)
 - [X] investigate after home video documentary ends, youtube shows recommended next based on user's previous activity (if not, check with Orestis for alternative hosting)
-- [O] for Press silks photos, crop, straighten, contrast, etc
+- [X] for Press silks photos, crop, straighten, contrast, etc
 - [X] for Press literature add Fileleutheros photo as first
 - [X] Gallery paintings slider not working
 - [X] revert youtube controls remove YouTube link and share/expand controls etc
@@ -157,16 +157,17 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] Press Silks 1st and 2nd photos (cut Fileleftheros from 2nd, and add it as banner on the first, and then remove 2nd photo)
 - [X] same with 3 and 4th photo (on 3rd cut or add on top of the top part that ahs text from other article)
 - [X] remove 5th photo (too small content)
-- [X]copy Bazaar cover page and add small layer on the next photo (inner of magazine) ( put it on top to hide the "Antony Mprato" part)
-- [X]remove last photo (duplicate of moratto one)
+- [X] copy Bazaar cover page and add small layer on the next photo (inner of magazine) ( put it on top to hide the "Antony Mprato" part)
+- [X] remove last photo (duplicate of moratto one)
 - [X] on photo viewer zoom our caps on 50% and cannot zoom out to original size with mouse scroll
 - [X] revisit scrolling up on select image on image view on top (capture scroll or click)
-- rethink photo view on Phone (no option on new page) sice user can just zoom with pinch in/out ---> when isMobile disable new page
+- [X] rethink photo view on Phone (no option on new page) sice user can just zoom with pinch in/out ---> when isMobile disable new page
 - [X] for Desktop view change ImageViewer as a component popup - not new page(view)
 - [X] Add arrows on Mobile as well for carousel (indicates there are more photos available)
 - [ ] on Mobile view Landscaoe mode, chack footer overlapping out pf place on top
 - [X] video should take full width
-- [ ] on mobile, when viewing vodeo fullscreen (expand) and changing orientation, starts video from the beginning
+- [ ] on mobile, when viewing video fullscreen (expand) and changing orientation, starts video from the beginning
 - [X] News and events ---> red book photo make smaller → gets clipped on Mobile view
 - [X] on Mobile view nav bar has 2 PRESS entries (old page too)
 - [X] Add missing press youtube video for first version of press page
+- [ ] add download image blocker for Image Preview

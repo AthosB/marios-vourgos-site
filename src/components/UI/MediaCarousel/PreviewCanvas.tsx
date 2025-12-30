@@ -56,17 +56,25 @@ export default function PreviewCanvas({
     </div>;
   } else {
     return <div className={`${styles.PreviewCanvas}${isMobile ? ' ' + styles.Mobile : ''}`}>
-      <img
-        src={mediaData?.src || ''}
-        alt={mediaData?.title || "Paintings"}
-        height={isMobile ? undefined : 720}
-        width={isMobile ? 380 : undefined}
-        style={{marginBottom: '16px'}}
-        onClick={viewMediaHandler}
-        draggable={false}
-        onContextMenu={(e) => e.preventDefault()}
-        onDragStart={(e) => e.preventDefault()}
-      />
+      <div className={styles.PreviewImageWrapper}>
+        <img
+          src={mediaData?.src || ''}
+          alt={mediaData?.title || 'Paintings'}
+          height={isMobile ? undefined : 720}
+          width={isMobile ? 'auto' : undefined}
+          className={styles.PreviewImage}
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+        />
+        <div
+          className={styles.ImageShield}
+          onClick={viewMediaHandler}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+          onMouseDown={(e) => { if (e.button === 2) e.preventDefault(); }}
+        />
+      </div>
       {showCanvas ? (
         <PhotoViewer
           open={openMediaViewer}
