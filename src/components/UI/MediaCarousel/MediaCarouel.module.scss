@@ -16,14 +16,15 @@
   .PreviewImageWrapper {
     position: relative;
     display: inline-block;
-    width: 100%;
+    //width: 100%;
   }
 
   .PreviewImage {
     display: block;
-    width: 100%;
-    max-width: 60vw;
-    height: auto;
+    //width: 100%;
+    //max-width: 60vw;
+    width: unset;
+    //height: auto;
     -webkit-user-drag: none;
     user-select: none;
     pointer-events: none;
@@ -172,13 +173,13 @@
       //flex-direction: column;
       //align-items: center;
       //justify-content: space-between;
-      flex: 1;
+      //flex: 1;
       margin: 0 auto;
 
       img {
-        max-height: 60vh;
-        width: auto;
-        max-width: inherit !important;
+        //max-height: 60vh;
+        //width: auto;
+        //max-width: inherit !important;
         // TODO for portrait images --> width: auto, for landscape images --> width: inherit
       }
     }

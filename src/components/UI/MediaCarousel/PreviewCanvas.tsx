@@ -60,8 +60,10 @@ export default function PreviewCanvas({
         <img
           src={mediaData?.src || ''}
           alt={mediaData?.title || 'Paintings'}
-          height={isMobile ? undefined : 720}
-          width={isMobile ? 'auto' : undefined}
+          // height={isMobile ? undefined : 720}
+          // width={isMobile ? 'auto' : undefined}
+          height={isMobile ? 'auto' : 720}
+          width={isMobile ? undefined : undefined}
           className={styles.PreviewImage}
           draggable={false}
           onContextMenu={(e) => e.preventDefault()}
