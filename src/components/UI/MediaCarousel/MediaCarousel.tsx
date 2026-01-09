@@ -3,6 +3,7 @@ import styles from './MediaCarouel.module.scss';
 import { GenericItemType } from '@/Types/types';
 import useDragScroll from '@/hooks/useDragScroll';
 import PreviewCanvas from "@/components/UI/MediaCarousel/PreviewCanvas";
+import AutoImage from "@/components/UI/AutoImage/AutoImage";
 
 interface MediaCarouselProps {
   items: GenericItemType[];
@@ -244,7 +245,9 @@ export default function MediaCarousel(
     const v = videoRef.current;
     if (!v) return;
     try { v.load(); } catch { /* noop */ }
-    v.play && v.play().catch(() => { /* autoplay may be blocked */ });
+    if (typeof v.play === 'function') {
+      v.play().catch(() => { /* autoplay may be blocked */ });
+    }
   }, [selectedMedia?.src, selectedMedia?.video]);
 
   /** RENDER **/
@@ -328,20 +331,12 @@ export default function MediaCarousel(
                         </video>
                       </div>
                     ) : (
-                      <div
-                        className={'Shimmer'}
-                        style={{
-                          height: height ? height : isMobile ? 74 : 96,
-                          width: 'min-content !important',
-                        }}
-                        onClick={() => selectMediaHandler(item)}
-                      >
-                        <img
+                      <div onClick={() => selectMediaHandler(item)} style={{ lineHeight: 0 }}>
+                        <AutoImage
                           src={item.src}
                           alt={item.alt}
                           height={isMobile ? 77 : 96}
-                          width={isMobile ? 'unset' : 'min-content !important'}
-                          draggable={false}
+                          maxWidth={240} // optional but recommended for panoramas
                           onContextMenu={(e) => e.preventDefault()}
                           onDragStart={(e) => e.preventDefault()}
                         />

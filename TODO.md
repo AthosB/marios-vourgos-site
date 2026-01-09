@@ -164,7 +164,7 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] rethink photo view on Phone (no option on new page) sice user can just zoom with pinch in/out ---> when isMobile disable new page
 - [X] for Desktop view change ImageViewer as a component popup - not new page(view)
 - [X] Add arrows on Mobile as well for carousel (indicates there are more photos available)
-- [ ] on Mobile view Landscaoe mode, chack footer overlapping out pf place on top
+- [X] on Mobile view Landscaoe mode, chack footer overlapping out pf place on top
 - [X] video should take full width
 - [ ] on mobile, when viewing video fullscreen (expand) and changing orientation, starts video from the beginning
 - [X] News and events ---> red book photo make smaller → gets clipped on Mobile view
