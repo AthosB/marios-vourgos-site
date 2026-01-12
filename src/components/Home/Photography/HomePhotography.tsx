@@ -1,23 +1,20 @@
+// src/components/Home/Photography/HomePhotography.tsx
 'use client';
 
 import {photographyCarouselFilenames} from "@/assets/enhancedValues";
 
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
+import MediaCarousel2 from "@/components/UI/EmblaCarousel/MediaCarousel2";
 
-export default function HomePhotography({dots = false}: { dots?: boolean }) {
+export default function HomePhotography() {
   /** RENDER **/
   return <>
     <div id="home-photography" className="preview-canvas">
-      <MediaCarousel
-        items={photographyCarouselFilenames}
-        showCanvas
-        showTitle={true}
-        showDescription={true}
-        showDisclaimer
-        showArrows
-        showDots={dots}
-        // onSelect={selectImageHandler}
-        style={{margin: '16px auto'}}
+      <MediaCarousel2
+        slides={photographyCarouselFilenames}
+        options={{}}
+        showTitle
+        showDescription
+        showDisclaimer={true}
       />
     </div>
   </>;

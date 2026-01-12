@@ -164,10 +164,24 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] rethink photo view on Phone (no option on new page) sice user can just zoom with pinch in/out ---> when isMobile disable new page
 - [X] for Desktop view change ImageViewer as a component popup - not new page(view)
 - [X] Add arrows on Mobile as well for carousel (indicates there are more photos available)
-- [X] on Mobile view Landscaoe mode, chack footer overlapping out pf place on top
+- [X] on Mobile view Landscape mode, chack footer overlapping out pf place on top
 - [X] video should take full width
 - [ ] on mobile, when viewing video fullscreen (expand) and changing orientation, starts video from the beginning
 - [X] News and events ---> red book photo make smaller → gets clipped on Mobile view
 - [X] on Mobile view nav bar has 2 PRESS entries (old page too)
 - [X] Add missing press youtube video for first version of press page
 - [ ] add download image blocker for Image Preview
+- [ ] revert to dynamic copyright year
+- [ ] add photo remembering herself (yellow wings, n.30) after The sweet melancholia of timeless being
+- [ ] add number 8 from excel (the sleepwalker) 3 after The entanglement
+- [ ] add number 15 (excel) before "Euphoria" (blue at the last photos)
+- [ ] Thoughts of Future gone by (remove "I")
+- [ ] add 24 before perpetual juliet
+- [ ] add 26 (Moon Indigo) before Rapture
+- [ ] add 29 in the place of spring awaiting summer in the fall, and move that one after inf parapraxis
+- [ ] add 31 after 30 (hope is a glance at infinity)
+- [ ] add 33, then 36 (add both after Euphoria)
+- [ ] add 41, after The Sweet Melancholia of Timeless Being
+- [ ] add 55 after Hope is a glance at infinity
+- [ ] check downloads folder for the updated Excel file
+- [ ] change title "The Escape of Dreams" to "The Protection"

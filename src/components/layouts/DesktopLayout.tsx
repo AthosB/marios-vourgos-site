@@ -17,7 +17,7 @@ export default function DesktopLayout({
       {children}
       <footer>
         <p className={'footer-meta'}>
-          © 2025 Mario Vourgos.
+          © {new Date().getFullYear()} Mario Vourgos.
           All rights reserved. {getAppVersion()}
         </p>
       </footer>

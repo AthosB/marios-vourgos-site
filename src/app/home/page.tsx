@@ -28,9 +28,7 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <div
-        className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column + ' HomeSection'}
-      >
+      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column + ' HomeSection'}>
         <div className={'section-title'}>Photography</div>
         <HomePhotography />
       </div>
@@ -77,7 +75,7 @@ export default function HomePage() {
           />
         }
       ></SectionSeparator>
-      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column}>
+      <div className={styles.Section + ' ' + styles.Red + ' ' + styles.Column + ' HomeSection'}>
         <div className={'section-title'}>Fashion</div>
         <HomeFashion />
       </div>
@@ -96,6 +94,7 @@ export default function HomePage() {
       <div className={styles.Section + ' ' + styles.Purple + ' ' + styles.Column}>
         <div className={'section-title'}>Literature</div>
         <HomeLiterature />
+        <div style={{marginBottom: '24px'}}></div>
       </div>
     </div>
   );

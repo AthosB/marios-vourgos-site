@@ -24,7 +24,7 @@ export default function PhotographyPage() {
         Photography
       </div>
       <div className={styles.Line}></div>
-      <HomePhotography dots={true} />
+      <HomePhotography />
     </div>
   );
 }

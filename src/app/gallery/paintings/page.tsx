@@ -20,7 +20,7 @@ export default function PaintingsPage() {
       </div>
       <div className={'generic-items-page__line'}></div>
       <div style={{padding: '16px 32px'}}>
-        <HomePaintings dots={true} />
+        <HomePaintings />
       </div>
     </div>
   );

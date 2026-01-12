@@ -2,19 +2,18 @@
 'use client';
 
 import {paintingsCarousel} from "@/assets/enhancedValues";
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
+import MediaCarousel2 from "@/components/UI/EmblaCarousel/MediaCarousel2";
 
-export default function HomePaintings({dots = false} : {dots?: boolean}) {
+export default function HomePaintings() {
   /** RENDER **/
   return <>
     <div id="home-paintings" className="preview-canvas">
-      <MediaCarousel
-        items={paintingsCarousel}
-        showCanvas
+      <MediaCarousel2
+        slides={paintingsCarousel}
+        options={{}}
         showTitle={true}
         showDescription={true}
-        showArrows
-        showDots={dots}
+        showDisclaimer={false}
       />
     </div>
   </>;

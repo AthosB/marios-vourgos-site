@@ -23,7 +23,7 @@ export default function MobileLayout({
       {children}
       <footer>
         <p className={'copyright-footer'}>
-          © 2025 Mario Vourgos.
+          © {new Date().getFullYear()} Mario Vourgos.
           All rights reserved. {getAppVersion()}
         </p>
       </footer>

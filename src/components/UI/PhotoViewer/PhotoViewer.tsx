@@ -1,5 +1,5 @@
 // typescript
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Dialog from "@mui/material/Dialog";
 import styles from "./PhotoViewer.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
@@ -10,6 +10,7 @@ import panzoom from "panzoom";
 
 interface photoViewerProps {
   open?: boolean;
+  media?: GenericItemType | null;
   onClose?: () => void;
 }
 
@@ -17,9 +18,9 @@ type PanzoomWithCleanup = ReturnType<typeof panzoom> & { _cleanup?: () => void }
 
 export default function PhotoViewer({
   open = false,
+  media = null,
   onClose = () => null,
 }: photoViewerProps) {
-  const [selectedPhoto, setSelectedPhoto] = useState<GenericItemType | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -37,34 +38,12 @@ export default function PhotoViewer({
       panzoomRef.current = null;
     }
 
-    setSelectedPhoto(null);
     if (onClose) onClose();
   };
 
   useEffect(() => {
     if (!open) return;
-    try {
-      const raw = typeof window !== "undefined" ? localStorage.getItem("previewData") : null;
-      const previewData = raw ? (JSON.parse(raw) as GenericItemType) : null;
-      setSelectedPhoto(previewData);
-    } catch {
-      setSelectedPhoto(null);
-    }
   }, [open]);
-
-  useEffect(() => {
-    const onStorage = (e: StorageEvent) => {
-      if (e.key === "previewData") {
-        try {
-          setSelectedPhoto(e.newValue ? (JSON.parse(e.newValue) as GenericItemType) : null);
-        } catch {
-          // ignore
-        }
-      }
-    };
-    window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
-  }, []);
 
   useEffect(() => {
     if (!open) {
@@ -77,21 +56,8 @@ export default function PhotoViewer({
         panzoomRef.current.dispose();
         panzoomRef.current = null;
       }
-      setSelectedPhoto(null);
     }
   }, [open]);
-
-  useEffect(() => {
-    // when changing selected photo, remove existing instances and cleanup listeners
-    (viewerRef.current as any)?._shieldCleanup?.();
-    viewerRef.current?.destroy();
-    viewerRef.current = null;
-
-    if (panzoomRef.current) {
-      panzoomRef.current.dispose();
-      panzoomRef.current = null;
-    }
-  }, [selectedPhoto]);
 
   const onImageLoad = () => {
     if (viewerRef.current) return;
@@ -213,11 +179,11 @@ export default function PhotoViewer({
           onMouseDown={(e) => { if (e.button === 2) e.preventDefault(); }}
           onDragStart={(e) => e.preventDefault()}
         >
-          {selectedPhoto && selectedPhoto.src && selectedPhoto.video ? (
+          {media && media.src && media.video ? (
             <video
-              key={selectedPhoto.src}
+              key={media.src}
               ref={videoRef}
-              src={selectedPhoto.src}
+              src={media.src}
               autoPlay
               loop
               muted
@@ -230,25 +196,25 @@ export default function PhotoViewer({
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}
             >
-              <source src={selectedPhoto.src} type="video/mp4" />
+              <source src={media.src} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           ) : (
             <img
               ref={imgRef}
-              src={selectedPhoto?.src ?? undefined}
-              alt={selectedPhoto?.alt ?? "Preview"}
+              src={media?.src ?? undefined}
+              alt={media?.alt ?? "Preview"}
               style={{ display: "none", margin: "0 auto", maxWidth: "90vw", height: "auto", cursor: "zoom-in" }}
               draggable={false}
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}
               onLoad={onImageLoad}
             />) }
-          <div className={styles.ImageTitle}>{selectedPhoto?.title}</div>
+          <div className={styles.ImageTitle}>{media?.title}</div>
           <div className={styles.ImageDescription} style={{ textAlign: "center" }}>
-            {selectedPhoto?.description}
+            {media?.description}
           </div>
-          {(selectedPhoto && selectedPhoto.src && selectedPhoto.src.includes("photography")) && (
+          {(media && media.src && media.src.includes("photography")) && (
             <div className={styles.ImageDisclaimer}>
               Disclaimer: All photos are original photos as shot without any digital manipulation
             </div>

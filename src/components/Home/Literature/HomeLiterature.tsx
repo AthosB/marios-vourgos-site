@@ -5,19 +5,19 @@
 import {literatureTango29Carousel} from "@/assets/enhancedValues";
 import {Button} from "@mui/material";
 import styles from './HomeLiterature.module.scss';
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
+import MediaCarousel2 from "@/components/UI/EmblaCarousel/MediaCarousel2";
 
-export default function HomeLiterature({dots = false} : {dots?: boolean}) {
+export default function HomeLiterature() {
   /** RENDER **/
   return (
     <div className="preview-canvas">
-      <MediaCarousel
-        items={literatureTango29Carousel}
-        showCanvas
+      <MediaCarousel2
+        slides={literatureTango29Carousel}
+        options={{}}
         showTitle={false}
         showDescription={false}
-        showDisclaimer
-        disclaimerText={<div className={'ImageTitle'}>
+        showDisclaimer={true}
+        disclaimer={<div className={'ImageTitle'}>
           <p style={{textAlign: 'center', margin: '16px auto 0 auto', maxWidth: '80vw'}}>
             The medieval castle was transformed into a modern stage, with live theatrical characters and visual
             installations, where attendees watched the verses from Marios Vourgos’ poetry collection “Tango 29” come
@@ -43,8 +43,6 @@ export default function HomeLiterature({dots = false} : {dots?: boolean}) {
             </a>
           </div>
         </div>}
-        showArrows
-        showDots={dots}
       />
     </div>
   );
