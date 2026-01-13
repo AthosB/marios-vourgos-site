@@ -3,7 +3,6 @@ import '@/styles/globals.scss';
 import '@/styles/mario.scss';
 import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
 import NavBar from "@/components/UI/NavBar/NavBar";
-import {getAppVersion} from "@/utils/helpers";
 
 export default function DesktopLayout({
   children,
@@ -18,7 +17,7 @@ export default function DesktopLayout({
       <footer>
         <p className={'footer-meta'}>
           © {new Date().getFullYear()} Mario Vourgos.
-          All rights reserved. {getAppVersion()}
+          All rights reserved.
         </p>
       </footer>
     </AppRouterCacheProvider>

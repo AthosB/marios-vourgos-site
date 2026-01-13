@@ -83,9 +83,8 @@ export default function MobileMenu() {
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
-              sx={{ fontFamily: 'Cinzel SemiBold, sans-serif' }}
             >
-              <div style={{fontFamily: 'Cinzel SemiBold, sans-serif'}}>News</div>
+              <div>News</div>
             </AccordionSummary>
             <AccordionDetails>
               <MenuItem onClick={handleClose}><Link href="/news/photography"

@@ -4,7 +4,6 @@ import '@/styles/globals.scss';
 import '@/styles/mario.scss';
 import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
 import MobileMenu from "@/components/UI/NavBar/MobileMenu";
-import {getAppVersion} from "@/utils/helpers";
 
 export const metadata: Metadata = {
   title: "Marios Vourgos",
@@ -24,7 +23,7 @@ export default function MobileLayout({
       <footer>
         <p className={'copyright-footer'}>
           © {new Date().getFullYear()} Mario Vourgos.
-          All rights reserved. {getAppVersion()}
+          All rights reserved.
         </p>
       </footer>
     </AppRouterCacheProvider>

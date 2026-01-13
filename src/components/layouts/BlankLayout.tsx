@@ -4,7 +4,6 @@ import {ReactNode} from "react";
 import '@/styles/globals.scss';
 import '@/styles/mario.scss';
 import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
-import {getAppVersion} from "@/utils/helpers";
 
 export default function BlankLayout({
   children,
@@ -17,7 +16,7 @@ export default function BlankLayout({
       {children}
       <p className={'footer-meta'}>
         © 2025 Mario Vourgos.
-        All rights reserved. {getAppVersion()}
+        All rights reserved.
       </p>
     </AppRouterCacheProvider>
   );
