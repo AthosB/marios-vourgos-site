@@ -85,7 +85,7 @@ export default function MobileMenu() {
               id="panel1-header"
               sx={{ fontFamily: 'Cinzel SemiBold, sans-serif' }}
             >
-              <div>News</div>
+              <div style={{fontFamily: 'Cinzel SemiBold, sans-serif'}}>News</div>
             </AccordionSummary>
             <AccordionDetails>
               <MenuItem onClick={handleClose}><Link href="/news/photography"

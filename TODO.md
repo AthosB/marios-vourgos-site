@@ -170,18 +170,18 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] News and events ---> red book photo make smaller → gets clipped on Mobile view
 - [X] on Mobile view nav bar has 2 PRESS entries (old page too)
 - [X] Add missing press youtube video for first version of press page
-- [ ] add download image blocker for Image Preview
-- [ ] revert to dynamic copyright year
-- [ ] add photo remembering herself (yellow wings, n.30) after The sweet melancholia of timeless being
-- [ ] add number 8 from excel (the sleepwalker) 3 after The entanglement
-- [ ] add number 15 (excel) before "Euphoria" (blue at the last photos)
-- [ ] Thoughts of Future gone by (remove "I")
-- [ ] add 24 before perpetual juliet
-- [ ] add 26 (Moon Indigo) before Rapture
-- [ ] add 29 in the place of spring awaiting summer in the fall, and move that one after inf parapraxis
-- [ ] add 31 after 30 (hope is a glance at infinity)
-- [ ] add 33, then 36 (add both after Euphoria)
-- [ ] add 41, after The Sweet Melancholia of Timeless Being
-- [ ] add 55 after Hope is a glance at infinity
-- [ ] check downloads folder for the updated Excel file
-- [ ] change title "The Escape of Dreams" to "The Protection"
+- [X] add download image blocker for Image Preview
+- [X] revert to dynamic copyright year
+- [X] add photo remembering herself (yellow wings, n.30) after The sweet melancholia of timeless being
+- [X] add number 8 from excel (the sleepwalker) 3 after The entanglement
+- [X] add number 15 (excel) before "Euphoria" (blue at the last photos)
+- [X] Thoughts of Future gone by (remove "I")
+- [X] add 24 before perpetual juliet
+- [X] add 26 (Mood Indigo) before Rapture
+- [X] add 29 in the place of spring awaiting summer in the fall, and move that one after inf parapraxis
+- [X] add 31 after 30 (hope is a glance at infinity)
+- [X] add 33, then 36 (add both after Euphoria)
+- [X] add 41, after The Sweet Melancholia of Timeless Being
+- [X] add 55 after Hope is a glance at infinity
+- [X] check downloads folder for the updated Excel file
+- [X] change title "The Escape of Dreams" to "The Protection"

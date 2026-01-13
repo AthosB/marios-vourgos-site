@@ -1,7 +1,7 @@
 // components/AppLayoutChooser.tsx
 'use client';
 
-import {useEffect, useState, ReactNode, FormEvent} from 'react';
+import {useEffect, useState, ReactNode} from 'react';
 import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 
@@ -10,50 +10,11 @@ const DesktopLayout = dynamic(() => import('@/components/layouts/DesktopLayout')
 
 type Choice = 'mobile' | 'desktop';
 
-const PREDEFINED_PASSWORD = 'IseeYou';
-
 function getQueryOverride(): Choice | null {
   const p = new URLSearchParams(typeof window === 'undefined' ? '' : window.location.search);
   const v = p.get('layout');
   if (v === 'mobile' || v === 'desktop') return v;
   return null;
-}
-
-function PasswordGate({children}: { children: ReactNode }) {
-  const [input, setInput] = useState('');
-  const [authenticated, setAuthenticated] = useState(false);
-
-  useEffect(() => {
-    if (localStorage.getItem('authenticated') === 'true') {
-      setAuthenticated(true);
-    }
-  }, []);
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    if (input === PREDEFINED_PASSWORD) {
-      setAuthenticated(true);
-      localStorage.setItem('authenticated', 'true');
-    }
-  };
-
-  if (!authenticated) {
-    return (
-      <form onSubmit={handleSubmit} style={{margin: '2rem'}}>
-        <label>
-          Enter password:
-          <input
-            type="password"
-            value={input}
-            onChange={e => setInput(e.target.value)}
-          />
-        </label>
-        <button type="submit">Submit</button>
-      </form>
-    );
-  }
-
-  return <>{children}</>;
 }
 
 function useLayoutChoice(breakpoint = '(max-width: 767px)') {
@@ -109,6 +70,6 @@ export default function AppLayoutChooser({children}: { children: ReactNode }) {
   if (choice === null) return <div suppressHydrationWarning />;
 
   return choice === 'mobile'
-    ? <PasswordGate><MobileLayout>{children}</MobileLayout></PasswordGate>
-    : <PasswordGate><DesktopLayout>{children}</DesktopLayout></PasswordGate>;
+    ? <MobileLayout>{children}</MobileLayout>
+    : <DesktopLayout>{children}</DesktopLayout>;
 }

@@ -175,9 +175,6 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
           {(showDescription && slides && slides[selectedIndex] && slides[selectedIndex].description && slides[selectedIndex]?.description?.length > 0) &&
             <div className="embla-slide__description">            {slides[selectedIndex]?.description}
             </div>}
-          <div className={'embla-slide__description'}>
-            isMobile: {isMobile.toString()}
-          </div>
           {(showDisclaimer && disclaimer) &&
             <div className="embla-slide__disclaimer">
               {disclaimer}

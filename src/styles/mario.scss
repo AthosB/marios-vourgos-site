@@ -312,6 +312,11 @@ $accent-color: #fcb040;
   }
 }
 
+.MuiAccordionSummary-content {
+  font-family: "CinzelRegular", sans-serif !Important;
+  transition: all ease-in-out 0.2s;
+}
+
 .preview-canvas {
   //element that previews selected item from carousel on top of it
   display: flex;
