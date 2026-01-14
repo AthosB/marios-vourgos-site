@@ -18,7 +18,8 @@
 }
 .embla__slide {
   //transform: translate3d(0, 0, 0);
-  flex: 0 0 var(--slide-size);
+  //flex: 0 0 var(--slide-size);
+  flex: 0 0 auto;
   //width: 90vw;
   min-width: 0;
   padding-left: var(--slide-spacing);
@@ -82,31 +83,69 @@
 }
 .embla-thumbs__viewport {
   overflow: hidden;
+  max-width: calc(100vw - 146px);
+
+  &.Mobile {
+    max-width: calc(100vw - 86px);
+  }
 }
 .embla-thumbs__container {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  gap: 8px;
   margin-left: calc(var(--thumbs-slide-spacing) * -1);
 }
 .embla-thumbs__slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 22%;
-  //flex: 0 0 10%;
-  min-width: 0;
-  height: var(--thumbs-slide-height);
-  padding-left: var(--thumbs-slide-spacing);
-  //text-align: center;
+  //display: flex;
+  //align-items: center;
+  ////justify-content: center;
+  //flex: 0 0 auto;
+  ////flex: 0 0 10%;
+  //min-width: 0;
+  //height: var(--thumbs-slide-height);
+  //padding-left: var(--thumbs-slide-spacing);
+
+  height: 100%;
+  width: auto;           /* lets landscape be wider */
+  object-fit: contain;
+  display: block;
 
   &.embla-thumbs__slide--mobile {
     transform: scale(0.8);
   }
+
+  &.Mobile {
+    height: 80px !important;
+  }
 }
+
+.embla-thumbs__button {
+  height: 100%;
+  width: auto;           /* width determined by content */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* optional */
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+/* The actual thumbnail image */
+.embla-thumbs__img {
+  height: 100%;
+  width: auto;           /* lets landscape be wider */
+  max-width: 220px;      /* optional: prevent 1 pano from becoming huge */
+  object-fit: contain;
+  display: block;
+}
+
 @media (min-width: 576px) {
   .embla-thumbs__slide {
     //flex: 0 0 15%;
-    flex: 0 0 10%;
+    flex: 0 0 auto;
   }
 }
 .embla-thumbs__slide__number {

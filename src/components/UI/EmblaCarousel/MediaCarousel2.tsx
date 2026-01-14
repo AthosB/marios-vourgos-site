@@ -190,21 +190,39 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
         {showArrows && <div>
           <PrevButton onClick={onPrevious} disabled={prevBtnDisabled} />
         </div>}
-        <div className="embla-thumbs" style={{ width: isMobile ? 'calc(100vw - 88px)' : 'auto' }}>
-          <div className="embla-thumbs__viewport" ref={emblaThumbsRef}>
-            <div className="embla-thumbs__container">
-              {slides.map((slideItem: GenericItemType, index: number) => (
-                <Thumb
-                  key={index}
-                  onClick={() => onThumbClick(index)}
-                  selected={index === selectedIndex}
-                  isLandscape={slideItem.landscape}
-                  isVideo={slideItem.video}
-                  isMobile={isMobile}
-                  index={index}
-                  imageSrc={slideItem.src}
-                  flex={thumbsFlex}
-                />
+        {/*<div className="embla-thumbs" style={{ width: isMobile ? 'calc(100vw - 88px)' : 'auto' }}>*/}
+        {/*  <div className="embla-thumbs__viewport" ref={emblaThumbsRef}>*/}
+        {/*    <div className="embla-thumbs__container">*/}
+        {/*      {slides.map((slideItem: GenericItemType, index: number) => (*/}
+        {/*        <Thumb*/}
+        {/*          key={index}*/}
+        {/*          onClick={() => onThumbClick(index)}*/}
+        {/*          selected={index === selectedIndex}*/}
+        {/*          isLandscape={slideItem.landscape}*/}
+        {/*          isVideo={slideItem.video}*/}
+        {/*          isMobile={isMobile}*/}
+        {/*          index={index}*/}
+        {/*          imageSrc={slideItem.src}*/}
+        {/*          flex={thumbsFlex}*/}
+        {/*        />*/}
+        {/*      ))}*/}
+        {/*    </div>*/}
+        {/*  </div>*/}
+        {/*</div>*/}
+        <div className="embla-thumbs">
+          <div className={`embla-thumbs__viewport${isMobile ? ' Mobile' : ''}`} ref={emblaThumbsRef}>
+            <div className="embla-thumbs__container" style={{ ["--thumb-h" as any]: "76px" }}>
+              {slides.map((s, i) => (
+                <div
+                  className={`embla-thumbs__slide${isMobile ? ' Mobile' : ''}`} key={s.src}
+                  onClick={() => onThumbClick(i)}
+                >
+                  <button
+                    className="embla-thumbs__button" onClick={() => emblaMainApi?.scrollTo(i)}
+                  >
+                    <img className="embla-thumbs__img" src={s.src} alt={s.alt ?? ""} />
+                  </button>
+                </div>
               ))}
             </div>
           </div>

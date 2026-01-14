@@ -185,3 +185,4 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] add 55 after Hope is a glance at infinity
 - [X] check downloads folder for the updated Excel file
 - [X] change title "The Escape of Dreams" to "The Protection"
+- 

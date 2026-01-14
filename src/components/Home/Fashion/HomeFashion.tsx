@@ -108,7 +108,7 @@ export default function HomeFashion() {
 
   /** RENDER **/
   return <>
-    <div id="home-fashion" className="preview-canvas">
+    <div id="home-fashion" className="preview-canvas FashionCarousel">
       <div className="embla">
         <div className="embla__viewport" ref={emblaMainRef}>
           <div className="embla__container">
