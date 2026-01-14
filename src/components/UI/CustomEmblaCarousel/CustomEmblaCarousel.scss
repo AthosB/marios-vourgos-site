@@ -57,7 +57,9 @@
   display: flex;
   gap: 10px;
   align-items: center;
+  justify-content: space-between;
   box-sizing: border-box;
+  margin: 0 8px;
 }
 
 /* Fixed height, VARIABLE width */
@@ -122,4 +124,31 @@
 
 .mc2__dot.is-active {
   background-color: var(--mario-accent-color);
+}
+
+.mc2-slide__meta {
+  margin-top: 32px;
+
+  .mc2-slide__title {
+    font-size: 1.2rem;
+    font-family: 'CinzelRegular', sans-serif;
+    margin-bottom: 4px;
+    text-align: center;
+    color: var(--mario-accent-color);
+  }
+
+  .mc2-slide__description {
+    font-size: 1rem;
+    font-family: 'CinzelRegular', sans-serif;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--mario-accent-color);
+    opacity: 0.8;
+  }
+
+  .mc2-slide__disclaimer {
+    font-family: 'CinzelRegular', sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+  }
 }

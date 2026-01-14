@@ -2,18 +2,21 @@
 'use client';
 
 import {paintingsCarousel} from "@/assets/enhancedValues";
-import MediaCarousel2 from "@/components/UI/EmblaCarousel/MediaCarousel2";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function HomePaintings() {
+  /** PRES **/
+  const isMobile = window.innerWidth <= 768;
+
   /** RENDER **/
   return <>
     <div id="home-paintings" className="preview-canvas">
-      <MediaCarousel2
+      <CustomEmblaCarousel
         slides={paintingsCarousel}
-        options={{}}
-        showTitle={true}
-        showDescription={true}
-        showDisclaimer={false}
+        thumbHeight={isMobile ? 100 : 150}
+        pageSize={5}
+        showDots={!isMobile}
+        dragFree={false}
       />
     </div>
   </>;

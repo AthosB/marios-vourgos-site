@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useCallback, useEffect, useMemo, useState, CSSProperties } from 'react'
+import React, {useCallback, useEffect, useMemo, useState, CSSProperties, ReactNode} from 'react'
 import './CustomEmblaCarousel.scss';
 import useEmblaCarousel from 'embla-carousel-react'
-import type { EmblaCarouselType } from 'embla-carousel'
+import type {EmblaCarouselType} from 'embla-carousel'
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
 import {GenericItemType} from "@/Types/types";
 
@@ -13,6 +13,10 @@ type Props = {
   pageSize?: number             // for arrows/dots paging
   showDots?: boolean
   dragFree?: boolean
+  showTitle?: boolean
+  showDescription?: boolean
+  showDisclaimer?: boolean
+  disclaimer?: string | ReactNode;
 }
 
 function clamp(n: number, min: number, max: number) {
@@ -20,12 +24,16 @@ function clamp(n: number, min: number, max: number) {
 }
 
 export default function CustomEmblaCarousel({
-                                                         slides,
-                                                         thumbHeight = 76,
-                                                         pageSize = 5,
-                                                         showDots = true,
-                                                         dragFree = true,
-                                                       }: Props) {
+                                              slides,
+                                              thumbHeight = 76,
+                                              pageSize = 5,
+                                              showDots = true,
+                                              dragFree = true,
+                                              showTitle = true,
+                                              showDescription = true,
+                                              showDisclaimer = false,
+                                              disclaimer = 'Disclaimer: All photos are original photos as shot without any digital manipulation.'
+                                            }: Props) {
   /** STATES **/
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [selectedImage, setSelectedImage] = useState<GenericItemType | null>(slides[0]);
@@ -66,7 +74,6 @@ export default function CustomEmblaCarousel({
     [emblaApi, scrollThumbIntoView]
   )
 
-  // Arrow paging (scroll thumb strip only; does NOT change selectedIndex)
   const scrollBy = useCallback(
     (offset: number) => {
       if (!emblaApi) return
@@ -132,6 +139,19 @@ export default function CustomEmblaCarousel({
           />
         ) : null}
       </div>
+      <div className="mc2-slide__meta">
+        {(showTitle && slides && slides[selectedIndex].title && slides[selectedIndex].title.length > 0) &&
+          <div className="mc2-slide__title">
+            {slides[selectedIndex]?.title}
+          </div>}
+        {(showDescription && slides && slides[selectedIndex] && slides[selectedIndex].description && slides[selectedIndex]?.description?.length > 0) &&
+          <div className="mc2-slide__description">            {slides[selectedIndex]?.description}
+          </div>}
+        {(showDisclaimer && disclaimer) &&
+          <div className="mc2-slide__disclaimer">
+            {disclaimer}
+          </div>}
+      </div>
 
       {/* Thumbs carousel */}
       <div className="mc2__thumbbar">
@@ -163,7 +183,7 @@ export default function CustomEmblaCarousel({
           <div className="embla__viewport" ref={emblaRef}>
             <div
               className="embla__container"
-              style={{ ['--thumb-h' as any]: `${thumbHeight}px` }}
+              style={{['--thumb-h' as any]: `${thumbHeight}px`}}
             >
               {slides.map((s, i) => (
                 <button
@@ -173,7 +193,7 @@ export default function CustomEmblaCarousel({
                   onClick={() => onThumbClick(i)}
                   title={s.title ?? s.alt ?? ''}
                 >
-                  <img className="mc2__thumbImg" src={s.src} alt={s.alt ?? ''} draggable={false} />
+                  <img className="mc2__thumbImg" src={s.src} alt={s.alt ?? ''} draggable={false}/>
                 </button>
               ))}
             </div>
@@ -208,7 +228,7 @@ export default function CustomEmblaCarousel({
       {/* Optional dot navigation (pages) */}
       {showDots && (
         <div className="mc2__dots">
-          {Array.from({ length: pageCount }).map((_, p) => (
+          {Array.from({length: pageCount}).map((_, p) => (
             <button
               key={p}
               type="button"

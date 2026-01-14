@@ -3,17 +3,21 @@
 'use client';
 
 import {literatureTango29Carousel} from "@/assets/enhancedValues";
-import {Button} from "@mui/material";
-import styles from './HomeLiterature.module.scss';
-import MediaCarousel2 from "@/components/UI/EmblaCarousel/MediaCarousel2";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function HomeLiterature() {
+  /** PRES **/
+  const isMobile = window.innerWidth <= 768;
+
   /** RENDER **/
   return (
     <div className="preview-canvas">
-      <MediaCarousel2
+      <CustomEmblaCarousel
         slides={literatureTango29Carousel}
-        options={{}}
+        thumbHeight={isMobile ? 100 : 150}
+        pageSize={5}
+        showDots={!isMobile}
+        dragFree={false}
         showTitle={false}
         showDescription={false}
         showDisclaimer={true}
@@ -26,22 +30,6 @@ export default function HomeLiterature() {
           <p style={{color: '#fff', fontSize: '1.2rem', fontWeight: 500, textAlign: 'center', marginTop: '16px'}}>
             Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer).
           </p>
-          <div className={styles.Action}>
-            <a
-              href={'https://www.tango29.eu/'}
-              target="_blank"
-              rel={'noreferrer'}
-              style={{margin: '0 auto'}}
-              title="Tango 29 (opens in a new tab)"
-            >
-              <Button
-                variant="contained"
-                color="warning"
-              >
-                More
-              </Button>
-            </a>
-          </div>
         </div>}
       />
     </div>

@@ -18,6 +18,9 @@ export default function HomePhotography() {
         pageSize={5}
         showDots={!isMobile}
         dragFree={false}
+        showTitle={true}
+        showDescription={true}
+        showDisclaimer={true}
       />
     </div>
   </>;
