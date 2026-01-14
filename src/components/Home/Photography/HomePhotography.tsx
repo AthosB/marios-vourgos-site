@@ -3,18 +3,21 @@
 
 import {photographyCarouselFilenames} from "@/assets/enhancedValues";
 
-import MediaCarousel2 from "@/components/UI/EmblaCarousel/MediaCarousel2";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function HomePhotography() {
+  /** PRES **/
+  const isMobile = window.innerWidth <= 768;
+
   /** RENDER **/
   return <>
     <div id="home-photography" className="preview-canvas">
-      <MediaCarousel2
+      <CustomEmblaCarousel
         slides={photographyCarouselFilenames}
-        options={{}}
-        showTitle
-        showDescription
-        showDisclaimer={true}
+        thumbHeight={isMobile ? 100 : 150}
+        pageSize={5}
+        showDots={!isMobile}
+        dragFree={false}
       />
     </div>
   </>;

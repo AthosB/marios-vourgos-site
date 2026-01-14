@@ -185,4 +185,12 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] add 55 after Hope is a glance at infinity
 - [X] check downloads folder for the updated Excel file
 - [X] change title "The Escape of Dreams" to "The Protection"
+- [ ] on arrow click only change carousel, not selected photo
+- Fix number Perpetual juliet
+- the escape of dreams erroneous
+- [ ] On slider thumb click, the preview on top changes but as a static image, not carousel movement
+- [ ] fix rain effect on phone
+- [ ] swap remembering herself with the third photo
+- [ ] remove "More" in landing page at the end (literature)
+- [ ] on Gallery Paintings replace "paintings" with "work" for all page headers
 - 

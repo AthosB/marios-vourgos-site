@@ -34,8 +34,9 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
   } = props
   const isMobile = window.innerWidth <= 768;
   // const [selectedIndex, setSelectedIndex] = useState(0)
-  const [selectedImage, setSelectedImage] = useState<GenericItemType | null>(null);
+  const [selectedImage, setSelectedImage] = useState<GenericItemType | null>(slides[0]);
   const [openMediaViewer, setOpenMediaViewer] = useState(false);
+  const [currentScrollSnap, setCurrentScrollSnap] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [emblaMainRef, emblaMainApi] = useEmblaCarousel(options)
@@ -78,14 +79,43 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
   );
 
   const onSelect = useCallback(() => {
-    if (!emblaMainApi || !emblaThumbsApi) return
+    if (!emblaMainApi || !emblaThumbsApi) return;
     // setSelectedIndex(emblaMainApi.selectedScrollSnap())
     emblaThumbsApi.scrollTo(emblaMainApi.selectedScrollSnap())
   }, [emblaMainApi, emblaThumbsApi])
 
   const onNext = () => {
-    if (!emblaMainApi) return;
-    emblaMainApi.scrollTo(emblaMainApi.selectedScrollSnap() + 5);
+    // if (!emblaMainApi) return;
+    // console.log('Next arrow click');
+    // console.log('emblaThumbsRef', emblaThumbsRef);
+    // emblaMainApi.scrollTo(emblaMainApi.selectedScrollSnap() + 5);
+    if (!emblaMainApi || !emblaThumbsApi) return;
+    const index = currentScrollSnap;
+    setCurrentScrollSnap(index + 5);
+
+    // scroll main carousel to the clicked slide
+    emblaMainApi.scrollTo(index);
+
+    // center the clicked thumb in the thumbs viewport
+    const total = emblaThumbsApi.slideNodes().length;
+    console.log('total', total);
+    const lastPage = Math.ceil(slides.length / PAGE_SIZE);
+    console.log('last page', lastPage);
+    // if (total <= PAGE_SIZE) {
+    //   emblaThumbsApi.scrollTo(0);
+    //   return;
+    // }
+    if(currentScrollSnap < lastPage) {
+      emblaThumbsApi.scrollTo(0);
+      return;
+    }
+
+    const half = Math.floor(PAGE_SIZE / 2);
+    const maxStart = Math.max(0, total - PAGE_SIZE);
+    const target = Math.max(0, Math.min(index - half, maxStart));
+
+    emblaThumbsApi.scrollTo(isMobile ? target + 2 : target);
+    console.log('current scroll snap', currentScrollSnap);
   };
 
   const onPrevious = () => {
@@ -103,6 +133,10 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
     return Math.floor(emblaMainApi.selectedScrollSnap() / PAGE_SIZE);
   };
 
+  const selectThumbHandler = (mediaData: GenericItemType) => {
+    setSelectedImage(mediaData);
+  };
+
   const previewImageHandler = (image: GenericItemType) => {
     setSelectedImage(image);
     setOpenMediaViewer(true);
@@ -111,6 +145,14 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
   const closeMediaViewerHandler = () => {
     setSelectedImage(null);
     setOpenMediaViewer(false);
+  }
+
+  const scrollBy = (offset: number) => {
+    if (!emblaMainApi) return
+
+    const currentIndex = emblaMainApi.selectedScrollSnap()
+    console.log('current index', currentIndex);
+    emblaMainApi.scrollTo(currentIndex + offset)
   }
 
   useEffect(() => {
@@ -137,38 +179,13 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
     <div className="embla">
       <div className="embla__viewport" ref={emblaMainRef}>
         <div className="embla__container">
-          {slides.map((slideItem: GenericItemType, index: number) => (
-            <div className="embla__slide" key={index}>
-              {slideItem.video ? (<div className="embla__slide__video">
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="none"
-                  style={{ 
-                    objectFit: 'cover', 
-                    flex: isMobile ? 1 : 'unset',
-                    height: isMobile ? 'fit-content' : '100%',
-                    width: isMobile ? 98 : 'min-content !important'
-                  }}
-                >
-                  <source src={slideItem.src} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </div>) : (<div
-                className="embla__slide__image"
-                style={{
-                  backgroundImage: `url(${slideItem.src})`,
-                  backgroundSize: 'contain',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundPosition: 'center center'
-                }}
-                onClick={() => previewImageHandler(slideItem)}
-              ></div>)}
-            </div>
-          ))}
+          <div className="media-preview__container">
+            <img
+              src={selectedImage?.src}
+              alt={selectedImage?.alt}
+              onClick={() => previewImageHandler(selectedImage!)}
+            />
+          </div>
         </div>
 
         <div className="embla-slide__meta">
@@ -215,10 +232,12 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
               {slides.map((s, i) => (
                 <div
                   className={`embla-thumbs__slide${isMobile ? ' Mobile' : ''}`} key={s.src}
-                  onClick={() => onThumbClick(i)}
+                  onClick={() => selectThumbHandler(s)}
                 >
                   <button
-                    className="embla-thumbs__button" onClick={() => emblaMainApi?.scrollTo(i)}
+                    type="button"
+                    className="embla-thumbs__button embla-thumbs__slide__number embla-thumb-item"
+                    onClick={() => emblaMainApi?.scrollTo(i)}
                   >
                     <img className="embla-thumbs__img" src={s.src} alt={s.alt ?? ""} />
                   </button>
@@ -228,7 +247,9 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
           </div>
         </div>
         {showArrows && <div>
-          <NextButton onClick={onNext} disabled={nextBtnDisabled} />
+          <NextButton
+            onClick={() => scrollBy(5)} disabled={false}
+          />
         </div>}
       </div>
       {showDots && <div className="embla-dots-navigatiion">
