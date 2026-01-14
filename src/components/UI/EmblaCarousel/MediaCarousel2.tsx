@@ -146,9 +146,15 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
                   loop
                   muted
                   playsInline
-                  height={isMobile ? 'fit-content' : '100%'}
-                  width={isMobile ? 98 : 'min-content !important'}
-                  style={{ objectFit: 'cover', flex: isMobile ? 1 : 'unset' }}
+                  // height={isMobile ? 'fit-content' : '100%'}
+                  // width={isMobile ? 98 : 'min-content !important'}
+                  preload="none"
+                  style={{ 
+                    objectFit: 'cover', 
+                    flex: isMobile ? 1 : 'unset',
+                    height: isMobile ? 'fit-content' : '100%',
+                    width: isMobile ? 98 : 'min-content !important'
+                  }}
                 >
                   <source src={slideItem.src} type="video/mp4" />
                   Your browser does not support the video tag.

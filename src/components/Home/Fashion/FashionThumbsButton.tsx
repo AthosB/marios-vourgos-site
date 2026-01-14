@@ -35,8 +35,9 @@ export const Thumb: React.FC<PropType> = (props) => {
           muted
           playsInline
           // height={isMobile ? 74 : 96}
-          height={isMobile ? 'calc(100% - 2px)' : 123}
-          width={isMobile ? 95 : 'min-content !important'}
+          // height={isMobile ? 'calc(100% - 2px)' : 123}
+          // width={isMobile ? 95 : 'min-content !important'}
+          preload="none"
           style={{
             objectFit: 'cover',
             cursor: 'pointer',

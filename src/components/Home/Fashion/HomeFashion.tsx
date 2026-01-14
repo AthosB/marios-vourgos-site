@@ -121,14 +121,17 @@ export default function HomeFashion() {
                     loop
                     muted
                     playsInline
-                    height={isMobile ? 'fit-content' : '100%'}
-                    width={isMobile ? 98 : 'min-content !important'}
+                    // height={isMobile ? 'fit-content' : '100%'}
+                    // width={isMobile ? 98 : 'min-content !important'}
+                    preload="none"
                     style={{
                       objectFit: 'cover',
-                      flex: isMobile ? 1 : 'unset'
+                      flex: isMobile ? 1 : 'unset',
+                      height: isMobile ? 'fit-content' : '100%',
+                      width: isMobile ? 98 : 'min-content !important'
                     }}
                   >
-                    <source src={slideItem.src} type="video/mp4"/>
+                    <source src={slideItem.src} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 </div>) : (
@@ -185,8 +188,8 @@ export default function HomeFashion() {
         {/*    ))}*/}
         {/*  </div>*/}
         {/*</div>*/}
-        </div>
       </div>
+    </div>
     {selectedImage && (
       <PhotoViewer
         open={openMediaViewer}
