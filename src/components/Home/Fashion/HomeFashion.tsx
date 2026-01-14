@@ -121,8 +121,6 @@ export default function HomeFashion() {
                     loop
                     muted
                     playsInline
-                    // height={isMobile ? 'fit-content' : '100%'}
-                    // width={isMobile ? 98 : 'min-content !important'}
                     preload="none"
                     style={{
                       objectFit: 'cover',
@@ -177,17 +175,6 @@ export default function HomeFashion() {
             <NextButton onClick={onNext} disabled={nextBtnDisabled} />
           </div>
         </div>
-        {/*<div className="embla-dots-navigatiion">*/}
-        {/*  <div className="embla__dots">*/}
-        {/*    {Array.from({length: getPageCount()}).map((_, index: number) => (*/}
-        {/*      <button*/}
-        {/*        key={index}*/}
-        {/*        className={index === currentPage ? 'embla__dot embla__dot--selected' : 'embla__dot'}*/}
-        {/*        onClick={() => emblaMainApi?.scrollTo(index * PAGE_SIZE)}*/}
-        {/*      />*/}
-        {/*    ))}*/}
-        {/*  </div>*/}
-        {/*</div>*/}
       </div>
     </div>
     {selectedImage && (

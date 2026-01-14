@@ -146,8 +146,6 @@ const MediaCarousel2: FC<PropType> = (props: PropType) => {
                   loop
                   muted
                   playsInline
-                  // height={isMobile ? 'fit-content' : '100%'}
-                  // width={isMobile ? 98 : 'min-content !important'}
                   preload="none"
                   style={{ 
                     objectFit: 'cover', 
