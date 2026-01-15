@@ -181,16 +181,20 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] add 29 in the place of spring awaiting summer in the fall, and move that one after inf parapraxis
 - [X] add 31 after 30 (hope is a glance at infinity)
 - [X] add 33, then 36 (add both after Euphoria)
-- [X] add 41, after The Sweet Melancholia of Timeless Being
+- [X] add 41, after The Sweet Melancholia of Timeless Being !!!! moved as 1st photo
 - [X] add 55 after Hope is a glance at infinity
 - [X] check downloads folder for the updated Excel file
 - [X] change title "The Escape of Dreams" to "The Protection"
-- [ ] on arrow click only change carousel, not selected photo
+- [X] on arrow click only change carousel, not selected photo
 - Fix number Perpetual juliet
 - the escape of dreams erroneous
-- [ ] On slider thumb click, the preview on top changes but as a static image, not carousel movement
+- [X] On slider thumb click, the preview on top changes but as a static image, not carousel movement
 - [ ] fix rain effect on phone
-- [ ] swap remembering herself with the third photo
-- [ ] remove "More" in landing page at the end (literature)
+- [X] swap remembering herself with the third photo
+- [X] remove "More" in landing page at the end (literature)
 - [ ] on Gallery Paintings replace "paintings" with "work" for all page headers
-- 
+- [X] create smaller size thumbnails for images used in carousels and update values paths accordingly
+- [X] 1st Photo must be phot of Athena with Candles ("The escape of dreams...) --> the Protection
+- [X] 2nd photo the photo of Athena with the dog on her shoulder (at the moment is also the Ptotect --< renam to "The escape of Dreams"
+- [X] 3rd --> Sardonic Smile
+- [ ] 1st painting "The achronic remembrances of time"

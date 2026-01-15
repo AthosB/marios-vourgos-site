@@ -34,6 +34,9 @@ export default function CustomEmblaCarousel({
                                               showDisclaimer = false,
                                               disclaimer = 'Disclaimer: All photos are original photos as shot without any digital manipulation.'
                                             }: Props) {
+  /** PRES **/
+  const isMobile = window.innerWidth <= 768;
+
   /** STATES **/
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [selectedImage, setSelectedImage] = useState<GenericItemType | null>(slides[0]);
@@ -128,7 +131,7 @@ export default function CustomEmblaCarousel({
   }, [emblaApi, pageSize])
 
   return (
-    <div className="mc2">
+    <div className={`mc2${isMobile ? ' mc2--mobile' : ''}`}>
       {/* Static preview (NOT embla-controlled) */}
       <div className="mc2__preview">
         {selected ? (
@@ -193,7 +196,7 @@ export default function CustomEmblaCarousel({
                   onClick={() => onThumbClick(i)}
                   title={s.title ?? s.alt ?? ''}
                 >
-                  <img className="mc2__thumbImg" src={s.src} alt={s.alt ?? ''} draggable={false}/>
+                  <img className="mc2__thumbImg" src={s.thumb ?? s.src} alt={s.alt ?? ''} draggable={false}/>
                 </button>
               ))}
             </div>

@@ -1,6 +1,7 @@
 export type GenericItemType = {
   position?: number;
   src: string;
+  thumb?: string;
   alt: string;
   title?: string;
   description?: string;

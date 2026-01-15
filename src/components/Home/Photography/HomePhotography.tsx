@@ -1,7 +1,7 @@
 // src/components/Home/Photography/HomePhotography.tsx
 'use client';
 
-import {photographyCarouselFilenames} from "@/assets/enhancedValues";
+import {photographyCarouselFilenames} from "@/assets/photographyValues";
 
 import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
