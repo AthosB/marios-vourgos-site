@@ -197,4 +197,4 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] 1st Photo must be phot of Athena with Candles ("The escape of dreams...) --> the Protection
 - [X] 2nd photo the photo of Athena with the dog on her shoulder (at the moment is also the Ptotect --< renam to "The escape of Dreams"
 - [X] 3rd --> Sardonic Smile
-- [ ] 1st painting "The achronic remembrances of time"
+- [X] 1st painting "The achronic remembrances of time"

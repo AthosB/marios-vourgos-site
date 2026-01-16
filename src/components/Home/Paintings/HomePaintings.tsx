@@ -1,7 +1,7 @@
 // src/components/Home/Paintings/HomePaintings.tsx
 'use client';
 
-import {paintingsCarousel} from "@/assets/enhancedValues";
+import {paintingsCarousel} from "@/assets/paintingsValues";
 import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function HomePaintings() {
