@@ -1,6 +1,7 @@
-// typescript
-import React, {useCallback, useEffect, useState, CSSProperties, ReactNode} from 'react'
-import './CustomEmblaCarousel.scss';
+'use client'
+
+import React, {useCallback, useEffect, useMemo, useState, CSSProperties, ReactNode, useRef} from 'react'
+import './CustomEmblaCarouselFashion.scss';
 import useEmblaCarousel from 'embla-carousel-react'
 import type {EmblaCarouselType} from 'embla-carousel'
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
@@ -8,8 +9,8 @@ import {GenericItemType} from "@/Types/types";
 
 type Props = {
   slides: GenericItemType[]
-  thumbHeight?: number
-  pageSize?: number
+  thumbHeight?: number          // fixed thumb height
+  pageSize?: number             // for arrows/dots paging
   showDots?: boolean
   dragFree?: boolean
   showTitle?: boolean
@@ -22,9 +23,9 @@ function clamp(n: number, min: number, max: number) {
   return Math.max(min, Math.min(n, max))
 }
 
-export default function CustomEmblaCarousel({
+export default function CustomEmblaCarouselFashion({
                                               slides,
-                                              thumbHeight = 76,
+                                              thumbHeight = 94,
                                               pageSize = 5,
                                               showDots = true,
                                               dragFree = true,
@@ -34,11 +35,16 @@ export default function CustomEmblaCarousel({
                                               disclaimer = 'Disclaimer: All photos are original photos as shot without any digital manipulation.'
                                             }: Props) {
 
+  /** STATES **/
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [selectedImage, setSelectedImage] = useState<GenericItemType | null>(slides[0] ?? null);
+  const [selectedImage, setSelectedImage] = useState<GenericItemType | null>(slides[0]);
   const [openMediaViewer, setOpenMediaViewer] = useState(false);
 
+  /** HOOKS **/
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  // Thumbs-only Embla
   const [emblaRef, emblaApi] = useEmblaCarousel({
     dragFree,
     containScroll: 'keepSnaps',
@@ -47,6 +53,7 @@ export default function CustomEmblaCarousel({
 
   const selected = slides[selectedIndex]
 
+  // Scroll thumbs to keep the clicked thumb visible/pleasantly positioned
   const scrollThumbIntoView = useCallback(
     (api: EmblaCarouselType, index: number) => {
       const slideNodes = api.slideNodes()
@@ -57,9 +64,11 @@ export default function CustomEmblaCarousel({
       }
       if (!slideNodes[index]) return
 
+      // DOM references: container = .embla__container, viewport = parent of container
       const container = slideNodes[0].parentElement as HTMLElement | null
       const viewport = container?.parentElement as HTMLElement | null
       if (!container || !viewport) {
+        // fallback to simple start-based paging
         const half = Math.floor(pageSize / 2)
         const maxStart = Math.max(0, total - pageSize)
         const targetStart = clamp(index - half, 0, maxStart)
@@ -70,11 +79,13 @@ export default function CustomEmblaCarousel({
       const viewportWidth = viewport.clientWidth
       const slide = slideNodes[index] as HTMLElement
       const slideCenter = slide.offsetLeft + slide.offsetWidth / 2
+      // desired scrollLeft to center the clicked thumb
       const maxScrollLeft = Math.max(0, container.scrollWidth - viewportWidth)
       const desiredScrollLeft = clamp(slideCenter - viewportWidth / 2, 0, maxScrollLeft)
 
-      const snaps = api.scrollSnapList()
+      const snaps = api.scrollSnapList() // may be normalized (0..1) or pixel positions
       if (!snaps || snaps.length === 0) {
+        // fallback to index-centered paging
         const half = Math.floor(pageSize / 2)
         const maxStart = Math.max(0, total - pageSize)
         const targetStart = clamp(index - half, 0, maxStart)
@@ -82,7 +93,9 @@ export default function CustomEmblaCarousel({
         return
       }
 
+      // Determine whether snaps are normalized (<= 1) or pixel positions
       const normalized = snaps[snaps.length - 1] <= 1
+      // When normalized, snapPosPx = snap * maxScrollLeft; otherwise snap is in px already.
       let closestIndex = 0
       let minDiff = Infinity
       snaps.forEach((s, i) => {
@@ -102,12 +115,12 @@ export default function CustomEmblaCarousel({
 
   const onThumbClick = useCallback(
     (i: number) => {
-      setSelectedIndex(i)
+      setSelectedIndex(i)            // ✅ preview changes ONLY here
       setSelectedImage(slides[i])
       if (!emblaApi) return
       scrollThumbIntoView(emblaApi, i)
     },
-    [emblaApi, scrollThumbIntoView, slides]
+    [emblaApi, scrollThumbIntoView]
   )
 
   const scrollBy = useCallback(
@@ -119,25 +132,11 @@ export default function CustomEmblaCarousel({
     [emblaApi]
   )
 
-  // Replace useMemo with state + effect to recompute when embla re-inits or viewport resizes
-  const [pageCount, setPageCount] = useState(() => Math.max(1, Math.ceil(slides.length / pageSize)))
-
-  useEffect(() => {
-    const updatePageCount = () => {
-      const snaps = emblaApi?.scrollSnapList()
-      const snapsCount = snaps?.length ?? slides.length
-      setPageCount(Math.max(1, Math.ceil(snapsCount / pageSize)))
-    }
-
-    updatePageCount()
-    emblaApi?.on('reInit', updatePageCount)
-    window.addEventListener('resize', updatePageCount)
-
-    return () => {
-      emblaApi?.off('reInit', updatePageCount)
-      window.removeEventListener('resize', updatePageCount)
-    }
-  }, [emblaApi, slides.length, pageSize])
+  // Optional dots = pages (based on thumb snaps, not preview selection)
+  const pageCount = useMemo(() => {
+    // If you want dots for "pages of 5", compute from slide count.
+    return Math.max(1, Math.ceil(slides.length / pageSize))
+  }, [slides.length, pageSize])
 
   const [currentPage, setCurrentPage] = useState(0)
 
@@ -145,6 +144,7 @@ export default function CustomEmblaCarousel({
     display: 'block',
     width: '12px',
     height: '72px',
+    // paddingTop: '16px'
   }
 
   const previewImageHandler = (image: GenericItemType) => {
@@ -157,6 +157,7 @@ export default function CustomEmblaCarousel({
     setOpenMediaViewer(false);
   }
 
+  /** EFFECTS **/
   useEffect(() => {
     if (!emblaApi) return
 
@@ -183,43 +184,54 @@ export default function CustomEmblaCarousel({
   }, []);
 
   return (
-    <div className={`mc2${isMobile ? ' mc2--mobile' : ''}`}>
-      <div className="mc2__preview">
-        {selected ? (
+    <div className={`mc2f${isMobile ? ' mc2f--mobile' : ''}`}>
+      {/* Static preview (NOT embla-controlled) */}
+      <div className="mc2f__preview">
+        {selected.video ? (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            style={{
+              objectFit: 'cover',
+              cursor: 'pointer',
+              height: '60vh',
+            }}
+          >
+            <source src={selected.src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          ) : (
           <img
             src={selected.src}
             alt={selected.alt ?? ''}
             onClick={() => previewImageHandler(selected)}
           />
-        ) : null}
-      </div>
-
-      <div className="mc2-slide__meta">
-        {showTitle && selected?.title && selected?.title?.length > 0 && (
-          <div className="mc2-slide__title">
-            {selected.title}
-          </div>
-        )}
-
-        {showDescription && selected?.description && selected?.description?.length > 0 && (
-          <>
-            {showDisclaimer && disclaimer && (
-              <div className="mc2-slide__disclaimer">
-                {disclaimer}
-              </div>
-            )}
-            <div className="mc2-slide__description">
-              {selected.description}
-            </div>
-          </>
         )}
       </div>
+      <div className="mc2f-slide__meta">
+        {(showTitle && slides && slides[selectedIndex].title && slides[selectedIndex].title.length > 0) &&
+          <div className="mc2f-slide__title">
+            {slides[selectedIndex]?.title}
+          </div>}
+        {(showDescription && slides && slides[selectedIndex] && slides[selectedIndex].description && slides[selectedIndex]?.description?.length > 0) &&
+          <div className="mc2f-slide__description">            {slides[selectedIndex]?.description}
+          </div>}
+        {(showDisclaimer && disclaimer) &&
+          <div className="mc2f-slide__disclaimer">
+            {disclaimer}
+          </div>}
+      </div>
 
-      <div className="mc2__thumbbar">
+      {/* Thumbs carousel */}
+      <div className="mc2f__thumbbar">
         <button
           aria-label="Previous"
           type="button"
-          className="mc2__arrow"
+          className="mc2f__arrow"
           onClick={() => scrollBy(-pageSize)}
         >
           <svg
@@ -240,7 +252,7 @@ export default function CustomEmblaCarousel({
           </svg>
         </button>
 
-        <div className="embla mc2__embla">
+        <div className="embla mc2f__embla">
           <div className="embla__viewport" ref={emblaRef}>
             <div
               className="embla__container"
@@ -250,11 +262,31 @@ export default function CustomEmblaCarousel({
                 <button
                   key={`${s.src}-${i}`}
                   type="button"
-                  className={`mc2__thumb ${i === selectedIndex ? 'is-selected' : ''}`}
+                  className={`mc2f__thumb ${i === selectedIndex ? 'is-selected' : ''}`}
                   onClick={() => onThumbClick(i)}
                   title={s.title ?? s.alt ?? ''}
                 >
-                  <img className="mc2__thumbImg" src={s.thumb ?? s.src} alt={s.alt ?? ''} draggable={false}/>
+                  {s.video ? (
+                    <video
+                      ref={videoRef}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="none"
+                      style={{
+                        objectFit: 'cover',
+                        cursor: 'pointer',
+                        height: 'inherit',
+                        width: isMobile ? 'min-content' : 'min-content !important',
+                      }}
+                    >
+                      <source src={s.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                    ) : (
+                    <img className="mc2f__thumbImg" src={s.thumb ?? s.src} alt={s.alt ?? ''} draggable={false}/>
+                  )}
                 </button>
               ))}
             </div>
@@ -264,7 +296,7 @@ export default function CustomEmblaCarousel({
         <button
           aria-label="Next"
           type="button"
-          className="mc2__arrow"
+          className="mc2f__arrow"
           onClick={() => scrollBy(pageSize)}
         >
           <svg
@@ -286,21 +318,20 @@ export default function CustomEmblaCarousel({
         </button>
       </div>
 
-      {/* Only render dots when there is more than one page */}
-      {showDots && pageCount > 1 && (
-        <div className="mc2__dots">
+      {/* Optional dot navigation (pages) */}
+      {showDots && (
+        <div className="mc2f__dots">
           {Array.from({length: pageCount}).map((_, p) => (
             <button
               key={p}
               type="button"
-              className={`mc2__dot ${p === currentPage ? 'is-active' : ''}`}
+              className={`mc2f__dot ${p === currentPage ? 'is-active' : ''}`}
               onClick={() => emblaApi?.scrollTo(p * pageSize)}
               aria-label={`Go to thumbnails page ${p + 1}`}
             />
           ))}
         </div>
       )}
-
       {selectedImage && (
         <PhotoViewer
           open={openMediaViewer}
