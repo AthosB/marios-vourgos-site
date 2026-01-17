@@ -186,7 +186,12 @@ export default function CustomEmblaCarouselFashion({
   return (
     <div className={`mc2f${isMobile ? ' mc2f--mobile' : ''}`}>
       {/* Static preview (NOT embla-controlled) */}
-      <div className="mc2f__preview">
+      <div className="mc2f__preview"
+      style={{
+        minHeight: isMobile ? '60vh' : 'unset',
+        width: isMobile ? '100%' : '100%',
+      }}
+      >
         {selected.video ? (
           <video
             ref={videoRef}
@@ -198,7 +203,8 @@ export default function CustomEmblaCarouselFashion({
             style={{
               objectFit: 'cover',
               cursor: 'pointer',
-              height: '60vh',
+              height: isMobile ? 'auto' : '60vh',
+              width: isMobile ? '100%' : 'unset',
             }}
           >
             <source src={selected.src} type="video/mp4" />
@@ -278,7 +284,7 @@ export default function CustomEmblaCarouselFashion({
                         objectFit: 'cover',
                         cursor: 'pointer',
                         height: 'inherit',
-                        width: isMobile ? 'min-content' : 'min-content !important',
+                        width: isMobile ? '125px' : 'min-content !important',
                       }}
                     >
                       <source src={s.src} type="video/mp4" />
