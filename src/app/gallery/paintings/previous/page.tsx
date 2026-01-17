@@ -7,7 +7,7 @@ import '@/styles/generic-page.scss';
 
 import Image from "next/image";
 import {previousPaintingsCarouselEntries} from "@/assets/paintingsValues";
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function PreviousPaintingsPage() {
   /** CONSTS **/
@@ -26,14 +26,13 @@ export default function PreviousPaintingsPage() {
       <div className={'generic-items-page__line'}></div>
       <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div id="home-paintings" className="preview-canvas">
-          <MediaCarousel
-            items={previousPaintingsCarouselEntries}
-            showCanvas
+          <CustomEmblaCarousel
+            slides={previousPaintingsCarouselEntries}
+            pageSize={5}
+            showDots={!isMobile}
+            dragFree={false}
             showTitle={true}
             showDescription={true}
-            showArrows
-            showDots={!isMobile}
-            style={{margin: '16px auto'}}
           />
         </div>
       </div>

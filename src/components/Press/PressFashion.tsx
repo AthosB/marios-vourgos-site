@@ -1,5 +1,5 @@
 import {fashionPressEntries} from "@/assets/enhancedValues";
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function PressFashion() {
   /** CONSTS **/
@@ -8,13 +8,13 @@ export default function PressFashion() {
   /** RENDER **/
   return (
     <div id="press-fashion" className="preview-canvas">
-      <MediaCarousel
-        items={fashionPressEntries}
-        showCanvas
+      <CustomEmblaCarousel
+        slides={fashionPressEntries}
+        pageSize={5}
+        showDots={!isMobile}
+        dragFree={false}
         showTitle={true}
         showDescription={true}
-        showDots={!isMobile}
-        showArrows
       />
     </div>
   );

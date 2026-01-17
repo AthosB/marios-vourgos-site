@@ -3,8 +3,8 @@
 import {useEffect} from "react";
 import styles from "@/app/news/NewsEvents.module.scss";
 import Image from "next/image";
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
 import {fashionEntries} from "@/assets/enhancedValues";
+import CustomEmblaCarouselFashion from "@/components/UI/CustomEmblaCarouselFashion/CustomEmblaCarouselFashion";
 
 export default function NewsEventsFashionPage() {
   /** PRES **/
@@ -35,13 +35,11 @@ export default function NewsEventsFashionPage() {
           <h2><p>Marios Vourgos was designing under his own brand name Mario Marini Vourgos, based in New York and was showing his collections at New York Fashion Week between the years 1991 to 1993, prior to continuing his studies in finance and international relations at the University of Pennsylvania / Wharton Business school (ebdPhd).</p></h2>
         </div>
         <div id="home-fashion" className="preview-canvas">
-          <MediaCarousel
-            items={fashionEntries}
-            showCanvas
+          <CustomEmblaCarouselFashion
+            slides={fashionEntries}
             showTitle={false}
             showDescription={false}
-            showArrows
-            offsetArrows={isMobile}
+            showDisclaimer={false}
             showDots={!isMobile}
           />
         </div>

@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import '@/styles/generic-page.scss';
 
 import {newsEventsPaintings01Carousel} from "@/assets/enhancedValues";
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function RecentPaintingsPage() {
   /** CONSTS **/
@@ -21,15 +21,13 @@ export default function RecentPaintingsPage() {
       <div className={'generic-items-page__line'}></div>
       <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div id="cna-2019" className="preview-canvas">
-          <MediaCarousel
-            items={newsEventsPaintings01Carousel}
-            showCanvas
+          <CustomEmblaCarousel
+            slides={newsEventsPaintings01Carousel}
             showTitle={false}
             showDescription={false}
+            showDisclaimer={false}
             showDots={!isMobile}
-            showArrows
-            style={{margin: '16px 0'}}
-          />
+            />
         </div>
       </div>
     </div>

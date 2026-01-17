@@ -1,5 +1,5 @@
 import {pressPaintings02} from "@/assets/enhancedValues";
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function PressPaintings() {
   /** CONSTS **/
@@ -8,14 +8,13 @@ export default function PressPaintings() {
   /** RENDER **/
   return (
     <div id="press-paintings" className="preview-canvas" style={{width: '100%',margin: '0 auto'}}>
-      <MediaCarousel
-        items={pressPaintings02}
-        showCanvas
+      <CustomEmblaCarousel
+        slides={pressPaintings02}
+        pageSize={5}
+        showDots={!isMobile}
+        dragFree={false}
         showTitle={true}
         showDescription={true}
-        showDots={!isMobile}
-        showArrows
-        style={{width: '100%', margin: '0 auto'}}
       />
     </div>
   );

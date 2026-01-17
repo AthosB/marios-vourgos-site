@@ -46,7 +46,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100%;
+  min-height: 100vh;
   margin: 0;
 }
 
@@ -154,52 +154,6 @@ footer {
 
 .swiper-slide {
   width: min-content !important;
-}
-
-.Shimmer {
-  /* 60% black base */
-  --base: rgba(0, 0, 0, 0.6);
-
-  /* semi-transparent highlights on top of the dark base */
-  --g1: rgba(255, 255, 255, 0.03);
-  --g2: rgba(255, 255, 255, 0.08);
-  --g3: rgba(255, 255, 255, 0.02);
-
-  /* animated properties (keeps the previous stuttering-style animation) */
-  --angle: 90deg;
-  --p1: 0%;
-  --p2: 35%;
-  --p3: 70%;
-
-  background-color: var(--base);
-  /* emit raw gradient so Sass won't re-parse the var() tokens */
-  background-image: unquote("linear-gradient(var(--angle), var(--g1) var(--p1), var(--g2) var(--p2), var(--g3) var(--p3))");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  animation: shimmer 1.2s ease-in-out infinite;
-  position: relative;
-  overflow: hidden;
-}
-
-@keyframes shimmer {
-  0% {
-    --angle: 80deg;
-    --p1: 0%;
-    --p2: 20%;
-    --p3: 50%;
-  }
-  50% {
-    --angle: 115deg;
-    --p1: 30%;
-    --p2: 55%;
-    --p3: 85%;
-  }
-  100% {
-    --angle: 80deg;
-    --p1: 0%;
-    --p2: 20%;
-    --p3: 50%;
-  }
 }
 
 .footer-meta {

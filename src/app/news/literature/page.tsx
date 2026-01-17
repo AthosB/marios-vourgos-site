@@ -3,9 +3,9 @@
 import {useEffect} from "react";
 import styles from '../NewsEvents.module.scss';
 import Image from 'next/image';
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
 import {literatureTango29Carousel} from "@/assets/enhancedValues";
 import {Button} from "@mui/material";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function NewsEventsLiteraturePage() {
   /** CONSTS **/
@@ -39,13 +39,12 @@ export default function NewsEventsLiteraturePage() {
           </h2>
         </div>
         <div className="preview-canvas">
-          <MediaCarousel
-            items={literatureTango29Carousel}
-            showCanvas
+          <CustomEmblaCarousel
+            slides={literatureTango29Carousel}
             showTitle={false}
             showDescription={false}
-            showDisclaimer
-            disclaimerText={<div className={'ImageTitle'}>
+            showDisclaimer={true}
+            disclaimer={<div className={'ImageTitle'}>
               <p style={{textAlign: 'center', margin: '16px auto 0 auto', maxWidth: '80vw'}}>
                 The medieval castle was transformed into a modern stage, with live theatrical characters and visual
                 installations, where attendees watched the verses from Marios Vourgos’ poetry collection “Tango 29” come
@@ -71,8 +70,6 @@ export default function NewsEventsLiteraturePage() {
                 </a>
               </div>
             </div>}
-            showArrows
-            offsetArrows={isMobile}
             showDots={!isMobile}
           />
         </div>

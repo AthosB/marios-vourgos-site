@@ -1,7 +1,7 @@
 'use client';
 
 import {newsEventsPaintingsKGallery} from "@/assets/values";
-import MediaCarousel from "@/components/UI/MediaCarousel/MediaCarousel";
+import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 
 export default function KGalleryModule() {
   /** CONSTS **/
@@ -10,13 +10,13 @@ export default function KGalleryModule() {
   /** RENDER **/
   return <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
     <div id="k-gallery" className="preview-canvas">
-      <MediaCarousel
-        items={newsEventsPaintingsKGallery}
-        showCanvas
+      <CustomEmblaCarousel
+        slides={newsEventsPaintingsKGallery}
+        pageSize={5}
         showTitle={false}
         showDescription={false}
         showDots={!isMobile}
-        showArrows
+        dragFree={false}
       />
     </div>
   </div>;
