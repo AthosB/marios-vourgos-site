@@ -38,7 +38,7 @@ export default function CustomEmblaCarouselFashion({
   /** STATES **/
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [selectedImage, setSelectedImage] = useState<GenericItemType | null>(slides[0]);
+  const [selectedImage, setSelectedImage] = useState<GenericItemType>(slides[0]);
   const [openMediaViewer, setOpenMediaViewer] = useState(false);
 
   /** HOOKS **/
@@ -50,8 +50,6 @@ export default function CustomEmblaCarouselFashion({
     containScroll: 'keepSnaps',
     align: 'start',
   })
-
-  const selected = slides[selectedIndex]
 
   // Scroll thumbs to keep the clicked thumb visible/pleasantly positioned
   const scrollThumbIntoView = useCallback(
@@ -95,7 +93,7 @@ export default function CustomEmblaCarouselFashion({
 
       // Determine whether snaps are normalized (<= 1) or pixel positions
       const normalized = snaps[snaps.length - 1] <= 1
-      // When normalized, snapPosPx = snap * maxScrollLeft; otherwise snap is in px already.
+      // When normalized, snapPosPx = snap * maxScrollLeft; otherwise the snap is in px already.
       let closestIndex = 0
       let minDiff = Infinity
       snaps.forEach((s, i) => {
@@ -153,7 +151,7 @@ export default function CustomEmblaCarouselFashion({
   }
 
   const closeMediaViewerHandler = () => {
-    setSelectedImage(null);
+    setSelectedImage(slides[0]);
     setOpenMediaViewer(false);
   }
 
@@ -192,7 +190,7 @@ export default function CustomEmblaCarouselFashion({
         width: isMobile ? '100%' : '100%',
       }}
       >
-        {selected.video ? (
+        {selectedImage.video ? (
           <video
             ref={videoRef}
             autoPlay
@@ -207,14 +205,14 @@ export default function CustomEmblaCarouselFashion({
               width: isMobile ? '100%' : 'unset',
             }}
           >
-            <source src={selected.src} type="video/mp4" />
+            <source src={selectedImage?.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           ) : (
           <img
-            src={selected.src}
-            alt={selected.alt ?? ''}
-            onClick={() => previewImageHandler(selected)}
+            src={selectedImage?.src}
+            alt={selectedImage?.alt ?? ''}
+            onClick={() => previewImageHandler(selectedImage)}
           />
         )}
       </div>
@@ -338,7 +336,7 @@ export default function CustomEmblaCarouselFashion({
           ))}
         </div>
       )}
-      {selectedImage && (
+      {selectedImage && openMediaViewer && (
         <PhotoViewer
           open={openMediaViewer}
           media={selectedImage}

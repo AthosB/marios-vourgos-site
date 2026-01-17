@@ -36,7 +36,7 @@ export default function CustomEmblaCarousel({
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [selectedIndex, setSelectedIndex] = useState(0)
-  const [selectedImage, setSelectedImage] = useState<GenericItemType | null>(slides[0] ?? null);
+  const [selectedImage, setSelectedImage] = useState<GenericItemType>(slides[0] ?? null);
   const [openMediaViewer, setOpenMediaViewer] = useState(false);
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -44,8 +44,6 @@ export default function CustomEmblaCarousel({
     containScroll: 'keepSnaps',
     align: 'start',
   })
-
-  const selected = slides[selectedIndex]
 
   const scrollThumbIntoView = useCallback(
     (api: EmblaCarouselType, index: number) => {
@@ -153,7 +151,7 @@ export default function CustomEmblaCarousel({
   }
 
   const closeMediaViewerHandler = () => {
-    setSelectedImage(null);
+    setSelectedImage(slides[0]);
     setOpenMediaViewer(false);
   }
 
@@ -185,23 +183,23 @@ export default function CustomEmblaCarousel({
   return (
     <div className={`mc2${isMobile ? ' mc2--mobile' : ''}`}>
       <div className="mc2__preview">
-        {selected ? (
+        {selectedImage ? (
           <img
-            src={selected.src}
-            alt={selected.alt ?? ''}
-            onClick={() => previewImageHandler(selected)}
+            src={selectedImage.src}
+            alt={selectedImage.alt ?? ''}
+            onClick={() => previewImageHandler(selectedImage)}
           />
         ) : null}
       </div>
 
       <div className="mc2-slide__meta">
-        {showTitle && selected?.title && selected?.title?.length > 0 && (
+        {showTitle && selectedImage?.title && selectedImage?.title?.length > 0 && (
           <div className="mc2-slide__title">
-            {selected.title}
+            {selectedImage.title}
           </div>
         )}
 
-        {showDescription && selected?.description && selected?.description?.length > 0 && (
+        {showDescription && selectedImage?.description && selectedImage?.description?.length > 0 && (
           <>
             {showDisclaimer && disclaimer && (
               <div className="mc2-slide__disclaimer">
@@ -209,7 +207,7 @@ export default function CustomEmblaCarousel({
               </div>
             )}
             <div className="mc2-slide__description">
-              {selected.description}
+              {selectedImage.description}
             </div>
           </>
         )}
@@ -301,7 +299,7 @@ export default function CustomEmblaCarousel({
         </div>
       )}
 
-      {selectedImage && (
+      {selectedImage && openMediaViewer && (
         <PhotoViewer
           open={openMediaViewer}
           media={selectedImage}
