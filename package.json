@@ -1,6 +1,6 @@
 {
   "name": "mario-vourgos-site",
-  "version": "1.4.7",
+  "version": "1.4.9",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -20,9 +20,7 @@
     "next": "^16.1.1",
     "panzoom": "^9.4.3",
     "react": "^19.2.3",
-    "react-devtools": "^3.6.3",
     "react-dom": "^19.2.3",
-    "react-slick": "^0.31.0",
     "sass": "^1.87.0",
     "slick-carousel": "^1.8.1",
     "viewerjs": "^1.11.7"

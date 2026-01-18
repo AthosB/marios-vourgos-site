@@ -6,7 +6,7 @@ import HomeLiterature from "@/components/Home/Literature/HomeLiterature";
 
 export default function LiteraturePage() {
   /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 950;
 
   /** RENDER **/
   return (

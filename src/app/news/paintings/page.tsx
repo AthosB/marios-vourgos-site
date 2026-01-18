@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export default function NewsEventsPaintingsPage() {
   /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 950;
 
   /** EFFECTS **/
   useEffect(() => {

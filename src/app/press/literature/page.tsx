@@ -6,6 +6,9 @@ import Image from 'next/image';
 import PressLiteratureTango29Module from "@/components/Press/PressLiteratureTango29";
 
 export default function PressLiteraturePage() {
+  /** PRES **/
+  const isMobile = window.innerWidth <= 950;
+
   /** EFFECTS **/
   useEffect(() => {
     document.title = 'Marios Vourgos - Press - Literature';
@@ -13,7 +16,7 @@ export default function PressLiteraturePage() {
 
   /** RENDER **/
   return (
-    <div className={styles.PressSectionPage} style={{minHeight: 'calc(100vh - 260px)'}}>
+    <div className={`${styles.PressSectionPage}${isMobile ? ' ' + styles.Mobile : ''}`} style={{minHeight: 'calc(100vh - 260px)'}}>
       <div className={styles.NewsEntry}>
         <div className={styles.Header}>
           <Image

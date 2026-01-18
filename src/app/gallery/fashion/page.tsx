@@ -11,7 +11,7 @@ import CustomEmblaCarouselFashion from "@/components/UI/CustomEmblaCarouselFashi
 
 export default function RecentPaintingsPage() {
   /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 950;
 
   /** RENDER **/
   return (

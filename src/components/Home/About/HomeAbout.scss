@@ -5,6 +5,11 @@
   //justify-content: center;
   float: left;
   margin-right: 1.5rem;
+
+  &.mobile {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
 }
 
 .about-text {

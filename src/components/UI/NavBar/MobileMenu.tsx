@@ -44,7 +44,7 @@ export default function MobileMenu() {
     <div className={styles.MobileMenu}>
       <div className={styles.Logo}>
         <Link href="/home" aria-label="Home">
-          <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={64} width={128} />
+          <Image src={'/logo1080p.png'} alt={'Mario Logo'} height={64} width={128}/>
         </Link>
       </div>
       <div className={styles.MenuIcon}>
@@ -52,7 +52,7 @@ export default function MobileMenu() {
           aria-label="menu-icon" id={'mobile-menu-button'}
           onClick={(event) => setAnchorEl(event.currentTarget)}
         >
-          <MenuIcon fontSize="large" />
+          <MenuIcon fontSize="large"/>
         </IconButton>
         <Menu
           id="mobile-menu"
@@ -70,93 +70,152 @@ export default function MobileMenu() {
           }}
           className={"PopupMenu"}
         >
-          <MenuItem
-            onClick={handleClose}
-            disableRipple
-          >
-            <Link href="/home">
+          <Link href="/home">
+            <MenuItem
+              onClick={handleClose}
+              disableRipple
+            >
               <span className={isActive('/home') ? styles.Active : ''}>Home</span>
-            </Link>
-          </MenuItem>
+            </MenuItem>
+          </Link>
           <Accordion>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon/>}
               aria-controls="panel1-content"
               id="panel1-header"
             >
               <div>News</div>
             </AccordionSummary>
             <AccordionDetails>
-              <MenuItem onClick={handleClose}><Link href="/news/photography"
-                style={{marginLeft: '16px'}}
-              ><span className={isActive('/news/photography') ? styles.Active : ''}>Photography</span></Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link href="/news/paintings"
-                style={{marginLeft: '16px'}}
-              ><span className={isActive('/news/paintings') ? styles.Active : ''}>Paintings</span></Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link href="/news/fashion" style={{marginLeft: '16px'}}><span
-                className={isActive('/news/fashion') ? styles.Active : ''}
-              >Fashion</span></Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link href="/news/literature" style={{marginLeft: '16px'}}><span
-                className={isActive('/news/literature') ? styles.Active : ''}
-              >Literature</span></Link></MenuItem>
-
+              <Link href="/news/photography"
+                    style={{marginLeft: '16px'}}
+              >
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/news/photography') ? styles.Active : ''}>Photography</span>
+                </MenuItem>
+              </Link>
+              <Link href="/news/paintings"
+                    style={{marginLeft: '16px'}}
+              >
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/news/paintings') ? styles.Active : ''}>Paintings</span>
+                </MenuItem>
+              </Link>
+              <Link href="/news/fashion" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/news/fashion') ? styles.Active : ''}>
+                    Fashion
+                  </span>
+                </MenuItem>
+              </Link>
+              <Link href="/news/literature" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/news/literature') ? styles.Active : ''}>
+                    Literature
+                  </span>
+                </MenuItem>
+              </Link>
             </AccordionDetails>
           </Accordion>
           <Accordion>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon/>}
               aria-controls="panel1-content"
               id="panel1-header"
             >
               <div>Press</div>
             </AccordionSummary>
             <AccordionDetails>
-              <MenuItem onClick={handleClose}><Link href="/press/photography"
-                style={{marginLeft: '16px'}}
-              ><span className={isActive('/press/photography') ? styles.Active : ''}>Photography</span></Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link href="/press/paintings"
-                style={{marginLeft: '16px'}}
-              ><span className={isActive('/press/paintings') ? styles.Active : ''}>Paintings</span></Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link href="/press/fashion" style={{marginLeft: '16px'}}><span
-                className={isActive('/press/fashion') ? styles.Active : ''}
-              >Fashion</span></Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link href="/press/literature" style={{marginLeft: '16px'}}><span
-                className={isActive('/press/literature') ? styles.Active : ''}
-              >Literature</span></Link></MenuItem>
+              <Link href="/press/photography" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/press/photography') ? styles.Active : ''}>
+                    Photography
+                  </span>
+                </MenuItem>
+              </Link>
+              <Link href="/press/paintings" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/press/paintings') ? styles.Active : ''}>
+                    Paintings
+                  </span>
+                </MenuItem>
+              </Link>
+              <Link href="/press/fashion" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                <span className={isActive('/press/fashion') ? styles.Active : ''}>
+                  Fashion
+                </span>
+                </MenuItem>
+              </Link>
+              <Link href="/press/literature" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/press/literature') ? styles.Active : ''}>
+                    Literature
+                  </span>
+                </MenuItem>
+              </Link>
             </AccordionDetails>
           </Accordion>
-          <MenuItem onClick={handleClose}><Link href="/gallery/photography"><span
-            className={isActive('/gallery/photography') ? styles.Active : ''}
-          >Photography</span></Link></MenuItem>
+          <Link href="/gallery/photography">
+            <MenuItem onClick={handleClose}>
+            <span className={isActive('/gallery/photography') ? styles.Active : ''}>
+              Photography
+            </span>
+            </MenuItem>
+          </Link>
           <Accordion>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon/>}
               aria-controls="panel1-content"
               id="panel1-header"
             >
               <div>Paintings</div>
             </AccordionSummary>
             <AccordionDetails>
-              <MenuItem onClick={handleClose}><Link href="/gallery/paintings/recent" style={{marginLeft: '16px'}}><span
-                className={isActive('/gallery/paintings/recent') ? styles.Active : ''}
-              >Recent Work</span></Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link href="/gallery/paintings/previous" style={{marginLeft: '16px'}}><span
-                className={isActive('/gallery/paintings/previous') ? styles.Active : ''}
-              >Previous Work</span></Link></MenuItem>
-              <MenuItem onClick={handleClose}><Link href="/gallery/paintings/older" style={{marginLeft: '16px'}}><span
-                className={isActive('/gallery/paintings/older') ? styles.Active : ''}
-              >Older Work</span></Link></MenuItem>
+              <Link href="/gallery/paintings/recent" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/gallery/paintings/recent') ? styles.Active : ''}>
+                    Recent Work
+                  </span>
+                </MenuItem>
+              </Link>
+              <Link href="/gallery/paintings/previous" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/gallery/paintings/previous') ? styles.Active : ''}>
+                    Previous Work
+                  </span>
+                </MenuItem>
+              </Link>
+              <Link href="/gallery/paintings/older" style={{marginLeft: '16px'}}>
+                <MenuItem onClick={handleClose}>
+                  <span className={isActive('/gallery/paintings/older') ? styles.Active : ''}>
+                    Older Work
+                  </span>
+                </MenuItem>
+              </Link>
             </AccordionDetails>
           </Accordion>
-          <MenuItem onClick={handleClose}><Link href="/gallery/literature"><span
-            className={isActive('/gallery/literature') ? styles.Active : ''}
-          >Literature</span></Link></MenuItem>
-          <MenuItem onClick={handleClose}><Link href="/gallery/fashion"><span
-            className={isActive('/gallery/fashion') ? styles.Active : ''}
-          >Fashion</span></Link></MenuItem>
-          <MenuItem onClick={handleClose}><Link href="/contact"><span
-            className={isActive('/contact') ? styles.Active : ''}
-          >Contact</span></Link></MenuItem>
+          <Link href="/gallery/literature">
+            <MenuItem onClick={handleClose}>
+            <span className={isActive('/gallery/literature') ? styles.Active : ''}>
+              Literature
+            </span>
+            </MenuItem>
+          </Link>
+          <Link href="/gallery/fashion">
+            <MenuItem onClick={handleClose}>
+              <span className={isActive('/gallery/fashion') ? styles.Active : ''}>
+                Fashion
+              </span>
+            </MenuItem>
+          </Link>
+          <Link href="/contact">
+            <MenuItem onClick={handleClose}>
+              <span className={isActive('/contact') ? styles.Active : ''}>
+              Contact
+            </span>
+            </MenuItem>
+          </Link>
         </Menu>
       </div>
     </div>

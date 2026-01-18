@@ -10,7 +10,7 @@ import PressPaintings from "@/components/Press/PressPaintings";
 
 export default function PressPage() {
   /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 950;
 
   /** RENDER */
   return (

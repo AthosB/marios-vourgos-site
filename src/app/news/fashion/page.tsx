@@ -8,7 +8,7 @@ import CustomEmblaCarouselFashion from "@/components/UI/CustomEmblaCarouselFashi
 
 export default function NewsEventsFashionPage() {
   /** PRES **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 950;
 
   /** EFFECTS **/
   useEffect(() => {

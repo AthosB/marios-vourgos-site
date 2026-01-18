@@ -198,3 +198,15 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] 2nd photo the photo of Athena with the dog on her shoulder (at the moment is also the Ptotect --< renam to "The escape of Dreams"
 - [X] 3rd --> Sardonic Smile
 - [X] 1st painting "The achronic remembrances of time"
+- [ ] remove rain effect from preview panel for photography images
+- [ ] check photography names against Excel (correct titles)
+- [ ] add download image blocker where available (look into div with image as background image insted of <img> tag)
+- [ ] create ImageWrapper UI component to wrap image and add download blocker and forward image attributes to it
+- [ ] more space about text and mario photo
+- [ ] margin around about photo
+- [ ] Dots erroneous on fashion carousel
+- [ ] press photography text uneven padding
+- [ ] on mobile menu onClick should act on whole menu item not just text
+- [ ] erroneous padding in all pages (container div)
+- [ ] contact page envelope icon lower than the text
+- [ ] When clicking X the selected photo reverts to the first

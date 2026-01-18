@@ -4,10 +4,13 @@ import styles from "@/app/home/Home.module.scss";
 import './HomeAbout.scss';
 
 export default function HomeAbout() {
+  /** PRES **/
+  const isMobile = window.innerWidth <= 950;
+
   /** RENDER **/
   return (
     <div id={"#home-about"} className={styles.aboutContent}>
-      <div className={'about-image'}>
+      <div className={'about-image' + (isMobile ? ' mobile' : '')}>
         <img
           src="/images/home-about.JPG"
           width={320}

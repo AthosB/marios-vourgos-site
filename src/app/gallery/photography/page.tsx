@@ -7,7 +7,7 @@ import HomePhotography from "@/components/Home/Photography/HomePhotography";
 
 export default function PhotographyPage() {
   /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 950;
 
   /** EFFECTS **/
   useEffect(() => {

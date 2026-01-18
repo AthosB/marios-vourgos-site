@@ -140,6 +140,10 @@ and (max-device-width: 550px) and (orientation: portrait) {
     max-width: 95vw;
     margin: 0 auto;
 
+    .Header {
+      flex-direction: column;
+    }
+
     .PressEntry {
       width: 100%;
       text-align: center;

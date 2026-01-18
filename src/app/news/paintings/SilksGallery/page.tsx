@@ -8,7 +8,7 @@ import '@/styles/generic-page.scss';
 export default function RecentPaintingsPage() {
 
   /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 950;
 
   /** RENDER **/
   return (

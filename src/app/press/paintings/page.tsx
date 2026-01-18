@@ -8,8 +8,8 @@ import SilksGalleryModule from "@/components/NewsEvents/SilksGallery";
 import CNAevent from "@/components/NewsEvents/CNA/CNAevent";
 
 export default function PressPaintingsPage() {
-  /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  /** PRES **/
+  const isMobile = window.innerWidth <= 950;
 
   /** EFFECTS **/
   useEffect(() => {

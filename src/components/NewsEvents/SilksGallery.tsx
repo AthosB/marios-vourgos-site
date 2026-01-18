@@ -5,7 +5,7 @@ import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmbla
 
 export default function SilksGalleryModule() {
   /** CONSTS **/
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 950;
 
   /** RENDER **/
   return <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
