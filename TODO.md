@@ -189,19 +189,18 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - Fix number Perpetual juliet
 - the escape of dreams erroneous
 - [X] On slider thumb click, the preview on top changes but as a static image, not carousel movement
-- [ ] fix rain effect on phone
+- [X] fix rain effect on phone
 - [X] swap remembering herself with the third photo
 - [X] remove "More" in landing page at the end (literature)
-- [ ] on Gallery Paintings replace "paintings" with "work" for all page headers
+- [X] on Gallery Paintings replace "paintings" with "work" for all page headers
 - [X] create smaller size thumbnails for images used in carousels and update values paths accordingly
 - [X] 1st Photo must be phot of Athena with Candles ("The escape of dreams...) --> the Protection
 - [X] 2nd photo the photo of Athena with the dog on her shoulder (at the moment is also the Ptotect --< renam to "The escape of Dreams"
 - [X] 3rd --> Sardonic Smile
 - [X] 1st painting "The achronic remembrances of time"
-- [ ] remove rain effect from preview panel for photography images
+- [X] remove rain effect from preview panel for photography images
 - [ ] check photography names against Excel (correct titles)
-- [ ] add download image blocker where available (look into div with image as background image insted of <img> tag)
-- [ ] create ImageWrapper UI component to wrap image and add download blocker and forward image attributes to it
+- [X] add download image blocker where available (look into div with image as background image insted of <img> tag)
 - [X] more space about text and mario photo
 - [X] margin around about photo
 - [X] Dots are erroneous on fashion carousel
@@ -211,6 +210,6 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] contact page envelope icon lower than the text
 - [X] When clicking X the selected photo reverts to the first
 - [X] fix footer in photography page (overlaps carousel thumb bar)
-- [ ] look into active thumb depiction
+- [X] look into active thumb depiction
 - [ ] check title with Marios "The Entanglement of Hope" vs "The illussion of space"(excel n.009)
 - [ ] check title with Marios for last photo "Remembrances of thoughts to come" vs "Whispering secrets of space to time" (excel n.054)

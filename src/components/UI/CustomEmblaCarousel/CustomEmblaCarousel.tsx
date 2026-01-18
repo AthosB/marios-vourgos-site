@@ -187,6 +187,8 @@ export default function CustomEmblaCarousel({
             src={selectedImage.src}
             alt={selectedImage.alt ?? ''}
             onClick={() => previewImageHandler(selectedImage)}
+            onContextMenu={(e) => e.preventDefault()}
+            style={{cursor: 'zoom-in'}}
           />
         ) : null}
       </div>
@@ -251,7 +253,13 @@ export default function CustomEmblaCarousel({
                   onClick={() => onThumbClick(i)}
                   title={s.title ?? s.alt ?? ''}
                 >
-                  <img className="mc2__thumbImg" src={s.thumb ?? s.src} alt={s.alt ?? ''} draggable={false}/>
+                  <img
+                    className="mc2__thumbImg"
+                    src={s.thumb ?? s.src}
+                    alt={s.alt ?? ''}
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
                 </button>
               ))}
             </div>

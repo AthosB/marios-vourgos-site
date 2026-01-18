@@ -212,6 +212,8 @@ export default function CustomEmblaCarouselFashion({
             src={selectedImage?.src}
             alt={selectedImage?.alt ?? ''}
             onClick={() => previewImageHandler(selectedImage)}
+            onContextMenu={(e) => e.preventDefault()}
+            style={{cursor: 'zoom-in'}}
           />
         )}
       </div>
@@ -288,7 +290,12 @@ export default function CustomEmblaCarouselFashion({
                       Your browser does not support the video tag.
                     </video>
                     ) : (
-                    <img className="mc2f__thumbImg" src={s.thumb ?? s.src} alt={s.alt ?? ''} draggable={false}/>
+                    <img
+                      className="mc2f__thumbImg"
+                      src={s.thumb ?? s.src} alt={s.alt ?? ''}
+                      draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
+                    />
                   )}
                 </button>
               ))}

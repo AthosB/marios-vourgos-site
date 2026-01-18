@@ -17,19 +17,43 @@ interface photoViewerProps {
 type PanzoomWithCleanup = ReturnType<typeof panzoom> & { _cleanup?: () => void } | null;
 
 export default function PhotoViewer({
-  open = false,
-  media = null,
-  onClose = () => null,
-}: photoViewerProps) {
+                                      open = false,
+                                      media = null,
+                                      onClose = () => null,
+                                    }: photoViewerProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const viewerRef = useRef<InstanceType<typeof Viewer> | null>(null);
   const panzoomRef = useRef<PanzoomWithCleanup>(null);
 
-  const closeModalHandler = () => {
-    // cleanup any added shield listeners first
+  const stopAll = (e: Event) => {
+    try {
+      e.preventDefault();
+    } catch {}
+    try {
+      e.stopPropagation?.();
+    } catch {}
+    try {
+      (e as any).stopImmediatePropagation?.();
+    } catch {}
+  };
+
+  const setOriginalImageVisible = (visible: boolean) => {
+    if (!imgRef.current) return;
+    if (visible) {
+      imgRef.current.style.visibility = "";
+      imgRef.current.style.display = "block";
+    } else {
+      imgRef.current.style.visibility = "hidden";
+    }
+  };
+
+  const restoreAllAndDestroy = () => {
+    setOriginalImageVisible(true);
+
     (viewerRef.current as any)?._shieldCleanup?.();
+
     viewerRef.current?.destroy();
     viewerRef.current = null;
 
@@ -37,33 +61,44 @@ export default function PhotoViewer({
       panzoomRef.current.dispose();
       panzoomRef.current = null;
     }
+  };
 
+  const closeModalHandler = () => {
+    restoreAllAndDestroy();
     if (onClose) onClose();
   };
 
   useEffect(() => {
     if (!open) return;
+
+    const docHandler = (e: Event) => {
+      if (!containerRef.current) return;
+      const target = e.target as Node | null;
+      if (target && (containerRef.current.contains(target) || target instanceof HTMLImageElement)) {
+        stopAll(e);
+      }
+    };
+
+    document.addEventListener("contextmenu", docHandler, true);
+    return () => document.removeEventListener("contextmenu", docHandler, true);
   }, [open]);
 
   useEffect(() => {
-    if (!open) {
-      // cleanup shield before destroying viewer
+    return () => {
+      setOriginalImageVisible(true);
+      panzoomRef.current?._cleanup?.();
       (viewerRef.current as any)?._shieldCleanup?.();
       viewerRef.current?.destroy();
       viewerRef.current = null;
-
-      if (panzoomRef.current) {
-        panzoomRef.current.dispose();
-        panzoomRef.current = null;
-      }
-    }
-  }, [open]);
+    };
+  }, []);
 
   const onImageLoad = () => {
     if (viewerRef.current) return;
     if (!containerRef.current) return;
 
-    // initialize Viewer only for images
+    setOriginalImageVisible(true);
+
     viewerRef.current = new Viewer(containerRef.current, {
       inline: true,
       navbar: false,
@@ -81,7 +116,7 @@ export default function PhotoViewer({
         rotateLeft: false,
         rotateRight: false,
         flipHorizontal: false,
-        flipVertical: false
+        flipVertical: false,
       },
       movable: true,
       zoomable: true,
@@ -97,30 +132,29 @@ export default function PhotoViewer({
       },
     });
 
-    // protect viewer DOM from right-click / drag (block context menu and dragstart)
+    setOriginalImageVisible(false);
+
     const vInst = viewerRef.current as any;
     const vRoot: HTMLElement | null = vInst?.viewer || containerRef.current;
 
-    const preventCtx = (e: Event) => e.preventDefault();
+    const preventCtx = (e: Event) => stopAll(e);
     const preventRightMouse = (e: MouseEvent) => {
-      if (e.button === 2) e.preventDefault();
+      if (e.button === 2) stopAll(e);
     };
-    const preventDrag = (e: Event) => e.preventDefault();
+    const preventDrag = (e: Event) => stopAll(e);
 
-    vRoot?.addEventListener("contextmenu", preventCtx);
-    vRoot?.addEventListener("mousedown", preventRightMouse);
-    vRoot?.addEventListener("dragstart", preventDrag);
+    vRoot?.addEventListener("contextmenu", preventCtx, true);
+    vRoot?.addEventListener("mousedown", preventRightMouse, true);
+    vRoot?.addEventListener("dragstart", preventDrag, true);
 
-    // store cleanup so we can call it before destroying viewer
     (viewerRef.current as any)._shieldCleanup = () => {
-      vRoot?.removeEventListener("contextmenu", preventCtx);
-      vRoot?.removeEventListener("mousedown", preventRightMouse);
-      vRoot?.removeEventListener("dragstart", preventDrag);
+      vRoot?.removeEventListener("contextmenu", preventCtx, true);
+      vRoot?.removeEventListener("mousedown", preventRightMouse, true);
+      vRoot?.removeEventListener("dragstart", preventDrag, true);
     };
   };
 
   const onVideoReady = () => {
-    // initialize panzoom for video (so you can zoom/pan)
     if (panzoomRef.current) return;
     if (!videoRef.current) return;
 
@@ -143,16 +177,6 @@ export default function PhotoViewer({
     if (panzoomRef.current) panzoomRef.current._cleanup = cleanup;
   };
 
-  useEffect(() => {
-    return () => {
-      if (panzoomRef.current) {
-        panzoomRef.current._cleanup?.();
-      }
-      // cleanup viewer shield if component unmounts
-      (viewerRef.current as any)?._shieldCleanup?.();
-    };
-  }, []);
-
   return (
     <Dialog
       open={open}
@@ -161,9 +185,9 @@ export default function PhotoViewer({
       slotProps={{
         paper: {
           sx: {
-            backgroundColor: "var(--mario-bg-color)"
-          }
-        }
+            backgroundColor: "var(--mario-bg-color)",
+          },
+        },
       }}
       onClose={closeModalHandler}
     >
@@ -175,9 +199,23 @@ export default function PhotoViewer({
         <div
           ref={containerRef}
           className={styles.Photo + " Photo"}
-          onContextMenu={(e) => e.preventDefault()}
-          onMouseDown={(e) => { if (e.button === 2) e.preventDefault(); }}
-          onDragStart={(e) => e.preventDefault()}
+          onContextMenu={(e) => {
+            e.preventDefault();
+            e.stopPropagation?.();
+            (e as any).stopImmediatePropagation?.();
+          }}
+          onMouseDown={(e) => {
+            if (e.button === 2) {
+              e.preventDefault();
+              e.stopPropagation?.();
+              (e as any).stopImmediatePropagation?.();
+            }
+          }}
+          onDragStart={(e) => {
+            e.preventDefault();
+            e.stopPropagation?.();
+            (e as any).stopImmediatePropagation?.();
+          }}
         >
           {media && media.src && media.video ? (
             <video
@@ -188,13 +226,21 @@ export default function PhotoViewer({
               loop
               muted
               playsInline
-              width={'auto'}
+              width={"auto"}
               height={720}
-              style={{objectFit: "cover", marginTop: '6px', transformOrigin: "center center"}}
+              style={{ objectFit: "cover", marginTop: "6px", transformOrigin: "center center" }}
               onLoadedMetadata={onVideoReady}
               draggable={false}
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
+              onContextMenu={(e) => {
+                e.preventDefault();
+                e.stopPropagation?.();
+                (e as any).stopImmediatePropagation?.();
+              }}
+              onDragStart={(e) => {
+                e.preventDefault();
+                e.stopPropagation?.();
+                (e as any).stopImmediatePropagation?.();
+              }}
             >
               <source src={media.src} type="video/mp4" />
               Your browser does not support the video tag.
@@ -206,15 +252,24 @@ export default function PhotoViewer({
               alt={media?.alt ?? "Preview"}
               style={{ display: "none", margin: "0 auto", maxWidth: "90vw", height: "auto", cursor: "zoom-in" }}
               draggable={false}
-              onContextMenu={(e) => e.preventDefault()}
-              onDragStart={(e) => e.preventDefault()}
+              onContextMenu={(e) => {
+                e.preventDefault();
+                e.stopPropagation?.();
+                (e as any).stopImmediatePropagation?.();
+              }}
+              onDragStart={(e) => {
+                e.preventDefault();
+                e.stopPropagation?.();
+                (e as any).stopImmediatePropagation?.();
+              }}
               onLoad={onImageLoad}
-            />) }
+            />
+          )}
           <div className={styles.ImageTitle}>{media?.title}</div>
           <div className={styles.ImageDescription} style={{ textAlign: "center" }}>
             {media?.description}
           </div>
-          {(media && media.src && media.src.includes("photography")) && (
+          {media && media.src && media.src.includes("photography") && (
             <div className={styles.ImageDisclaimer}>
               Disclaimer: All photos are original photos as shot without any digital manipulation
             </div>
