@@ -211,3 +211,6 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] contact page envelope icon lower than the text
 - [ ] When clicking X the selected photo reverts to the first
 - [X] fix footer in photography page (overlaps carousel thumb bar)
+- [ ] look into active thumb depiction
+- [ ] check title with Marios "The Entanglement of Hope" vs "The illussion of space"(excel n.009)
+- [ ] check title with Marios for last photo "Remembrances of thoughts to come" vs "Whispering secrets of space to time" (excel n.054)

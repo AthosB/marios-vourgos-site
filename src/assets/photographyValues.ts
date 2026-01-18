@@ -263,8 +263,8 @@ export const photographyCarouselFilenames = [
     position: 255,
     src: '/images/photography/selection2026/photography_0255.jpg',
     thumb: '/images/photography/selection2026/thumbs/photography_0255_thumb.jpg',
-    alt: "Euphoria",
-    title: "Euphoria",
+    alt: "The flower that fell in love with a woman",
+    title: "The flower that fell in love with a woman",
     description: '100 cm x 80 cm'
   },
   {

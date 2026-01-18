@@ -151,7 +151,6 @@ export default function CustomEmblaCarousel({
   }
 
   const closeMediaViewerHandler = () => {
-    setSelectedImage(slides[0]);
     setOpenMediaViewer(false);
   }
 
