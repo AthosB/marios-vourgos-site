@@ -209,7 +209,7 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] on mobile menu onClick should act on whole menu item not just text
 - [X] erroneous padding in all pages (container div)
 - [X] contact page envelope icon lower than the text
-- [ ] When clicking X the selected photo reverts to the first
+- [X] When clicking X the selected photo reverts to the first
 - [X] fix footer in photography page (overlaps carousel thumb bar)
 - [ ] look into active thumb depiction
 - [ ] check title with Marios "The Entanglement of Hope" vs "The illussion of space"(excel n.009)
