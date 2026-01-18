@@ -8,13 +8,16 @@ import {fashionEntries} from '@/assets/enhancedValues';
 import CustomEmblaCarouselFashion from "@/components/UI/CustomEmblaCarouselFashion/CustomEmblaCarouselFashion";
 
 export default function HomeFashion() {
+  /** PRES **/
+  const isMobile = window.innerWidth <= 950;
+
   /** RENDER **/
   return <>
     <div id="home-fashion" className="preview-canvas FashionCarousel">
       <CustomEmblaCarouselFashion
         slides={fashionEntries}
         pageSize={5}
-        showDots={true}
+        showDots={!isMobile}
         dragFree={true}
         showTitle={false}
         showDescription={false}

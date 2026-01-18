@@ -202,11 +202,12 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [ ] check photography names against Excel (correct titles)
 - [ ] add download image blocker where available (look into div with image as background image insted of <img> tag)
 - [ ] create ImageWrapper UI component to wrap image and add download blocker and forward image attributes to it
-- [ ] more space about text and mario photo
-- [ ] margin around about photo
-- [ ] Dots erroneous on fashion carousel
-- [ ] press photography text uneven padding
-- [ ] on mobile menu onClick should act on whole menu item not just text
-- [ ] erroneous padding in all pages (container div)
-- [ ] contact page envelope icon lower than the text
+- [X] more space about text and mario photo
+- [X] margin around about photo
+- [X] Dots are erroneous on fashion carousel
+- [X] press photography text uneven padding
+- [X] on mobile menu onClick should act on whole menu item not just text
+- [X] erroneous padding in all pages (container div)
+- [X] contact page envelope icon lower than the text
 - [ ] When clicking X the selected photo reverts to the first
+- [X] fix footer in photography page (overlaps carousel thumb bar)

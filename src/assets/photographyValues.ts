@@ -13,8 +13,10 @@ export const photographyCarouselFilenames = [
     position: 20,
     src: '/images/photography/selection2026/photography_0020.jpg',
     thumb: '/images/photography/selection2026/thumbs/photography_0020_thumb.jpg',
-    alt: 'The Escape of Dreams',
-    title: 'The Escape of Dreams',
+    alt: 'The ecstatic renaissance of time ',
+    title: 'The ecstatic renaissance of time ',
+    // alt: 'The Escape of Dreams',
+    // title: 'The Escape of Dreams',
     description: '100 cm x 80 cm'
   },
   {
