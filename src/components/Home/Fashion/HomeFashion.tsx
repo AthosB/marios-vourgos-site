@@ -4,7 +4,7 @@
 import {fashionEntries} from '@/assets/enhancedValues';
 
 import CustomEmblaCarouselFashion from "@/components/UI/CustomEmblaCarouselFashion/CustomEmblaCarouselFashion";
-import DynamicCarousel from "@/components/UI/DynamicCarousel";
+import DesktopCarouselFashion from "@/components/UI/CustomEmblaCarouselFashion/DesktopCarouselFashion";
 
 export default function HomeFashion() {
   /** PRES **/
@@ -13,15 +13,24 @@ export default function HomeFashion() {
   /** RENDER **/
   return <>
     <div id="home-fashion" className="preview-canvas FashionCarousel">
-      <CustomEmblaCarouselFashion
+      {isMobile ? <CustomEmblaCarouselFashion
         slides={fashionEntries}
-        pageSize={5}
+        pageSize={3}
         showDots={!isMobile}
         dragFree={true}
         showTitle={false}
         showDescription={false}
         showDisclaimer={false}
+      /> : <DesktopCarouselFashion
+        slides={fashionEntries}
+        showTitle={false}
+        showDescription={false}
+        showDisclaimer={false}
+        showDots={true}
+        dragFree={false}
+        pageSize={5}
       />
+      }
       {/*<DynamicCarousel*/}
       {/*  slides={fashionEntries}*/}
       {/*  showTitle={false}*/}

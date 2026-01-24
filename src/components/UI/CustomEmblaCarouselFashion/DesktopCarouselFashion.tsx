@@ -1,6 +1,6 @@
 // typescript
 import React, {useCallback, useEffect, useState, useRef, CSSProperties, ReactNode} from 'react'
-import './CustomEmblaCarouselFashion.scss';
+import './DesktopCarouselFashion.scss';
 import useEmblaCarousel from 'embla-carousel-react'
 import type {EmblaCarouselType} from 'embla-carousel'
 import PhotoViewer from "@/components/UI/PhotoViewer/PhotoViewer";
@@ -22,28 +22,25 @@ function clamp(n: number, min: number, max: number) {
   return Math.max(min, Math.min(n, max))
 }
 
-export default function CustomEmblaCarousel({
+export default function DesktopCarouselFashion({
                                               slides,
-                                              thumbHeight = 76,
+                                              thumbHeight = 128,
                                               pageSize = 3,
                                               showDots = true,
-                                              dragFree = true,
                                               showTitle = true,
                                               showDescription = true,
                                               showDisclaimer = false,
                                               disclaimer = 'Disclaimer: All photos are original photos as shot without any digital manipulation.'
                                             }: Props) {
 
-  const [isMobile, setIsMobile] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [selectedImage, setSelectedImage] = useState<GenericItemType>(slides[0] ?? null);
   const [openMediaViewer, setOpenMediaViewer] = useState(false);
 
   const previewVideoRef = useRef<HTMLVideoElement | null>(null);
-  const thumbsContainerRef = useRef<HTMLDivElement | null>(null)
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
-    dragFree,
+    dragFree: true,
     containScroll: 'trimSnaps',
     align: 'start',
   })
@@ -103,30 +100,44 @@ export default function CustomEmblaCarousel({
 
   const onThumbClick = useCallback(
     (i: number) => {
+      if (!emblaApi) return
       setSelectedIndex(i)
       setSelectedImage(slides[i])
-      if (!emblaApi) return
       scrollThumbIntoView(emblaApi, i)
     },
     [emblaApi, scrollThumbIntoView, slides]
   )
 
-  const scrollPrevious = () => {
-    const el = thumbsContainerRef.current
-    if (!el) return
-    const distance = Math.round(window.innerWidth * 0.6) // 60vw in px
-    el.scrollBy({ left: -distance, behavior: 'smooth' })
-  }
-
-  const scrollNext = () => {
-    const el = thumbsContainerRef.current
-    if (!el) return
-    const distance = Math.round(window.innerWidth * 0.6) // 60vw in px
-    el.scrollBy({ left: distance, behavior: 'smooth' })
-  }
+  const scrollBy = useCallback(
+    (offset: number) => {
+      if (!emblaApi) return
+      const current = emblaApi.selectedScrollSnap()
+      emblaApi.scrollTo(current + offset)
+    },
+    [emblaApi]
+  )
 
   // Replace useMemo with state + effect to recompute when embla re-inits or viewport resizes
   const [pageCount, setPageCount] = useState(() => Math.max(1, Math.ceil(slides.length / pageSize)))
+
+  /** EFFECTS **/
+
+  useEffect(() => {
+    const updatePageCount = () => {
+      const snaps = emblaApi?.scrollSnapList()
+      const snapsCount = snaps?.length ?? slides.length
+      setPageCount(Math.max(1, Math.ceil(snapsCount / pageSize)))
+    }
+
+    updatePageCount()
+    emblaApi?.on('reInit', updatePageCount)
+    window.addEventListener('resize', updatePageCount)
+
+    return () => {
+      emblaApi?.off('reInit', updatePageCount)
+      window.removeEventListener('resize', updatePageCount)
+    }
+  }, [emblaApi, slides.length, pageSize])
 
   const [currentPage, setCurrentPage] = useState(0)
 
@@ -148,30 +159,6 @@ export default function CustomEmblaCarousel({
   /** EFFECTS **/
 
   useEffect(() => {
-    const updatePageCount = () => {
-      const snaps = emblaApi?.scrollSnapList()
-      const snapsCount = snaps?.length ?? slides.length
-      setPageCount(Math.max(1, Math.ceil(snapsCount / pageSize)))
-    }
-
-    updatePageCount()
-    emblaApi?.on('reInit', updatePageCount)
-    window.addEventListener('resize', updatePageCount)
-
-    return () => {
-      emblaApi?.off('reInit', updatePageCount)
-      window.removeEventListener('resize', updatePageCount)
-    }
-  }, [emblaApi, slides.length, pageSize])
-
-  useEffect(() => {
-    const update = () => setIsMobile(window.innerWidth <= 768)
-    update()
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
-  }, [])
-
-  useEffect(() => {
     if (!emblaApi) return
 
     const updatePage = () => {
@@ -189,16 +176,8 @@ export default function CustomEmblaCarousel({
     }
   }, [emblaApi, pageSize])
 
-  useEffect(() => {
-    const update = () => setIsMobile(window.innerWidth <= 768)
-    update()
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
-  }, []);
-
-  /** RENDER **/
   return (
-    <div className={`mc2${isMobile ? ' mc2--mobile' : ''}`}>
+    <div className="mc2">
       <div className="mc2__preview">
         {selectedImage.video ? (
           <video
@@ -212,14 +191,14 @@ export default function CustomEmblaCarousel({
             style={{
               objectFit: 'cover',
               cursor: 'pointer',
-              height: isMobile ? 'auto' : '60vh',
-              width: isMobile ? '100%' : 'unset',
+              height: '60vh',
+              width: 'unset',
             }}
           >
             <source src={selectedImage?.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          ) : (
+        ) : (
           <img
             src={selectedImage.preview ?? selectedImage.src}
             alt={selectedImage.alt ?? ''}
@@ -230,60 +209,57 @@ export default function CustomEmblaCarousel({
         )}
       </div>
 
-      <div
-        style={{display:'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'end'}}
-      >
-        <div className="mc2-slide__meta">
-          {showTitle && selectedImage?.title && selectedImage?.title?.length > 0 && (
-            <div className="mc2-slide__title">
-              {selectedImage.title}
-            </div>
-          )}
+      <div className="mc2-slide__meta">
+        {showTitle && selectedImage?.title && selectedImage?.title?.length > 0 && (
+          <div className="mc2-slide__title">
+            {selectedImage.title}
+          </div>
+        )}
 
-          {showDescription && selectedImage?.description && selectedImage?.description?.length > 0 && (
-            <>
-              {showDisclaimer && disclaimer && (
-                <div className="mc2-slide__disclaimer">
-                  {disclaimer}
-                </div>
-              )}
-              <div className="mc2-slide__description">
-                {selectedImage.description}
+        {showDescription && selectedImage?.description && selectedImage?.description?.length > 0 && (
+          <>
+            {showDisclaimer && disclaimer && (
+              <div className="mc2-slide__disclaimer">
+                {disclaimer}
               </div>
-            </>
-          )}
-        </div>
+            )}
+            <div className="mc2-slide__description">
+              {selectedImage.description}
+            </div>
+          </>
+        )}
+      </div>
 
-        <div className="mc2__thumbbar">
-          <button
-            aria-label="Previous"
-            type="button"
-            className="mc2__arrow prev-arrow"
-            onClick={scrollPrevious}
+      <div className="mc2__thumbbar">
+        <button
+          aria-label="Previous"
+          type="button"
+          className="mc2__arrow"
+          onClick={() => scrollBy(-pageSize)}
+        >
+          <svg
+            viewBox="0 0 24 144"
+            style={CHEVRON_SVG_STYLE}
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-hidden="true"
           >
-            <svg
-              viewBox="0 0 24 144"
-              style={CHEVRON_SVG_STYLE}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-hidden="true"
-            >
-              <polyline
-                points="16,12 8,72 16,132"
-                fill="none"
-                stroke="#fcb040"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+            <polyline
+              points="16,12 8,72 16,132"
+              fill="none"
+              stroke="#fcb040"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
 
-          <div className="thumbs-section">
+        <div className="embla mc2__embla">
+          <div className="embla__viewport" ref={emblaRef}>
             <div
-              className="thumbs-container"
+              className="embla__container"
               style={{['--thumb-h' as any]: `${thumbHeight}px`}}
-              ref={thumbsContainerRef}
             >
               {slides.map((s, i) => (
                 <button
@@ -304,7 +280,7 @@ export default function CustomEmblaCarousel({
                         objectFit: 'cover',
                         cursor: 'pointer',
                         height: 'inherit',
-                        width: isMobile ? '125px' : 'min-content !important',
+                        width: 'min-content !important',
                       }}
                     >
                       <source src={s.src} type="video/mp4" />
@@ -312,7 +288,7 @@ export default function CustomEmblaCarousel({
                     </video>
                   ) : (
                     <img
-                      className="mc2f__thumbImg"
+                      className="mc2__thumbImg"
                       src={s.thumb ?? s.src} alt={s.alt ?? ''}
                       draggable={false}
                       onContextMenu={(e) => e.preventDefault()}
@@ -322,31 +298,31 @@ export default function CustomEmblaCarousel({
               ))}
             </div>
           </div>
-
-          <button
-            aria-label="Next"
-            type="button"
-            className="mc2__arrow  next-arrow"
-            onClick={scrollNext}
-          >
-            <svg
-              viewBox="0 0 24 144"
-              style={CHEVRON_SVG_STYLE}
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-hidden="true"
-            >
-              <polyline
-                points="8,12 16,72 8,132"
-                fill="none"
-                stroke="#fcb040"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
         </div>
+
+        <button
+          aria-label="Next"
+          type="button"
+          className="mc2__arrow"
+          onClick={() => scrollBy(pageSize)}
+        >
+          <svg
+            viewBox="0 0 24 144"
+            style={CHEVRON_SVG_STYLE}
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-hidden="true"
+          >
+            <polyline
+              points="8,12 16,72 8,132"
+              fill="none"
+              stroke="#fcb040"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
       </div>
 
       {/* Only render dots when there is more than one page */}

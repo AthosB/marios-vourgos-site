@@ -1,0 +1,213 @@
+.mc2 {
+  display: grid;
+  gap: 12px;
+  max-width: calc(100vw - 80px);
+
+  &.mc2--mobile {
+    max-width: calc(100vw - 32px);
+
+    .mc2__thumbbar {
+      gap: 0;
+    }
+  }
+}
+
+.mc2__preview {
+  width: 100%;
+  height: 100%;
+  max-height: 60vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.mc2__preview img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.mc2__thumbbar {
+  //width: calc(100vw - 80px);
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* left arrow | thumbs | right arrow */
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto; /* center the whole bar if parent is wider */
+  box-sizing: border-box;
+}
+
+.mc2__arrow {
+  flex: 0 0 auto;
+  width: 44px; /* keep as desired */
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.mc2__embla {
+  min-width: 0; /* allow grid cell to shrink */
+  width: 100%;
+}
+
+.mc2__embla .embla__viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 0 128px 0 8px;
+}
+
+.mc2__embla .embla__container {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.embla__container {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overscroll-behavior-x: auto;
+}
+
+/* Fixed height, VARIABLE width */
+.mc2__thumb {
+  height: var(--thumb-h);
+  width: auto;
+  padding: 0;
+  background: none;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+  flex: 0 0 auto; /* variable width but do not grow */
+  contain: paint;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Make the image define width naturally */
+.mc2__thumbImg {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.mc2__thumb.is-selected {
+  //outline: 2px solid rgba(0,0,0,.65);
+  //outline-offset: 2px;
+}
+
+.mc2__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mc2__dot {
+  -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--mario-accent-color-faintest);
+}
+
+.mc2__dot:after {
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  content: '';
+}
+
+.mc2__dot.is-active {
+  background-color: var(--mario-accent-color);
+}
+
+.mc2-slide__meta {
+  margin-top: 32px;
+
+  .mc2-slide__title {
+    font-size: 1.2rem;
+    font-family: 'CinzelRegular', sans-serif;
+    margin-bottom: 4px;
+    text-align: center;
+    color: var(--mario-accent-color);
+  }
+
+  .mc2-slide__description {
+    font-size: 1rem;
+    font-family: 'CinzelRegular', sans-serif;
+    margin-bottom: 16px;
+    text-align: center;
+    color: var(--mario-accent-color);
+    opacity: 0.8;
+  }
+
+  .mc2-slide__disclaimer {
+    font-family: 'CinzelRegular', sans-serif;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}
+
+.mc2__previewImg,
+.mc2__previewVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.mc2__thumbVideoWrap {
+  position: relative;
+  height: 100%;
+}
+
+.mc2__thumbVideo {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: cover; // or contain, depending on your thumb style
+}
+
+.mc2__thumbPlayBadge {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  font-size: 14px;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  pointer-events: none;
+}

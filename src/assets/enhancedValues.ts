@@ -2418,7 +2418,7 @@ export const paintingsCarousel = [
 export const fashionEntries = [
   {
     "position": 100,
-    "src": "/images/fashion/fashion_06.jpg",
+    "src": "/images/fashion/webp/fashion_06.webp",
     "alt": "Fashion 1",
     "title": "Fashion 1",
     "width": 1146,
@@ -2427,7 +2427,7 @@ export const fashionEntries = [
   },
   {
     "position": 200,
-    "src": "/images/fashion/fashion_02.jpg",
+    "src": "/images/fashion/webp/fashion_02.webp",
     "alt": "Fashion 2",
     "title": "Fashion 2",
     "width": 1163,
@@ -2436,7 +2436,7 @@ export const fashionEntries = [
   },
   {
     "position": 400,
-    "src": "/images/fashion/fashion_04.jpg",
+    "src": "/images/fashion/webp/fashion_04.webp",
     "alt": "Fashion 4",
     "title": "Fashion 4",
     "width": 1205,
@@ -2445,7 +2445,7 @@ export const fashionEntries = [
   },
   {
     "position": 500,
-    "src": "/images/fashion/fashion_05.jpg",
+    "src": "/images/fashion/webp/fashion_05.webp",
     "alt": "Fashion 5",
     "title": "Fashion 5",
     "width": 1143,
@@ -2461,7 +2461,7 @@ export const fashionEntries = [
   },
   {
     "position": 600,
-    "src": "/images/fashion/fashion_07.jpg",
+    "src": "/images/fashion/webp/fashion_07.webp",
     "alt": "Fashion 6",
     "title": "Fashion 6",
     "width": 1191,
@@ -2470,7 +2470,7 @@ export const fashionEntries = [
   },
   {
     "position": 700,
-    "src": "/images/fashion/fashion_01.jpg",
+    "src": "/images/fashion/webp/fashion_01.webp",
     "alt": "Fashion 7",
     "title": "Fashion 7",
     "description": "",
@@ -2480,7 +2480,7 @@ export const fashionEntries = [
   },
   {
     "position": 800,
-    "src": "/images/fashion/fashion_08.jpg",
+    "src": "/images/fashion/webp/fashion_08.webp",
     "alt": "Fashion 8",
     "title": "Fashion 8",
     "width": 2456,
@@ -2489,7 +2489,7 @@ export const fashionEntries = [
   },
   // {
   //   "position": 900,
-  //   "src": "/images/fashion/fashion_09.jpg",
+  //   "src": "/images/fashion/webp/fashion_09.webp",
   //   "alt": "Fashion 9",
   //   "title": "Fashion 9",
   //   "width": 2266,
@@ -2498,7 +2498,7 @@ export const fashionEntries = [
   // },
   {
     "position": 930,
-    "src": "/images/fashion/fashion_new_01.jpg",
+    "src": "/images/fashion/webp/fashion_new_01.webp",
     "alt": "Fashion 9",
     "title": "Fashion 9",
     "width": 2266,
@@ -2514,7 +2514,7 @@ export const fashionEntries = [
   },
   {
     "position": 1000,
-    "src": "/images/fashion/fashion_10.jpg",
+    "src": "/images/fashion/webp/fashion_10.webp",
     "alt": "Fashion 10",
     "title": "Fashion 10",
     "width": 1080,
@@ -2523,7 +2523,7 @@ export const fashionEntries = [
   },
   {
     "position": 1100,
-    "src": "/images/fashion/fashion_11.jpg",
+    "src": "/images/fashion/webp/fashion_11.webp",
     "alt": "Fashion 11",
     "title": "Fashion 11",
     "width": 2244,
@@ -2532,7 +2532,7 @@ export const fashionEntries = [
   },
   {
     "position": 1900,
-    "src": "/images/fashion/fashion_19.jpg",
+    "src": "/images/fashion/webp/fashion_19.webp",
     "alt": "Fashion 19",
     "title": "Fashion 19",
     "width": 2272,
@@ -2548,7 +2548,7 @@ export const fashionEntries = [
   },
   {
     "position": 1200,
-    "src": "/images/fashion/fashion_12.jpg",
+    "src": "/images/fashion/webp/fashion_12.webp",
     "alt": "Fashion 12",
     "title": "Fashion 12",
     "width": 2213,
@@ -2557,7 +2557,7 @@ export const fashionEntries = [
   },
   {
     "position": 1300,
-    "src": "/images/fashion/fashion_13.jpg",
+    "src": "/images/fashion/webp/fashion_13.webp",
     "alt": "Fashion 13",
     "title": "Fashion 13",
     "width": 2131,
@@ -2573,7 +2573,7 @@ export const fashionEntries = [
   },
   {
     "position": 1400,
-    "src": "/images/fashion/fashion_14.jpg",
+    "src": "/images/fashion/webp/fashion_14.webp",
     "alt": "Fashion 14",
     "title": "Fashion 14",
     "width": 1179,
@@ -2589,7 +2589,7 @@ export const fashionEntries = [
   },
   {
     "position": 1500,
-    "src": "/images/fashion/fashion_15.jpg",
+    "src": "/images/fashion/webp/fashion_15.webp",
     "alt": "Fashion 15",
     "title": "Fashion 15",
     "width": 1167,
@@ -2605,7 +2605,7 @@ export const fashionEntries = [
   },
   {
     "position": 1600,
-    "src": "/images/fashion/fashion_16.jpg",
+    "src": "/images/fashion/webp/fashion_16.webp",
     "alt": "Fashion 16",
     "title": "Fashion 16",
     "width": 1947,
@@ -2621,7 +2621,7 @@ export const fashionEntries = [
   },
   {
     "position": 1700,
-    "src": "/images/fashion/fashion_17.jpg",
+    "src": "/images/fashion/webp/fashion_17.webp",
     "alt": "Fashion 17",
     "title": "Fashion 17",
     "width": 2256,
@@ -2637,7 +2637,7 @@ export const fashionEntries = [
   },
   {
     "position": 1800,
-    "src": "/images/fashion/fashion_18.jpg",
+    "src": "/images/fashion/webp/fashion_18.webp",
     "alt": "Fashion 18",
     "title": "Fashion 18",
     "width": 1760,
@@ -2660,7 +2660,7 @@ export const fashionEntries = [
   // },
   {
     "position": 2000,
-    "src": "/images/fashion/fashion_20.jpg",
+    "src": "/images/fashion/webp/fashion_20.webp",
     "alt": "Fashion 20",
     "title": "Fashion 20",
     "width": 2344,
@@ -2676,7 +2676,7 @@ export const fashionEntries = [
   },
   {
     "position": 2100,
-    "src": "/images/fashion/fashion_21.jpg",
+    "src": "/images/fashion/webp/fashion_21.webp",
     "alt": "Fashion 21",
     "title": "Fashion 21",
     "width": 2344,
@@ -2692,7 +2692,7 @@ export const fashionEntries = [
   },
   {
     "position": 2200,
-    "src": "/images/fashion/fashion_22.jpg",
+    "src": "/images/fashion/webp/fashion_22.webp",
     "alt": "Fashion 22",
     "title": "Fashion 22",
     "width": 2264,
@@ -2708,7 +2708,7 @@ export const fashionEntries = [
   },
   {
     "position": 2300,
-    "src": "/images/fashion/fashion_23.jpg",
+    "src": "/images/fashion/webp/fashion_23.webp",
     "alt": "Fashion 23",
     "title": "Fashion 23",
     "width": 1193,
@@ -2738,7 +2738,7 @@ export const fashionEntries = [
   },
   {
     "position": 2400,
-    "src": "/images/fashion/fashion_24.jpg",
+    "src": "/images/fashion/webp/fashion_24.webp",
     "alt": "Fashion 24",
     "title": "Fashion 24",
     "width": 1199,
@@ -2747,7 +2747,7 @@ export const fashionEntries = [
   },
   {
     "position": 2500,
-    "src": "/images/fashion/fashion_25.jpg",
+    "src": "/images/fashion/webp/fashion_25.webp",
     "alt": "Fashion 25",
     "title": "Fashion 25",
     "width": 2200,
@@ -2770,7 +2770,7 @@ export const fashionEntries = [
   },
   {
     "position": 2600,
-    "src": "/images/fashion/fashion_26.jpg",
+    "src": "/images/fashion/webp/fashion_26.webp",
     "alt": "Fashion 26",
     "title": "Fashion 26",
     "width": 1937,
@@ -2793,7 +2793,7 @@ export const fashionEntries = [
   },
   {
     "position": 2700,
-    "src": "/images/fashion/fashion_27.jpg",
+    "src": "/images/fashion/webp/fashion_27.webp",
     "alt": "Fashion 27",
     "title": "Fashion 27",
     "width": 1176,
@@ -2802,7 +2802,7 @@ export const fashionEntries = [
   },
   {
     "position": 2800,
-    "src": "/images/fashion/fashion_28.jpg",
+    "src": "/images/fashion/webp/fashion_28.webp",
     "alt": "Fashion 28",
     "title": "Fashion 28",
     "width": 2033,
@@ -2818,7 +2818,7 @@ export const fashionEntries = [
   },
   {
     "position": 2830,
-    "src": "/images/fashion/fashion_new_02.jpg",
+    "src": "/images/fashion/webp/fashion_new_02.webp",
     "alt": "Fashion 28",
     "title": "Fashion 28",
     "width": 2033,

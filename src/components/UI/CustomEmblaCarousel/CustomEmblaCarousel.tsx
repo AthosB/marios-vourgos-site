@@ -127,25 +127,6 @@ export default function CustomEmblaCarousel({
   // Replace useMemo with state + effect to recompute when embla re-inits or viewport resizes
   const [pageCount, setPageCount] = useState(() => Math.max(1, Math.ceil(slides.length / pageSize)))
 
-  /** EFFECTS **/
-
-  useEffect(() => {
-    const updatePageCount = () => {
-      const snaps = emblaApi?.scrollSnapList()
-      const snapsCount = snaps?.length ?? slides.length
-      setPageCount(Math.max(1, Math.ceil(snapsCount / pageSize)))
-    }
-
-    updatePageCount()
-    emblaApi?.on('reInit', updatePageCount)
-    window.addEventListener('resize', updatePageCount)
-
-    return () => {
-      emblaApi?.off('reInit', updatePageCount)
-      window.removeEventListener('resize', updatePageCount)
-    }
-  }, [emblaApi, slides.length, pageSize])
-
   const [currentPage, setCurrentPage] = useState(0)
 
   const CHEVRON_SVG_STYLE: CSSProperties = {
@@ -164,6 +145,23 @@ export default function CustomEmblaCarousel({
   }
 
   /** EFFECTS **/
+
+  useEffect(() => {
+    const updatePageCount = () => {
+      const snaps = emblaApi?.scrollSnapList()
+      const snapsCount = snaps?.length ?? slides.length
+      setPageCount(Math.max(1, Math.ceil(snapsCount / pageSize)))
+    }
+
+    updatePageCount()
+    emblaApi?.on('reInit', updatePageCount)
+    window.addEventListener('resize', updatePageCount)
+
+    return () => {
+      emblaApi?.off('reInit', updatePageCount)
+      window.removeEventListener('resize', updatePageCount)
+    }
+  }, [emblaApi, slides.length, pageSize])
 
   useEffect(() => {
     const update = () => setIsMobile(window.innerWidth <= 768)
@@ -197,6 +195,7 @@ export default function CustomEmblaCarousel({
     return () => window.removeEventListener('resize', update)
   }, []);
 
+  /** RENDER **/
   return (
     <div className={`mc2${isMobile ? ' mc2--mobile' : ''}`}>
       <div className="mc2__preview">
