@@ -3030,7 +3030,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 30,
-    "src": "/images/literature/tango29/carousel/CHR_2893.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_2893.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3040,7 +3040,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 40,
-    "src": "/images/literature/tango29/carousel/CHR_3024.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3024.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3050,7 +3050,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 50,
-    "src": "/images/literature/tango29/carousel/CHR_3354.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3354.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3060,7 +3060,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 60,
-    "src": "/images/literature/tango29/carousel/CHR_3398.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3398.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3070,7 +3070,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 70,
-    "src": "/images/literature/tango29/carousel/CHR_2748.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_2748.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3080,7 +3080,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 80,
-    "src": "/images/literature/tango29/carousel/CHR_2872.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_2872.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3090,7 +3090,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 90,
-    "src": "/images/literature/tango29/carousel/CHR_2776.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_2776.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3100,7 +3100,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 100,
-    "src": "/images/literature/tango29/carousel/CHR_2777.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_2777.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3110,7 +3110,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 110,
-    "src": "/images/literature/tango29/carousel/CHR_3208_B.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3208_B.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3120,7 +3120,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 120,
-    "src": "/images/literature/tango29/carousel/CHR_3259.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3259.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3130,7 +3130,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 130,
-    "src": "/images/literature/tango29/carousel/CHR_3482.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3482.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3140,7 +3140,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 140,
-    "src": "/images/literature/tango29/carousel/CHR_3490.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3490.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3150,7 +3150,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 150,
-    "src": "/images/literature/tango29/carousel/tango-kolossi-03.jpg",
+    "src": "/images/literature/tango29/carousel/webp/tango-kolossi-03.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3160,7 +3160,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 160,
-    "src": "/images/literature/tango29/carousel/CHR_3639.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3639.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
@@ -3170,7 +3170,7 @@ export const literatureTango29Carousel = [
   },
   {
     "position": 170,
-    "src": "/images/literature/tango29/carousel/CHR_3718.jpg",
+    "src": "/images/literature/tango29/carousel/webp/CHR_3718.webp",
     "alt": "Tango 29",
     "title": "Tango 29",
     "cols": 5,
