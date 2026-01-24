@@ -199,7 +199,7 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] 3rd --> Sardonic Smile
 - [X] 1st painting "The achronic remembrances of time"
 - [X] remove rain effect from preview panel for photography images
-- [ ] check photography names against Excel (correct titles)
+- [X] check photography names against Excel (correct titles)
 - [X] add download image blocker where available (look into div with image as background image insted of <img> tag)
 - [X] more space about text and mario photo
 - [X] margin around about photo
@@ -211,5 +211,12 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] When clicking X the selected photo reverts to the first
 - [X] fix footer in photography page (overlaps carousel thumb bar)
 - [X] look into active thumb depiction
-- [ ] check title with Marios "The Entanglement of Hope" vs "The illussion of space"(excel n.009)
-- [ ] check title with Marios for last photo "Remembrances of thoughts to come" vs "Whispering secrets of space to time" (excel n.054)
+- [X] check title with Marios "The Entanglement of Hope"
+- [X] check title with Marios for last photo "Remembrances of thoughts to come"
+- [ ] less photos per page on carousel or dynamically based on mobile width
+- [ ] photos load too slow (look into lazy load?)
+- [ ] issue with not smooth scrolling on slider when dragging
+- [ ] last photo cropped
+- [ ] reduce resolution for preview canvas as well
+- [ ] move "rapture" after "Spring awaiting summer in the fall"
+- [ ] on route change reload page to dodge page/components freezes

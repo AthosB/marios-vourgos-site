@@ -26,7 +26,7 @@ function clamp(n: number, min: number, max: number) {
 export default function CustomEmblaCarouselFashion({
                                               slides,
                                               thumbHeight = 94,
-                                              pageSize = 5,
+                                              pageSize = 3,
                                               showDots = true,
                                               dragFree = true,
                                               showTitle = true,

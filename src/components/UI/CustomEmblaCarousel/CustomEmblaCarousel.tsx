@@ -1,5 +1,5 @@
 // typescript
-import React, {useCallback, useEffect, useState, CSSProperties, ReactNode} from 'react'
+import {useCallback, useEffect, useState, useRef, CSSProperties, ReactNode} from 'react'
 import './CustomEmblaCarousel.scss';
 import useEmblaCarousel from 'embla-carousel-react'
 import type {EmblaCarouselType} from 'embla-carousel'
@@ -25,7 +25,7 @@ function clamp(n: number, min: number, max: number) {
 export default function CustomEmblaCarousel({
                                               slides,
                                               thumbHeight = 76,
-                                              pageSize = 5,
+                                              pageSize = 3,
                                               showDots = true,
                                               dragFree = true,
                                               showTitle = true,
@@ -34,14 +34,17 @@ export default function CustomEmblaCarousel({
                                               disclaimer = 'Disclaimer: All photos are original photos as shot without any digital manipulation.'
                                             }: Props) {
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [selectedImage, setSelectedImage] = useState<GenericItemType>(slides[0] ?? null);
   const [openMediaViewer, setOpenMediaViewer] = useState(false);
 
+  const isDraggingRef = useRef(false)
+  const thumbsContainerRef = useRef<HTMLDivElement | null>(null)
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     dragFree,
-    containScroll: 'keepSnaps',
+    containScroll: 'trimSnaps',
     align: 'start',
   })
 
@@ -100,9 +103,9 @@ export default function CustomEmblaCarousel({
 
   const onThumbClick = useCallback(
     (i: number) => {
+      if (!emblaApi) return
       setSelectedIndex(i)
       setSelectedImage(slides[i])
-      if (!emblaApi) return
       scrollThumbIntoView(emblaApi, i)
     },
     [emblaApi, scrollThumbIntoView, slides]
@@ -117,8 +120,24 @@ export default function CustomEmblaCarousel({
     [emblaApi]
   )
 
+  const scrollPrevious = () => {
+    const el = thumbsContainerRef.current
+    if (!el) return
+    const distance = Math.round(window.innerWidth * 0.6) // 60vw in px
+    el.scrollBy({ left: -distance, behavior: 'smooth' })
+  }
+
+  const scrollNext = () => {
+    const el = thumbsContainerRef.current
+    if (!el) return
+    const distance = Math.round(window.innerWidth * 0.6) // 60vw in px
+    el.scrollBy({ left: distance, behavior: 'smooth' })
+  }
+
   // Replace useMemo with state + effect to recompute when embla re-inits or viewport resizes
   const [pageCount, setPageCount] = useState(() => Math.max(1, Math.ceil(slides.length / pageSize)))
+
+  /** EFFECTS **/
 
   useEffect(() => {
     const updatePageCount = () => {
@@ -154,6 +173,15 @@ export default function CustomEmblaCarousel({
     setOpenMediaViewer(false);
   }
 
+  /** EFFECTS **/
+
+  useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth <= 768)
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
+
   useEffect(() => {
     if (!emblaApi) return
 
@@ -184,7 +212,7 @@ export default function CustomEmblaCarousel({
       <div className="mc2__preview">
         {selectedImage ? (
           <img
-            src={selectedImage.src}
+            src={selectedImage.preview ?? selectedImage.src}
             alt={selectedImage.alt ?? ''}
             onClick={() => previewImageHandler(selectedImage)}
             onContextMenu={(e) => e.preventDefault()}
@@ -218,8 +246,8 @@ export default function CustomEmblaCarousel({
         <button
           aria-label="Previous"
           type="button"
-          className="mc2__arrow"
-          onClick={() => scrollBy(-pageSize)}
+          className="mc2__arrow prev-arrow"
+          onClick={scrollPrevious}
         >
           <svg
             viewBox="0 0 24 144"
@@ -239,38 +267,37 @@ export default function CustomEmblaCarousel({
           </svg>
         </button>
 
-        <div className="embla mc2__embla">
-          <div className="embla__viewport" ref={emblaRef}>
-            <div
-              className="embla__container"
-              style={{['--thumb-h' as any]: `${thumbHeight}px`}}
-            >
-              {slides.map((s, i) => (
-                <button
-                  key={`${s.src}-${i}`}
-                  type="button"
-                  className={`mc2__thumb ${i === selectedIndex ? 'is-selected' : ''}`}
-                  onClick={() => onThumbClick(i)}
-                  title={s.title ?? s.alt ?? ''}
-                >
-                  <img
-                    className="mc2__thumbImg"
-                    src={s.thumb ?? s.src}
-                    alt={s.alt ?? ''}
-                    draggable={false}
-                    onContextMenu={(e) => e.preventDefault()}
-                  />
-                </button>
-              ))}
-            </div>
+        <div className="thumbs-section">
+          <div
+            className="thumbs-container"
+            style={{['--thumb-h' as any]: `${thumbHeight}px`}}
+            ref={thumbsContainerRef}
+          >
+            {slides.map((s, i) => (
+              <button
+                key={`${s.src}-${i}`}
+                type="button"
+                className={`mc2__thumb ${i === selectedIndex ? 'is-selected' : ''}`}
+                onClick={() => onThumbClick(i)}
+                title={s.title ?? s.alt ?? ''}
+              >
+                <img
+                  className="mc2__thumbImg"
+                  src={s.thumb ?? s.src}
+                  alt={s.alt ?? ''}
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+              </button>
+            ))}
           </div>
         </div>
 
         <button
           aria-label="Next"
           type="button"
-          className="mc2__arrow"
-          onClick={() => scrollBy(pageSize)}
+          className="mc2__arrow  next-arrow"
+          onClick={scrollNext}
         >
           <svg
             viewBox="0 0 24 144"
