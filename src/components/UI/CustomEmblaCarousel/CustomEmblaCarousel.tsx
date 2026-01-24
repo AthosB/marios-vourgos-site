@@ -39,7 +39,6 @@ export default function CustomEmblaCarousel({
   const [selectedImage, setSelectedImage] = useState<GenericItemType>(slides[0] ?? null);
   const [openMediaViewer, setOpenMediaViewer] = useState(false);
 
-  const isDraggingRef = useRef(false)
   const thumbsContainerRef = useRef<HTMLDivElement | null>(null)
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -103,21 +102,12 @@ export default function CustomEmblaCarousel({
 
   const onThumbClick = useCallback(
     (i: number) => {
-      if (!emblaApi) return
       setSelectedIndex(i)
       setSelectedImage(slides[i])
+      if (!emblaApi) return
       scrollThumbIntoView(emblaApi, i)
     },
     [emblaApi, scrollThumbIntoView, slides]
-  )
-
-  const scrollBy = useCallback(
-    (offset: number) => {
-      if (!emblaApi) return
-      const current = emblaApi.selectedScrollSnap()
-      emblaApi.scrollTo(current + offset)
-    },
-    [emblaApi]
   )
 
   const scrollPrevious = () => {
@@ -221,6 +211,9 @@ export default function CustomEmblaCarousel({
         ) : null}
       </div>
 
+      <div
+        style={{display:'flex', flexDirection: 'column', alignItems:'center', justifyContent: 'end'}}
+      >
       <div className="mc2-slide__meta">
         {showTitle && selectedImage?.title && selectedImage?.title?.length > 0 && (
           <div className="mc2-slide__title">
@@ -316,6 +309,7 @@ export default function CustomEmblaCarousel({
             />
           </svg>
         </button>
+      </div>
       </div>
 
       {/* Only render dots when there is more than one page */}

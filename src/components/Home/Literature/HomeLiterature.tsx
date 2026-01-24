@@ -3,21 +3,14 @@
 'use client';
 
 import {literatureTango29Carousel} from "@/assets/enhancedValues";
-import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
+import DynamicCarousel from "@/components/UI/DynamicCarousel";
 
 export default function HomeLiterature() {
-  /** PRES **/
-  const isMobile = window.innerWidth <= 950;
-
   /** RENDER **/
   return (
     <div className="preview-canvas">
-      <CustomEmblaCarousel
+      <DynamicCarousel
         slides={literatureTango29Carousel}
-        thumbHeight={isMobile ? 100 : 150}
-        pageSize={5}
-        showDots={!isMobile}
-        dragFree={false}
         showTitle={false}
         showDescription={false}
         showDisclaimer={true}
@@ -31,7 +24,7 @@ export default function HomeLiterature() {
             Marios Vourgos donated all proceeds from the sale of books to the One Dream One Wish charity foundation. (for children with cancer).
           </p>
         </div>}
-      />
+        />
     </div>
   );
 }

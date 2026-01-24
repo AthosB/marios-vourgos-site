@@ -4,11 +4,16 @@
   max-width: calc(100vw - 80px);
 
   &.mc2--mobile {
+    display: flex;
+    flex-direction: column;
     max-width: calc(100vw - 32px);
+    height: calc(100vh - 194px);
+    gap: 0;
 
     .mc2__thumbbar {
       width: 100%;
       gap: 0;
+      align-self: end;
     }
 
     .thumbs-container {

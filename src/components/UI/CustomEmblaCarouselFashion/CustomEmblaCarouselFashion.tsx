@@ -1,3 +1,4 @@
+// TypeScript
 'use client'
 
 import React, {useCallback, useEffect, useMemo, useState, CSSProperties, ReactNode, useRef} from 'react'
@@ -9,8 +10,8 @@ import {GenericItemType} from "@/Types/types";
 
 type Props = {
   slides: GenericItemType[]
-  thumbHeight?: number          // fixed thumb height
-  pageSize?: number             // for arrows/dots paging
+  thumbHeight?: number
+  pageSize?: number
   showDots?: boolean
   dragFree?: boolean
   showTitle?: boolean
@@ -24,16 +25,15 @@ function clamp(n: number, min: number, max: number) {
 }
 
 export default function CustomEmblaCarouselFashion({
-                                              slides,
-                                              thumbHeight = 94,
-                                              pageSize = 3,
-                                              showDots = true,
-                                              dragFree = true,
-                                              showTitle = true,
-                                              showDescription = true,
-                                              showDisclaimer = false,
-                                              disclaimer = 'Disclaimer: All photos are original photos as shot without any digital manipulation.'
-                                            }: Props) {
+                                                     slides,
+                                                     thumbHeight = 94,
+                                                     pageSize = 3,
+                                                     showDots = true,
+                                                     showTitle = true,
+                                                     showDescription = true,
+                                                     showDisclaimer = false,
+                                                     disclaimer = 'Disclaimer: All photos are original photos as shot without any digital manipulation.'
+                                                   }: Props) {
 
   /** STATES **/
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -42,7 +42,7 @@ export default function CustomEmblaCarouselFashion({
   const [openMediaViewer, setOpenMediaViewer] = useState(false);
 
   /** HOOKS **/
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const previewVideoRef = useRef<HTMLVideoElement | null>(null);
 
   // Thumbs-only Embla
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -51,7 +51,6 @@ export default function CustomEmblaCarouselFashion({
     align: 'start',
   })
 
-  // Scroll thumbs to keep the clicked thumb visible/pleasantly positioned
   const scrollThumbIntoView = useCallback(
     (api: EmblaCarouselType, index: number) => {
       const slideNodes = api.slideNodes()
@@ -62,11 +61,9 @@ export default function CustomEmblaCarouselFashion({
       }
       if (!slideNodes[index]) return
 
-      // DOM references: container = .embla__container, viewport = parent of container
       const container = slideNodes[0].parentElement as HTMLElement | null
       const viewport = container?.parentElement as HTMLElement | null
       if (!container || !viewport) {
-        // fallback to simple start-based paging
         const half = Math.floor(pageSize / 2)
         const maxStart = Math.max(0, total - pageSize)
         const targetStart = clamp(index - half, 0, maxStart)
@@ -77,13 +74,11 @@ export default function CustomEmblaCarouselFashion({
       const viewportWidth = viewport.clientWidth
       const slide = slideNodes[index] as HTMLElement
       const slideCenter = slide.offsetLeft + slide.offsetWidth / 2
-      // desired scrollLeft to center the clicked thumb
       const maxScrollLeft = Math.max(0, container.scrollWidth - viewportWidth)
       const desiredScrollLeft = clamp(slideCenter - viewportWidth / 2, 0, maxScrollLeft)
 
-      const snaps = api.scrollSnapList() // may be normalized (0..1) or pixel positions
+      const snaps = api.scrollSnapList()
       if (!snaps || snaps.length === 0) {
-        // fallback to index-centered paging
         const half = Math.floor(pageSize / 2)
         const maxStart = Math.max(0, total - pageSize)
         const targetStart = clamp(index - half, 0, maxStart)
@@ -91,9 +86,7 @@ export default function CustomEmblaCarouselFashion({
         return
       }
 
-      // Determine whether snaps are normalized (<= 1) or pixel positions
       const normalized = snaps[snaps.length - 1] <= 1
-      // When normalized, snapPosPx = snap * maxScrollLeft; otherwise the snap is in px already.
       let closestIndex = 0
       let minDiff = Infinity
       snaps.forEach((s, i) => {
@@ -110,10 +103,9 @@ export default function CustomEmblaCarouselFashion({
     [pageSize]
   )
 
-
   const onThumbClick = useCallback(
     (i: number) => {
-      setSelectedIndex(i)            // ✅ preview changes ONLY here
+      setSelectedIndex(i)
       setSelectedImage(slides[i])
       if (!emblaApi) return
       scrollThumbIntoView(emblaApi, i)
@@ -130,9 +122,7 @@ export default function CustomEmblaCarouselFashion({
     [emblaApi]
   )
 
-  // Optional dots = pages (based on thumb snaps, not preview selection)
   const pageCount = useMemo(() => {
-    // If you want dots for "pages of 5", compute from slide count.
     return Math.max(1, Math.ceil(slides.length / pageSize))
   }, [slides.length, pageSize])
 
@@ -142,7 +132,6 @@ export default function CustomEmblaCarouselFashion({
     display: 'block',
     width: '12px',
     height: '72px',
-    // paddingTop: '16px'
   }
 
   const previewImageHandler = (image: GenericItemType) => {
@@ -173,25 +162,44 @@ export default function CustomEmblaCarouselFashion({
     }
   }, [emblaApi, pageSize])
 
+  // Keep initial detection only (no resize handling required per request)
   useEffect(() => {
-    const update = () => setIsMobile(window.innerWidth <= 768)
-    update()
-    window.addEventListener('resize', update)
-    return () => window.removeEventListener('resize', update)
+    setIsMobile(window.innerWidth <= 768)
   }, []);
+
+  // Ensure the preview video element reloads/plays when selectedImage changes
+  useEffect(() => {
+    const v = previewVideoRef.current
+    if (!v) return
+
+    if (selectedImage?.video) {
+      // Pause, reload the new source, and attempt to play
+      try {
+        v.pause()
+        v.load()
+        const p = v.play()
+        if (p && typeof p.then === 'function') p.catch(() => {})
+      } catch {
+        // ignore
+      }
+    } else {
+      // If selected is not video, pause any preview video
+      try { v.pause() } catch {}
+    }
+  }, [selectedImage])
 
   return (
     <div className={`mc2f${isMobile ? ' mc2f--mobile' : ''}`}>
-      {/* Static preview (NOT embla-controlled) */}
       <div className="mc2f__preview"
-      style={{
-        minHeight: isMobile ? '60vh' : 'unset',
-        width: isMobile ? '100%' : '100%',
-      }}
+           style={{
+             minHeight: isMobile ? '60vh' : 'unset',
+             width: isMobile ? '100%' : '100%',
+           }}
       >
         {selectedImage.video ? (
           <video
-            ref={videoRef}
+            key={selectedImage?.src}
+            ref={previewVideoRef}
             autoPlay
             loop
             muted
@@ -207,7 +215,7 @@ export default function CustomEmblaCarouselFashion({
             <source src={selectedImage?.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          ) : (
+        ) : (
           <img
             src={selectedImage?.src}
             alt={selectedImage?.alt ?? ''}
@@ -217,21 +225,28 @@ export default function CustomEmblaCarouselFashion({
           />
         )}
       </div>
+
       <div className="mc2f-slide__meta">
-        {(showTitle && slides && slides[selectedIndex].title && slides[selectedIndex].title.length > 0) &&
+        {showTitle && slides[selectedIndex]?.title && slides[selectedIndex].title.length > 0 && (
           <div className="mc2f-slide__title">
             {slides[selectedIndex]?.title}
-          </div>}
-        {(showDescription && slides && slides[selectedIndex] && slides[selectedIndex].description && slides[selectedIndex]?.description?.length > 0) &&
-          <div className="mc2f-slide__description">            {slides[selectedIndex]?.description}
-          </div>}
-        {(showDisclaimer && disclaimer) &&
-          <div className="mc2f-slide__disclaimer">
-            {disclaimer}
-          </div>}
+          </div>
+        )}
+
+        {showDescription && slides[selectedIndex]?.description && slides[selectedIndex].description.length > 0 && (
+          <>
+            {showDisclaimer && disclaimer && (
+              <div className="mc2f-slide__disclaimer">
+                {disclaimer}
+              </div>
+            )}
+            <div className="mc2f-slide__description">
+              {slides[selectedIndex]?.description}
+            </div>
+          </>
+        )}
       </div>
 
-      {/* Thumbs carousel */}
       <div className="mc2f__thumbbar">
         <button
           aria-label="Previous"
@@ -273,7 +288,6 @@ export default function CustomEmblaCarouselFashion({
                 >
                   {s.video ? (
                     <video
-                      ref={videoRef}
                       autoPlay
                       loop
                       muted
@@ -289,7 +303,7 @@ export default function CustomEmblaCarouselFashion({
                       <source src={s.src} type="video/mp4" />
                       Your browser does not support the video tag.
                     </video>
-                    ) : (
+                  ) : (
                     <img
                       className="mc2f__thumbImg"
                       src={s.thumb ?? s.src} alt={s.alt ?? ''}
@@ -328,7 +342,6 @@ export default function CustomEmblaCarouselFashion({
         </button>
       </div>
 
-      {/* Optional dot navigation (pages) */}
       {showDots && (
         <div className="mc2f__dots">
           {Array.from({length: pageCount}).map((_, p) => (
@@ -342,6 +355,7 @@ export default function CustomEmblaCarouselFashion({
           ))}
         </div>
       )}
+
       {selectedImage && openMediaViewer && (
         <PhotoViewer
           open={openMediaViewer}
