@@ -86,7 +86,7 @@ export default function PhotoViewer({
   // push a harmless history entry when viewer opens so Back closes the viewer first
   useEffect(() => {
     const original = window.location.href.split('#')[0];
-    const pvHash = '#pv';
+    const pvHash = '#view';
     let pushed = false;
 
     const pushPV = () => {
