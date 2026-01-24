@@ -260,10 +260,22 @@ export default function PhotoViewer({
         paper: {
           sx: {
             backgroundColor: "var(--mario-bg-color)",
+            paddingTop: "env(safe-area-inset-top)",
+            paddingBottom: "env(safe-area-inset-bottom)",
+            overflow: "hidden",
           },
         },
       }}
       onClose={closeModalHandler}
+      sx={{
+        "& .MuiDialog-container": {
+          height: "100dvh",
+        },
+        "& .MuiDialog-paper": {
+          height: "100dvh",
+          maxHeight: "100dvh",
+        },
+      }}
     >
       <div className={styles.CloseActionIcon} onClick={closeModalHandler}>
         <CloseIcon fontSize={"large"} />

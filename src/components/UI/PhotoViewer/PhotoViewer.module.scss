@@ -1,6 +1,7 @@
 .PhotoViewer {
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   background-color: var(--mario-bg-color);
 
   .CloseActionIcon {
@@ -22,6 +23,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: calc(80vh - 64px);
     height: calc(80dvh - 64px);
     //height: 100%;
     width: auto;
