@@ -121,6 +121,15 @@ export const photographyCarouselFilenames = [
     description: '100 cm x 80 cm'
   },
   {
+    position: 117,
+    src: '/images/photography/selection2026/photography_0170.jpg',
+    thumb: '/images/photography/selection2026/thumbs/photography_0170_thumb.jpg',
+    preview: '/images/photography/selection2026/preview/photography_0170_preview.jpg',
+    alt: "Rapture",
+    title: "Rapture",
+    description: '100 cm x 80 cm'
+  },
+  {
     position: 120,
     src: '/images/photography/selection2026/photography_0120.jpg',
     thumb: '/images/photography/selection2026/thumbs/photography_0120_thumb.jpg',
@@ -172,15 +181,6 @@ export const photographyCarouselFilenames = [
     preview: '/images/photography/selection2026/preview/photography_0165_preview.jpg',
     alt: "Mood Indigo",
     title: "Mood Indigo",
-    description: '100 cm x 80 cm'
-  },
-  {
-    position: 170,
-    src: '/images/photography/selection2026/photography_0170.jpg',
-    thumb: '/images/photography/selection2026/thumbs/photography_0170_thumb.jpg',
-    preview: '/images/photography/selection2026/preview/photography_0170_preview.jpg',
-    alt: "Rapture",
-    title: "Rapture",
     description: '100 cm x 80 cm'
   },
   {

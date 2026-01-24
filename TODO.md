@@ -213,10 +213,10 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] look into active thumb depiction
 - [X] check title with Marios "The Entanglement of Hope"
 - [X] check title with Marios for last photo "Remembrances of thoughts to come"
-- [ ] less photos per page on carousel or dynamically based on mobile width
-- [ ] photos load too slow (look into lazy load?)
-- [ ] issue with not smooth scrolling on slider when dragging
-- [ ] last photo cropped
-- [ ] reduce resolution for preview canvas as well
-- [ ] move "rapture" after "Spring awaiting summer in the fall"
+- [X] less photos per page on carousel or dynamically based on mobile width
+- [X] photos load too slow (look into lazy load?)
+- [X] issue with not smooth scrolling on slider when dragging
+- [X] last photo cropped
+- [X] reduce resolution for preview canvas as well
+- [X] move "rapture" after "Spring awaiting summer in the fall"
 - [ ] on route change reload page to dodge page/components freezes
