@@ -28,15 +28,9 @@ export default function PhotoViewer({
   const panzoomRef = useRef<PanzoomWithCleanup>(null);
 
   const stopAll = (e: Event) => {
-    try {
-      e.preventDefault();
-    } catch {}
-    try {
-      e.stopPropagation?.();
-    } catch {}
-    try {
-      (e as any).stopImmediatePropagation?.();
-    } catch {}
+    try { e.preventDefault(); } catch {}
+    try { e.stopPropagation?.(); } catch {}
+    try { (e as any).stopImmediatePropagation?.(); } catch {}
   };
 
   const setOriginalImageVisible = (visible: boolean) => {
@@ -52,15 +46,12 @@ export default function PhotoViewer({
   const restoreAllAndDestroy = () => {
     setOriginalImageVisible(true);
 
-    (viewerRef.current as any)?._shieldCleanup?.();
-
-    viewerRef.current?.destroy();
+    try { (viewerRef.current as any)?._shieldCleanup?.(); } catch {}
+    try { viewerRef.current?.destroy(); } catch {}
     viewerRef.current = null;
 
-    if (panzoomRef.current) {
-      panzoomRef.current.dispose();
-      panzoomRef.current = null;
-    }
+    try { panzoomRef.current?.dispose(); } catch {}
+    panzoomRef.current = null;
   };
 
   const closeModalHandler = () => {
@@ -83,15 +74,98 @@ export default function PhotoViewer({
     return () => document.removeEventListener("contextmenu", docHandler, true);
   }, [open]);
 
+  // listen for external requests to close the preview (BackButtonGuard dispatches this)
+  useEffect(() => {
+    const onClosePreview = () => {
+      closeModalHandler();
+    };
+    window.addEventListener("closePreview", onClosePreview as EventListener);
+    return () => window.removeEventListener("closePreview", onClosePreview as EventListener);
+  }, []);
+
+  // push a harmless history entry when viewer opens so Back closes the viewer first
+  useEffect(() => {
+    const original = window.location.href.split('#')[0];
+    const pvHash = '#pv';
+    let pushed = false;
+
+    const pushPV = () => {
+      if (pushed) return;
+      try {
+        history.pushState({ pv: true }, '', original + pvHash);
+      } catch {}
+      pushed = true;
+    };
+
+    const restore = () => {
+      if (!pushed) return;
+      try {
+        history.replaceState(null, '', original);
+      } catch {}
+      pushed = false;
+    };
+
+    const onPop = () => {
+      // when back pressed, close the viewer instead of leaving the site
+      closeModalHandler();
+      // restore URL so next back will behave normally
+      restore();
+    };
+
+    if (open) {
+      pushPV();
+      window.addEventListener('popstate', onPop);
+    }
+
+    return () => {
+      window.removeEventListener('popstate', onPop);
+      // ensure URL restored when viewer closes/unmounts
+      restore();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
+
+  // ensure proper cleanup when component unmounts
   useEffect(() => {
     return () => {
       setOriginalImageVisible(true);
-      panzoomRef.current?._cleanup?.();
-      (viewerRef.current as any)?._shieldCleanup?.();
-      viewerRef.current?.destroy();
+      try { panzoomRef.current?._cleanup?.(); } catch {}
+      try { (viewerRef.current as any)?._shieldCleanup?.(); } catch {}
+      try { viewerRef.current?.destroy(); } catch {}
       viewerRef.current = null;
+      panzoomRef.current = null;
     };
   }, []);
+
+  // If media changes while dialog is open, force-clean previous viewer/panzoom so new media initializes cleanly
+  useEffect(() => {
+    if (!open) return;
+    // switching to video: remove any image viewer
+    if (media?.video) {
+      if (viewerRef.current) {
+        try { (viewerRef.current as any)._shieldCleanup?.(); } catch {}
+        try { viewerRef.current.destroy(); } catch {}
+        viewerRef.current = null;
+      }
+      if (panzoomRef.current) {
+        try { panzoomRef.current.dispose(); } catch {}
+        panzoomRef.current = null;
+      }
+      setOriginalImageVisible(false);
+    } else {
+      // switching to image: stop/cleanup video panzoom and reset video
+      if (panzoomRef.current) {
+        try { panzoomRef.current.dispose(); } catch {}
+        panzoomRef.current = null;
+      }
+      if (videoRef.current) {
+        try { videoRef.current.pause(); videoRef.current.currentTime = 0; } catch {}
+      }
+      // the image `onLoad` will initialize the viewer and hide the original
+      setOriginalImageVisible(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [media?.src, media?.video, open]);
 
   const onImageLoad = () => {
     if (viewerRef.current) return;
