@@ -3,7 +3,7 @@
 import {useState, useEffect, ReactNode} from "react";
 import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
 import {GenericItemType} from "@/Types/types";
-import DesktopCarousel from "@/components/UI/CustomEmblaCarouselBCK/DesktopCarousel";
+import DesktopCarousel from "@/components/UI/DesktopCarousel/DesktopCarousel";
 
 interface DynamicCarouselProps {
   slides: GenericItemType[];

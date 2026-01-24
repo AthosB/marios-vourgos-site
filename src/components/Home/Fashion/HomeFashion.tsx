@@ -1,11 +1,10 @@
 // src/components/Home/Fashion/HomeFashion.tsx
 'use client';
 
-import "./FashionCarousel.scss";
-import "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel.scss"
 import {fashionEntries} from '@/assets/enhancedValues';
 
 import CustomEmblaCarouselFashion from "@/components/UI/CustomEmblaCarouselFashion/CustomEmblaCarouselFashion";
+import DynamicCarousel from "@/components/UI/DynamicCarousel";
 
 export default function HomeFashion() {
   /** PRES **/
@@ -23,7 +22,12 @@ export default function HomeFashion() {
         showDescription={false}
         showDisclaimer={false}
       />
-
+      {/*<DynamicCarousel*/}
+      {/*  slides={fashionEntries}*/}
+      {/*  showTitle={false}*/}
+      {/*  showDescription={false}*/}
+      {/*  showDisclaimer={false}*/}
+      {/*/>*/}
     </div>
   </>;
 }
