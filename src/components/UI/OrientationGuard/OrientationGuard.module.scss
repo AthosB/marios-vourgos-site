@@ -1,0 +1,38 @@
+.OrientationGuard {
+  height: 100vh;
+  height: 100dvhl;
+  width: 100vw;
+  width: 100dvw;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647; /* above MUI */
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .Icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 10vw;
+      width: 10dvw;
+      height: 10vw;
+      height: 10dvw;
+      transform: rotate(-45deg) scaleX(-1);
+      transform-origin: center;
+      fill: var(--mario-accent-color);
+    }
+  }
+
+  .Text {
+    p {
+      text-align: center;
+      font-family: 'CinzelRegular', sans-serif;
+    }
+  }
+}
