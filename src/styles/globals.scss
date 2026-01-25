@@ -238,3 +238,23 @@ footer {
     padding: 0; // MenuItems inside already have padding
   }
 }
+
+.force-portrait {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg);
+  transform-origin: left top;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.force-portrait > * {
+  width: 100vw;
+  height: 100vh;
+  transform: rotate(90deg);
+  transform-origin: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
