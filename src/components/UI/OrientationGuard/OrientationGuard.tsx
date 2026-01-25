@@ -8,8 +8,9 @@ export default function OrientationGuard() {
         <ScreenRotationIcon fontSize={'large'} />
       </div>
       <div className={styles.Text}>
-        <p>Site only available in portrait mode.</p>
-        <p>Rotate your phone back to portrait orientation to view the website.</p>
+        <h2>Site only available in <b>portrait</b> mode</h2>
+        <p>Please rotate your device back to portrait orientation to continue</p>
+        <p><em>For a more immersive experience, the work unfolds best on a computer or larger screen.</em></p>
       </div>
     </div>
   );

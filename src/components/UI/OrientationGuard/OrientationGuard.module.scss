@@ -30,9 +30,16 @@
   }
 
   .Text {
-    p {
+    h2 {
       text-align: center;
       font-family: 'CinzelRegular', sans-serif;
+    }
+
+    p {
+      font-size: 1.1rem;
+      text-align: center;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      opacity: 0.8;
     }
   }
 }
