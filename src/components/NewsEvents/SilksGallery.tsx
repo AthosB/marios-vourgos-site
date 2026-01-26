@@ -1,7 +1,7 @@
 'use client';
 
 import {pressSilksGallery} from "@/assets/values";
-import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
+import DynamicCarousel from "@/components/UI/DynamicCarousel";
 
 export default function SilksGalleryModule() {
   /** CONSTS **/
@@ -10,13 +10,11 @@ export default function SilksGalleryModule() {
   /** RENDER **/
   return <div style={{width: '100%', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
     <div id="silks-gallery" className="preview-canvas">
-      <CustomEmblaCarousel
+      <DynamicCarousel
         slides={pressSilksGallery}
-        pageSize={5}
-        showDots={!isMobile}
-        dragFree={false}
         showTitle={false}
         showDescription={false}
+        showDisclaimer={false}
       />
     </div>
   </div>;

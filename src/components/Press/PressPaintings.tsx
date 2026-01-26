@@ -1,20 +1,15 @@
 import {pressPaintings02} from "@/assets/enhancedValues";
-import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
+import DynamicCarousel from "@/components/UI/DynamicCarousel";
 
 export default function PressPaintings() {
-  /** CONSTS **/
-  const isMobile = window.innerWidth <= 950;
-
   /** RENDER **/
   return (
-    <div id="press-paintings" className="preview-canvas" style={{width: '100%',margin: '0 auto'}}>
-      <CustomEmblaCarousel
+    <div id="press-paintings" className="preview-canvas" style={{width: '100%', margin: '0 auto'}}>\
+      <DynamicCarousel
         slides={pressPaintings02}
-        pageSize={5}
-        showDots={!isMobile}
-        dragFree={false}
         showTitle={true}
         showDescription={true}
+        showDisclaimer={false}
       />
     </div>
   );

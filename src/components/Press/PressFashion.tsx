@@ -1,20 +1,15 @@
 import {fashionPressEntries} from "@/assets/enhancedValues";
-import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
+import DynamicCarousel from "@/components/UI/DynamicCarousel";
 
 export default function PressFashion() {
-  /** CONSTS **/
-  const isMobile = window.innerWidth <= 950;
-
   /** RENDER **/
   return (
     <div id="press-fashion" className="preview-canvas">
-      <CustomEmblaCarousel
+      <DynamicCarousel
         slides={fashionPressEntries}
-        pageSize={5}
-        showDots={!isMobile}
-        dragFree={false}
         showTitle={true}
         showDescription={true}
+        showDisclaimer={false}
       />
     </div>
   );
