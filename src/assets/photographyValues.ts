@@ -6,8 +6,8 @@ export const photographyCarouselFilenames = [
     src: '/images/photography/selection2026/webp/photography_0010.webp',
     thumb: '/images/photography/selection2026/thumbs/webp/photography_0010_thumb.webp',
     preview: '/images/photography/selection2026/preview/webp/photography_0010_preview.webp',
-    alt: 'The escape of dreams... (The Protection)',
-    title: 'The escape of dreams... (The Protection)',
+    alt: 'The escape of dreams (The Protection)',
+    title: 'The escape of dreams (The Protection)',
     description: '100 cm x 80 cm'
   },
   {
@@ -40,12 +40,12 @@ export const photographyCarouselFilenames = [
     description: '100 cm x 80 cm'
   },
   {
-    position: 50,
-    src: '/images/photography/selection2026/webp/photography_0050.webp',
-    thumb: '/images/photography/selection2026/thumbs/webp/photography_0050_thumb.webp',
-    preview: '/images/photography/selection2026/preview/webp/photography_0050_preview.webp',
-    alt: "The triumph of Illusions",
-    title: "The triumph of Illusions",
+    position: 45,
+    src: '/images/photography/selection2026/webp/photography_0070.webp',
+    thumb: '/images/photography/selection2026/thumbs/webp/photography_0070_thumb.webp',
+    preview: '/images/photography/selection2026/preview/webp/photography_0070_preview.webp',
+    alt: "Nocturnal Contemplations of Hope",
+    title: "Nocturnal Contemplations of Hope",
     description: '100 cm x 80 cm'
   },
   {
@@ -58,12 +58,12 @@ export const photographyCarouselFilenames = [
     description: '100 cm x 80 cm'
   },
   {
-    position: 70,
-    src: '/images/photography/selection2026/webp/photography_0070.webp',
-    thumb: '/images/photography/selection2026/thumbs/webp/photography_0070_thumb.webp',
-    preview: '/images/photography/selection2026/preview/webp/photography_0070_preview.webp',
-    alt: "Nocturnal Contemplations of Hope",
-    title: "Nocturnal Contemplations of Hope",
+    position: 65,
+    src: '/images/photography/selection2026/webp/photography_0050.webp',
+    thumb: '/images/photography/selection2026/thumbs/webp/photography_0050_thumb.webp',
+    preview: '/images/photography/selection2026/preview/webp/photography_0050_preview.webp',
+    alt: "The triumph of Illusions",
+    title: "The triumph of Illusions",
     description: '100 cm x 80 cm'
   },
   {
@@ -75,15 +75,15 @@ export const photographyCarouselFilenames = [
     title: "The Eternal Struggle",
     description: '100 cm x 80 cm'
   },
-  {
-    position: 85,
-    src: '/images/photography/selection2026/webp/photography_0085.webp',
-    thumb: '/images/photography/selection2026/thumbs/webp/photography_0085_thumb.webp',
-    preview: '/images/photography/selection2026/preview/webp/photography_0085_preview.webp',
-    alt: "The essence of Dreams to Come",
-    title: "The essence of Dreams to Come",
-    description: '100 cm x 80 cm'
-  },
+  // {
+  //   position: 85,
+  //   src: '/images/photography/selection2026/webp/photography_0085.webp',
+  //   thumb: '/images/photography/selection2026/thumbs/webp/photography_0085_thumb.webp',
+  //   preview: '/images/photography/selection2026/preview/webp/photography_0085_preview.webp',
+  //   alt: "The essence of Dreams to Come",
+  //   title: "The essence of Dreams to Come",
+  //   description: '100 cm x 80 cm'
+  // },
   {
     position: 90,
     src: '/images/photography/selection2026/webp/photography_0090.webp',
@@ -309,15 +309,15 @@ export const photographyCarouselFilenames = [
     title: "Euphoria",
     description: '100 cm x 80 cm'
   },
-  {
-    position: 265,
-    src: '/images/photography/selection2026/webp/photography_0265.webp',
-    thumb: '/images/photography/selection2026/thumbs/webp/photography_0265_thumb.webp',
-    preview: '/images/photography/selection2026/preview/webp/photography_0265_preview.webp',
-    alt: "The illusion of space",
-    title: "The illusion of space",
-    description: '80 cm x 100 cm'
-  },
+  // {
+  //   position: 265,
+  //   src: '/images/photography/selection2026/webp/photography_0265.webp',
+  //   thumb: '/images/photography/selection2026/thumbs/webp/photography_0265_thumb.webp',
+  //   preview: '/images/photography/selection2026/preview/webp/photography_0265_preview.webp',
+  //   alt: "The illusion of space",
+  //   title: "The illusion of space",
+  //   description: '80 cm x 100 cm'
+  // },
   {
     position: 267,
     src: '/images/photography/selection2026/webp/photography_0267.webp',

@@ -23,3 +23,5 @@ export default function CNAevent() {
     </div>
   </div>;
 }
+
+// TODO replace with dynamic

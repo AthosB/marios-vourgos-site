@@ -2203,13 +2203,7 @@ export const pressPaintings02: GenericItemType[] = [
 
 export const newsEventsPaintingsKGallery: GenericItemType[] = [
   {
-    position: 10,
-    src: '/images/news/paintings/KGallery/k-gallery-front.jpg',
-    alt: 'K Gallery',
-    cols: 3,
-  },
-  {
-    position: 10,
+    position: 5,
     src: '/images/news/paintings/KGallery/001.jpg',
     alt: 'K Gallery',
     cols: 3,
