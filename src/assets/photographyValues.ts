@@ -6,8 +6,8 @@ export const photographyCarouselFilenames = [
     src: '/images/photography/selection2026/webp/photography_0010.webp',
     thumb: '/images/photography/selection2026/thumbs/webp/photography_0010_thumb.webp',
     preview: '/images/photography/selection2026/preview/webp/photography_0010_preview.webp',
-    alt: 'The Protection',
-    title: 'The Protection',
+    alt: 'The escape of dreams... (The Protection)',
+    title: 'The escape of dreams... (The Protection)',
     description: '100 cm x 80 cm'
   },
   {

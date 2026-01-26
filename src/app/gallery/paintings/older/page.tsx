@@ -7,7 +7,7 @@ import '@/styles/generic-page.scss';
 
 import Image from "next/image";
 import {olderPaintingsCarouselEntries} from "@/assets/paintingsValues";
-import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
+import DynamicCarousel from "@/components/UI/DynamicCarousel";
 
 export default function OlderPaintingsPage() {
   /** CONSTS **/
@@ -18,22 +18,18 @@ export default function OlderPaintingsPage() {
     <div className="generic-items-page">
       <div className={'generic-items-page__header'}>
         <Image src="/images/ornament_bird.png" alt="Paintings" width={isMobile ? 32 : 72} height={isMobile ? 32 : 72}
-          style={{marginRight: '8px', marginTop: '6px', marginBottom: '12px'}}
+               style={{marginRight: '8px', marginTop: '6px', marginBottom: '12px'}}
         />
         Older Work
       </div>
       <div className={'generic-items-page__line'}></div>
-      <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
-        <div className="preview-canvas">
-          <CustomEmblaCarousel
-            slides={olderPaintingsCarouselEntries}
-            pageSize={5}
-            showDots={!isMobile}
-            dragFree={false}
-            showTitle={true}
-            showDescription={true}
-          />
-        </div>
+      <div className="preview-canvas">
+        <DynamicCarousel
+          slides={olderPaintingsCarouselEntries}
+          showTitle={true}
+          showDescription={true}
+          showDisclaimer={false}
+        />
       </div>
     </div>
   );

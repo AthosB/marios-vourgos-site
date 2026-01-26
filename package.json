@@ -1,6 +1,6 @@
 {
   "name": "mario-vourgos-site",
-  "version": "1.6.8",
+  "version": "1.6.11",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

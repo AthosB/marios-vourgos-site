@@ -219,4 +219,7 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] last photo cropped
 - [X] reduce resolution for preview canvas as well
 - [X] move "rapture" after "Spring awaiting summer in the fall"
-- [ ] on route change reload page to dodge page/components freezes
+- [X] on route change reload page to dodge page/components freezes
+- [X] check older paintings side carousel
+- [X] "Remembrances of Thoughts to come" missing
+- [X] The protection ---> The escape of dreams (The Protection)

@@ -4,11 +4,6 @@ $text-color: #ffffff;
 $accent-color: #fcb040;
 
 .generic-items-page {
-  //position: relative;
-  //width: 100%;
-  //max-width: 90vw;
-  //margin: 0 auto;
-  //padding: 16px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,5 +140,29 @@ and (max-device-width: 550px) and (orientation: portrait) {
       width: calc(100%);
       height: unset;
     }
+  }
+}
+
+.gallery-page {
+  position: relative;
+  width: 100%;
+  padding: 16px 32px;
+  box-sizing: border-box;
+
+  .gallery-page-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    font-size: 2.5rem;
+    font-family: 'CinzelRegular', sans-serif;
+    text-align: center;
+    color: var(--mario-accent-color);
+    margin-bottom: 0.5rem;
+  }
+
+  &.Mobile {
+    padding: 16px 0;
   }
 }

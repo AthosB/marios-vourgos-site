@@ -7,7 +7,7 @@ import '@/styles/generic-page.scss';
 
 import Image from "next/image";
 import {recentPaintingsCarouselEntries} from "@/assets/paintingsValues";
-import CustomEmblaCarousel from "@/components/UI/CustomEmblaCarousel/CustomEmblaCarousel";
+import DynamicCarousel from "@/components/UI/DynamicCarousel";
 
 export default function RecentPaintingsPage() {
   /** CONSTS **/
@@ -25,13 +25,11 @@ export default function RecentPaintingsPage() {
       <div className={'generic-items-page__line'}></div>
       <div style={{width: isMobile ? '100vw' : '95vw', margin: '0 auto', padding: isMobile ? 0 : '16px 32px'}}>
         <div id="recent-paintings" className="preview-canvas">
-          <CustomEmblaCarousel
+          <DynamicCarousel
             slides={recentPaintingsCarouselEntries}
-            pageSize={5}
-            showDots={!isMobile}
-            dragFree={false}
             showTitle={true}
             showDescription={true}
+            showDisclaimer={false}
           />
         </div>
       </div>
