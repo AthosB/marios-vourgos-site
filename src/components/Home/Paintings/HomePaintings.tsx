@@ -10,8 +10,8 @@ export default function HomePaintings() {
     <div id="home-paintings" className="preview-canvas">
       <DynamicCarousel
         slides={paintingsCarousel}
-        showTitle={false}
-        showDescription={false}
+        showTitle={true}
+        showDescription={true}
         showDisclaimer={false}
       />
     </div>

@@ -224,3 +224,4 @@ on News page, under 1st photo add a couple of photos of the area, not the painti
 - [X] "Remembrances of Thoughts to come" missing
 - [X] The protection ---> The escape of dreams (The Protection)
 - [X] after re-navigating to Home its stuck on Video
+- [X] add dimensions in Home page paintings section
