@@ -394,7 +394,7 @@ export const photoFilenames = [
     src: "/images/photography/056.JPG",
     alt: "Img 58",
     title: 'Eternal struggle',
-    description: "160 cm x 100 cm"
+    description: "100 cm x 160 cm"
   },
   {
     position: 59,

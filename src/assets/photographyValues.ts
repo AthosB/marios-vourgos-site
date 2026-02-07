@@ -73,7 +73,7 @@ export const photographyCarouselFilenames = [
     preview: '/images/photography/selection2026/preview/webp/photography_0080_preview.webp',
     alt: "The Eternal Struggle",
     title: "The Eternal Struggle",
-    description: '100 cm x 80 cm'
+    description: '100 cm x 160 cm'
   },
   // {
   //   position: 85,
@@ -172,7 +172,7 @@ export const photographyCarouselFilenames = [
     preview: '/images/photography/selection2026/preview/webp/photography_0160_preview.webp',
     alt: "A Brief History of Light",
     title: "A Brief History of Light",
-    description: '215 cm x 80 cm'
+    description: '80 cm x 215 cm'
   },
   {
     position: 165,
@@ -262,7 +262,7 @@ export const photographyCarouselFilenames = [
     preview: '/images/photography/selection2026/preview/webp/photography_0225_preview.webp',
     alt: "…fade so soon, oh flower… ( The Sleepwalker)",
     title: "…fade so soon, oh flower… ( The Sleepwalker)",
-    description: '80 cm x 100 cm'
+    description: '100 cm x 80 cm'
   },
   {
     position: 230,

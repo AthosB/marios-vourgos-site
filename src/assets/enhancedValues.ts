@@ -586,7 +586,7 @@ export const photoFilenames = [
     "src": "/images/photography/056.JPG",
     "alt": "Img 58",
     "title": "Eternal struggle",
-    "description": "160 cm x 100 cm",
+    "description": "100 cm x 160 cm",
     "width": 2592,
     "height": 1944,
     "landscape": true
@@ -779,7 +779,7 @@ export const photographyCarouselFilenames = [
     "src": "/images/photography/carousel/ph-ca-15.JPG",
     "alt": "A Brief History of Light",
     "title": "A Brief History of Light",
-    "description": "215 cm x 80 cm",
+    "description": "80 cm x 215 cm",
     "width": 1974,
     "height": 810,
     "landscape": true
