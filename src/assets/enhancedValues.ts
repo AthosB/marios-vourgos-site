@@ -767,8 +767,8 @@ export const photographyCarouselFilenames = [
   {
     "position": 14,
     "src": "/images/photography/carousel/ph-ca-14.JPG",
-    "alt": "In an Artists's Head ",
-    "title": "in an Artists's Head ",
+    "alt": "In an Artist's Head",
+    "title": "in an Artist's Head",
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,

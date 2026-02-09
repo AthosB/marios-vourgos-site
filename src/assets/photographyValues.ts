@@ -161,8 +161,8 @@ export const photographyCarouselFilenames = [
     src: '/images/photography/selection2026/webp/photography_0150.webp',
     thumb: '/images/photography/selection2026/thumbs/webp/photography_0150_thumb.webp',
     preview: '/images/photography/selection2026/preview/webp/photography_0150_preview.webp',
-    alt: "in an Artists's Head",
-    title: "in an Artists's Head",
+    alt: "in an Artist's Head",
+    title: "in an Artist's Head",
     description: '100 cm x 80 cm'
   },
   {
