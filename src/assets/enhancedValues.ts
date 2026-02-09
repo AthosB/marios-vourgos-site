@@ -225,7 +225,7 @@ export const photoFilenames = [
     "position": 21,
     "src": "/images/photography/020.JPG",
     "alt": "Img 20",
-    "title": "in an artists's head",
+    "title": "in an artist's head",
     "description": "100 cm x 80 cm",
     "width": 2592,
     "height": 1944,
